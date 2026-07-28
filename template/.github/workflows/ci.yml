@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Phase compliance: verify RULES.md phase is set
+      - name: Check RULES.md phase
+        run: |
+          if ! grep -q "Current: WORK\|Current: PERFECT\|Current: DISTRIBUTE\|Current: ITERATE\|Current: DISCOVER" RULES.md; then
+            echo "ERROR: RULES.md phase not set. Set 'Current:' in the Phase section."
+            exit 1
+          fi
+          echo "Phase is set."
+
+      # Placeholder for actual project CI
+      # - name: Build
+      #   run: [your build command]
+      # - name: Test
+      #   run: [your test command]

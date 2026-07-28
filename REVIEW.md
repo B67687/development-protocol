@@ -1,0 +1,212 @@
+# REVIEW.md — The Gödel Gate (Meta-Protocol Audit)
+
+> A protocol that audits the protocol itself. Run by a **separate, independent agent**
+> against a fixed checklist. The reviewer has no memory of prior work, no stake in
+> the decisions made, and no incentive to agree.
+> **The gate closes the epistemic loop:** If the same AI that wrote the code also
+> writes the spec, the explainer, the tests, and the compliance report — nothing
+> has been verified. Independence is the entire point.
+
+> **Validated by research:** The March 2026 "Cross-Context Review" paper (arXiv)
+> found fresh-session review achieves **28.6% F1 vs 24.6%** for same-session review
+> (p<0.01, Cohen's d=0.52). Reviewing twice in the same session didn't help (p=0.11).
+> The improvement came from the fresh context, not extra effort. REVIEW.md is the only
+> production methodology that operationalizes this finding.
+
+---
+
+## When to Run This
+
+| Trigger           | Condition                                                                                         |
+| ----------------- | ------------------------------------------------------------------------------------------------- |
+| Before phase exit | Every phase transition calls for a review (DISCOVER → WORK, WORK → PERFECT, PERFECT → DISTRIBUTE) |
+| Before DISTRIBUTE | **Mandatory.** No project ships without a clean review.                                           |
+| After EXPLAINER   | Verify the explainer matches the code, not the spec.                                              |
+| After SPEC SYNC   | Double-check the sync gate's own work.                                                            |
+| On any ambiguity  | If you feel uncertain about quality, run a review.                                                |
+
+**Exception**: PROTOTYPING phase (VALIDATION.md) — prototypes are throwaway by design. Review is not needed. But the KILL/PIVOT/COMMIT decision itself should be reviewed if you're unsure.
+
+---
+
+## Independence Protocol (Required)
+
+The reviewer agent MUST be launched as a **separate session** with:
+
+1. **Different session** — Start a new AI session. Do NOT continue the building session.
+2. **No prior context** — Provide ONLY the protocol docs + the project files. No conversation history, no memory of decisions made, no knowledge of what was "intended."
+3. **Fixed checklist provided** — The reviewer gets the checklist below verbatim. They don't invent criteria.
+4. **Output-only** — The reviewer reads and reports. They do NOT edit, fix, or improve anything.
+5. **Blind to builder intent** — The reviewer compares spec vs code vs explainer. They do not accept "but the intent was..." as an argument.
+
+### Independence Check
+
+Before accepting review results, verify:
+
+- [ ] Reviewer was launched in a separate session
+- [ ] Reviewer had no prior conversation history with this project
+- [ ] Reviewer was given only the fixed checklist, not a "here's what we were trying to do"
+- [ ] Reviewer's findings include at least one issue OR explicit clean bill with supporting evidence
+- [ ] Reviewer did not edit any file during the review
+
+---
+
+## Fixed Review Checklist
+
+Each item is binary: **PASS** or **FAIL**. No partial credit. Each FAIL becomes a fix ticket.
+
+### Phase 1: Document Completeness
+
+| #   | Check                                                  | How to Verify (without reading code)                                                                  |
+| --- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| 1.1 | SPECIFICATION.md exists and has all 14 sections filled | Read the file. Count sections.                                                                        |
+| 1.2 | Every section has content (not placeholder/stub)       | Read each section. No "TBD", "TODO", or blank.                                                        |
+| 1.3 | Non-goals are explicitly stated                        | Read SPECIFICATION.md section 7 (Non-Goals). Must list what the project is NOT doing.                 |
+| 1.4 | Success metrics are falsifiable                        | Read section 6. Metrics must be measurable (<3s launch, >99% uptime), not vague ("fast", "reliable"). |
+| 1.5 | EXPLAINER.md exists and matches project scope          | Read EXPLAINER.md. Does it describe the same project as SPECIFICATION.md?                             |
+| 1.6 | EXPLAINER.md has all 5 required sections               | Macro Architecture, Data Flow Walk, Module Breakdown, Key Decisions, Quality Guarantees.              |
+| 1.7 | SPEC_SYNC.md was executed and findings recorded        | Read SPEC_SYNC.md output. Are there discrepancy records?                                              |
+
+### Phase 2: Protocol Compliance
+
+| #   | Check                                        | How to Verify (without reading code)                                                                                         |
+| --- | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| 2.1 | RULES.md phase matches current project state | Read RULES.md line 9. Does the phase label match reality?                                                                    |
+| 2.2 | Learning shifts are documented (if any)      | Read RULES.md section 5. Check shift-log.md. Max 5 shifts per project.                                                       |
+| 2.3 | Test philosophy is being followed            | Read RULES.md section 8. Check if test files exist (Glob for _\_test._).                                                     |
+| 2.4 | No prohibited patterns used                  | Read RULES.md section 5 (or STANDARDS.md). Check codebase for `as any`, `@ts-ignore`, empty catch blocks, unwrap(), panic(). |
+| 2.5 | Project type routing matches actual project  | Read RULES.md section 1. Does the selected route fit? (A "DISCOVER-FIRST" route on a well-understood domain is a mismatch.)  |
+
+### Phase 3: Spec-vs-Explainer Cross-Reference
+
+This is the most important check. Non-coder verification depends on it.
+
+| #   | Check                                                     | How to Verify (without reading code)                                                                                                 |
+| --- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| 3.1 | SPECIFICATION.md intent matches EXPLAINER.md architecture | Compare section 3 (Intent) of spec vs section 1 (Macro Architecture) of explainer. Do they describe the same system?                 |
+| 3.2 | EXPLAINER.md modules match what actually exists           | Read Module Breakdown. Then run `ls src/` or `ls cmd/` or the project's source tree. Do the modules in the explainer actually exist? |
+| 3.3 | Data flow in explainer is plausible                       | Read Data Flow Walk. Is the flow complete? Does it have a start and end?                                                             |
+| 3.4 | Key Decisions section identifies real tradeoffs           | Read Key Decisions. Are these real constraints OR generic platitudes? ("We chose X because it's good" is a FAIL.)                    |
+
+### Phase 4: Observable Quality (Code-Independent Signals)
+
+| #   | Check                                   | How to Verify (without reading code)                                                         |
+| --- | --------------------------------------- | -------------------------------------------------------------------------------------------- |
+| 4.1 | Test files exist and are non-trivial    | Count test files. Non-trivial = at least 3 test cases per module, or >50% of modules tested. |
+| 4.2 | Build/compilation succeeds              | Run the build command. Exit code 0 is PASS.                                                  |
+| 4.3 | No leaked secrets or credentials        | Grep for `-----BEGIN`, `api_key`, `password`, `token`, `secret`. Any hit is FAIL.            |
+| 4.4 | README has install/running instructions | Can a new user get the project running from README alone?                                    |
+| 4.5 | CI config exists (if applicable)        | Check for .github/workflows/, .gitlab-ci.yml, Jenkinsfile, etc.                              |
+| 4.6 | Standards audit passes                  | Run ./scripts/audit.sh from the Standards repo on this project. All checks must pass.        |
+
+### Phase 5: Regression Defenses
+
+| #   | Check                                               | How to Verify (without reading code)                                         |
+| --- | --------------------------------------------------- | ---------------------------------------------------------------------------- |
+| 5.1 | Tests cover reported bugs (if any)                  | Read recent bug reports. Read test file names/search for related test names. |
+| 5.2 | Test count increased since last review              | Compare with previous review's test count. Flat or decreasing is suspicious. |
+| 5.3 | Edge cases are tested (empty input, zero, boundary) | Search test files for "empty", "zero", "edge", "boundary", "error".          |
+
+---
+
+## Output Format
+
+The review agent produces a **findings document** with this structure:
+
+```markdown
+# Review Findings: [Project Name] — [Date]
+
+## Summary
+
+- Total checks: N
+- PASS: N
+- FAIL: N
+- Verdict: PASS / CONDITIONAL PASS / FAIL
+
+## FAIL Items (must fix before proceeding)
+
+### FAIL 1: [Check ID] — [Title]
+
+- **What**: [what was found]
+- **Evidence**: [specific file:line or quote]
+- **Severity**: CRITICAL / MAJOR / MINOR
+- **Fix guidance**: [what needs to change]
+
+### FAIL 2: ...
+
+## PASS Items (notable)
+
+- [Check ID] — note anything interesting about the pass
+
+## Warnings (not checklist items but worth noting)
+
+- [anything unusual observed during review]
+
+## Reviewer Declaration
+
+- Session was independent: [yes/no with evidence]
+- Checklist was fixed (no custom additions): [yes/no]
+- No files were modified during review: [yes/no]
+```
+
+### Severity Definitions
+
+| Severity     | Meaning                                          | Action                                               |
+| ------------ | ------------------------------------------------ | ---------------------------------------------------- |
+| **CRITICAL** | Project cannot ship. Core protocol violated.     | Blocking. Fix before any further work.               |
+| **MAJOR**    | Significant gap. Quality or correctness at risk. | Must fix before DISTRIBUTE. Can continue work phase. |
+| **MINOR**    | Documentation gap or style issue.                | Fix before DISTRIBUTE. Low effort, high signal.      |
+
+---
+
+## Feedback Loop: Findings → EXECUTOR
+
+After the review produces findings:
+
+1. **File the findings** — Save as `review-<date>-<project>.md` in `.omo/reviews/`
+2. **Create fix tickets** — Each FAIL with CRITICAL/MAJOR severity becomes a task
+3. **Execute fixes** — Use EXECUTOR.md to dispatch fix tasks. The builder AI (NOT the reviewer) makes the changes.
+4. **Re-review** — After fixes are applied, run a targeted re-review on only the FAIL items
+5. **Phase exit** — Only when all CRITICAL and MAJOR items are resolved does the phase exit
+
+```
+[REVIEW AGENT]
+    │
+    ├── reads protocol docs + project files
+    ├── runs fixed checklist
+    │
+    ▼
+[FINDINGS DOCUMENT]
+    │
+    ├── CRITICAL/MAJOR fails → tasks → EXECUTOR → fixes
+    ├── MINOR fails → batch → EXECUTOR → fixes
+    └── PASS items → archive
+    │
+    ▼
+[RE-REVIEW] (targeted, only fail items)
+    │
+    ▼
+[PHASE EXIT] (all clears)
+```
+
+---
+
+## Self-Review: Can the Protocol Review Itself?
+
+This is the Gödel move. To verify the review protocol works:
+
+1. **Run review on REVIEW.md itself**: Does this document meet its own standards? Are all checks verifiable? Is the independence protocol clear?
+2. **Test the independence claim**: Run a review in a session that has context, then run one that doesn't. Do the results differ? If yes, context bias exists.
+3. **Calibrate the checklist**: After 3 reviews, remove checks that always pass. Add checks that caught real issues. Keep the checklist lean — a checklist nobody runs is worse than no checklist.
+
+Run this self-review every 5 project reviews, or after any protocol change.
+
+---
+
+## Quick Start
+
+When you want to review a project:
+
+> "Start a new AI session. Load only the Development-Protocol files + the project being reviewed. Run REVIEW.md checklist. Produce a findings document. Do NOT modify any files."
+
+That's it. The protocol does the rest.
