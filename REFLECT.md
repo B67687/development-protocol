@@ -5,7 +5,7 @@
 > **Purpose:** Reflect on how well the protocol itself performed during this project.
 > Not a project retrospective (what did we build?) — a **protocol retrospective** (how well did the protocol guide us?).
 
-## Method — 4 Questions, 20 Minutes
+## Method — 7 Questions, 35 Minutes
 
 Answer each question in 1-3 sentences. Record in `.omo/reflect.md`.
 
@@ -33,21 +33,75 @@ This becomes a Lesson entry. Feed it into the Lessons repo.
 
 > *Example: "Don't use sed for shell script edits. Always use the edit tool or write the whole file."*
 
+### Q5: What did you learn about yourself during this session?
+
+This captures the human's learning — the Learning ZPD dimension. What thinking pattern did you notice in yourself? What assumption of yours got surfaced by the protocol?
+
+> *Example: "I noticed I immediately jump to solutions when feeling anxious about scope. The protocol's No-Computer Check slowed me down to describe the problem first."*
+
+### Q6: What thinking pattern did you notice that you'd like to watch for next time?
+
+This builds self-awareness across sessions. Over multiple projects, patterns in your cognition emerge — allowing you to anticipate your own biases.
+
+> *Example: "I tend to over-constrain the solution space when I don't fully understand the domain. Next time I'll flag 'I'm doing this because I'm uncertain' earlier."*
+
+### Q7: Graduation Check — Has the protocol become easier?
+
+This is the self-transcendence gate. If you answered Q1-Q6 smoothly and
+quickly — if the protocol's patterns feel natural rather than forced — you may
+be ready for the GRADUATE path.
+
+Rate each:
+
+- [ ] EXTRACTION techniques feel automatic (I naturally ask "why?" without prompting)
+- [ ] I catch my own cognitive biases before the protocol does
+- [ ] The checklist in EXECUTOR's FINISH gate matches what I'd check anyway
+- [ ] I can predict what SERIOUSNESS will find before running it
+- [ ] REFLECT's questions feel redundant (I already thought through them during execution)
+
+**If 4-5 checked:** You've internalized the protocol. Next project: skip the step
+you're strongest at. The protocol becomes shorter as you grow.
+
+**If 0-2 checked:** The protocol is still teaching you — that's normal. Exposure
+builds pattern recognition over multiple projects.
+
+This is Musashi's insight: the master transcends methodology. The protocol
+should help you outgrow it, not trap you in it.
+
+### Automated Retrospective Trigger (magic-spec pattern)
+
+REFLECT is not only a manual step — it is ALSO triggered automatically at
+defined checkpoints, so retrospectives never get skipped in the rush to ship:
+
+| Trigger | Action |
+| --- | --- |
+| Project ships | Run full REFLECT (Q1-Q7) — mandatory |
+| Milestone completes | Run condensed REFLECT (Q1, Q2, Q6) |
+| 3+ consecutive failures in one component | Run REFLECT Q2 (what did the protocol miss?) + quarantine review |
+| Method ledger shows noncompliance | Run REFLECT Q4 (what should the protocol learn?) + conformance fix |
+| Protocol itself changes | Run REFLECT Q3 + Q4 (the change's own retrospective) |
+
+> Source: magic-spec's automated retrospectives (Level 1 snapshot vs Level 2 full).
+> Ensures learning is captured even when the human forgets to reflect. Confidence:
+> Medium-High.
+
 ## Output
 
 After answering, update two places:
 
 1. **`.omo/reflect.md`** — the reflection record for this project
 2. **`~/.config/opencode/LESSONS.md`** — append any new lessons (if Q4 produced something new)
+3. **Artifact hygiene (retention):** prune the `.omo/` corpus per the use-based criterion — keep what's cited/live/resume-required, archive stale files to `.omo/archive/`, delete nothing irreversibly. Bounded; rides this step (no new pipeline stage).
 
 ## Frequency
 
 Run REFLECT after every project (every REVIEW pass). Do NOT skip even for small projects — small projects surface different gaps than large ones.
 
-## Relationship to METHODOLOGY.md
 
-- **METHODOLOGY.md** — post-project retrospective (what did we build? how was the team?)
-- **REFLECT.md** — post-protocol retrospective (how well did the protocol guide us?)
-- **Lessons** — cross-project knowledge (what should all future projects know?)
+---
 
-METHODOLOGY.md answers "how was the project?" REFLECT.md answers "how was the protocol?" Lessons answers "what should we carry forward?"
+## Input from REVIEW
+
+Before answering REFLECT questions, read the latest REVIEW findings from `.omo/reviews/latest.md`.
+The review may have found protocol-level gaps that inform Q2 (What did the protocol miss?).
+Do not answer REFLECT in isolation - REVIEW findings are the primary input.

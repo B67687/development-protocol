@@ -51,6 +51,9 @@ I need a thing that takes me from intention to final product (end to end), and p
 **Challenge 3 (Meta-cognitive):** "How much of this is about the tooling vs. the emotional pattern of creation?"
 **Response:** It certainly is part of how we create, so I guess fast prototyping should be part of our protocol. It's possible after prototyping we decide not to do the serious project. Or after prototyping I become more clear what is worth building and change the type or topic.
 
+**Challenge 4 (Understanding / Education check):** "Let me test my own explanation. I've been describing [concept]. In your own words, how would you explain it back to me?" This is the Teach-Back method — if the user can't restate the concept clearly, they don't understand it well enough to make informed decisions yet. If they struggle, the AI offers a clearer explanation and checks again.
+
+**Response:** *[User attempts to restate the concept in their own words. If they can restate clearly, AI confirms and moves on. If they struggle, AI offers a clearer explanation and checks again: "Let me try explaining differently..." followed by "Now in your own words."]*
 ### Round 3 — Steer (AI reframes)
 
 **Insight from AI:** The pipeline should center on a **prototyping gate** as the critical decision mechanism — not just a step before the spec, but the central decision point.
@@ -99,9 +102,9 @@ Prototype cheaply, learn what only building can teach, then decide. This matches
 Appetite: 1 week (~20h working time)
 Suggested phase budget:
 EXTRACTION: 1h | FUNDAMENTALS: 1h | DECOMPOSITION: 1h
-AMBITION: 2h | LANDSCAPE: 2h | VALIDATION: 2h
-SPECIFICATION: 2h | EXECUTOR: 6h | POLISH: 1h
-EXPLAINER: 1h | SPEC_SYNC: 1h | REVIEW: 1h
+AMBITION: 2h | LANDSCAPE: 2h | STRATEGY: 1h | VALIDATION: 2h
+SPECIFICATION: 2h | EXECUTOR (incl. FINISH): 6h
+EXPLAINER: 1h | REVIEW (incl. SPEC_SYNC): 1h
 Buffer: 2h (10% contingency)
 Human confirms or adjusts. Baseline recorded in .omo/pacing-track.md.
 ---

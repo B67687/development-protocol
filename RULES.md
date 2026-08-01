@@ -33,18 +33,17 @@
 > **Fundamentals Check:** [FUNDAMENTALS.md](FUNDAMENTALS.md) — Identify one-way door decisions,
 > validate with minimum prototype, detect LLM bias. Prevents wrong-foundation failures.
 
-> **Gate 1 — AMBITION Dialogue:** [AMBITION.md](AMBITION.md) — Clarify your intent via Socratic
-> back-and-forth until the goal is falsifiable and both parties agree.
+> **Gate 1 — AMBITION Dialogue:** [AMBITION.md](AMBITION.md) — Clarify your intent via Socratic back-and-forth until the goal is falsifiable and both parties agree.
 > **Research:** [LANDSCAPE.md](LANDSCAPE.md) — Map existing solutions and identify unknowns.
-> **Gate 2 — Prototyping:** [VALIDATION.md](VALIDATION.md) — Rapid throwaway prototypes, then
-> KILL/PIVOT/COMMIT based on evidence, not enthusiasm.
+> **Pacing:** [PACING.md](PACING.md) — Decompose total appetite into phase budgets.
+> **Gate 2 — Prototyping:** [VALIDATION.md](VALIDATION.md) — Rapid throwaway prototypes, then KILL/PIVOT/COMMIT based on evidence, not enthusiasm.
 >
 > If COMMIT: [SPECIFICATION.md](SPECIFICATION.md) — Lock the plan (14 sections, frozen after this).
-> [EXECUTOR.md](EXECUTOR.md) — Hand off to RULES.md for execution.
-> After execution: [POLISH.md](POLISH.md) — Human final pass.
+> [EXECUTOR.md](EXECUTOR.md) — Hand off for execution. Includes POLISH (human final pass) post-execution.
 > [EXPLAINER.md](docs/EXPLAINER.md) — AI-generated architecture explainer for non-coder verification.
-> [REVIEW.md](REVIEW.md) — **Meta-review gate**: independent agent audits protocol compliance.
+> [REVIEW.md](REVIEW.md) — **Meta-review gate**: independent agent audits protocol compliance. Includes SPEC_SYNC (spec-to-code fidelity).
 > **Single-source-of-truth:** RULES.md always wins on conflicts between protocol documents.
+> **Recursion meta-rule:** Every step in this protocol is recursive. If the output of a step is still ambiguous after one pass, apply the step again at a deeper level. Most problems resolve within 2-3 recursions. If 3 recursions still don't converge, the problem needs a different framing (not deeper iteration of the same framing).
 > **Recursion meta-rule:** Every step in this protocol is recursive. If the output of a step is still ambiguous after one pass, apply the step again at a deeper level. Most problems resolve within 2-3 recursions. If 3 recursions still don't converge, the problem needs a different framing (not deeper iteration of the same framing).
 
 ## 1. Project Type Routing
@@ -53,7 +52,7 @@ The protocol is NOT a fixed pipeline — it's a routing system that selects the 
 
 ```
 ├── NO — I'm not sure yet, or I have a raw intent
-│   └── PREP PHASE — Follow the prep sequence above (EXTRACTION -> FUNDAMENTALS -> AMBITION -> LANDSCAPE -> VALIDATION -> SPECIFICATION -> EXECUTOR)
+│   └── PREP PHASE — Follow the prep sequence above (EXTRACTION -> SERIOUSNESS -> FUNDAMENTALS -> MULTI -> DECOMPOSITION -> AMBITION -> LANDSCAPE -> STRATEGY -> PACING -> VALIDATION -> SPECIFICATION -> EXECUTOR)
 │       (Output: SPECIFICATION.md → enter routing below)
 └── YES — I know what I'm building
     │
@@ -90,7 +89,7 @@ NEW SESSION (fresh context)
   │
   ├── Inherits: parent project's X, one-way doors, appetite
   ├── Own scope: the sub-component only
-  ├── Pipeline: AMBITION → LANDSCAPE → VALIDATION → SPECIFICATION → EXECUTOR → POLISH → EXPLAINER → SPEC_SYNC → REVIEW
+  ├── Pipeline: AMBITION → LANDSCAPE → STRATEGY → PACING → VALIDATION → SPECIFICATION → EXECUTOR (incl. POLISH) → EXPLAINER → REVIEW (incl. SPEC_SYNC) → REFLECT
   └── Output: sub-component spec + code → integrated back into parent
 ```
 
@@ -290,13 +289,13 @@ The AI MUST stop and ask before proceeding if ANY of these are true:
 | **             | **PERFECT**                                                               | Full lint + full test suite + forbidden-pattern audit + Constitution compliance + **SPEC SYNC** |
 | **DISTRIBUTE** | Spellcheck + link check + format conformance                              |
 
-### SPEC SYNC (Spec-to-Code Fidelity Gate)
+### SPEC SYNC (Spec-to-Code Fidelity Gate — now part of REVIEW.md)
 
-Extracted to standalone protocol: [SPEC_SYNC.md](./docs/SPEC_SYNC.md)
+Merged into REVIEW.md during structural reorganization. Original SPEC_SYNC.md file reduced to stub redirecting to REVIEW.md.
 
 The spec-to-code fidelity verification gate that runs after POLISH and before DISTRIBUTE. It compares the specification against the as-built codebase, catalogues discrepancies as MISSING/OUTDATED/NEW, and ensures the live spec always reflects the as-built state.
 
-See [SPEC_SYNC.md](./docs/SPEC_SYNC.md) for the full research-backed protocol, verification checklist, and discrepancy recovery procedure.
+See REVIEW.md § Spec-to-Code Fidelity Check for the full research-backed protocol, verification checklist, and discrepancy recovery procedure.
 ---
 
 ## 9. Test Philosophy

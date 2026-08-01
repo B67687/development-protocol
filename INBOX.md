@@ -6,6 +6,32 @@
 >
 > **Without this step:** The loudest thought wins by default, or the protocol forces a single Y too early, and other ideas resurface as distractions mid-protocol.
 
+## Protocol Suitability Check (30 sec)
+
+Before running INBOX, check whether the protocol fits the work at hand:
+
+| Question | If No, consider... |
+| --- | --- |
+| Is the problem worth the protocol's overhead (5+ hours)? | Skip protocol. Use a note + direct action. |
+| Is your problem framing clear enough to start? | Think/write freely first. Come back when clearer. |
+| Do you have the energy to follow a structured process? | Come back when you're fresh. A tired run wastes both time. |
+| Is the AI assistant available for this session? | The protocol assumes AI availability. Results degraded without it. |
+| Is this the right time to start a project? | Park in Someday/Maybe. The protocol creates commitment momentum. |
+
+If all 5 pass: proceed with INBOX. If 2+ fail: skip the protocol and do whatever fits the gap.
+
+#### Run-Shape Selector (~30 sec)
+
+If the protocol fits, pick the run shape. Default when unsure: **Standard**.
+
+| Mode | Use when | Run shape |
+| --- | --- | --- |
+| **Light** | Small, well-scoped, reversible work (single fix, small script) | Simplified pass: capture → extraction-lite → implement → verify. Skip heavyweight steps (FUNDAMENTALS/MULTI/AMBITION/LANDSCAPE/STRATEGY) unless a gate flags risk. **Verification floor never skipped**: review + targeted tests stay. One-way doors (schema/API/data/security) → Standard regardless of size. Escalate/re-triage if the work grows past its bounds.
+| **Standard** (default) | Everything else | The full pipeline as documented. |
+| **Brownfield** | Work in an existing project not built with the protocol | **Bounded reanchor pass first**: AI reads the repo, proposes a compressed goals/philosophy/point statement, user corrects/ratifies it, THEN EXTRACTION proceeds with the reanchored framing. Timeboxed — ends in the ratified statement, never open-ended.
+
+Run-Shape (front door) is orthogonal to DECOMPOSITION § Level of Care (per-leaf routing inside Standard runs). Log the chosen mode and any reanchor ratification to the method ledger.
+
 ## When to Use This
 
 Every time someone has multiple thoughts, not one clear Y:
@@ -134,16 +160,38 @@ SOMEDAY/MAYBE      [ ] PENDING (next review: 2026-08-03)
 EXTRACTION         [->] IN PROGRESS
   [✓] Language clarified
   [✓] Intent landscape explored
-  [✓] 7 extraction techniques applied
+  [✓] 10 extraction techniques applied
   [→] X confirmed
 ```
+
+## Strategic Alignment Check
+
+Before proceeding to EXTRACTION, ask one question about the selected cluster:
+
+> "Where does this project fit in my 1/3/10 year trajectory?"
+
+This is not a commitment. It's a directional check — the answer may be "it
+doesn't" (this is exploration), "it builds capability X" (this is skill development),
+or "it directly delivers value toward goal Y" (this is execution).
+
+The answer informs the rest of the protocol:
+
+| Answer | Implication |
+| --- | --- |
+| **Directly delivers** toward long-term goal | Full protocol — this is a priority project |
+| **Builds capability** I'll need later | PRODUCTION QUALITY requirements should match future need, not just current scope |
+| **Exploration** — learning what I need | Use DISCOVER-FIRST route; lighter SPEC; accepting failure as outcome |
+| **Unsure** — I don't know where this fits | This is a signal to spend more time on self-strategy before committing |
+
+This step solves a gap identified by the Foundation Audit: the protocol
+previously had no concept of multi-project trajectory or strategic patience.
 
 ## Integration
 
 The pipeline becomes:
 
 ```
-RAW INTENT → [INBOX] → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → DECOMPOSITION → AMBITION → PACING → LANDSCAPE → VALIDATION → SPECIFICATION → EXECUTOR → POLISH → EXPLAINER → SPEC_SYNC → REVIEW → ship
+RAW INTENT → [INBOX] → [PRIORITIZE (optional)] → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → MULTI → DECOMPOSITION → AMBITION → LANDSCAPE → STRATEGY → PACING → VALIDATION → SPECIFICATION → EXECUTOR (incl. POLISH) → EXPLAINER → REVIEW (incl. SPEC_SYNC) → REFLECT → ship
 ```
 
 The `.omo/inbox/parked/` directory accumulates over sessions — enabling pattern detection of recurring concerns.

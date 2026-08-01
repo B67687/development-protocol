@@ -49,6 +49,47 @@ Before accepting review results, verify:
 - [ ] Reviewer's findings include at least one issue OR explicit clean bill with supporting evidence
 - [ ] Reviewer did not edit any file during the review
 
+### Artifact Binding (SHA256)
+
+The reviewer binds to the EXACT artifact version reviewed:
+
+- [ ] The plan/spec artifact's SHA256 hash was recorded at review start
+- [ ] The review report references the artifact by hash (not by "the latest version")
+- [ ] If the artifact changed during review, the review is re-run on the new hash
+
+> Source: magic-spec's SHA256 integrity binding. Prevents reviewing "a version" that
+> silently drifted mid-review. Confidence: Medium-High.
+
+### Configurable Review Criteria
+
+The fixed checklist is the DEFAULT. For each review, the reviewer may be given
+per-project criteria (CAMEL critic_criteria pattern) — additional checks scoped
+to the project's specific risk profile:
+
+- [ ] Default checklist applied (always)
+- [ ] Project-specific criteria appended (if any — declared before review starts)
+
+> Source: CAMEL RolePlaying critic agent with configurable `critic_criteria`. Keeps
+> the audit both standard and project-relevant. Confidence: Medium.
+
+### Method Conformance Check (from METHOD_LEDGER.md)
+
+The ledger is machine-checked at the meta-gate:
+
+- [ ] Fitness: prescribed methods invoked with resolvable evidence?
+- [ ] Skip-rate per reason code: no code trending up as a lazy-out?
+- [ ] Omitted entries: any uncatalogued omission present? (RED FLAG → fix ticket)
+- [ ] Divergence metric: invocation rate vs outcome quality — no reward for
+      checklist completion alone (specification-gaming guard)
+- [ ] Net-effort justification: every method or rule added or changed in this
+      cycle carries a durability-weighted net-effort justification (what user
+      effort does it reduce? what does it cost?) recorded in the ledger or
+      change record. Absent justification = FAIL.
+
+> Sources: process-mining conformance checking (van der Aalst), NASA SWE-072
+> traceability, OpenAI process supervision, Krakovna specification gaming.
+> Confidence: High on mechanism, Medium on thresholds (need real-run tuning).
+
 ---
 
 ## Fixed Review Checklist
@@ -65,7 +106,9 @@ Each item is binary: **PASS** or **FAIL**. No partial credit. Each FAIL becomes 
 | 1.4 | Success metrics are falsifiable                        | Read section 6. Metrics must be measurable (<3s launch, >99% uptime), not vague ("fast", "reliable"). |
 | 1.5 | EXPLAINER.md exists and matches project scope          | Read EXPLAINER.md. Does it describe the same project as SPECIFICATION.md?                             |
 | 1.6 | EXPLAINER.md has all 5 required sections               | Macro Architecture, Data Flow Walk, Module Breakdown, Key Decisions, Quality Guarantees.              |
-| 1.7 | SPEC_SYNC.md was executed and findings recorded        | Read SPEC_SYNC.md output. Are there discrepancy records?                                              |
+| 1.7 | Spec-to-Code Fidelity Check was executed and findings recorded | Read REVIEW.md § Spec-to-Code Fidelity Check output. Are there discrepancy records?              |
+| 1.8 | PROJECT_MODEL.md exists and is current                    | Read docs/PROJECT_MODEL.md. Does it document states, valid/invalid transitions, invariants? Does the addition under review appear as a transition?   |
+| 1.9 | Claims verified per Research on Demand tiers              | For each decision-relevant claim in the spec/research: was it verified at its tier? Do cited sources EXIST and support the claims they're attached to? (CJR lesson: AI citations mislead >60% of the time) |
 
 ### Phase 2: Protocol Compliance
 
@@ -96,8 +139,8 @@ This is the most important check. Non-coder verification depends on it.
 | 4.2 | Build/compilation succeeds              | Run the build command. Exit code 0 is PASS.                                                  |
 | 4.3 | No leaked secrets or credentials        | Grep for `-----BEGIN`, `api_key`, `password`, `token`, `secret`. Any hit is FAIL.            |
 | 4.4 | README has install/running instructions | Can a new user get the project running from README alone?                                    |
-| 4.5 | CI config exists (if applicable)        | Check for .github/workflows/, .gitlab-ci.yml, Jenkinsfile, etc.                              |
-| 4.6 | Standards audit passes                  | Run ./scripts/audit.sh from the Standards repo on this project. All checks must pass.        |
+| 4.5 | CI config exists (if applicable)*          | Check for .github/workflows/, .gitlab-ci.yml, Jenkinsfile, etc. *See Engineering Plugin §4 |
+| 4.6 | Standards audit passes*                    | Run ./scripts/audit.sh from the Standards repo. *See Engineering Plugin §4                  |
 
 ### Phase 5: Regression Defenses
 
@@ -209,4 +252,26 @@ When you want to review a project:
 
 > "Start a new AI session. Load only the Development-Protocol files + the project being reviewed. Run REVIEW.md checklist. Produce a findings document. Do NOT modify any files."
 
+---
+
+## Spec-to-Code Fidelity Check (formerly SPEC_SYNC.md)
+
+This check verifies that the shipped code matches the specification.
+It runs during REVIEW, not as a separate step. The reviewer compares:
+
+1. **Spec sections vs implementation** - Does each spec section have a corresponding implementation?
+2. **Architecture compliance** - Does the code structure match the spec's architecture decisions?
+3. **Constitution violations** - Does the code violate any spec constitution principles?
+4. **Scope integrity** - Is there anything in the code that is not in the spec (feature creep)?
+5. **Documentation sync** - Does the EXPLAINER match the code, not just the spec?
+
+**Output:** Fidelity gaps are recorded as FAIL items in the review findings.
+
+---
+
+## Handoff to REFLECT
+
+After REVIEW completes, save key findings to `.omo/reviews/latest.md`.
+REFLECT should reference these findings when answering Q2: What did the protocol miss?
+If the review found protocol-level gaps (not project-level), those become REFLECT inputs directly.
 That's it. The protocol does the rest.

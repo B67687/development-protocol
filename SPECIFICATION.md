@@ -3,13 +3,22 @@
 > **v3 note:** Before filling this template, run the Intent Decomposition protocol (RULES.md Section 2).
 > Each dimension identified in the MECE tree should map to a section in this spec.
 
-> Everything in one document: constitution, architecture, files, CI, testing, operations,
+> Everything in one document: constitution, overview, architecture, file tree, quality gates,
+> dependencies, UX, timeline, testing, operations, release, design for change, documentation,
+> ecosystem, AI attribution.
 > dependencies, UX, timeline, release, documentation, ecosystem, AI attribution.
 > Three layers of detail: MACRO (system), MESO (component), MICRO (implementation).
 > An AI executor reads this and knows exactly what to build — no guessing required.
 
 ---
 
+
+> **Input:** This spec consumes validated assumptions from VALIDATION.md.
+> If VALIDATION produced learnings (validated hypotheses, invalidated approaches,
+> unresolved risks), those directly inform sections 2 (Architecture), 5 (Dependencies),
+> and 7 (Timeline). Do not override validated assumptions without explicit re-validation.
+
+---
 ## How to Read This Spec
 
 ---
@@ -169,6 +178,31 @@ _For each major component, specify its interface contract with other components.
 
 _Coding constraints. Examples: "No unsafe code blocks", "Must use const generics for bit-width parameters", "Benchmarks required for all public APIs."_
 
+### PROJECT_MODEL — Whole-Project State Machine (MANDATORY)
+
+Every project MUST document its whole-project state machine at `docs/PROJECT_MODEL.md`.
+This is not optional polish — it is the project's health contract.
+
+**The document contains:**
+
+| Element | What it is | Example |
+| --- | --- | --- |
+| **States** | The project's lifecycle states | `IDEA → SPEC'D → PROTOTYPED → IMPLEMENTED → POLISHED → SHIPPED → MAINTAINED → EVOLVED` |
+| **Valid transitions** | Allowed state changes, including feature additions and rollbacks | `SHIPPED → EVOLVED` (new feature), `SHIPPED → MAINTAINED` (bugfix) |
+| **Invalid transitions** | Forbidden state changes (the invariants) | `IMPLEMENTED → SHIPPED` without passing POLISHED |
+| **Invariants** | What must never change during any transition | "Database schema migrations are always backward-compatible", "API v1 responses never remove fields" |
+| **Blast radius map** | Which components are coupled and co-change together | "changing file A requires checking file B" (from git co-change analysis) |
+
+**Why it prevents regressions:** Every feature addition is a state transition. With
+a documented transition table, an addition that violates an invariant is caught at
+spec time, not discovered as a production regression. Research backing (see
+EXECUTOR.md § Project Health Discipline): state-machine modeling with transition-
+table tests caught 26 real field faults in an industrial case study (Torkar), and
+co-change analysis predicts defects at p=0.01 (D'Ambros).
+
+**Gate check:** SPECIFICATION is incomplete without PROJECT_MODEL.md. REVIEW
+checks that every addition's transition is in the table.
+
 > **Bus-Hop Example:**
 >
 > **Decision 1: Clean Architecture (3-module)**
@@ -243,61 +277,32 @@ _Naming conventions, file size limits, organization rules per file._
 
 ---
 
-## 4. CI, Tooling & Quality Gates
+## 4. Quality Gates & Verification
 
-### MACRO — System Gates
+> *Engineering-specific CI/Tooling details moved to [Engineering Plugin](docs/engineering-plugin.md#1-ci-tooling--quality-gates).*
 
-Acceptance criteria in EARS notation:
+### MACRO — Quality Gates
 
-WHEN a pull request is opened
-THEN CI SHALL run {{build command}}
-WHERE compilation fails
-THEN CI SHALL fail with exit code 1 and the compiler output
+Define the acceptance criteria that gate each deliverable. Use EARS notation:
+> WHEN {{condition}} THEN {{action}} WHERE {{error}} THEN {{error-handling}}
 
-WHEN a pull request is opened
-THEN CI SHALL run {{lint command}}
-WHERE lint violations are detected
-THEN CI SHALL fail with the list of violations
+> **Example:**
+ > WHEN a pull request is opened
+ > THEN verification SHALL run
+ > WHERE verification fails
+ > THEN the change SHALL be rejected with results.
 
-WHEN a pull request is opened
-THEN CI SHALL run {{test command}}
-WHERE any test fails
-THEN CI SHALL fail with the failing test output
+> *For engineering projects, replace this with concrete CI commands from the Engineering Plugin §1.*
 
-### MESO — Per-Component CI Requirements
+### MESO — Per-Component Verification
 
-_Which components have specific CI requirements (e.g., fuzz testing for the parser module)?_
+_Which components have specific verification requirements (e.g., fuzz testing for the parser module)?_
 
 ### MICRO — Tool Configuration Bounds
 
-_Specific linter rules, formatter config, commit hooks. Concrete command-line invocations._
+_Specific tool rules, format config, hooks. Concrete command-line invocations._
 
-> **Bus-Hop Example:**
->
-> WHEN a pull request is opened
-> THEN CI SHALL run ./gradlew test
-> WHERE any test fails
-> THEN CI SHALL fail with the failing test output
->
-> WHEN a pull request is opened
-> THEN CI SHALL run ./gradlew detekt
-> WHERE lint violations are detected
-> THEN CI SHALL fail with the list of violations
->
-> WHEN a pull request is opened
-> THEN CI SHALL run ./gradlew assembleDebug
-> WHERE compilation fails
-> THEN CI SHALL fail with exit code 1 and the compiler output
->
-> WHEN code is merged to main
-> THEN CI SHALL run gitleaks secret scan
-> WHERE secrets are detected
-> THEN CI SHALL fail with the list of affected files
->
-> **MESO:** domain/ and data/ require 80% line coverage via JaCoCo. app/ requires ViewModel state tests. ArchitectureTest.kt runs 8 layer-separation rules on every test invocation.
->
-> **MICRO:** ktlint with 4-space indent. Detekt with baseline for known warnings. SpotlessCheck on every build. Commit signing required for main branch.
-
+> *Engineering projects: see Engineering Plugin §1 for patterns with linters, formatters, commit hooks, and CI matrix configuration.*
 ---
 
 ## 5. Dependencies & External Contracts
@@ -464,36 +469,27 @@ _Fixture conventions, naming patterns, assertion style._
 
 ---
 
-## 9. Operational & Error Handling (Tier 2)
+## 9. Operational Resilience (Tier 2)
+> *Engineering-specific operations details moved to [Engineering Plugin](docs/engineering-plugin.md#2-operational--error-handling).*
 
-### MACRO — Operational Strategy
+### MACRO — Resilience Strategy
 
 ```
-Logging framework: {{framework}}
-Metrics: {{what to measure}}
-Alerts: {{what triggers notification}}
-Observability: {{tracing, dashboards}}
+Error tracking: {{how errors are captured}}
+Fallback behavior: {{what happens when things fail}}
+Recovery mechanism: {{how the system recovers}}
+Load handling: {{how the system behaves under stress}}
 ```
 
-### MESO — Error Propagation Contract
+### MESO — Component Resilience Contracts
 
 _How errors propagate between components. What's handled locally vs. escalated._
 
 ### MICRO — Error Implementation Bounds
 
-_Error message format, log line format, structured logging schema._
+_Error message format, log line format, structured conventions._
 
-> **Bus-Hop Example:**
->
-> **Logging framework:** Android Log (android.util.Log) - no third-party logger
-> **Metrics:** Not collected (privacy-first, no analytics)
-> **Alerts:** Not applicable (no server component)
-> **Observability:** Not applicable
->
-> **MESO:** API errors propagate from data/ through NetworkResult sealed class. ViewModel catches errors and maps to UI state. Domain layer never sees transport errors. Cache TTL shows stale data during outages rather than blank screens.
->
-> **MICRO:** Log format: BusHop: [ClassName] message - context values. Error messages include HTTP code, endpoint URL, and exception type. No PII logged.
-
+> *Engineering projects: see Engineering Plugin §2 for operational patterns including logging frameworks, metrics, alerts, and observability.*
 ---
 
 ## 10. Build & Release Pipeline (Tier 2)
@@ -654,20 +650,20 @@ _Commit message trailer format, file header format, documentation attribution._
 - [ ] Constitution (section 0) has at least 3 principles
 - [ ] Out-of-scope list (section 1) is non-empty
 - [ ] Each architecture decision (section 2) includes a Y-Statement
-- [ ] Each CI gate (section 4) is a concrete command
 - [ ] Each dependency (section 5) has a version constraint
 - [ ] Timeline (section 7) has a circuit breaker condition
 - [ ] Tier 1 sections 0-7 are fully filled
 - [ ] Tier 2 sections 8-11 are filled for production projects
 - [ ] Tier 3 sections 12-14 are filled for open-source projects
-- [ ] Fuzz targets exist in `fuzz/` directory (required for Tier 2+ projects)
-- [ ] Benchmark suite exists in `benches/` (required for performance-sensitive projects)
-- [ ] Snapshot testing via `insta`/`snapbox`/`expect_test` is configured
-- [ ] cargo-deny / deny.toml exists (required for Tier 2+)
-- [ ] Multi-platform CI matrix (Linux/macOS/Windows) is configured (section 4)
-- [ ] CHANGELOG entry exists for this version (section 10)
+
+For engineering deliverables, also verify from the [Engineering Plugin](docs/engineering-plugin.md):
+- [ ] Quality gates (plugin §1) have concrete commands
+- [ ] Fuzz targets exist in `fuzz/` directory (Tier 2+)
+- [ ] Benchmark suite exists in `benches/` (performance-sensitive)
+- [ ] Snapshot testing configured (plugin §3)
+- [ ] cargo-deny / deny.toml exists (Tier 2+)
+- [ ] Multi-platform CI matrix configured (plugin §3)
 - [ ] Test-to-source ratio meets 0.5× minimum
-- [ ] Structured changelog with per-version sections exists
 
 ---
 

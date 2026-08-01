@@ -10,7 +10,7 @@
 
 ## When to Use This
 
-You've completed AMBITION.md (Gate 1 — goal is clear) and LANDSCAPE.md (research done). You have unknowns that only building can reveal. This gate tests those unknowns cheaply before you commit to the full build.
+You've completed AMBITION.md (Gate 1 — goal is clear), LANDSCAPE.md (research done), and PACING.md (phase budget allocated). You have unknowns that only building can reveal. This gate tests those unknowns cheaply before you commit to the full build.
 
 **Prep-pipeline arrival:** You have a falsifiable hypothesis from AMBITION.md and identified unknowns from LANDSCAPE.md. Skip directly to SPIKE design.
 
@@ -143,6 +143,13 @@ Each criterion has a weight. Core assumption validation is the MOST important �
 - **KILL:** Core assumption Fail (score 0-2) OR total score < 12
 - **MIXED:** The spike with the highest weighted score wins. Don't average.
 
+**Sufficiency Checkpoint (Actionability):** before executing COMMIT — "Is this ~80%
+enough to commit to building v1 NOW?" The user ratifies the ship decision (ship or
+defer + one-sentence reason), durability-weighted: ship the smallest version that
+still holds its ground. One-way doors and reputation-critical decisions are exempt —
+gather deliberately (per landscape R4). Log the decision to the method ledger; REVIEW
+conformance catches a missing entry.
+
 The weighted scoring prevents the common failure mode of "everything looks OK except the one thing that matters."
 
 ---
@@ -161,6 +168,19 @@ Evidence: [specific data that supported the decision]
 Learnings to carry forward: [insights that inform SPEC.md]
 Carry-forward rule: LEARNINGS ONLY, NOT CODE. The spike code is throwaway.
 ```
+
+
+### Handoff to SPECIFICATION
+
+Before making the KILL/PIVOT/COMMIT decision, prepare the validated learnings
+that flow into SPECIFICATION.md:
+
+1. **Validated assumptions** - hypotheses that the prototype confirmed. These inform spec decisions.
+2. **Invalidated hypotheses** - what the prototype disproved. These are explicitly excluded from spec.
+3. **Unresolved unknowns** - things the prototype could not test. These become spec risks.
+4. **Key learnings** - insights that change how the spec should be written.
+
+Log these in the decision record. SPECIFICATION.md consumes them as known constraints.
 
 ---
 
@@ -209,7 +229,7 @@ Recognize these patterns:
 
 ## Relationship to RULES.md
 
-VALIDATION.md is the **central decision gate** in the PREP PHASE pipeline. It runs after AMBITION.md and LANDSCAPE.md, and before SPECIFICATION.md and EXECUTOR.md.
+VALIDATION.md is the **central decision gate** in the PREP PHASE pipeline. It runs after AMBITION.md, LANDSCAPE.md, STRATEGY.md, and PACING.md, and before SPECIFICATION.md and EXECUTOR.md.
 
 Once VALIDATION produces a COMMIT decision, the learnings (NOT code) flow into SPECIFICATION.md, which produces the locked execution specification. EXECUTOR.md then hands off to RULES.md for autonomous execution.
 
@@ -217,7 +237,7 @@ The spike prototype remains throwaway — DO NOT carry code into the real projec
 
 ```
 PREP PHASE:
-AMBITION.md → LANDSCAPE.md → VALIDATION.md (GATE 2) → SPECIFICATION.md → EXECUTOR.md → RULES.md
+AMBITION.md → LANDSCAPE.md → STRATEGY.md → PACING.md → VALIDATION.md (GATE 2) → SPECIFICATION.md → EXECUTOR.md → RULES.md
 ```
 
 ---

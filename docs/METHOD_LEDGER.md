@@ -1,0 +1,82 @@
+# METHOD_LEDGER.md — Method Invocation Completeness
+
+> **Purpose:** Close the documented-vs-applied gap. Every documented method in the
+> protocol is either **applied** (with an evidence artifact) or **skipped** (with a
+> pre-authorized catalog reason). Nothing is silently omitted.
+>
+> **Why this exists:** The executor (AI) uses a subset of documented methods by
+> default. Research (2026-08-01) across checklist discipline (WHO, aviation,
+> medicine), skip-with-reason patterns (aviation MEL, NASA waivers), process-mining
+> conformance checking, and AI instruction-following (AGENTIF) confirms: the fix
+> must be **structural, not exhortational** — a machine-checkable accounting
+> system, not a culture pledge.
+
+## The Ledger
+
+A single structured file, `.omo/method-ledger.jsonl`, one JSON record per method
+decision. Emitted as a **byproduct of execution** — the executor already reasons;
+it just tags. Recorded **at the point of decision** (retrospective recording is
+unsafe: the trauma data shows 16% false checks).
+
+```jsonl
+{"case":"EXTRACTION/2026-08-01/project-a","method":"Laddering","status":"applied","evidence":".omo/plans/extraction-output.md","ts":"2026-08-01T10:30:00Z"}
+{"case":"EXTRACTION/2026-08-01/project-a","method":"Cognitive Interview","status":"skipped","reason":"CAT-EC-10:no-specific-incident","ts":"2026-08-01T10:31:00Z"}
+{"case":"EXTRACTION/2026-08-01/project-a","method":"No-Computer-Check","status":"omitted","reason":null,"ts":"2026-08-01T10:32:00Z"}
+```
+
+## The Three States
+
+| State | Meaning | Evidence required |
+|---|---|---|
+| **applied** | Method was used | The actual output artifact (file path). A checkmark alone is a false check — `applied` requires the artifact to exist. |
+| **skipped** | Legitimately skipped per a pre-authorized catalog code | The catalog code (e.g., `CAT-EC-10`). Must be in the Skip Catalog. Expires. |
+| **omitted** | Skipped with NO catalog code | **This is noncompliance.** The audit's red flag. |
+
+## Emission Rules
+
+1. **Every method decision is logged.** No method is used without a ledger entry.
+2. **`applied` requires evidence** — the actual output, not a checkmark (challenge-response, not do-list — Degani/Wiener).
+3. **`skipped` requires a catalog code** — from the Skip Catalog's closed list of legitimate conditions. A reason outside the catalog requires a deviation record (NASA waiver template) with independent approval via REVIEW.
+4. **`omitted` is a red flag** — surfaces in the conformance check.
+5. **Skips expire** (NASA waiver time-limit) — a skip valid for problem A never propagates silently to problem B. Re-justify or remediate.
+6. **Skipping must be structurally harder than applying** — if justification effort > execution effort, the honest equilibrium favors applying.
+
+## The Self-Critique Reconciliation
+
+At each gate (per step completion), the executor writes a mandatory reconciliation
+pass — explicitly listing, for each method in scope: **applied-with-evidence /
+skipped-catalog-code / omitted**. This is the Constitutional-AI pattern: the
+critique *step itself* (not just the revision) drives correction.
+
+## The Conformance Check (runs at REVIEW)
+
+At each REVIEW meta-gate, the ledger is machine-checked:
+
+- **Fitness** — were the prescribed methods invoked with resolvable evidence?
+  (Process-mining conformance checking; empty traceability cells per NASA SWE-072.)
+- **Skip-rate per reason code** — a single code trending up = catalog too loose
+  (the "creeping exceptions" failure mode).
+- **Divergence metric** — invocation rate vs outcome quality. Never reward
+  checklist completion (specification gaming, Krakovna); divergence is the alarm.
+
+## Integration
+
+The ledger is referenced by:
+- **REVIEW.md** — conformance check at the meta-gate
+- **README.md** — listed as a standing artifact
+- **Every technique-documenting file** — each gains a compact numbered manifest
+  (manifest-first, per AGENTIF: >6000 words is an instruction-following failure)
+
+## Provenance
+
+| Element | Source | Evidence |
+|---|---|---|
+| Checklist effectiveness depends on compliance | WHO checklist (Haynes 2009): mortality 1.5%→0.8%; Ontario (Urbach 2014): no effect when rubber-stamped; van Klei 2012: OR 0.44 full vs 1.16 noncompliance | High (clinical studies) |
+| Challenge-response vs do-list | Degani & Wiener, Human Factors 1993; FAA/NASA report | High |
+| Skip catalog (pre-authorized conditions) | Aviation MEL (FAA AC 120-125), 50+ years | High |
+| Expiring waivers | NASA NPR 1400.1 waiver/deviation process | High |
+| Conformance checking | Process mining (van der Aalst); NASA SWE-072 traceability | High |
+| Stepwise verification | OpenAI process supervision | Medium-High |
+| Manifest-first | AGENTIF (instruction-following beyond 6000 words) | Medium-High |
+| Critique-revision loop | Constitutional AI (Bai et al. 2022) | Medium-High |
+| Specification gaming warning | Krakovna et al., DeepMind | High |

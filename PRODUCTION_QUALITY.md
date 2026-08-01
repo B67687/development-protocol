@@ -42,21 +42,21 @@ Map each practice to where it fits in the Dev Protocol pipeline:
 | -------------------- | -------------------------------------------------------------------------- |
 | Multi-platform CI    | SPECIFICATION.md §4 (CI/CD), start-work verification gates                 |
 | Test-to-source ratio | SPECIFICATION.md §8 (Testing), EXECUTOR.md Production Quality Requirements |
-| Structured CHANGELOG | SPECIFICATION.md §10 (Release), POLISH.md Production Quality Gates         |
+|| Structured CHANGELOG | SPECIFICATION.md §10 (Release), EXECUTOR.md Post-Execution: POLISH
 | Fuzz testing         | SPECIFICATION.md §8 (Testing), EXECUTOR.md "Core API Coverage"             |
-| Release checklist    | SPECIFICATION.md §10 (Release), POLISH.md "Ship Readiness"                 |
+|| Release checklist    | SPECIFICATION.md §10 (Release), EXECUTOR.md Post-Execution: POLISH
 | Snapshot testing     | EXECUTOR.md Production Quality Requirements, start-work verification gates |
-| Benchmarks           | EXECUTOR.md Production Quality Requirements, POLISH.md Performance Gates   |
+|| Benchmarks           | EXECUTOR.md Production Quality Requirements, EXECUTOR.md Post-Execution: POLISH
 | Security auditing    | EXECUTOR.md Production Quality Requirements, start-work verification gates |
 | Cross-arch testing   | SPECIFICATION.md §4 (CI), start-work verification gates                    |
-| Typed errors         | EXECUTOR.md Production Quality Requirements, POLISH.md Code Quality Gates  |
+|| Typed errors         | EXECUTOR.md Production Quality Requirements, EXECUTOR.md Post-Execution: POLISH Code Quality Gates  |
 | Loom                 | EXECUTOR.md (concurrency code only)                                        |
-| OSS-Fuzz             | POLISH.md (OSS projects only)                                              |
+|| OSS-Fuzz             | EXECUTOR.md Post-Execution: POLISH (OSS projects only)                                              |
 | Property testing     | EXECUTOR.md Production Quality Requirements                                |
-| Benchmark publishing | POLISH.md Performance Gates                                                |
-| AI policy            | AGENTS.md (project-level), POLISH.md Community Gates                       |
+|| Benchmark publishing | EXECUTOR.md Post-Execution: POLISH Performance Gates                                                |
+|| AI policy            | AGENTS.md (project-level), EXECUTOR.md Post-Execution: POLISH Community Gates                       |
 
-**start-work verification gates** enforce Tier 1 practices as hard blockers. Tier 2 and 3 are checked in POLISH.md gates and executor quality requirements.
+**start-work verification gates** enforce Tier 1 practices as hard blockers. Tier 2 and 3 are checked in EXECUTOR.md Post-Execution: POLISH gates and executor quality requirements.
 
 ---
 
