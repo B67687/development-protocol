@@ -1,7 +1,8 @@
 # PACING.md — Phase Budgeting, Tracking & Adjustment (v3)
 
-> Once AMBITION sets the total appetite, PACING decomposes it into per-phase
-> budgets, tracks actual time against estimate, and adjusts when pacing is off.
+> Once AMBITION locks the ambition and LANDSCAPE completes the research,
+> PACING decomposes the total appetite into per-phase budgets, tracks
+> actual time against estimate, and adjusts when pacing is off.
 >
 > Pacing serves both human (don't burn out) and AI (don't exhaust context).
 
@@ -14,16 +15,24 @@ Default phase budgets as percentage of total appetite:
 | EXTRACTION            | 5%            | Human-heavy            | 1 session, ≤90 min                         |
 | FUNDAMENTALS          | 5%            | Mixed                  | 1 session                                  |
 | DECOMPOSITION         | 5%            | Mixed                  | 1 session                                  |
-| AMBITION              | 10%           | Human-heavy            | Max 3 rounds per session                   |
-| LANDSCAPE             | 10%           | AI-heavy               | 1-2 sessions, compact between              |
+| AMBITION               | 10%           | Human-heavy            | Max 3 rounds per session                   |
+| LANDSCAPE              | 10%           | AI-heavy               | 1-2 sessions, compact between              |
+| STRATEGY               | 5%            | Mixed (human ratifies) | 1 session; Phase 1 pre-commitment is human-first |
 | VALIDATION            | 10%           | AI-heavy               | 1 spike session, fresh context             |
 | SPECIFICATION         | 10%           | Mixed                  | 1-2 sessions                               |
-| EXECUTOR              | 30%           | AI-very-heavy          | Break into milestones, fresh per milestone |
-| POLISH                | 5%            | Human-heavy            | Peak cognitive hours only                  |
-| EXPLAINER + SPEC_SYNC | 5%            | AI-heavy               | 1 session each                             |
-| REVIEW                | 5%            | AI-heavy (independent) | 1 fresh session, no prior context          |
+| EXECUTOR (incl. FINISH)   | 30%           | AI-very-heavy          | Break into milestones; FINISH reserves 20-30% of EXECUTOR budget |
+| EXPLAINER + SPEC_SYNC    | 5%            | AI-heavy               | 1 session each                             |
+| REVIEW                   | 5%            | AI-heavy (independent) | 1 fresh session, no prior context          |
 
 **Adjustment rule:** These are starting defaults. If appetite is 1 week (< 40h), EXECUTOR gets 40% and prep phases compress proportionally. If appetite is 6 weeks, prep phases expand to their full share.
+
+Schedule FINISH/POLISH as a dedicated sub-phase of EXECUTOR with its own budget
+allocation — 20-30% of EXECUTOR's total budget reserved for the last mile.
+
+> **Evidence note:** Cross-domain research shows the finish phase is systematically
+> underestimated: architecture allocates ~40% to construction documents, software
+> allocates ~50% to testing/debugging (Brooks), and film's post-production (10-30%
+> of budget) is the most routinely underestimated budget category.
 
 ## 2. Phase-Level Tracking
 
@@ -90,6 +99,24 @@ Signals of context decay:
 
 If any signal appears, compact proactively. Do NOT wait for auto-compaction at 95%.
 
+### Session-Isolation Hard Stops (magic-spec pattern)
+
+Between certain phases, a FRESH session is MANDATORY — context from the prior
+phase must not bleed into the next:
+
+| Boundary | Hard stop? | Why |
+| --- | --- | --- |
+| EXTRACTION → FUNDAMENTALS | Yes | Extraction conclusions must not pre-bind fundamentals analysis |
+| AMBITION → LANDSCAPE | Yes | Locked ambition must be tested against fresh research, not confirmed |
+| LANDSCAPE → STRATEGY | Yes | Strategy must judge the research map, not inherit it |
+| EXECUTOR → REVIEW | Yes (already required) | Review must be blind to builder intent |
+| REFLECT → next cycle | Yes | Retrospective needs distance from execution |
+
+> The hard stop is enforced by starting a new session (or compacting to a fresh
+> context) at the boundary. Magic-spec calls these "session-isolation hard stops" —
+> a concrete fix for context-bleed, which its authors found to be the primary
+> source of cross-phase contamination. Confidence: Medium-High.
+
 ## 5. Human Energy Rules
 
 | Rule                                              | Why                                                         |
@@ -111,12 +138,83 @@ For multi-week projects, add cycle structure:
 
 **Circuit breaker:** If a cycle ships late, default is to drop it and re-shape. Extensions require: (a) all remaining work downhill, (b) scope hammered, (c) human override recorded.
 
-## 7. Integration
+## 7. Integration (pipeline position)
 
-PACING.md is executed between AMBITION (appetite set) and LANDSCAPE (research starts):
+PACING.md is executed between STRATEGY (strategic intent ratified) and VALIDATION (prototyping gate):
 
 ```
-AMBITION → [PACING — budget allocation] → LANDSCAPE → ... → EXECUTOR → [PACING — tracking + adjustment] → ...
+AMBITION → LANDSCAPE → STRATEGY → [PACING — budget allocation] → VALIDATION → ... → EXECUTOR → [PACING — tracking + adjustment] → ...
 ```
 
-The pacing baseline is set once (after AMBITION) and tracked continuously (after each phase).
+The pacing baseline is set once (after STRATEGY) and tracked continuously (after each phase).
+---
+
+## 8. Effort Estimation (Lightweight)
+
+Phase budgets (% of appetite) provide the macro frame. For task-level estimation
+within EXECUTOR milestones, use one of these techniques:
+
+| Technique | How | Best for |
+|---|---|---|
+| **T-Shirt sizing** | S/M/L/XL. S = <1h, M = 1-4h, L = 4-8h, XL = >8h (split) | Early milestones, high uncertainty |
+| **Decomposition** | Break milestone into sub-tasks. Estimate each in hours. Sum = milestone estimate. | Later milestones, spec is locked |
+| **Reference class** | Compare to a similar completed task. Adjust for differences. | Repetitive work (ports, migrations) |
+
+**Calibration rule:** After each milestone, log actual vs estimated. After 3 milestones,
+adjust future estimates by the average error. A consistent overestimator who never
+adjusts produces useless estimates.
+
+**Communication:** Effort estimates are ranges, not promises. "This milestone will take
+4-8 hours" is realistic. "This milestone will take exactly 6 hours" is a guess.
+
+## 9. Cost Tracking
+
+Track human time and AI costs separately. The distinction matters for pacing decisions.
+
+| Resource | What to track | Format |
+|---|---|---|
+| **Human time** | Hours spent in each phase | Log in `.omo/pacing-track.md` per-phase actual |
+| **AI compute** | Session duration, model used, approximate token count | Log in `.omo/cost-track.md` per session |
+| **Felt effort** | User's subjective load per phase (low/med/high + note) | Log in `.omo/pacing-track.md` per-phase |
+| **Total cost** | Human + AI combined | Summed per milestone in `.omo/cost-track.md` |
+
+When combined human+AI cost exceeds 150% of the milestone's phase budget,
+trigger a Pace Alert (see Section 3). Overruns in either dimension signal
+a budgeting problem — not just slow execution. A durable mismatch between
+process effort and work value (sustained high felt effort on low-value
+steps, or ceremony that outgrows the work it serves) is also a Pace Alert
+trigger and a REVIEW input — the protocol's own Effortlessness principle
+applies to its own execution.
+
+---
+
+## 10. Future: Probabilistic Forecasting (Monte Carlo)
+
+> *Phase 2 addition — requires historical data from 5+ completed projects.*
+
+Once `.omo/pacing-track.md` has enough actual-vs-estimated data per phase, you can
+move from deterministic budgets to probabilistic ranges:
+
+1. **Input distributions** — For each phase, record optimistic / likely / pessimistic durations
+   from historical entries
+2. **Run simulations** — 10,000 iterations sampling from the distributions
+3. **Read the spread** — "70% chance we finish SPECIFICATION within 4-6 days" vs a single number
+
+This shifts the protocol from "here's your budget, stick to it" to "here's the probability
+distribution — decide what confidence level you need."
+
+Implementation note: this needs a small script (Python, JS, whatever). The protocol
+provides the data model; simulation is tooling outside Markdown scope.
+
+## 11. Integration (cross-section index)
+
+PACING now spans three concerns:
+
+```
+Budget allocation (Section 1-3) -> Session management (Section 4) -> Human energy (Section 5)
+-> Macro cycles (Section 6) -> Effort estimation (Section 8) -> Cost tracking (Section 9)
+-> Probabilistic forecasting (Section 10)
+```
+
+Set the baseline after LANDSCAPE. Track after each phase. Adjust at Pace Alerts.
+Close with REFLECT: compare total cost to appetite and log calibration data.

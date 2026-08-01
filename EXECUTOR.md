@@ -100,7 +100,7 @@ If execution is interrupted (session ends, context expires, error occurs):
 
 ---
 
-## Error Handling
+## Error Handling (overview)
 
 When a SPEC.md assumption fails during execution:
 
@@ -115,7 +115,104 @@ When a SPEC.md assumption fails during execution:
 - Architecture pattern doesn't fit (flag to section 2)
 - Timeline is unrealistic (flag to section 7 — most common)
 
+## Retry Protocol
+
+When a SPEC.md section implementation fails during execution, do not escalate to
+the human on the first failure. Use the retry ladder:
+
+| Attempt | Action | Escalation |
+|---|---|---|
+| 1st failure | Retry once with full context preserved. Log the error and the attempted fix. | — |
+| 2nd failure | Run the Midpoint Protocol Check early (or check if already past midpoint). Assess whether the approach is fundamentally wrong. | Flag root cause hypothesis to human. |
+| 3rd failure | Stop. Present the human with: (1) summary of all attempts, (2) root cause analysis, (3) three options: Revise Spec, Work Around with documented risk, or Abandon. | BLOCKING — human decision required. |
+
+**Retry discipline:** Each retry must attempt a DIFFERENT approach. Re-running the
+same failed strategy and expecting a different result is not a retry — it's a waste.
+
 ---
+
+## Degradation Strategy
+
+When context is exhausted, errors accumulate beyond the third failure, or the AI
+session approaches the budget limits defined in PACING.md:
+
+### Section Priority Order
+
+If the executor must reduce scope to stay within budget (turns, reads, or time),
+sections are dropped from the bottom up:
+
+| Priority | Sections | Never Drop |
+|---|---|---|
+| **Critical** (never drop) | Constitution, Architecture, CI gates, Testing | — |
+| **Important** (drop only if forced) | File Tree, Dependencies, Operations, Timeline | — |
+| **Nice-to-have** (first to drop) | UX Details, Documentation, Ecosystem, AI Attribution | — |
+
+### Drop Procedure
+
+1. **Commit current checkpoint** before dropping: `checkpoint: section N — degraded — [reason]`
+2. **Document what was dropped** in `.omo/degradation-log.md` with timestamp and rationale
+3. **Attempt recovery at next session** — on resume, read the degradation log and decide which sections to restore
+4. **Never drop silent** — the human must be informed of every degradation decision, even if after the fact
+
+### Emergency Contact
+
+If 3 consecutive sections fail at the 3rd retry, or if a dropped section creates a
+data-loss or security risk:
+
+1. Pause all execution immediately
+2. Write a structured failure report to `.omo/failure-report.md`
+3. **Do not continue without human decision** — the executor stops at the last stable checkpoint and waits
+
+### Quarantine Cascade (magic-spec pattern)
+
+When a component's implementation becomes unstable (repeated failures, spec
+drift, failing invariants), it is QUARANTINED — and every work item that
+DEPENDS on it is automatically blocked until the quarantine clears:
+
+1. **Quarantine trigger**: 2+ consecutive failures, or a failing invariant, on a component.
+2. **Block dependents**: any task whose inputs include the quarantined component is
+   halted (do not build on a broken foundation).
+3. **Quarantine record**: log in `.omo/quarantine-log.md` — component, trigger, timestamp, blocked dependents.
+4. **Clear condition**: the component passes its evidence-gated checks (tests,
+   invariants, ledger conformance) → dependents unblock.
+5. **Escalate**: if a component cannot clear quarantine within budget, it is a
+   candidate for the Paradigm Review (revolutionary mode).
+
+> Source: magic-spec's quarantine cascade (implementation halted if its L1 spec
+> goes unstable). Prevents building downstream on a broken foundation — the
+> regression cascade the Project Health Discipline exists to prevent. Confidence:
+> Medium-High.
+
+## Paradigm Review (Revolutionary Mode)
+
+When anomalies accumulate beyond the error handling threshold — 3+
+assumptions fail independently — the paradigm itself may be broken.
+
+1. **Pause** execution. Open `.omo/paradigm-review.md`.
+2. **Diagnose**: List each failed assumption, what disproved it, and what
+   alternative paradigm might fit.
+3. **Escalate to EXTRACTION loop**: Present to human. Decision: reframe or
+   continue with known uncertainty.
+
+**Reframe path:** Take the paradigm review to EXTRACTION. The failed
+paradigm was trying to solve something — that's the new Y.
+
+**Continue path:** Document as known unknowns. Continue with increased
+monitoring at each checkpoint.
+
+> Source: Kuhn's paradigm shift model. Confidence: Medium.
+---
+
+## Midpoint Protocol Check
+
+At EXECUTOR's midpoint (roughly halfway through the milestone), pause and run a quick protocol retrospective:
+
+1. **Is the spec still accurate?** — If implementation revealed spec flaws, pause for revision.
+2. **Is the protocol serving you?** — Are any steps feeling wasteful? Overhead > benefit?
+3. **Are assumptions still valid?** — Any one-way doors since discovered that weren't validated?
+4. **Context check** — Is the AI session showing signs of context decay? (See PACING.md signals.)
+
+Document the midpoint check in `.omo/reflect.md` with a timestamp. This is a lighter version of REFLECT — the goal is to catch protocol issues early enough to fix them mid-project, not after.
 
 ## Design for Change Rules (v3)
 
@@ -134,7 +231,6 @@ These rules make goalpost shifts cheap instead of expensive. They are not option
 "Every module has a single public entry point." All exports go through one index file (index.ts, lib.rs, mod.go). No cross-module imports of internal paths. Violations are caught in code review.
 
 ### 4. Size Rule
-
 No file exceeds 250 lines of code. No function exceeds 40 lines. Enforce with a linter.
 **Source:** Common practice in software engineering. McConnell (2004) recommends functions under
 30-50 lines. Kernel style guides enforce 100-line functions. The 250-file limit is a pragmatic
@@ -181,16 +277,138 @@ Created for the Development Protocol v2.1 PREP PHASE (July 2026). Bridges the ga
 
 ## Production Quality Requirements
 
-These requirements apply to Tier 2+ projects (those with a runtime, CLI, library, or performance-sensitive component). They are not optional polish — they are baseline quality gates that must pass before a spec is considered execution-ready.
+> *Engineering-specific production quality requirements moved to [Engineering Plugin](docs/engineering-plugin.md#3-production-quality-requirements).*
 
-1. **Fuzz targets**: Every Tier 2+ project should have a `fuzz/` directory with at least one libFuzzer target. Run `cargo fuzz init` and add a basic target for the core API surface. Fuzz targets catch memory safety issues, panics, and undefined behavior that unit tests miss. Wire fuzz runs into CI as a scheduled job (not per-PR — too slow).
+For Tier 2+ projects (those with a runtime, CLI, library, or performance-sensitive
+component), consult the Engineering Plugin for baseline quality gates: fuzz targets,
+benchmarks, snapshot testing, CI matrix, test ratio, and security audit requirements.
 
-2. **Benchmarks**: Every performance-sensitive component should have a benchmark in `benches/`. Use `criterion` (statistical rigor) or `divan` (lower overhead). Track results in CI and fail on regressions beyond a configurable threshold. A benchmark without trend tracking is just a numbers game.
+These gates are not optional polish — they must pass before a spec is considered
+execution-ready for engineering deliverables.
 
-3. **Snapshot testing**: Use `insta` (Rust), `snapbox` (CLI output), or `expect_test` for golden-file assertions. Snapshot tests are far more efficient than hand-writing assertions for complex output — they catch regressions you didn't know to test for and make reviewing output changes trivial (just `cargo insta review`).
+## Project Health Discipline
 
-4. **CI matrix**: SPEC.md section 4 CI gates should cover Linux, macOS, and Windows at minimum. For Rust projects, add stable/beta/nightly to the matrix. Nightly failures are informational (not blocking), but beta failures are warnings that become blockers in the next release cycle.
+> **MANDATORY for every project with lifecycle-bearing state.** This section enforces
+> the mechanisms that make "adding a feature" a safe, documented transition instead
+> of a regression gamble. It is the protocol's answer to the regression pain:
+> *every addition breaks something* because the project has no model of itself.
 
-5. **Test ratio**: Minimum 0.5× test-to-source lines. Measure via `cloc --json src/ tests/` or equivalent. This is a floor, not a target — the real metric is mutation score, but line ratio is a cheap proxy that catches projects with no tests at all.
+**The core requirement:** `docs/PROJECT_MODEL.md` exists and is current (mandated
+by SPECIFICATION.md § PROJECT_MODEL). It documents the whole-project state machine,
+valid/invalid transitions, invariants, and blast radius map.
 
-6. **Security audit**: Add `cargo-deny` with a `deny.toml` to CI. Check for unmaintained dependencies, license compliance (no GPL in MIT-shipped crates), and known advisories. Run on every PR. A security audit that only runs before release is a security audit that misses everything merged in between.
+**Enforced mechanisms (from research, strongest first):**
+
+| Mechanism | What it does | Evidence | Setup cost |
+| --- | --- | --- | --- |
+| **Full transition-table test** | Asserts every state × every event → resulting state or rejection. New features can't add unintended transitions. | Torkar: 26 real faults found, 85% test cost cut | 1-2 days |
+| **Co-change analysis** | `git log --name-only` reveals which files change together — your real blast radius. Check siblings before changing one. | D'Ambros: correlates with defects, p=0.01 | 30 min script |
+| **Layer/import rules** | Domain code imports only domain, enforced by lint (import-linter, dependency-cruiser). Violations fail the build loudly. | Fitness functions (Ford/Parsons/Kua) | 30 min |
+| **Characterization tests** | Pin current behavior of legacy code before touching it — behavior changes become visible failures. | Feathers, canonical legacy practice | minutes/file |
+| **Mutation testing on core module** | Surviving mutants = concrete "what regression could this have?" checklist. Run on core domain only. | FSE 2014 (gold-standard) | minutes/run |
+| **Per-feature change-amplification check** | If a feature touches >5 files, ask "what interface should I have changed instead?" | Ousterhout, change amplification | 30 sec/feature |
+
+**Where they run:** mechanisms are implemented in the PROJECT (CI/lint/tests), not
+the protocol. The protocol's job is to REQUIRE them, and the FINISH gate CHECKs them.
+
+> **Source:** State-machine modeling and transition tests (Harel 1987; Torkar et al.),
+> co-change prediction (D'Ambros et al., MSR 2010), fitness functions (Ford, Parsons,
+> Kua), characterization tests (Feathers), mutation testing (Just et al., FSE 2014),
+> change amplification (Ousterhout). Confidence: Medium-High overall — strongest on
+> mutation testing and co-change prediction.
+
+## Post-Execution: FINISH Gate (POLISH)
+
+The FINISH gate is a protected sub-phase of EXECUTOR with its own budget and
+checklist. It catches what AI systematically misses — edge cases, integration
+surprises, and the "last mile" problems that surface only after the core is "done."
+
+Research across architecture (40% effort on construction documents), software
+(~50% on testing/debugging), and film (10-30% on post-production, routinely
+underestimated) confirms that the finish phase is disproportionately effortful and
+systematically under-budgeted. The FINISH gate protects this phase from being
+starved by substance-phase overruns.
+
+### Entry Criteria
+
+- All EXECUTOR milestones complete (spec fully implemented)
+- All checkpoints passed and committed
+- No blocking errors in the current state
+
+### Budget
+
+The FINISH gate gets **20-30% of EXECUTOR's total budget** (roughly 6-9% of total
+project appetite). If substance-phase overruns eat into this reserve, do NOT let it
+drop below 15% of EXECUTOR budget. The evidence strongly suggests the finish
+phase requires meaningful allocation to succeed.
+
+### The Polish Checklist
+
+Run through each category systematically. Do not skip categories even if they feel
+irrelevant — AI systematically overrates polish because it doesn't encounter the
+real-world friction points.
+
+| Category | What to check | Evidence level |
+| --- | --- | --- |
+| **Error handling** | API failures, network timeouts, file I/O, null states, empty responses | Mandatory |
+| **State management** | Race conditions, stale data, concurrent access, cache invalidation | Mandatory |
+| **Edge cases** | Empty arrays, single-element lists, boundary conditions, 0/1/N patterns | Mandatory |
+| **Input validation** | Malformed input, encoding, large payloads, slow connections, injection vectors | Mandatory |
+| **Accessibility** | Screen reader labels, keyboard nav, color contrast, focus management | Tier 1+ |
+| **Security** | Input validation, auth per endpoint, rate limiting, privilege boundaries | Mandatory |
+| **Documentation** | README, API docs, setup guide, troubleshooting, changelog | Tier 1+ |
+| **Performance** | Load time, render time, memory profile, bundle size | Tier 2+ |
+| **Cross-system integration** | API contract compliance, data format compatibility, error propagation | Mandatory |
+
+### Exit Criteria
+
+Before the FINISH gate is complete:
+
+- [ ] Polish checklist run and signed off
+- [ ] No known edge-case bugs unaddressed
+- [ ] Documentation matches implementation
+- [ ] AI has flagged all items it cannot assess (these go to human review)
+- [ ] Final checkpoint committed: `checkpoint: FINISH — complete`
+
+### FINISH Gate Integration — Project Health Checks
+
+Add to the Polish Checklist:
+
+- [ ] PROJECT_MODEL.md exists, is current, and the addition's transition is in the table
+- [ ] Transition-table test passes (all states × events)
+- [ ] No co-change sibling of a modified file was missed (checked via git log analysis)
+- [ ] Layer rules pass (domain imports only domain)
+- [ ] Mutation testing run on core module — surviving mutants reviewed as regression checklist
+- [ ] Evidence-gated merge: every change merged with its evidence artifacts (tests,
+      proofs, ledger entries) attached — no merge without evidence (v3-agent-standard)
+
+
+---
+
+### 画蛇添足 Test (Universal Fundamental M1)
+
+> **Runs at:** the FINISH gate, for every addition being finalized (feature,
+> dependency, procedure, section). It is the completion-boundary check that
+> catches scope creep before ship.
+
+Before ANY addition ships (feature, dependency, procedure, section), it must
+survive the 画蛇添足 test — from the Zhanguo Ce parable (drawing a snake,
+adding feet destroys the snake) and the converged universal fundamental
+M1: Simplicity-as-Removal (see docs/UNIVERSAL_FUNDAMENTALS.md):
+
+> **"What does this addition BREAK that was already working?"**
+
+If the answer is "nothing" — but the addition is also unnecessary (the artifact
+already satisfies its purpose), the addition fails anyway. The test is about
+completion boundary, not just safety:
+
+| Criterion | Pass | Fail |
+| --- | --- | --- |
+| **Completeness** | The artifact does NOT yet satisfy its purpose | The artifact already satisfies its purpose — addition is 画蛇添足 |
+| **Safety** | The addition breaks nothing already working | The addition breaks or destabilizes existing behavior |
+| **Value** | The marginal quality gain is positive | The marginal quality gain is zero or negative |
+
+**The deep counterweight (from M1's own counter-evidence):** redundancy is
+sometimes the point — safety-critical systems deliberately add. The test is
+NOT "never add". It is "addition beyond the completion boundary destroys
+value". Know where the boundary is.

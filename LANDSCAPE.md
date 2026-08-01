@@ -3,6 +3,9 @@
 > Use this after AMBITION.md has produced a falsifiable hypothesis.
 > Research reduces unknowns. This protocol turns "I don't know what exists" into a structured landscape map.
 > Timebox the entire research phase — unbounded research is research theater.
+>
+> **Pacing note:** Budget for this phase is set in PACING.md, which runs after LANDSCAPE.
+> The research scope determined here directly informs the phase budget, not the other way around.
 
 ---
 
@@ -15,7 +18,75 @@ You're here because AMBITION.md produced a hypothesis that needs testing against
 - What approaches have been tried and failed?
 - Where are the real unknowns vs. perceived unknowns?
 
-LANDSCAPE.md is a meta-protocol for doing research. It tells you HOW to research, how to evaluate sources, how to avoid bias, and when to stop.
+## Governing Modes — Intuition-First Route
+
+> **A protocol-wide standing mode, applied here first.** The AI answers from latent
+> pattern-sensing first, always — no CoT, no tools, no scaffolding. This is the
+> base layer of every interaction across ALL protocol steps. Structure is the
+> opt-in overlay, not the assumption. (Full protocol-wide principle in README.md;
+> this section is the operational application within research.)
+
+> **The default generation mode.** The AI answers from latent pattern-sensing first,
+> always — no CoT, no tools, no scaffolding. This is the base layer of every
+> interaction. Structure is the opt-in overlay, not the assumption.
+
+### When to answer directly (default)
+
+Answer directly from pattern-sensing when the question is about:
+
+| Domain | Examples |
+| --- | --- |
+| **Pattern recognition** | "Does this architecture remind you of something?" "What's the shape of this problem?" |
+| **Synthesis / judgment** | "What should I prioritize?" "What's the simplest path?" "Is this a good direction?" |
+| **Comparison** | "Which approach is more robust?" "What's the tradeoff here?" |
+| **Meta-decisions** | "Which problem matters most?" "Should I trust this plan?" "Is this worth doing?" |
+| **Familiar ground** | Domains where the agent's prior in-domain claims have survived verification (method ledger) |
+
+### When to overlay structure (opt-in, per case)
+
+Add chain-of-thought, tools, or agentic machinery only when:
+
+1. **Exactness demanded** — math, facts, dates, versions, APIs, compliance
+2. **Stakes are high** — one-way doors, large bets, irreversible decisions
+3. **The answer fails a cheap sanity probe** — it contradicts known constraints,
+   or the calibration signal says "plausible shape, not recognized pattern"
+
+### The calibration signal (the honest report)
+
+Every direct answer should carry an honest calibration tag:
+
+| Tag | Meaning | Default treatment |
+| --- | --- | --- |
+| **"I recognize this pattern"** | Strong latent match — high-confidence intuition | Accept and act; if the claim is consequential, still apply RoD tier (L1 minimum) |
+| **"This shape is plausible"** | Weak match — pattern feels right but isn't anchored | Sanity-probe; if consequential, apply RoD tier (L1 minimum) |
+| **"I'm uncertain / this is speculative"** | No reliable match | Research or decompose before acting (RoD tier per consequence) |
+
+The calibration tag is a REPORT, not a permission gate. The user decides what to
+do with the answer — trust it, probe it, or check it (via Research on Demand tiers).
+
+### Why this is correct (evidence)
+
+- LLMs demonstrably compute answers in latent space before verbalizing (Implicit
+  Reasoning Survey 2509.02350; "Let's Think Dot by Dot" 2404.15758; Coconut 2412.06769)
+- Direct answers equal or beat explicit CoT outside math/symbolic domains (Sprague,
+  "To CoT or not to CoT" 2409.12183)
+- Overthinking is a documented failure: o1 burns ~1953% more tokens on "2+3=?";
+  first answer correct 92%+ of the time (2412.21187); removing reasoning improved
+  agent performance ~30% with 43% less compute (2502.08235)
+- Human experts operate intuition-first by default; analysis is the exception
+  (Dreyfus five-stage model; ADP 6-0: "intuitive decision making is faster than
+  analytic"), and expert gut feeling carries real signal (BMJ 2012, LR 25.5)
+- Product precedent: OpenAI `reasoning_effort: none` — direct generation without
+  reasoning is a first-class API mode
+
+> **The honest caveat (Polanyi's Revenge):** intuition is unverbalized expertise —
+> legitimate when it carries honest calibration and is fed by an outcome loop. Log
+> intuition-driven decisions and their outcomes to build the feedback loop that
+> makes intuition trainable over time (Kahneman & Klein: valid intuition requires
+> high-validity environment + opportunity to learn).
+
+*LANDSCAPE.md is a meta-protocol for doing research — HOW to research, how to
+evaluate sources, how to avoid bias, and when to stop.*
 
 ---
 
@@ -50,10 +121,63 @@ Before searching, define what you're looking for and what you're NOT looking for
 **Scope boundary:** Define what you will NOT research:
 
 - Out of scope topics (prevents rabbit holes)
-- Geographic/community boundaries (which ecosystems, languages, communities)
+- Geographic/community coverage: DECLARE the ecosystems, languages and communities you will
+  research (not just exclude) — default to sampling non-Western (esp. Chinese) and specialised
+  sources in their own languages (e.g. Baidu/Zhihu/CNKI/Qiita, not English-with-region-appended);
+  justify exclusions, never leave them implicit
 - Time horizon (only current, or include historical?)
 
 **Output:** 3-5 research questions + scope boundaries.
+
+**Read Everything First — Meta-Principle:** Before forming any judgment about a source, read the ENTIRE source. Do not skim the first page and extrapolate. Do not search for confirmatory quotes before reading the full document. The most common research failure is forming a conclusion on partial information and then filtering everything else to confirm it. If you haven't read the full source, your "assessment" is a guess. If you have 50+ sources, batch-read: read all of them before writing the synthesis.
+
+### Step 1a: Pattern & Reference Survey
+
+Before searching for novel solutions, surface what you already know. Research
+across domains shows that 64-81% of expert design thinking is pattern recognition,
+not analytical invention (Kannengiesser & Gero, 2019). Expert architects and
+engineers don't consciously "apply patterns" — they recognize the current situation
+as matching a known type and the appropriate response follows (Klein, 1985;
+Manteuffel, 2018).
+
+**The Default Project question:**
+
+Start with this question before any search:
+
+> "What project, architecture, or problem does this remind me of?"
+
+Your brain has already matched this situation to past experience. Surface that match
+explicitly — even if it feels like guesswork. The co-evolution model of design shows
+that experts begin with a "default template" from past experience and refine it by
+finding what's *different* (Dorst & Cross, 2001).
+
+**Reference types (in priority order):**
+
+| Priority | Type | What to look for | How it works |
+| --- | --- | --- | --- |
+| **1st** | **Pattern / architecture** | What structural shape does this problem have? What similar architecture have I seen? | Tacit pattern matching — the expert "sees" the situation as a type (Klein: 80-90% of expert decisions) |
+| **2nd** | **Direct precedent** | Existing solutions to the exact problem | Explicit adaptation — open-source projects, commercial products, published architectures |
+| **3rd** | **Negative precedent** | Attempts that failed and why | Postmortems, discontinued projects, migration case studies |
+| **4th** | **Component precedent** | Reusable building blocks | Libraries, frameworks, APIs, SDKs, platforms |
+
+**Survey method:**
+
+1. **Default Project** — Ask "What does this remind me of?" and write the answer.
+   This surfaces your tacit pattern match before it fades into intuition.
+2. **Pattern check** — What 2-3 architectural patterns does the situation suggest?
+   Most real systems use 1-3 patterns (Harrison & Avgeriou, 2008). If you have
+   more than 3, you're overcomplicating.
+3. **Search for each reference type** — 5-10 minutes per type, timeboxed.
+   Pattern recognition first, solution-finding second.
+4. **Document** each reference: name, approach, key insight, and what it tells you
+   about what's *different* about your situation.
+5. **Before concluding:** ask "What if there's already an architecture that handles
+   80% of this?" This fights the NIH (Not Invented Here) bias that causes
+   over-invention.
+
+**Output:** A pattern map — the 1-3 architectural patterns or default templates that
+frame this problem, plus a list of existing solutions and components to leverage.
+The key insight is not what to copy — it's what's *different* from the template.
 
 ### Step 2: Search
 
@@ -85,7 +209,7 @@ Not all sources are equal. Use the **CRAAP test** to calibrate confidence:
 | **Accuracy**  | Is the information verifiable?          | Cites sources, reproducible | Anecdotal, no evidence    |
 | **Purpose**   | Why does this exist?                    | Inform, educate             | Sell, promote, evangelize |
 
-**Evidence hierarchy for software (highest to lowest):**
+**Evidence hierarchy for general use (highest to lowest):**
 
 1. Replicated controlled experiments — multiple studies confirming the same finding
 2. Single controlled experiments — one rigorous study with valid methodology
@@ -95,6 +219,34 @@ Not all sources are equal. Use the **CRAAP test** to calibrate confidence:
 6. Marketing / vendor content — lowest confidence, treat as directional at best
 
 **Calibration rule:** A blog post from a domain expert (tier 4) can be more valuable than an academic paper from 2018 (tier 2) about software tools that no longer exist. Use the hierarchy as guidance, not dogma.
+
+### Verification Tiers (Research on Demand)
+
+Every claim that could affect planning or decisions receives a verification tier.
+The tier is determined by the CONSEQUENCE of being wrong, never by the AI's
+confidence — research shows verbalized confidence is a poor correctness predictor
+(calibration gaps up to 45 points; Xiong et al. 2024). Web search access reduces
+hallucination 73-86% (FActScore), so grounding consequential claims in retrieved
+evidence is the single highest-impact intervention.
+
+| Tier | Trigger | Action | Cost |
+| --- | --- | --- | --- |
+| **L0 — No check** | Trivial claim, no decision impact; output of executed code/tool (self-verifying) | State it; no tool calls | ~0 |
+| **L1 — Lightweight authoritative check** (DEFAULT for factual claims) | Any claim that could affect planning/decisions; any number, date, name, version, API, or citation | One targeted search against an authoritative source (official docs, spec, standards). CRAAP-screen for authority + currency. | 1 call |
+| **L2 — Cross-check** | Decision-relevant, surprising, contested, or newly-claimed; would trigger rework if wrong | 2+ independent sources; corroborate; attach per-claim citations; VERIFY each citation resolves and supports the claim (CJR study: AI search engines mis-cite >60% of the time) | 2-4 calls |
+| **L3 — Deep verification** | One-way-door / high-stakes decision (kill/pivot/commit; spec commitments; legal/regulatory/financial) | Multi-source research with adversarial refutation pass; independent corroboration; external oracle where one exists (run the test/compile, don't ask the model); human review gate; explicit abstention if unverifiable | Mini-research project |
+
+**Operating rules:**
+
+1. **Decisiveness gate**: before checking, ask "would the decision change if this claim were false?" If no → L0. If yes → L1 minimum.
+2. **Disagreement escalates, confidence never de-escalates**: two sources disagreeing escalates a tier. AI certainty never lowers one.
+3. **Ground, don't recall**: consequential claims must come from retrieved evidence, not model memory. Closed-book claims are L2 minimum.
+4. **Separate writer from checker**: research output passes through a citation-verification pass by a different role/agent (journalism pattern).
+5. **Hazard-scaled effort with carve-out**: the whole deliverable doesn't need L3 — only the decision-critical aspects (NASA/FDA pattern).
+6. **Corroborate or abstain**: a decision-critical claim with a single source is marked provisional. If it can't be corroborated and is decisive, say so explicitly rather than guess.
+7. **Verification budget**: escalate only while expected-loss reduction exceeds check cost (value of information theory).
+
+**This principle is STANDING** — it applies to every protocol step, not just LANDSCAPE. Any step may dispatch verification when a consequential claim is made.
 
 ### Step 4: Capture Evidence
 
@@ -236,10 +388,10 @@ Research consumes tokens and time. Cache results in structured markdown docs so 
 
 **Example from practice:** The Agent-Stack repo maintains 3 research files: `SUPER_ANALYSIS.md` (508 lines, 6 community comparisons), `COMMUNITY_CONFIGS.md` (407 lines raw data), and `GAP_RESEARCH.md` (178 lines gap analysis). After 12 days, only OMO/OpenCode release notes and model price changes needed refreshing — the architectural comparisons were still valid.
 
-The output of this document feeds into VALIDATION.md, which prototypes the most important unknowns.
+The output of this document feeds into STRATEGY.md, which turns the research map into a ratified strategic intent — then informs VALIDATION.md, which prototypes the most important unknowns.
 
 ---
 
 ## Origin
 
-Rewritten July 2026 following a deep research pass on research methodology. Incorporates findings from: PRISMA systematic review methodology, Kitchenham's evidence-based software engineering guidelines, Kuhlthau's Information Search Process model, Glaser & Strauss's theoretical saturation, Wohlin's snowballing technique, CRAAP test for source evaluation, and Porter's Five Forces adapted for software projects.
+Rewritten July 2026 following a deep research pass on research methodology. Incorporates findings from: PRISMA systematic review methodology, Kitchenham's evidence-based guidelines, Kuhlthau's Information Search Process model, Glaser & Strauss's theoretical saturation, Wohlin's snowballing technique, CRAAP test for source evaluation, and Porter's Five Forces adapted for technical projects.

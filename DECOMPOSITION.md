@@ -100,6 +100,28 @@ full protocol cycle or just direct execution:
 **For Level 3+ leaves:** Fork into a new protocol cycle. Start a new AI session.
 Run the same pipeline (AMBITION through REVIEW) scoped to this sub-component only.
 The sub-project inherits the parent's context but has its own appetite and spec.
+## Parallel Spike Routing
+
+For Level 2-3 leaves where uncertainty is high, the protocol supports parallel
+exploration of 2-3 alternative approaches before converging:
+
+1. Identify 2-3 genuinely different approaches (not variations of one approach)
+2. Route each approach through a SHALLOW subcycle: AMBITION → LANDSCAPE
+   (compressed, 10-15% of normal session) → VALIDATION (spike prototype)
+3. Each spike produces a finding: "this approach works because..." or
+   "this approach fails because..."
+4. Converge based on evidence — the approach with the strongest feasibility
+   and most favorable risk profile wins
+5. The winner enters a full SPECIFICATION → EXECUTOR cycle
+
+**Constraints:**
+- Limit to 2-3 parallel spikes (cognitive scalability limit)
+- Each spike is timeboxed to 5-10% of total appetite
+- Spikes run independently (separate AI sessions, no cross-contamination)
+- The goal is DISCOVERY, not delivery — spikes produce knowledge, not output
+
+**Source:** Set-Based Concurrent Engineering (Ward, Liker, Sobek 1995); Toyota
+Production System — "go slow early to go fast later." Confidence: Medium-High.
 
 ## Provenness
 

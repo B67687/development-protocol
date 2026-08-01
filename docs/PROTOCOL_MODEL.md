@@ -1,0 +1,116 @@
+# PROTOCOL_MODEL.md — The Development Protocol's Own State Machine
+
+> **Purpose:** The Development Protocol applies its own Project Health rule to itself. This document is the protocol's state machine — every step is a state, every arrow is a valid transition, and the invariants below are what must never change.
+>
+> **Why this exists:** The protocol mandates that every project document its whole-project state machine (see SPECIFICATION.md §2). This is that mandate applied to the protocol itself. Adding or removing a step means updating this transition table — making the change explicit instead of silently breaking the pipeline's invariants (the orphaned-reference cascade that cost us a full REVIEW cycle).
+
+## States
+
+The protocol's states are its pipeline steps:
+
+```
+INBOX → PRIORITIZE(opt) → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → MULTI → DECOMPOSITION → AMBITION → LANDSCAPE → STRATEGY → PACING → VALIDATION → SPECIFICATION → EXECUTOR → EXPLAINER → REVIEW → REFLECT → SHIP
+```
+
+| State | Meaning |
+|---|---|
+| `INBOX` | Raw thoughts captured, clustered, one cluster selected |
+| `PRIORITIZE` (optional) | 2-10 ideas compared on Want/Know/Work, one bet chosen |
+| `EXTRACTION` | X (real problem) extracted from Y (stated request) |
+| `SERIOUSNESS` | Commitment gate — is X worth pursuing? |
+| `FUNDAMENTALS` | One-way doors, LLM bias, capability audit, chain analysis |
+| `MULTI` | Cross-disciplinary probes |
+| `DECOMPOSITION` | MECE tree, Cynefin, Level of Care |
+| `AMBITION` | 5-round research-interleaved goal tightening |
+| `LANDSCAPE` | Structured research |
+| `STRATEGY` | Strategic ratification gate — AI kernel proposal, human ratify, premortem |
+| `PACING` | Budget and timeline allocation |
+| `VALIDATION` | Prototyping gate — KILL/PIVOT/COMMIT |
+| `SPECIFICATION` | 14-section spec template |
+| `EXECUTOR` | Implementation (incl. FINISH gate) |
+| `EXPLAINER` | Architecture documentation |
+| `REVIEW` | Independent meta-review (incl. SPEC_SYNC) |
+| `REFLECT` | Protocol retrospective (7 questions) |
+| `SHIP` | Delivery |
+
+## Valid Transitions
+
+### Standard path (forward, step-to-next-step)
+```
+INBOX → PRIORITIZE → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → MULTI → DECOMPOSITION → AMBITION → LANDSCAPE → STRATEGY → PACING → VALIDATION → SPECIFICATION → EXECUTOR → EXPLAINER → REVIEW → REFLECT → SHIP
+```
+
+### Valid deviations
+
+| Transition | When valid |
+|---|---|
+| `INBOX → EXTRACTION` (skip PRIORITIZE) | Single cluster, clear winner, no tie — PRIORITIZE is optional by design |
+| Any step → `EXTRACTION` (loop back) | Paradigm Review triggered (3+ assumptions failed), or EXTRACTION found to be incomplete |
+| `VALIDATION → AMBITION` | Prototype revealed goal was wrong — ambition must be re-tightened |
+| `VALIDATION → EXTRACTION` | Prototype revealed wrong problem — re-extract |
+| `VALIDATION → LANDSCAPE` | Prototype showed feasibility unknowns — more research needed |
+| `SPECIFICATION → LANDSCAPE` | Spec-writing exposed research gaps |
+| `EXECUTOR → SPECIFICATION` | Implementation revealed spec flaws (Midpoint Protocol Check) |
+| `EXECUTOR → EXTRACTION` | Paradigm Review reframe path |
+| `REVIEW → EXECUTOR` | Review failed — rework implementation |
+| `REVIEW → EXTRACTION` | Review found wrong problem extracted |
+| `REFLECT → EXTRACTION` | Learning shifts — protocol itself changed, new cycle |
+| Any step → `INBOX` | Protocol improvement cycle (recursion) or new intent |
+| `EXTRACTION → FUNDAMENTALS` (skip SERIOUSNESS) | Protocol improvement cycle ONLY (per Invariant 4); FUNDAMENTALS and MULTI still required (per Invariant 5) |
+| **Any step → any EARLIER step (Gate Restart)** | Deliberate divergence restart: the user may always jump back to any previous gate and restart from there — no failure trigger required. Divergence is a valid reason to restart from an earlier gate when continuing would compound the divergence. |
+
+### Invalid transitions
+```
+PRIORITIZE → anything except EXTRACTION
+EXTRACTION → anything except SERIOUSNESS (or loop-back sources)
+EXECUTOR → SHIP (must pass through EXPLAINER, REVIEW, REFLECT)
+REVIEW → SHIP (must pass through REFLECT)
+SERIOUSNESS → SPECIFICATION (skipping FUNDAMENTALS, MULTI, DECOMPOSITION, AMBITION, LANDSCAPE, PACING, VALIDATION)
+```
+> These are invariants: **no project ships without passing REVIEW and REFLECT. No project skips from extraction to specification without the middle gates.**
+
+### Gate Restart Procedure
+
+When the user declares a divergence and chooses to restart from an earlier gate:
+
+1. **Name the restart gate** — "restart from AMBITION" (must be an EARLIER gate, never a later one).
+2. **Preserve context** — the divergence itself is data. Write a short divergence note (what diverged, why, what the restart gate needs to know) into `.omo/` before restarting.
+3. **Invalidate downstream** — artifacts produced after the restart gate are provisional. They stay on disk but are flagged: `[SUPERSEDED by restart from <gate>]`.
+4. **Re-enter cleanly** — run the restart gate fresh. If restarting to EXTRACTION or AMBITION, prior conclusions do not bind the new pass.
+5. **Log the transition** — add the restart to this file's transition history so the pattern is visible.
+
+> Restart is CHEAPER than continuing with compounded divergence. The cost is re-running one gate (minutes to hours) vs. the compounding cost of building on a wrong foundation (days to weeks). This is the same economics as FUNDAMENTALS' one-way door validation — fail early, restart cheap.
+
+## Invariants (What Must Never Change)
+
+1. **Every project passes through REVIEW and REFLECT before SHIP.** No exceptions, no bypasses.
+2. **The prep-sequence is order-preserved** when steps are used: INBOX before EXTRACTION, EXTRACTION before FUNDAMENTALS, FUNDAMENTALS before DECOMPOSITION, DECOMPOSITION before AMBITION, LANDSCAPE before VALIDATION, VALIDATION before SPECIFICATION, SPECIFICATION before EXECUTOR.
+3. **PRIORITIZE is always optional** — never mandatory, never blocking.
+4. **Recursion exemption is reserved for protocol improvement cycles only** — SERIOUSNESS may be skipped there and nowhere else.
+5. **Skipping SERIOUSNESS in protocol-improvement cycles does not skip FUNDAMENTALS or MULTI.**
+6. **The pipeline can loop backward (to EXTRACTION, LANDSCAPE, SPECIFICATION) but never jumps forward past a gate.**
+7. **REVIEW must be independent** — fresh session, no prior context, read-everything-first.
+8. **Every protocol step file must reference its neighbors correctly** — a change to the pipeline requires updating the transition table in this file AND all cross-references (the orphaned-ref cascade must never recur).
+
+## Adding or Removing a Step (Transition Update Procedure)
+
+When a step is added, removed, renamed, or reordered:
+
+1. Update this file's **States** table
+2. Update this file's **Valid Transitions** — add/remove the state's arrows
+3. Check the **Invariants** — does the change violate any? (e.g., adding a step after SHIP breaks invariant 1)
+4. Update the pipeline diagram in **README.md**
+5. Grep all protocol files for stale references to the old step (`grep -rn "OLDSTEP" *.md`)
+6. If this is a NEW step: does it need a transition-table test (a checklist in the step file asserting valid entry/exit conditions)?
+
+> The failure mode this prevents: adding PRIORITIZE caused orphaned references across 12 files. With this procedure, step changes become a documented transition, not a regression cascade.
+
+## Test
+
+The transition-table test for the protocol itself:
+
+- [ ] Pipeline diagram in README.md matches the States table here
+- [ ] Every step file's Integration section references its correct neighbors
+- [ ] No orphaned references to removed/renamed steps anywhere in `*.md`
+- [ ] Prep-sequence (README.md) matches this transition table
+- [ ] Invariants hold: no path skips REVIEW → REFLECT → SHIP chain

@@ -174,3 +174,61 @@ Record:
 5. **Gate itself is cheap** — 30 minutes. If you DROP, you lost 30 min, not 3 days.
 6. **Decision journal** — Record predictions before outcomes. Enables calibration feedback.
 7. **Action framing** — De-escalation is framed as "choose something better" not "quit."
+
+---
+
+## Risk Register
+
+A project-level risk register tracks risks from evaluation through execution.
+Unlike one-way doors (binary: reversible or not), risks live on a probability
+continuum and are monitored throughout the project.
+
+### Initialize Here
+
+Start the register during Phase 2 (Dimension 4 — Cost of Being Wrong).
+Update at every phase transition.
+
+### Risk Assessment
+
+| # | Risk | L(1-5) | I(1-5) | Score(LxI) | Mitigation | Owner | Status |
+|---|---|---|---|---|---|---|---|
+| R1 | {{what could go wrong}} | 1-5 | 1-5 | LxI | {{how to reduce}} | {{who}} | {{open/mitigated/closed}} |
+
+**Likelihood:** 1=Rare, 3=Possible, 5=Almost certain.
+**Impact:** 1=Negligible, 3=Moderate setback, 5=Project failure.
+
+| Score | Action |
+|---|---|
+| 1-6 | Low — log, monitor at next transition |
+| 7-12 | Medium — assign mitigation owner, check every phase |
+| 13-25 | High — documented mitigation plan required before FUNDAMENTALS |
+
+### Pipeline Integration
+
+| Phase | Action |
+|---|---|
+| SERIOUSNESS | **Initialize** register with risks from Phase 2 dimensions |
+| FUNDAMENTALS | **Add** one-way door chain risks. Cross-reference HIGH chains. |
+| DECOMPOSITION | **Add** decomposition gaps between KNOWN/RESEARCH/PROTOTYPE |
+| LANDSCAPE | **Update** likelihood/impact based on research findings |
+| STRATEGY | **Add** ratification-deferral and premortem findings; log rejected-proposal risk |
+| VALIDATION | **Close** risks the spike disproves |
+| SPECIFICATION | **Reference** in Timeline contingency and circuit breaker |
+| EXECUTOR | **Log** risks discovered during implementation |
+| REVIEW | **Verify** completeness. Unmitigated HIGH blocks DISTRIBUTE. |
+| REFLECT | **Close** — did the register capture what materialized? |
+
+Keep the register lean (< 10 items). Every entry should be a risk you would
+actually revisit. Noise in the register is worse than no register.
+
+## Integration
+
+SERIOUSNESS opens the risk register. All subsequent phases update it.
+REFLECT closes it: the retrospective asks whether the register captured
+the risks that actually materialized.
+
+## Provenness
+
+Risk registers are standard practice in project management (PMBOK, PRINCE2).
+Likelihood x Impact scoring dates to the US Air Force (1950s) and is the
+most widely used risk assessment framework in software engineering.
