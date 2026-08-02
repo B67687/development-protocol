@@ -116,6 +116,8 @@ Score each cluster on 3 quick questions. No deep analysis — gut check.
 | Timing: Does this need attention soon?          | ✓     | ~       | ✗    |
 | Tractability: Can you make progress in 5 hours? | ✓     | ~       | ✗    |
 
+> **Alignment with PRIORITIZE:** these three triage dimensions map onto the four PRIORITIZE dimensions — Energy ↔ Want (motivation), Timing ↔ Matters (urgency/cost-of-delay), Tractability ↔ Work (5h progress) — with Know (approach confidence) assessed during PRIORITIZE proper. Triage picks candidates; PRIORITIZE scores them.
+
 Sort clusters by (✓ count, then intuition).
 
 ```

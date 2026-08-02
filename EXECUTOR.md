@@ -59,6 +59,7 @@ Once the route is chosen:
 2. **Enter WORK phase** — the AI reads SPEC.md section by section and implements each.
 3. **Implementation order** — follow SPEC.md section order: 1 (overview) → 2 (architecture) → 3 (file tree) → 4 (CI) → 5 (dependencies) → 6 (UX) → 7 (timeline). Later sections may reference earlier ones.
 4. **No deviations** — if a SPEC.md section is ambiguous, the AI flags it and asks for clarification. It does NOT guess.
+5. **Spec-as-final-bytes** — the spec is the contract, not a suggestion: implement exactly what SPEC.md states, no more, no less; if reality diverges from the spec, STOP and flag (Midpoint Protocol Check) rather than silently improvising.
 
 ---
 

@@ -32,7 +32,7 @@
 
 | Feature | Status | Location | Notes |
 |---|---|---|---|
-| 3-dimension comparison (Want/Know/Work) | 🔧 Recent | PRIORITIZE.md | 1-3 scoring, raw display, no composite |
+| 4-dimension comparison (Want/Know/Work/Matters) | 🔧 Recent | PRIORITIZE.md | 1-3 scoring, raw display, no composite |
 | Debiasing question | 🔧 Recent | PRIORITIZE.md | "Would I pick this if someone else proposed it?" |
 | Bet-frame decision | 🔧 Recent | PRIORITIZE.md | "Which gets my next X days?" |
 | Coin flip tiebreaker | 🔧 Recent | PRIORITIZE.md | Reveals hidden preference through emotional reaction |
@@ -41,10 +41,10 @@
 
 | Feature | Status | Location | Notes |
 |---|---|---|---|
-| Language clarification | ✅ Active | EXTRACTION.md Step 0 | Assume 5 meanings per sentence |
-| 10 extraction techniques | ✅ Active | EXTRACTION.md Step 2 | 7 standard + 3 psychology-enhanced |
+| Language clarification | ✅ Active | EXTRACTION.md Step 1 | Assume 5 meanings per sentence |
+| 10 extraction techniques | ✅ Active | EXTRACTION.md Step 2.2 | 7 standard + 3 psychology-enhanced |
 | Intent Landscape (7 reframes) | ✅ Active | EXTRACTION.md Intent Landscape | 6 reframing techniques + CHOOSE |
-| X testing (5 criteria) | ✅ Active | EXTRACTION.md Step 3 | No solution words, 3+ perspectives, etc. |
+| X testing (5 criteria) | ✅ Active | EXTRACTION.md Step 2.3 | No solution words, 3+ perspectives, etc. |
 | Dual ZPD Principle | 🔧 Recent | EXTRACTION.md header | Task zone + Learning zone |
 | Incomplete Extraction Detection | 🔧 Recent | EXTRACTION.md | 5 signals of performative extraction |
 | Set-Based Multiple Hypotheses | 🔧 Recent | EXTRACTION.md | Carry 2-3 X's through FUNDAMENTALS |
@@ -138,7 +138,7 @@
 | Prep Phase | ✅ Active | VALIDATION.md | Arrival checklist, hypothesis formation |
 | Prototype design (5 methods) | ✅ Active | VALIDATION.md | Paper, Digital, Wizard of Oz, Concept, Smoke test |
 | Pre-mortem | ✅ Active | VALIDATION.md | 2-sentence failure story |
-| KILL/PIVOT/COMMIT scoring | ✅ Active | VALIDATION.md | 3-dimension, threshold-based decision |
+| KILL/PIVOT/COMMIT scoring | ✅ Active | VALIDATION.md | 4-dimension, threshold-based decision |
 | Confirmation bias safeguards (5) | ✅ Active | VALIDATION.md | Pre-mortem, Devil's advocate, Default OFF, etc. |
 | Failure modes of prototypes (5) | ✅ Active | VALIDATION.md | Feasibility, Scalability, Usability, etc. |
 

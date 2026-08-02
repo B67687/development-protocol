@@ -1,4 +1,4 @@
-# SERIOUSNESS.md — Idea Evaluation Gate (v4)
+# SERIOUSNESS.md — Idea Evaluation Gate (v4.1)
 
 > This runs between EXTRACTION (X found) and FUNDAMENTALS (one-way doors).
 >
@@ -76,6 +76,16 @@ Adjustment: If no specific person named, score caps at 10.
 Probe: "What specific unfair advantage do you have for this?"
 Adjustment: If no advantage named, score caps at 10.
 
+**D2b — Proven-Earner Benchmark (OPTIONAL — fires only when the money-tier decision is live)**
+
+When you are choosing this idea partly for the money component of benefit (library vs platform tier), add one external-validity pass after the D2 probe. Self-assessment cannot tell you whether the opportunity will actually benefit *you* financially — only a benchmark can. Benefit here = money + learning + capability + mission progress, minus time and effort; comfortable-money-is-good-money is a valid target.
+**Trigger (fires the check):** Is earning money from this idea part of your benefit calculation? If yes — even as a secondary motive — D2b fires. If you find yourself declaring money "not live" just to skip it, that avoidance is itself a signal to fire it.
+
+1. **Name the analog.** Who is the STRONGEST person already earning in this niche (benchmark the ceiling, not the most convenient comparison)? (e.g. Sidekiq's Mike Perham for the library tier.) If you cannot name anyone earning here, that is the strongest kill signal for the money component — the benefit collapses to learning/capability/mission alone.
+2. **Diff the 7 success prerequisites honestly** vs your own position: category ubiquity (is the need universal, not niche-specific) / daily visible pain (do sufferers feel it every day) / cheap migration (low switching cost from the incumbent) / network-effect community (does adoption compound) / buyer economics (can buyers pay and justify the spend) / personal distribution (do you already reach buyers) / timing (is the window open now). Score each you-have vs they-have; the diff is the gap you must close.
+3. **Calibrate from the analog's actual numbers, not vibes.** Realistic expectations: solo-library mean ~$50k-500k/yr (e.g. EdiFabric 2-person at ~$600/yr, BerryWorks open-core since 2004, Prowide 5M+ Maven downloads); platform-tier outliers exist (Stedi ~$353M) and are not the library benchmark.
+4. **Guards**: the benchmark can only lower the money component, never raise it (probe philosophy, same as D1-D5); a cherry-picked analog is caught by RoD L2 cross-check + adversarial REVIEW; record the analog and the diff in the decision journal (Phase 3).
+
 **Dimension 3: Validation Confidence (0-20)**
 
 | Score | Description                                        |
@@ -135,6 +145,7 @@ Record:
 3. How confident you are (numeric %)
 4. What would change your mind (from step 2)
 5. The date of first review
+6. If D2b fired: the analog named and the prerequisite-diff summary
 
 ## Scoring Summary
 

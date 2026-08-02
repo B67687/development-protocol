@@ -14,22 +14,22 @@ INBOX → PRIORITIZE(opt) → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → MU
 
 | State | Meaning |
 |---|---|
-| `INBOX` | Raw thoughts captured, clustered, one cluster selected |
-| `PRIORITIZE` (optional) | 2-10 ideas compared on Want/Know/Work, one bet chosen |
+| `INBOX` | Run-Shape Selector triage first (Light/Standard/Brownfield — see INBOX.md); raw thoughts captured, clustered, one cluster selected; mode + any reanchor ratification logged to method ledger |
+| `PRIORITIZE` (optional) | 2-10 ideas compared on Want/Know/Work/Matters (4-dimension), What-Matters Check picks one bet — AI proposal + user ratification both logged |
 | `EXTRACTION` | X (real problem) extracted from Y (stated request) |
-| `SERIOUSNESS` | Commitment gate — is X worth pursuing? |
+| `SERIOUSNESS` | Commitment gate — is X worth pursuing? (D2b proven-earner benchmark fires when the money-tier decision is live) |
 | `FUNDAMENTALS` | One-way doors, LLM bias, capability audit, chain analysis |
 | `MULTI` | Cross-disciplinary probes |
 | `DECOMPOSITION` | MECE tree, Cynefin, Level of Care |
 | `AMBITION` | 5-round research-interleaved goal tightening |
-| `LANDSCAPE` | Structured research |
+| `LANDSCAPE` | Structured research — Declared Coverage declared up front; Intuition-First Route standing mode |
 | `STRATEGY` | Strategic ratification gate — AI kernel proposal, human ratify, premortem |
 | `PACING` | Budget and timeline allocation |
-| `VALIDATION` | Prototyping gate — KILL/PIVOT/COMMIT |
+| `VALIDATION` | Prototyping gate — KILL/PIVOT/COMMIT; Sufficiency Checkpoint ratifies ship/defer before COMMIT |
 | `SPECIFICATION` | 14-section spec template |
 | `EXECUTOR` | Implementation (incl. FINISH gate) |
 | `EXPLAINER` | Architecture documentation |
-| `REVIEW` | Independent meta-review (incl. SPEC_SYNC) |
+| `REVIEW` | Independent meta-review (incl. Spec-to-Code Fidelity Check + Method Conformance Check) |
 | `REFLECT` | Protocol retrospective (7 questions) |
 | `SHIP` | Delivery |
 
@@ -88,9 +88,9 @@ When the user declares a divergence and chooses to restart from an earlier gate:
 3. **PRIORITIZE is always optional** — never mandatory, never blocking.
 4. **Recursion exemption is reserved for protocol improvement cycles only** — SERIOUSNESS may be skipped there and nowhere else.
 5. **Skipping SERIOUSNESS in protocol-improvement cycles does not skip FUNDAMENTALS or MULTI.**
-6. **The pipeline can loop backward (to EXTRACTION, LANDSCAPE, SPECIFICATION) but never jumps forward past a gate.**
-7. **REVIEW must be independent** — fresh session, no prior context, read-everything-first.
-8. **Every protocol step file must reference its neighbors correctly** — a change to the pipeline requires updating the transition table in this file AND all cross-references (the orphaned-ref cascade must never recur).
+6. **The pipeline can loop backward (to EXTRACTION, LANDSCAPE, SPECIFICATION) but never jumps forward past a gate.** Run-Shape Light mode may skip heavyweight steps (per INBOX.md) — sanctioned by the front-door triage, not a gate jump; skipped steps are logged with SKIP_CATALOG codes, never silent.
+9. **Run-Shape mode is chosen at INBOX and logged** — Light mode skips steps legitimately but NEVER skips ledger obligations, the verification floor (review + targeted tests), or one-way doors (schema/API/data/security force Standard).
+10. **Autonomous learning is gated by feedback velocity** — the model may learn-and-apply without ratification ONLY where feedback is machine-checkable (compiler, tests, ledger, grep = `fast`). Where feedback is slow (strategy, taste, ambition, mission) ratification precedes application. Ambiguous cases default to ratification. The gate governs declarative learning only; procedural skill remains user-owned (Dual ZPD). Velocity classification is logged per autonomous-learning decision (Emission Rule 9).
 
 ## Adding or Removing a Step (Transition Update Procedure)
 
