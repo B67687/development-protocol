@@ -520,6 +520,21 @@ _Packaging commands, signing requirements, distribution channels._
 >
 > **MICRO:** Release APK: R8 minified, shrinkResources, signed. scripts/release.sh automates version bump, CHANGELOG update, assembleRelease, git tag, gh release create. APK verified after build.
 
+### MESO — Distribution Surfaces (enumeration required)
+
+_Every product surfaces to its audience through a set of distribution surfaces. Enumerate ALL of them and when each is built — do not retrofit the adoption engine after the core is done (ithmb lesson: website added on top of the codec instead of planned)._
+
+| Surface | Built when? | Purpose / audience |
+| ------- | ----------- | ------------------ |
+| Website / landing | {{when — often the ADOPTION ENGINE for open-core, not polish}} | {{converts visitors, ranks search terms}} |
+| Web-app / demo | {{when}} | {{interactive proof, e.g. WASM demo}} |
+| Docs site | {{when}} | {{API reference, tutorials}} |
+| CLI | {{when}} | {{power users, scripting}} |
+| WASM demo | {{when}} | {{browser reach, zero-install evaluation}} |
+| C ABI / bindings | {{when — typically deferred until enterprise demand}} | {{language interoperability}} |
+
+Distribution surfaces differ by money tier: **library** = docs + examples + web demo; **platform** = hosted service + dashboard + status page. List each surface's build milestone in Section 7 (Timeline).
+
 ---
 
 ## 11. Design for Change
@@ -655,6 +670,7 @@ _Commit message trailer format, file header format, documentation attribution._
 - [ ] Tier 1 sections 0-7 are fully filled
 - [ ] Tier 2 sections 8-11 are filled for production projects
 - [ ] Tier 3 sections 12-14 are filled for open-source projects
+- [ ] **Spec self-consistency grep** — run `grep -n "Step " SPEC.md` and confirm step/phase numbering is monotonic with no duplicates before EXECUTOR starts
 
 For engineering deliverables, also verify from the [Engineering Plugin](docs/engineering-plugin.md):
 - [ ] Quality gates (plugin §1) have concrete commands

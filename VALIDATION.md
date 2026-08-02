@@ -12,7 +12,7 @@
 
 You've completed AMBITION.md (Gate 1 — goal is clear), LANDSCAPE.md (research done), and PACING.md (phase budget allocated). You have unknowns that only building can reveal. This gate tests those unknowns cheaply before you commit to the full build.
 
-**Prep-pipeline arrival:** You have a falsifiable hypothesis from AMBITION.md and identified unknowns from LANDSCAPE.md. Skip directly to SPIKE design.
+**Prep-pipeline arrival:** You have a falsifiable hypothesis from AMBITION.md, identified unknowns from LANDSCAPE.md, ratified intent from STRATEGY.md, and a phase budget from PACING.md. Skip directly to SPIKE design.
 
 **Fresh-start:** No prep done. Start with the loop below.
 
@@ -106,7 +106,7 @@ When multiple approaches could work or the core assumption has several independe
 
 **Entry-Point Routing:**
 - **Fresh-start users:** Begin with IDEA GENERATION → FILTER → SPIKE
-- **Prep-pipeline arrivals:** Skip to SPIKE with your pre-existing hypotheses
+- **Prep-pipeline arrivals:** Skip to SPIKE with your pre-existing hypotheses — from AMBITION.md (falsifiable hypothesis), LANDSCAPE.md (identified unknowns), STRATEGY.md (ratified intent), and PACING.md (phase budget) all in hand.
 
 ### Step 4: Test (1 Hour)
 

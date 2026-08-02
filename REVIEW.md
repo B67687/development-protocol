@@ -79,12 +79,19 @@ The ledger is machine-checked at the meta-gate:
 - [ ] Fitness: prescribed methods invoked with resolvable evidence?
 - [ ] Skip-rate per reason code: no code trending up as a lazy-out?
 - [ ] Omitted entries: any uncatalogued omission present? (RED FLAG → fix ticket)
+- [ ] What-Matters ratification (PRIORITIZE): the AI proposal AND the user's
+      ratification both logged? Missing ratification entry = RED FLAG → fix
+      ticket (mirrors Sufficiency Checkpoint — closes the S22 asymmetry)
 - [ ] Divergence metric: invocation rate vs outcome quality — no reward for
       checklist completion alone (specification-gaming guard)
 - [ ] Net-effort justification: every method or rule added or changed in this
       cycle carries a durability-weighted net-effort justification (what user
       effort does it reduce? what does it cost?) recorded in the ledger or
       change record. Absent justification = FAIL.
+- [ ] Trust-boundary conformance (Invariant 10 / Emission Rule 9): autonomous-learning
+      decisions logged with velocity classification; slow-velocity decisions have a
+      ratification entry. Missing classification or missing slow-ratification = RED
+      FLAG → fix ticket (machine-checked by ledger-check.py).
 
 > Sources: process-mining conformance checking (van der Aalst), NASA SWE-072
 > traceability, OpenAI process supervision, Krakovna specification gaming.

@@ -25,7 +25,7 @@ RAW INTENT
 ┌─────────────────────────────────────────────────┐
 │ PRIORITIZE (optional, Step 0.5) │
 │ Deep comparison of 2-10 ideas from INBOX │
-│ 3-dimension scoring (Want × Know × Work) │
+│ 4-dimension scoring (Want × Know × Work × Matters) │
 │ Bet decision → EXTRACTION or park │
 └─────────────────────────────────────────────────┘
 │
@@ -199,6 +199,7 @@ and proposes it in a structured, falsifiable format (Rumelt kernel + intent bloc
 the user ratifies (accept / amend / disregard-and-decide); the user owns execution.
 This is the commander's intent model (ADP 6-0): the AI sets strategic direction,
 the human is the accountable commander. The AI cannot act on unratified strategy.
+This includes the what-matters analysis — the principal contradiction (抓主要矛盾): what matters most against the mission, priced by cost-of-not-doing. The AI proposes it; the user ratifies (Strategist Posture).
 The dedicated gate is STRATEGY.md (after LANDSCAPE); this posture is invoked
 whenever the AI makes a strategic decision — including in other steps — and the
 user ratifies strategy; routine execution does not require per-action ratification.
@@ -284,7 +285,7 @@ validated foundation. Always run this chain before entering execution.
 
 ## Contents
 | `INBOX.md` | Step -1: Thought capture, clustering, triage. Select one cluster for EXTRACTION, park rest. |
-| `PRIORITIZE.md` | Step 0.5: Idea comparison & betting — 3-dimension scoring, optional. Runs between INBOX and EXTRACTION. |
+| `PRIORITIZE.md` | Step 0.5: Idea comparison & betting — 4-dimension scoring (incl. Matters), optional. Runs between INBOX and EXTRACTION. |
 | `EXTRACTION.md` | Gate 0 - Extract X (real problem) from Y (stated solution), 10 proven techniques |
 | `SERIOUSNESS.md` | Phase 1: Commitment Probe. Phase 2: Dimension Scoring. Phase 3: Kill Criteria. |
 | `FUNDAMENTALS.md` | Identify one-way door decisions, validate with minimum prototype, detect LLM bias |
@@ -304,6 +305,7 @@ validated foundation. Always run this chain before entering execution.
 | `docs/engineering-plugin.md` | Engineering Plugin — CI, Operations, Production Quality addendum for technical deliverables |
 | `docs/METHOD_LEDGER.md` | Method Invocation Completeness — the .omo/method-ledger.jsonl schema, 3 states, conformance check (Standing Artifact) |
 | `docs/SKIP_CATALOG.md` | Pre-authorized skip conditions per method (MEL pattern) + deviation template (Standing Artifact) |
+| `cli/` | project-kit — optional Rust CLI: bootstrap projects with RULES.md governance (`init` / `phase` / `check` / `publish`) |
 
 ## Origin
 

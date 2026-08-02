@@ -19,7 +19,7 @@ Run PRIORITIZE when any of these are true coming out of INBOX:
 
 If none of these conditions are met — the #1 cluster is clear and the user is confident — skip this step entirely. Go straight to EXTRACTION.
 
-## The Method — 3-Score Table (5 min)
+## The Method — 3-Score Table (10-15 min)
 
 For each candidate cluster (2-10 items), score it on three dimensions using a 1-3 scale:
 
@@ -29,9 +29,11 @@ For each candidate cluster (2-10 items), score it on three dimensions using a 1-
 | **2** | Would be nice — meaningful improvement | Educated guess — similar to things I've done | Days — a few focused sessions |
 | **1** | Meh — interesting but not important | Pure guess — I don't know what I don't know | Weeks — significant unknown effort |
 
+**Matters (4th dimension, mission-consequence):** score 1-3 — does this move the durability-weighted outcome? Price the cost of NOT doing it (cost-of-delay). 3 = mission-critical now · 2 = meaningful · 1 = marginal. Kept separate from the 3-score table because it measures consequence, not desirability.
+
 ### Scoring Rules
 
-1. **Score all clusters on ALL three dimensions before looking at totals.** This prevents confirmation bias (scoring your favorite higher across the board).
+1. **Score all clusters on all dimensions (Want/Know/Work + Matters) before looking at totals.** This prevents confirmation bias (scoring your favorite higher across the board).
 2. **Use the raw 1-3 score.** Do NOT compute a total, average, or composite. The value is seeing the *shape* of each bet — not reducing it to a number.
 3. **The first idea scored sets the anchor.** To fight anchoring, score in random order — shuffle the list before starting.
 
@@ -48,6 +50,10 @@ This fights the IKEA effect (overvaluing your own creations). If the answer is "
 Frame the decision as a **bet**, not a ranking:
 
 > **"If I have [X hours/days] of focused time — which one of these do I want to spend it on?"**
+
+**What Matters Check (principal contradiction):** before betting — which ONE of these matters most against the mission right now? What does not doing it cost? The AI proposes this analysis; the user ratifies (Strategist Posture). 10 seconds, forced when ≥2 candidates or mission ambiguity; not a matrix.
+
+> **LOG the AI proposal and the user's ratification to the method ledger.** REVIEW conformance catches a missing entry (mirrors the Sufficiency Checkpoint in VALIDATION.md — this closes the enforcement asymmetry: without the log, the check can be silently skipped and no one can tell).
 
 | Bet outcome | Action |
 |---|---|
@@ -80,7 +86,7 @@ PRIORITIZE is **optional**. When the #1 cluster from INBOX is clear and the user
 
 | Element | Source | Evidence |
 |---|---|---|
-| **3-dimension scoring** | ICE (Sean Ellis) + McKelvey Prioritization Formula (2026) | ICE widely used for solo decision-making; McKelvey adapts for small-scale by replacing Reach with outcome fit |
+| **4-dimension scoring** | ICE (Sean Ellis) + McKelvey Prioritization Formula (2026) + What-Matters Check | ICE widely used for solo decision-making; McKelvey adapts for small-scale by replacing Reach with outcome fit; Matters dimension adds mission-consequence |
 | **Raw score display (no composite)** | Multi-attribute utility theory critique (Kahneman 2011) | Single composite scores hide tradeoff profiles; raw scores preserve decision shape |
 | **Debiasing question** | IKEA effect (Norton, Mochon, Ariely 2011) | People value self-created ideas ~63% higher; external-rater framing corrects this |
 | **Bet frame** | Shape Up betting table (Singer 2019) | "Which gets my next X days?" is more actionable than "which is best?" |
