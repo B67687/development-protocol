@@ -6,7 +6,7 @@
 > The AI enforces phase/scope boundaries — if asked to do something outside scope
 > or current phase, it MUST refuse and explain why.
 >
-> **Current: PERFECT**
+> **Current: PERFECT** (template placeholder — set to the project's actual phase on bootstrap)
 
 ---
 
@@ -28,7 +28,7 @@
 > that prevent goalpost drift before you commit to the full build:
 >
 > **Gate 0 — EXTRACTION:** [EXTRACTION.md](EXTRACTION.md) — Extract X (real problem) from Y (stated solution).
-> 7 proven techniques. If you can describe the problem without solution words, pass.
+> 10 proven techniques. If you can describe the problem without solution words, pass.
 
 > **Fundamentals Check:** [FUNDAMENTALS.md](FUNDAMENTALS.md) — Identify one-way door decisions,
 > validate with minimum prototype, detect LLM bias. Prevents wrong-foundation failures.
@@ -37,13 +37,16 @@
 > **Research:** [LANDSCAPE.md](LANDSCAPE.md) — Map existing solutions and identify unknowns.
 > **Pacing:** [PACING.md](PACING.md) — Decompose total appetite into phase budgets.
 > **Gate 2 — Prototyping:** [VALIDATION.md](VALIDATION.md) — Rapid throwaway prototypes, then KILL/PIVOT/COMMIT based on evidence, not enthusiasm.
+> **Seriousness:** [SERIOUSNESS.md](SERIOUSNESS.md) — kill criteria; drop weak ideas before they cost. Skippable ONLY for protocol-improvement recursion (Invariant 4).
+> **Multi:** [MULTI.md](MULTI.md) — probe the problem from 3+ disciplines for blind spots.
+> **Decomposition:** [DECOMPOSITION.md](DECOMPOSITION.md) — Cynefin classify + MECE tree → KNOWN/RESEARCH/PROTOTYPE.
+> **Strategy:** [STRATEGY.md](STRATEGY.md) — Rumelt kernel; human ratifies before execution.
 >
-> If COMMIT: [SPECIFICATION.md](SPECIFICATION.md) — Lock the plan (14 sections, frozen after this).
+> If COMMIT: [SPECIFICATION.md](SPECIFICATION.md) — Lock the plan (16 sections §0-15, frozen after this).
 > [EXECUTOR.md](EXECUTOR.md) — Hand off for execution. Includes POLISH (human final pass) post-execution.
 > [EXPLAINER.md](docs/EXPLAINER.md) — AI-generated architecture explainer for non-coder verification.
 > [REVIEW.md](REVIEW.md) — **Meta-review gate**: independent agent audits protocol compliance. Includes SPEC_SYNC (spec-to-code fidelity).
 > **Single-source-of-truth:** RULES.md always wins on conflicts between protocol documents.
-> **Recursion meta-rule:** Every step in this protocol is recursive. If the output of a step is still ambiguous after one pass, apply the step again at a deeper level. Most problems resolve within 2-3 recursions. If 3 recursions still don't converge, the problem needs a different framing (not deeper iteration of the same framing).
 > **Recursion meta-rule:** Every step in this protocol is recursive. If the output of a step is still ambiguous after one pass, apply the step again at a deeper level. Most problems resolve within 2-3 recursions. If 3 recursions still don't converge, the problem needs a different framing (not deeper iteration of the same framing).
 
 ## 1. Project Type Routing
@@ -231,7 +234,7 @@ LEARNING SHIFT
   What this enables: [why the shift is worth it]
 ```
 
-Shifts are recorded in shift-log.md. Up to 5 shifts per project (up from 3 in v2.
+Shifts are recorded in `.omo/shift-log.md`. Up to 5 shifts per project (up from 3 in v2.
 Shifts are learning, not failures). After 5 shifts, consider starting a fresh cycle
 rather than continuing to shift the same project.
 

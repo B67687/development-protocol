@@ -6,7 +6,6 @@
 > Everything in one document: constitution, overview, architecture, file tree, quality gates,
 > dependencies, UX, timeline, testing, operations, release, design for change, documentation,
 > ecosystem, AI attribution.
-> dependencies, UX, timeline, release, documentation, ecosystem, AI attribution.
 > Three layers of detail: MACRO (system), MESO (component), MICRO (implementation).
 > An AI executor reads this and knows exactly what to build — no guessing required.
 
@@ -50,6 +49,7 @@ Each section below follows the format:
 - **Tier 2** (sections 8-11): Required for production projects. Skip for prototypes.
 - **Tier 3** (sections 12-14): Required for open-source or long-lived projects.
 
+**How to write this spec:** MACRO must be filled for every section you use; MESO and MICRO are optional but recommended. Lock sections after execution starts — changes go through RULES.md learning shift rules.
 ---
 
 ## 0. Constitution (Immutable Project Rules)
@@ -683,14 +683,6 @@ For engineering deliverables, also verify from the [Engineering Plugin](docs/eng
 
 ---
 
-## Meta: How to Write This Spec
-
-1. **Start at Tier 1 (sections 0-7)** — these are required for any project. Fill them first.
-2. **Add Tier 2 (sections 8-11)** for production projects. These prevent operational surprises.
-3. **Add Tier 3 (sections 12-14)** for open-source or long-lived projects.
-4. **MACRO must be filled for every section you use.** MESO and MICRO are optional but recommended.
-5. **Use the three-layer format** — MACRO for system decisions, MESO for component contracts, MICRO for implementation bounds.
-6. **Lock sections after execution starts** - changes go through RULES.md learning shift rules.
 
 ---
 

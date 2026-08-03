@@ -183,7 +183,7 @@ Record:
 3. **Probes go down, never up** — Every follow-up probe can only lower the score. Compensates for overconfidence.
 4. **No sunk-cost reasoning** — Cost dimension caps at 10 if sunk costs mentioned.
 5. **Gate itself is cheap** — 30 minutes. If you DROP, you lost 30 min, not 3 days.
-6. **Decision journal** — Record predictions before outcomes. Enables calibration feedback.
+6. **Decision journal** — Record predictions before outcomes in `.omo/decisions/decision-journal.md`. Enables calibration feedback.
 7. **Action framing** — De-escalation is framed as "choose something better" not "quit."
 
 ---
@@ -194,7 +194,7 @@ A project-level risk register tracks risks from evaluation through execution.
 Unlike one-way doors (binary: reversible or not), risks live on a probability
 continuum and are monitored throughout the project.
 
-### Initialize Here
+### Initialize Here — `.omo/decisions/risk-register.md`
 
 Start the register during Phase 2 (Dimension 4 — Cost of Being Wrong).
 Update at every phase transition.

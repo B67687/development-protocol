@@ -23,7 +23,7 @@ EXECUTOR.md defines:
 
 ## Spec-to-Routing Mapping
 
-The filled SPEC.md determines which RULES.md route to use. The mapping is NOT hardcoded to STANDARD — it depends on the spec's content:
+The filled SPEC.md determines which RULES.md route to use. The spec lives at `.omo/plans/specification.md` (created in SPECIFICATION); the bootstrap RULES.md template is copied from `template/RULES.md`. The mapping is NOT hardcoded to STANDARD — it depends on the spec's content:
 
 | Spec characteristic                  | Suggests route                                       | Rationale                                        |
 | ------------------------------------ | ---------------------------------------------------- | ------------------------------------------------ |
@@ -237,11 +237,17 @@ No file exceeds 250 lines of code. No function exceeds 40 lines. Enforce with a 
 30-50 lines. Kernel style guides enforce 100-line functions. The 250-file limit is a pragmatic
 boundary — files exceeding this size reliably contain multiple responsibilities.
 
+### 5. Cycle Artifact Rule
+
 "Every cycle produces a shippable artifact." Not "progress" — a deployed, testable, usable thing.
 **Source:** Shape Up (Singer 2019) — 6-week cycles produce shipped work, not "progress."
 
+### 6. Appetite Rule
+
 "Define the maximum time before designing the solution." The appetite (time budget) is fixed.
 **Source:** Shape Up (Singer 2019) — appetite is the first decision, before solution design.
+
+### 7. AI Quality Rule
 
 "AI-generated code passes the same structural checks as human-written code."
 **Source:** Twist et al. (2025) — LLMs generate less maintainable code on average.
@@ -254,6 +260,8 @@ Metz (2016) — wrong abstractions compound. Therefore, AI code needs the same q
 ### 9. Dependency Rule
 
 "Core domain never imports infrastructure." Core modules (business logic, types, algorithms) import zero infrastructure packages. All infrastructure access goes through a port (interface) defined in the core and implemented by an adapter in the infrastructure layer.
+
+### 10. Clean Slate Rule
 
 "No perpetual backlog. Every cycle starts clean." Old items must compete at the betting table.
 **Source:** Shape Up (Singer 2019) — no backlog. Each cycle, pitches compete fresh.
@@ -360,6 +368,41 @@ real-world friction points.
 | **Documentation** | README, API docs, setup guide, troubleshooting, changelog | Tier 1+ |
 | **Performance** | Load time, render time, memory profile, bundle size | Tier 2+ |
 | **Cross-system integration** | API contract compliance, data format compatibility, error propagation | Mandatory |
+
+### Named Techniques (edge-case & UX evaluation)
+
+| Technique | When | Source |
+| --- | --- | --- |
+| **Equivalence Partitioning + Boundary Value Analysis** | Generate edge-case inputs systematically: min-1/min/min+1/max-1/max/max+1 | ISTQB Standard; AI failure-pattern research (Augment Code 2025-26) |
+| **Whittaker's exploratory tours** (Business + Seedy districts) | Systematic manual exploration of core paths + error states | Whittaker 2009 |
+| **Nielsen's 10 usability heuristics** | Structured UX evaluation replacing an implicit "feel check" | Nielsen 1994 (updated 2026) |
+
+### AI-Generated Code Pre-Flight
+
+Before human review, check the 8 AI failure patterns (AI failure-pattern research, Augment Code 2025-26):
+1. **Hallucinated APIs** — references to packages/methods that don't exist (~1 in 5
+   AI snippets contain fake libraries).
+2. **Security vulnerabilities that look functional** — code works but fails securely:
+   auth bypasses, SQL injection, error handlers that leak sensitive data.
+3. **Performance anti-patterns** — string concatenation in loops, nested O(n²)
+   iterations, unnecessary allocations.
+4. **Happy-path error handling** — try-catch that logs but doesn't recover; no
+   fallback.
+5. **Missing edge cases** — empty arrays, nulls, boundary integers, unicode inputs.
+6. **Outdated library usage** — deprecated APIs from training data, obsolete before
+   the AI wrote them.
+7. **Data model mismatches** — assumes structures that don't match actual schemas;
+   property access without type checking.
+8. **Missing context dependencies** — env vars without fallbacks, undocumented
+   config, assumed infrastructure.
+Each unaddressed pattern becomes a human review item.
+
+### Post-Ship Feedback Log (5 min, 3 items)
+
+1. One thing the AI did surprisingly well
+2. One thing the AI missed that cost significant time
+3. One protocol change that would have caught it earlier
+Feeds directly into protocol improvement without overhead.
 
 ### Exit Criteria
 

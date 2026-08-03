@@ -1,6 +1,6 @@
 # MULTI.md — Multidisciplinary Probe (v4)
 
-> This runs between EXTRACTION (X found) and DECOMPOSITION (dimensions broken down).
+> This runs in the prep sequence between FUNDAMENTALS (one-way doors validated) and DECOMPOSITION (dimensions broken down): `INBOX → PRIORITIZE → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → MULTI → DECOMPOSITION → AMBITION → LANDSCAPE → STRATEGY → PACING → VALIDATION → SPECIFICATION → EXECUTOR → EXPLAINER → REVIEW → REFLECT → ship`.
 >
 > **Purpose:** Before committing to a decomposition strategy, check whether relevant perspectives from OTHER fields (ethics, psychology, economics, ecology, design, sociology, law) have been considered.
 >
@@ -71,7 +71,7 @@ Then answer: "What would we need to change in the design to prevent this scenari
 MULTI sits between EXTRACTION and DECOMPOSITION:
 
 ```
-EXTRACTION → [MULTI] → DECOMPOSITION → ...
+INBOX → PRIORITIZE → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → [MULTI] → DECOMPOSITION → AMBITION → LANDSCAPE → STRATEGY → PACING → VALIDATION → SPECIFICATION → EXECUTOR → EXPLAINER → REVIEW → REFLECT → ship
 ```
 
 - **EXTRACTION** identifies X (the real problem) and maps stakeholders via CATWOE

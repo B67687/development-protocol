@@ -26,9 +26,6 @@ You're here because AMBITION.md produced a hypothesis that needs testing against
 > opt-in overlay, not the assumption. (Full protocol-wide principle in README.md;
 > this section is the operational application within research.)
 
-> **The default generation mode.** The AI answers from latent pattern-sensing first,
-> always — no CoT, no tools, no scaffolding. This is the base layer of every
-> interaction. Structure is the opt-in overlay, not the assumption.
 
 ### When to answer directly (default)
 
@@ -342,7 +339,7 @@ Research has a diminishing returns curve. Most value comes from the first 2 hour
 1. **No new sources** — The last hour of searching returned nothing novel. Same findings repeated.
 2. **Convergence** — 3+ independent sources in different categories agree on the same finding.
 3. **Diminishing relevance** — New findings are increasingly tangential to your hypothesis.
-4. **The build-to-learn boundary** — You're reading about something that a 2-hour prototype would tell you faster. Cross this boundary → move to VALIDATION.md.
+4. **The build-to-learn boundary** — You're reading about something that a 2-hour prototype would tell you faster. Cross this boundary → move to STRATEGY.md.
 
 **The "interesting but irrelevant" trap:** When you find something fascinating that doesn't affect your hypothesis, add it to a parking lot and STOP researching it. Fascination is not a reason to continue.
 

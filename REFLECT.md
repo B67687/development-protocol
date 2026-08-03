@@ -5,6 +5,10 @@
 > **Purpose:** Reflect on how well the protocol itself performed during this project.
 > Not a project retrospective (what did we build?) — a **protocol retrospective** (how well did the protocol guide us?).
 
+## Step 0: After-Action Review (AAR)
+
+Before the 7 questions, run the AAR gate (STRATEGY.md, FM 7-0): the human explains expected vs actual outcome first, then the AI contributes. Compare the outcome to the strategy's prediction (Phase-2 falsification signals). This closes the outcome feedback loop — the AAR gate was defined but never wired into the pipeline.
+
 ## Method — 7 Questions, 35 Minutes
 
 Answer each question in 1-3 sentences. Record in `.omo/reflect.md`.
@@ -60,7 +64,7 @@ Rate each:
 - [ ] REFLECT's questions feel redundant (I already thought through them during execution)
 
 **If 4-5 checked:** You've internalized the protocol. Next project: skip the step
-you're strongest at. The protocol becomes shorter as you grow.
+you're strongest at (skip only with a catalog code — CAT-SKIP-01 applies; skipping without a code is a ledger red flag). The protocol becomes shorter as you grow.
 
 **If 0-2 checked:** The protocol is still teaching you — that's normal. Exposure
 builds pattern recognition over multiple projects.
@@ -105,3 +109,13 @@ Run REFLECT after every project (every REVIEW pass). Do NOT skip even for small 
 Before answering REFLECT questions, read the latest REVIEW findings from `.omo/reviews/latest.md`.
 The review may have found protocol-level gaps that inform Q2 (What did the protocol miss?).
 Do not answer REFLECT in isolation - REVIEW findings are the primary input.
+
+
+## SHIP Exit Checklist
+
+Ship only when all three pass:
+1. **State block written** — `.omo/protocol-state.md` records the completed pipeline
+2. **Success criteria closed** — 2-item closure: projected outcome vs actual (the AAR comparison), and what the strategy predicted vs what happened
+3. **Ledger clean** — `.omo/method-ledger.jsonl` passes ledger-check.py (0 invalid / 0 omitted / 0 rule9)
+
+Also declare maintenance status (active / maintained / archived) in the state block.
