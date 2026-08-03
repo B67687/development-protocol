@@ -39,6 +39,9 @@
 | CAT-RVW-02 | Conformance check | No methods in scope for the change (record the scope bound) |
 | CAT-PLN-01 | FINISH polish checklist | Category genuinely N/A for deliverable type (e.g., no UI → accessibility) — one per category, not blanket |
 | CAT-EXPLAINER-01 | EXPLAINER doc | Doc-only change with zero code artifacts to explain (record the scope bound) |
+| CAT-SKIP-01 | Pipeline step (Light run) | Run-Shape Selector classified the run Light; the step is size-routed out per INBOX.md — record which step |
+| CAT-SKIP-02 | SERIOUSNESS | Protocol-improvement recursion (Invariant 4) — running the protocol on itself exempts SERIOUSNESS |
+| CAT-SKIP-03 | DECOMPOSITION / MULTI depth | Level-of-Care 1: trivially reversible change; full decomposition/cross-probe unnecessary (record care level) |
 
 ## Deviation Record Template (for reasons NOT in catalog)
 

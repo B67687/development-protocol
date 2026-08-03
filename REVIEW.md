@@ -107,10 +107,10 @@ Each item is binary: **PASS** or **FAIL**. No partial credit. Each FAIL becomes 
 
 | #   | Check                                                  | How to Verify (without reading code)                                                                  |
 | --- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
-| 1.1 | SPECIFICATION.md exists and has all 14 sections filled | Read the file. Count sections.                                                                        |
+| 1.1 | SPECIFICATION.md exists and has all 16 sections (§0-15) filled | Read the file. Count sections.                                                                        |
 | 1.2 | Every section has content (not placeholder/stub)       | Read each section. No "TBD", "TODO", or blank.                                                        |
-| 1.3 | Non-goals are explicitly stated                        | Read SPECIFICATION.md section 7 (Non-Goals). Must list what the project is NOT doing.                 |
-| 1.4 | Success metrics are falsifiable                        | Read section 6. Metrics must be measurable (<3s launch, >99% uptime), not vague ("fast", "reliable"). |
+| 1.3 | Non-goals are explicitly stated                        | Read SPECIFICATION.md section 1 (Scope Boundaries per Component). Non-goals must be explicitly stated there. |
+| 1.4 | Success metrics are falsifiable                        | Read section 1 (Overview & Derived Ambition). Metrics must be measurable (<3s launch, >99% uptime), not vague ("fast", "reliable"). |
 | 1.5 | EXPLAINER.md exists and matches project scope          | Read EXPLAINER.md. Does it describe the same project as SPECIFICATION.md?                             |
 | 1.6 | EXPLAINER.md has all 5 required sections               | Macro Architecture, Data Flow Walk, Module Breakdown, Key Decisions, Quality Guarantees.              |
 | 1.7 | Spec-to-Code Fidelity Check was executed and findings recorded | Read REVIEW.md § Spec-to-Code Fidelity Check output. Are there discrepancy records?              |
@@ -122,7 +122,7 @@ Each item is binary: **PASS** or **FAIL**. No partial credit. Each FAIL becomes 
 | #   | Check                                        | How to Verify (without reading code)                                                                                         |
 | --- | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | 2.1 | RULES.md phase matches current project state | Read RULES.md line 9. Does the phase label match reality?                                                                    |
-| 2.2 | Learning shifts are documented (if any)      | Read RULES.md section 5. Check shift-log.md. Max 5 shifts per project.                                                       |
+| 2.2 | Learning shifts are documented (if any)      | Read RULES.md section 5. Check `.omo/shift-log.md` (learning shifts sink). Max 5 shifts per project.       |
 | 2.3 | Test philosophy is being followed            | Read RULES.md section 8. Check if test files exist (Glob for _\_test._).                                                     |
 | 2.4 | No prohibited patterns used                  | Read RULES.md section 5 (or STANDARDS.md). Check codebase for `as any`, `@ts-ignore`, empty catch blocks, unwrap(), panic(). |
 | 2.5 | Project type routing matches actual project  | Read RULES.md section 1. Does the selected route fit? (A "DISCOVER-FIRST" route on a well-understood domain is a mismatch.)  |
@@ -133,7 +133,7 @@ This is the most important check. Non-coder verification depends on it.
 
 | #   | Check                                                     | How to Verify (without reading code)                                                                                                 |
 | --- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| 3.1 | SPECIFICATION.md intent matches EXPLAINER.md architecture | Compare section 3 (Intent) of spec vs section 1 (Macro Architecture) of explainer. Do they describe the same system?                 |
+| 3.1 | SPECIFICATION.md intent matches EXPLAINER.md architecture | Compare section 1 (Overview & Derived Ambition / intent) of spec vs section 1 (Macro Architecture) of explainer. Do they describe the same system? |
 | 3.2 | EXPLAINER.md modules match what actually exists           | Read Module Breakdown. Then run `ls src/` or `ls cmd/` or the project's source tree. Do the modules in the explainer actually exist? |
 | 3.3 | Data flow in explainer is plausible                       | Read Data Flow Walk. Is the flow complete? Does it have a start and end?                                                             |
 | 3.4 | Key Decisions section identifies real tradeoffs           | Read Key Decisions. Are these real constraints OR generic platitudes? ("We chose X because it's good" is a FAIL.)                    |

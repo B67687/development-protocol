@@ -144,7 +144,7 @@ The #1 cluster enters EXTRACTION. Everything else goes to Someday/Maybe.
 
 ## Output Format
 
-After INBOX completes, update the checkpoint:
+After INBOX completes, update the checkpoint (`.omo/protocol-state.md`):
 
 ```
 INBOX              [✓] COMPLETE

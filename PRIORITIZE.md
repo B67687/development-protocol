@@ -60,7 +60,7 @@ Frame the decision as a **bet**, not a ranking:
 | Clear winner emerges | → EXTRACTION on the winner. Park others in `.omo/inbox/parked/`. |
 | Two ideas tied after scoring + debias | Flip a coin. If you're disappointed by the outcome, you know which one you actually wanted. |
 | All ideas score low (1-2 across the board) | None are ready. Park all. Do not force an artificial pick. Come back when you have more information. |
-| The winner scares you (high Want + low Know) | Run a mini-LANDSCAPE on feasibility before entering EXTRACTION. 20 minutes of research to validate the idea exists in reality. |
+| The winner scares you (high Want + low Know) | Run a light landscape scan on feasibility before entering EXTRACTION (full LANDSCAPE research runs in its pipeline position after AMBITION). 20 minutes of research to validate the idea exists in reality. |
 
 ## Output Format
 

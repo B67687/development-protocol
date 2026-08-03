@@ -62,7 +62,7 @@ INBOX → PRIORITIZE → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → MULTI �
 ### Invalid transitions
 ```
 PRIORITIZE → anything except EXTRACTION
-EXTRACTION → anything except SERIOUSNESS (or loop-back sources)
+EXTRACTION → anything except SERIOUSNESS (when NOT a protocol-improvement recursion; recursion per Invariant 4)
 EXECUTOR → SHIP (must pass through EXPLAINER, REVIEW, REFLECT)
 REVIEW → SHIP (must pass through REFLECT)
 SERIOUSNESS → SPECIFICATION (skipping FUNDAMENTALS, MULTI, DECOMPOSITION, AMBITION, LANDSCAPE, PACING, VALIDATION)

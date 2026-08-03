@@ -216,5 +216,5 @@ Budget allocation (Section 1-3) -> Session management (Section 4) -> Human energ
 -> Probabilistic forecasting (Section 10)
 ```
 
-Set the baseline after LANDSCAPE. Track after each phase. Adjust at Pace Alerts.
+Set the baseline after STRATEGY. Track after each phase. Adjust at Pace Alerts.
 Close with REFLECT: compare total cost to appetite and log calibration data.
