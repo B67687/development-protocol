@@ -1,55 +1,31 @@
 # SPECIFICATION.md — The Plan IS the Spec
 
-> **v3 note:** Before filling this template, run the Intent Decomposition protocol (RULES.md Section 2).
-> Each dimension identified in the MECE tree should map to a section in this spec.
-
-> Everything in one document: constitution, overview, architecture, file tree, quality gates,
-> dependencies, UX, timeline, testing, operations, release, design for change, documentation,
-> ecosystem, AI attribution.
-> Three layers of detail: MACRO (system), MESO (component), MICRO (implementation).
-> An AI executor reads this and knows exactly what to build — no guessing required.
+> **v3 note:** Before filling this template, run the Intent Decomposition protocol (RULES.md Section 2) — each MECE dimension maps to a section here.
+> Everything in one document: constitution, overview, architecture, file tree, quality gates, dependencies, UX, timeline, testing, operations, release, design for change, documentation, ecosystem, AI attribution.
+> Three layers: MACRO (system), MESO (component), MICRO (implementation). An AI executor reads this and knows exactly what to build — no guessing required.
 
 ---
 
-
-> **Input:** This spec consumes validated assumptions from VALIDATION.md.
-> If VALIDATION produced learnings (validated hypotheses, invalidated approaches,
-> unresolved risks), those directly inform sections 2 (Architecture), 5 (Dependencies),
-> and 7 (Timeline). Do not override validated assumptions without explicit re-validation.
+> **Input:** This spec consumes validated assumptions from VALIDATION.md. Validated learnings (validated hypotheses, invalidated approaches, unresolved risks) directly inform sections 2 (Architecture), 5 (Dependencies), 7 (Timeline). Do not override validated assumptions without explicit re-validation.
 
 ---
+
 ## How to Read This Spec
 
----
+**Design influences:** Volere (Robertson & Robertson 2006) — requirements shell (27→14 sections); IEEE 830 / ISO 29148 — SRS structure; Shape Up (Singer 2019) — pitch format; Jackson Problem Frames (2001) — domain analysis.
 
-**Design influences:** The 14-section format synthesizes from:
-
-- Volere (Robertson & Robertson 2006) — requirements shell template (27 to 14 sections)
-- IEEE 830 / ISO 29148 — standard SRS structure (functional + non-functional + constraints)
-- Shape Up (Singer 2019) — pitch document format (appetite, rabbit holes, no-gos)
-- Jackson Problem Frames (Jackson 2001) — domain analysis, interfaces, spec vs requirement
-
-This specification uses a **three-layer model**:
-
-| Layer     | Level          | Scope                                        | Changing this requires                |
-| --------- | -------------- | -------------------------------------------- | ------------------------------------- |
-| **MACRO** | System         | Decisions that constrain the entire project  | A learning shift (RULES.md section 5) |
-| **MESO**  | Component      | Contracts between components                 | Interface renegotiation               |
+| Layer | Level | Scope | Changing this requires |
+| --- | --- | --- | --- |
+| **MACRO** | System | Decisions constraining the entire project | A learning shift (RULES.md section 5) |
+| **MESO** | Component | Contracts between components | Interface renegotiation |
 | **MICRO** | Implementation | Bounds within which the executor has freedom | None — executor decides within bounds |
 
-Each section below follows the format:
+**Format per section:** MACRO = system-level decision (heavy rationale); MESO = component contracts; MICRO = implementation bounds (blank = executor decides freely).
 
-- **MACRO**: The system-level decision or constraint (one per section, heavy rationale)
-- **MESO**: How this applies to component interfaces and contracts
-- **MICRO**: Implementation bounds (leave blank = executor decides freely)
+**Priority tiers:** Tier 1 (sections 0-7) required for ANY project; Tier 2 (8-11) production; Tier 3 (12-14) open-source/long-lived.
 
-**Priority tiers:** Not all sections need full detail for every project.
+**How to write:** MACRO filled for every section used; MESO/MICRO optional but recommended. Lock sections after execution starts — changes go through RULES.md learning shift rules.
 
-- **Tier 1** (sections 0-7): Required for ANY project. Fill these before execution.
-- **Tier 2** (sections 8-11): Required for production projects. Skip for prototypes.
-- **Tier 3** (sections 12-14): Required for open-source or long-lived projects.
-
-**How to write this spec:** MACRO must be filled for every section you use; MESO and MICRO are optional but recommended. Lock sections after execution starts — changes go through RULES.md learning shift rules.
 ---
 
 ## 0. Constitution (Immutable Project Rules)
@@ -70,13 +46,7 @@ The constitution constrains ALL executor actions. If an action would violate the
 8. {{additional principle}}
 ```
 
-### MESO — How Principles Apply at Component Level
-
-_Describe how the constitution applies to inter-component contracts. Example: "Inward dependencies means core/ never imports cmd/ or ui/"_
-
-### MICRO — Implementation Bounds
-
-_Concrete rules the executor follows. Example: "All public functions must have doc comments and tests."_
+**MESO/MICRO:** Describe how the constitution applies to inter-component contracts (e.g., "Inward dependencies means core/ never imports cmd/ or ui/") and concrete executor rules (e.g., "All public functions must have doc comments and tests.").
 
 > **Bus-Hop Example:**
 >
@@ -118,13 +88,7 @@ OUT OF SCOPE (V1):
 - {{feature}} — never planned
 ```
 
-### MESO — Scope Boundaries per Component
-
-_Optional: which components are in/out of scope for V1. Example: "The CLI is in scope. The GUI is not."_
-
-### MICRO — Implementation Bounds
-
-_Constraints on how the ambition is achieved. Example: "No cloud dependencies — fully offline."_
+**MESO/MICRO:** Optional — which components are in/out of scope for V1 (e.g., "CLI in scope, GUI not"); constraints on how the ambition is achieved (e.g., "No cloud dependencies — fully offline.").
 
 > **Bus-Hop Example:**
 >
@@ -170,20 +134,11 @@ Alternatives considered:
 - {{alternative 2}} — rejected because {{reason}}
 ```
 
-### MESO — Component Contracts
-
-_For each major component, specify its interface contract with other components. Communication protocol, data format, error handling between modules._
-
-### MICRO — Implementation Bounds
-
-_Coding constraints. Examples: "No unsafe code blocks", "Must use const generics for bit-width parameters", "Benchmarks required for all public APIs."_
+**MESO/MICRO:** Component interface contracts (communication protocol, data format, error handling between modules); coding constraints (e.g., "No unsafe code blocks", "Benchmarks required for all public APIs.").
 
 ### PROJECT_MODEL — Whole-Project State Machine (MANDATORY)
 
-Every project MUST document its whole-project state machine at `docs/PROJECT_MODEL.md`.
-This is not optional polish — it is the project's health contract.
-
-**The document contains:**
+Every project MUST document its whole-project state machine at `docs/PROJECT_MODEL.md`. Not optional polish — the project's health contract.
 
 | Element | What it is | Example |
 | --- | --- | --- |
@@ -193,15 +148,9 @@ This is not optional polish — it is the project's health contract.
 | **Invariants** | What must never change during any transition | "Database schema migrations are always backward-compatible", "API v1 responses never remove fields" |
 | **Blast radius map** | Which components are coupled and co-change together | "changing file A requires checking file B" (from git co-change analysis) |
 
-**Why it prevents regressions:** Every feature addition is a state transition. With
-a documented transition table, an addition that violates an invariant is caught at
-spec time, not discovered as a production regression. Research backing (see
-EXECUTOR.md § Project Health Discipline): state-machine modeling with transition-
-table tests caught 26 real field faults in an industrial case study (Torkar), and
-co-change analysis predicts defects at p=0.01 (D'Ambros).
+**Why it prevents regressions:** Every feature addition is a state transition; a documented transition table catches invariant violations at spec time, not as production regressions (research: state-machine transition-table tests caught 26 real field faults — Torkar; co-change analysis predicts defects at p=0.01 — D'Ambros; see EXECUTOR.md § Project Health Discipline).
 
-**Gate check:** SPECIFICATION is incomplete without PROJECT_MODEL.md. REVIEW
-checks that every addition's transition is in the table.
+**Gate check:** SPECIFICATION is incomplete without PROJECT_MODEL.md. REVIEW checks that every addition's transition is in the table.
 
 > **Bus-Hop Example:**
 >
@@ -239,7 +188,7 @@ checks that every addition's transition is in the table.
 {{path}}/ — {{macro responsibility}}
 ```
 
-### MESO — Per-Module Contracts (Parnas-style)
+**MESO — Per-Module Contracts (Parnas-style):**
 
 ```
 {{path}} — {{one-line responsibility}}
@@ -251,9 +200,7 @@ checks that every addition's transition is in the table.
   Invariant: {{what is always true}}
 ```
 
-### MICRO — Per-File Implementation Bounds
-
-_Naming conventions, file size limits, organization rules per file._
+**MICRO:** Naming conventions, file size limits, organization rules per file.
 
 > **Bus-Hop Example:**
 >
@@ -287,22 +234,15 @@ Define the acceptance criteria that gate each deliverable. Use EARS notation:
 > WHEN {{condition}} THEN {{action}} WHERE {{error}} THEN {{error-handling}}
 
 > **Example:**
- > WHEN a pull request is opened
- > THEN verification SHALL run
- > WHERE verification fails
- > THEN the change SHALL be rejected with results.
+> WHEN a pull request is opened
+> THEN verification SHALL run
+> WHERE verification fails
+> THEN the change SHALL be rejected with results.
 
 > *For engineering projects, replace this with concrete CI commands from the Engineering Plugin §1.*
 
-### MESO — Per-Component Verification
+**MESO/MICRO:** Which components have specific verification requirements (e.g., fuzz testing for the parser module)? Tool rules, format config, hooks, concrete CLI invocations. Engineering projects: see Engineering Plugin §1.
 
-_Which components have specific verification requirements (e.g., fuzz testing for the parser module)?_
-
-### MICRO — Tool Configuration Bounds
-
-_Specific tool rules, format config, hooks. Concrete command-line invocations._
-
-> *Engineering projects: see Engineering Plugin §1 for patterns with linters, formatters, commit hooks, and CI matrix configuration.*
 ---
 
 ## 5. Dependencies & External Contracts
@@ -315,27 +255,21 @@ _Specific tool rules, format config, hooks. Concrete command-line invocations._
 | {{name}} | {{version}} | {{why this exists}} | {{what it provides}} | {{license}} |
 ```
 
-### MESO — Dependency Decision Records
-
-_Why each dependency was chosen over alternatives. Y-Statement format._
-
-### MICRO — Version Policy
-
-_Pin exact versions? Accept semver ranges? Update cadence?_
+**MESO/MICRO:** Why each dependency was chosen over alternatives (Y-Statement format). Pin exact versions? semver ranges? Update cadence?
 
 > **Bus-Hop Example:**
 >
-> | Package     | Version              | Purpose               | Contract                      | License    |
-> | ----------- | -------------------- | --------------------- | ----------------------------- | ---------- |
-> | Kotlin      | 2.4.0                | Language              | JVM bytecode                  | Apache-2.0 |
-> | Compose BOM | 2026.05.01           | UI framework          | Compose API surface           | Apache-2.0 |
-> | Material 3  | (via BOM)            | Design system         | Material Design components    | Apache-2.0 |
-> | Retrofit    | 3.x                  | HTTP client           | REST API to Kotlin interfaces | Apache-2.0 |
-> | OkHttp      | 5.x                  | HTTP transport        | Request/response lifecycle    | Apache-2.0 |
-> | Gson        | (Retrofit converter) | JSON parsing          | JSON to DTO mapping           | Apache-2.0 |
-> | DataStore   | (Jetpack)            | Key-value persistence | Async Flow-based reads        | Apache-2.0 |
-> | MockK       | 1.x                  | Test mocking          | Kotlin mock library           | Apache-2.0 |
-> | JUnit 4     | 4.x                  | Test framework        | Unit test execution           | EPL-2.0    |
+> | Package | Version | Purpose | Contract | License |
+> | --- | --- | --- | --- | --- |
+> | Kotlin | 2.4.0 | Language | JVM bytecode | Apache-2.0 |
+> | Compose BOM | 2026.05.01 | UI framework | Compose API surface | Apache-2.0 |
+> | Material 3 | (via BOM) | Design system | Material Design components | Apache-2.0 |
+> | Retrofit | 3.x | HTTP client | REST API to Kotlin interfaces | Apache-2.0 |
+> | OkHttp | 5.x | HTTP transport | Request/response lifecycle | Apache-2.0 |
+> | Gson | (Retrofit converter) | JSON parsing | JSON to DTO mapping | Apache-2.0 |
+> | DataStore | (Jetpack) | Key-value persistence | Async Flow-based reads | Apache-2.0 |
+> | MockK | 1.x | Test mocking | Kotlin mock library | Apache-2.0 |
+> | JUnit 4 | 4.x | Test framework | Unit test execution | EPL-2.0 |
 >
 > **MESO:** Arrivelah API (arrivelah2.busrouter.sg) is the sole external runtime dependency. LTA DataMall accessed through Arrivelah proxy. No API key required. No other external services.
 >
@@ -358,7 +292,7 @@ WHERE {{error condition}}
 THEN the system SHALL {{error response}}
 ```
 
-### MESO — Error Contract
+**MESO — Error Contract:**
 
 ```
 | Condition | Error | Remediation | Log Level |
@@ -366,9 +300,7 @@ THEN the system SHALL {{error response}}
 | {{what goes wrong}} | {{error code/message}} | {{how the system responds}} | {{info/warn/error}} |
 ```
 
-### MICRO — UI/API Implementation Bounds
-
-_Design tokens, naming conventions, API style rules._
+**MICRO:** Design tokens, naming conventions, API style rules.
 
 > **Bus-Hop Example:**
 >
@@ -402,27 +334,21 @@ Circuit breaker: IF {{condition}} THEN the project SHALL {{stop/reassess}}
 Contingency: {{what happens if appetite exceeded}}
 ```
 
-### MESO — Phase Timeline per Component
-
-_Which components ship in which milestone? Dependencies between components._
-
-### MICRO — Per-Milestone Implementation Bounds
-
-_What quality level is acceptable per milestone? (M1: prototype quality, M2: production quality)_
+**MESO/MICRO:** Which components ship in which milestone; dependencies between components. Quality level per milestone (M1: prototype, M2: production).
 
 > **Bus-Hop Example:**
 >
 > **Appetite:** ~20 days (Phases 0-7)
 >
-> | Milestone | What ships         | Checkpoint                                      |
-> | --------- | ------------------ | ----------------------------------------------- |
-> | M1        | Research complete  | docs/ with API spec, data model, theme decision |
-> | M2        | Domain layer       | 49 domain tests pass                            |
-> | M3        | Data layer         | 57 data tests pass                              |
-> | M4        | App shell          | Running app with stop list, search, settings    |
-> | M5        | Polished UI        | Visual QA passes, APK under 2MB                 |
-> | M6        | CI pipeline        | All CI jobs green                               |
-> | M7        | Production release | v1.0.x signed APK published                     |
+> | Milestone | What ships | Checkpoint |
+> | --- | --- | --- |
+> | M1 | Research complete | docs/ with API spec, data model, theme decision |
+> | M2 | Domain layer | 49 domain tests pass |
+> | M3 | Data layer | 57 data tests pass |
+> | M4 | App shell | Running app with stop list, search, settings |
+> | M5 | Polished UI | Visual QA passes, APK under 2MB |
+> | M6 | CI pipeline | All CI jobs green |
+> | M7 | Production release | v1.0.x signed APK published |
 >
 > **Circuit breaker:** IF API latency exceeds 5 seconds for 3 consecutive calls THEN re-evaluate API choice.
 > **Contingency:** Ship M4 as v0.1.0 and defer polish if appetite exceeded.
@@ -444,7 +370,7 @@ E2E coverage: {{user journeys tested}}
 Framework: {{test framework}}
 ```
 
-### MESO — Per-Component Test Requirements
+**MESO — Per-Component Test Requirements:**
 
 ```
 | Module | Test Type | Target | Notes |
@@ -452,9 +378,7 @@ Framework: {{test framework}}
 | {{module}} | {{unit/integration/e2e}} | {{coverage or count}} | {{special requirements}} |
 ```
 
-### MICRO — Test Implementation Bounds
-
-_Fixture conventions, naming patterns, assertion style._
+**MICRO:** Fixture conventions, naming patterns, assertion style.
 
 > **Bus-Hop Example:**
 >
@@ -470,6 +394,7 @@ _Fixture conventions, naming patterns, assertion style._
 ---
 
 ## 9. Operational Resilience (Tier 2)
+
 > *Engineering-specific operations details moved to [Engineering Plugin](docs/engineering-plugin.md#2-operational--error-handling).*
 
 ### MACRO — Resilience Strategy
@@ -481,15 +406,8 @@ Recovery mechanism: {{how the system recovers}}
 Load handling: {{how the system behaves under stress}}
 ```
 
-### MESO — Component Resilience Contracts
+**MESO/MICRO:** How errors propagate between components (handled locally vs. escalated); error/log message format conventions. Engineering projects: see Engineering Plugin §2.
 
-_How errors propagate between components. What's handled locally vs. escalated._
-
-### MICRO — Error Implementation Bounds
-
-_Error message format, log line format, structured conventions._
-
-> *Engineering projects: see Engineering Plugin §2 for operational patterns including logging frameworks, metrics, alerts, and observability.*
 ---
 
 ## 10. Build & Release Pipeline (Tier 2)
@@ -502,13 +420,7 @@ Release cadence: {{continuous / scheduled / milestone-based}}
 Changelog: {{auto-generated / manual}}
 ```
 
-### MESO — Per-Component Release Requirements
-
-_Which components are released independently vs. together?_
-
-### MICRO — Release Implementation Bounds
-
-_Packaging commands, signing requirements, distribution channels._
+**MESO/MICRO:** Which components release independently vs. together; packaging commands, signing requirements, distribution channels.
 
 > **Bus-Hop Example:**
 >
@@ -525,7 +437,7 @@ _Packaging commands, signing requirements, distribution channels._
 _Every product surfaces to its audience through a set of distribution surfaces. Enumerate ALL of them and when each is built — do not retrofit the adoption engine after the core is done (ithmb lesson: website added on top of the codec instead of planned)._
 
 | Surface | Built when? | Purpose / audience |
-| ------- | ----------- | ------------------ |
+| --- | --- | --- |
 | Website / landing | {{when — often the ADOPTION ENGINE for open-core, not polish}} | {{converts visitors, ranks search terms}} |
 | Web-app / demo | {{when}} | {{interactive proof, e.g. WASM demo}} |
 | Docs site | {{when}} | {{API reference, tutorials}} |
@@ -539,22 +451,20 @@ Distribution surfaces differ by money tier: **library** = docs + examples + web 
 
 ## 11. Design for Change
 
-Intent: How does this project make goalpost shifts cheap instead of expensive?
+Intent: How does this project make goalpost shifts cheap instead of expensive? Before architecture decisions, note which design-for-change rules apply:
 
-Before architecture decisions, note which design-for-change rules apply:
-
-| Rule                                              | Applied? | How                                    |
-| ------------------------------------------------- | -------- | -------------------------------------- |
-| Interface Rule (no interface before 2nd consumer) | Yes/No   | [specific modules where this applies]  |
-| Test Rule (contract over implementation)          | Yes/No   | [test strategy]                        |
-| Module Boundary (single entry point)              | Yes/No   | [module structure]                     |
-| Size Rule (250/40 LOC limits)                     | Yes/No   | [enforcement mechanism]                |
-| Cycle Rule (shippable per cycle)                  | Yes/No   | [cycle length, what "shippable" means] |
-| Appetite Rule (time before scope)                 | Yes/No   | [time budget for this project]         |
-| AI Rule (same structural checks)                  | Yes/No   | [how AI code is reviewed]              |
-| Rule of Three (extract on 3rd)                    | Yes/No   | [abstraction strategy]                 |
-| Dependency Rule (core ≠ infra)                    | Yes/No   | [module dependency direction]          |
-| Clean Backlog (no perpetual)                      | Yes/No   | [how old ideas compete]                |
+| Rule | Applied? | How |
+| --- | --- | --- |
+| Interface Rule (no interface before 2nd consumer) | Yes/No | [specific modules where this applies] |
+| Test Rule (contract over implementation) | Yes/No | [test strategy] |
+| Module Boundary (single entry point) | Yes/No | [module structure] |
+| Size Rule (250/40 LOC limits) | Yes/No | [enforcement mechanism] |
+| Cycle Rule (shippable per cycle) | Yes/No | [cycle length, what "shippable" means] |
+| Appetite Rule (time before scope) | Yes/No | [time budget for this project] |
+| AI Rule (same structural checks) | Yes/No | [how AI code is reviewed] |
+| Rule of Three (extract on 3rd) | Yes/No | [abstraction strategy] |
+| Dependency Rule (core ≠ infra) | Yes/No | [module dependency direction] |
+| Clean Backlog (no perpetual) | Yes/No | [how old ideas compete] |
 
 ---
 
@@ -570,13 +480,7 @@ Examples: {{minimal working examples}}
 Migration guides: {{when needed}}
 ```
 
-### MESO — Per-Module Documentation Requirements
-
-_Doc comments required on public APIs? Example usage per module?_
-
-### MICRO — Documentation Format Bounds
-
-_Markdown style guide, doc comment format, example code style._
+**MESO/MICRO:** Doc comments required on public APIs? Example usage per module? Markdown style guide, doc comment format, example code style.
 
 > **Bus-Hop Example:**
 >
@@ -604,13 +508,7 @@ Plugin API: {{exists / planned / never}}
 Standards compliance: {{what standards the project follows}}
 ```
 
-### MESO — Integration Points
-
-_API contracts for plugins, data interchange formats, upstream/downstream dependencies._
-
-### MICRO — Contribution Bounds
-
-_PR requirements, review checklist, commit message conventions._
+**MESO/MICRO:** API contracts for plugins, data interchange formats, upstream/downstream dependencies. PR requirements, review checklist, commit message conventions.
 
 > **Bus-Hop Example:**
 >
@@ -635,7 +533,7 @@ Disclosure level: {{None | Minimal | Standard | Full}}
 Rationale: {{why this level was chosen}}
 ```
 
-### MESO — Tool Inventory
+**MESO — Tool Inventory:**
 
 ```
 | Tool | Version | Permitted Uses | Citation Format |
@@ -643,9 +541,7 @@ Rationale: {{why this level was chosen}}
 | {{tool}} | {{version}} | {{code gen / review / docs}} | {{commit trailer}} |
 ```
 
-### MICRO — Attribution Format
-
-_Commit message trailer format, file header format, documentation attribution._
+**MICRO:** Commit message trailer format, file header format, documentation attribution.
 
 > **Bus-Hop Example:**
 >
@@ -680,9 +576,6 @@ For engineering deliverables, also verify from the [Engineering Plugin](docs/eng
 - [ ] cargo-deny / deny.toml exists (Tier 2+)
 - [ ] Multi-platform CI matrix configured (plugin §3)
 - [ ] Test-to-source ratio meets 0.5× minimum
-
----
-
 
 ---
 

@@ -98,15 +98,46 @@ Prototype cheaply, learn what only building can teach, then decide. This matches
 
 **Confirmed:** YES — this is the goal.
 
-**Pacing Annex (from PACING.md):**
-Appetite: 1 week (~20h working time)
-Suggested phase budget:
-EXTRACTION: 1h | FUNDAMENTALS: 1h | DECOMPOSITION: 1h
-AMBITION: 2h | LANDSCAPE: 2h | STRATEGY: 1h | VALIDATION: 2h
-SPECIFICATION: 2h | EXECUTOR (incl. FINISH): 6h
-EXPLAINER: 1h | REVIEW (incl. SPEC_SYNC): 1h
-Buffer: 2h (10% contingency)
-Human confirms or adjusts. Baseline recorded in .omo/pacing-track.md.
+## Pacing & Budget (folded from PACING.md)
+
+Budget is allocated and locked here, alongside the scope. Track actuals after each phase in `.omo/pacing-track.md`.
+
+**Default phase budgets (% of appetite):**
+
+| Phase | % | Human/AI | Session budget |
+|---|---|---|---|
+| EXTRACTION | 5% | Human-heavy | 1 session, ≤90 min |
+| FUNDAMENTALS (incl. MULTI) | 5% | Mixed | 1 session |
+| DECOMPOSITION | 5% | Mixed | 1 session |
+| AMBITION (incl. PACING) | 10% | Human-heavy | Max 3 rounds/session |
+| LANDSCAPE | 10% | AI-heavy | 1-2 sessions |
+| STRATEGY | 5% | Mixed (human ratifies) | 1 session |
+| VALIDATION | 10% | AI-heavy | 1 spike, fresh context |
+| SPECIFICATION | 10% | Mixed | 1-2 sessions |
+| EXECUTOR (incl. FINISH) | 30% | AI-very-heavy | Per milestone; FINISH reserves 20-30% |
+| REVIEW (incl. EXPLAINER + SPEC_SYNC) | 10% | AI-heavy (independent) | 1 fresh session |
+
+**Adjustment rule:** if appetite < 40h, EXECUTOR gets 40% and prep phases compress proportionally; if appetite ≥ 6 weeks, prep phases expand to absorb the larger budget.
+
+**Tracking:** after each phase, log budget/actual/delta in `.omo/pacing-track.md`; cumulative delta carries forward; a phase >50% over budget fires a **Pace Alert** → diagnose (unrealistic budget / scope creep / verification tax) → adjust (transfer budget from a later phase, reduce scope, or extend appetite with explicit override).
+
+**Session boundaries:** per-phase max turns/reads, compact at limit (EXTRACTION 20/10, AMBITION 30/15, LANDSCAPE 50/40, VALIDATION 40/30, SPECIFICATION 40/30, EXECUTOR per-milestone, REVIEW 30/10). Context-decay signals — inconsistent naming, repeated questions, ignoring recent edits, loss of ask-before-destructive instinct — trigger proactive compaction, never wait for 95%.
+
+**Session-isolation hard stops** (magic-spec pattern): EXTRACTION→FUNDAMENTALS, AMBITION→LANDSCAPE, LANDSCAPE→STRATEGY, EXECUTOR→REVIEW, REFLECT→next cycle — fresh session mandatory at each.
+
+**Human energy rules:** max 3 AMBITION rounds per session; POLISH during peak hours; 30 min recovery between human-heavy phases; EXTRACTION separated from AMBITION by ≥1h.
+
+**Macro pacing (>2 weeks):** Cycle (4-6 weeks, one milestone, shipped artifact) → Cool-down (1 week: bug fixes, deps, POLISH/REVIEW for prior cycle) → Betting (cycle start; items compete fresh; no auto-extension). Circuit breaker: late cycle → drop and re-shape unless all remaining work is downhill, scope is hammered, and human override is recorded.
+
+**Effort estimation:** T-shirt S/M/L/XL (<1h / 1-4h / 4-8h / >8h) for early milestones; decomposition (sum sub-tasks) for locked specs; reference-class for repetitive work. Calibrate after 3 milestones by average error. Estimates are ranges, not promises.
+
+**Cost tracking:** human time + AI compute (session, model, tokens) + felt effort (low/med/high) logged per phase; combined cost >150% of phase budget = Pace Alert. A durable mismatch between process effort and work value is a Pace Alert + REVIEW input — Effortlessness applies to the protocol's own execution.
+
+**Probabilistic forecasting (future):** once 5+ projects of actual-vs-estimate data exist, replace deterministic budgets with Monte Carlo distributions.
+
+**Example** (this protocol's own run): appetite 1 week (~20h); EXTRACTION 1h | FUNDAMENTALS 1h | DECOMPOSITION 1h | AMBITION 2h | LANDSCAPE 2h | STRATEGY 1h | VALIDATION 2h | SPECIFICATION 2h | EXECUTOR 6h | REVIEW 1h; buffer 2h (10%).
+
+Human confirms or adjusts; baseline recorded in `.omo/pacing-track.md`.
 ---
 
 ## Exit Criteria

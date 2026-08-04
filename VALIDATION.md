@@ -10,9 +10,9 @@
 
 ## When to Use This
 
-You've completed AMBITION.md (Gate 1 — goal is clear), LANDSCAPE.md (research done), and PACING.md (phase budget allocated). You have unknowns that only building can reveal. This gate tests those unknowns cheaply before you commit to the full build.
+You've completed AMBITION.md (Gate 1 — goal clear + phase budget, PACING folded), LANDSCAPE.md (research done). You have unknowns that only building can reveal. This gate tests those unknowns cheaply before you commit to the full build.
 
-**Prep-pipeline arrival:** You have a falsifiable hypothesis from AMBITION.md, identified unknowns from LANDSCAPE.md, ratified intent from STRATEGY.md, and a phase budget from PACING.md. Skip directly to SPIKE design.
+**Prep-pipeline arrival:** You have a falsifiable hypothesis from AMBITION.md, identified unknowns from LANDSCAPE.md, ratified intent from STRATEGY.md, and a phase budget from AMBITION.md (PACING folded). Skip directly to SPIKE design.
 
 **Fresh-start:** No prep done. Start with the loop below.
 
@@ -106,7 +106,7 @@ When multiple approaches could work or the core assumption has several independe
 
 **Entry-Point Routing:**
 - **Fresh-start users:** Begin with IDEA GENERATION → FILTER → SPIKE
-- **Prep-pipeline arrivals:** Skip to SPIKE with your pre-existing hypotheses — from AMBITION.md (falsifiable hypothesis), LANDSCAPE.md (identified unknowns), STRATEGY.md (ratified intent), and PACING.md (phase budget) all in hand.
+- **Prep-pipeline arrivals:** Skip to SPIKE with your pre-existing hypotheses — from AMBITION.md (falsifiable hypothesis), LANDSCAPE.md (identified unknowns), STRATEGY.md (ratified intent), and AMBITION.md (phase budget, PACING folded) all in hand.
 
 ### Step 4: Test (1 Hour)
 
@@ -143,11 +143,7 @@ Each criterion has a weight. Core assumption validation is the MOST important �
 - **KILL:** Core assumption Fail (score 0-2) OR total score < 12
 - **MIXED:** The spike with the highest weighted score wins. Don't average.
 
-**Sufficiency Checkpoint (Actionability):** before executing COMMIT — "Is this ~80%
-enough to commit to building v1 NOW?" The user ratifies the ship decision (ship or
-defer + one-sentence reason), durability-weighted: ship the smallest version that
-still holds its ground. One-way doors and reputation-critical decisions are exempt —
-gather deliberately (per landscape R4). Log the decision to the method ledger; REVIEW
+**Sufficiency Checkpoint (Actionability):** before executing COMMIT — "Is this ~80% enough to commit to building v1 NOW?" The AI judges ship-or-defer (defer + one-sentence reason), durability-weighted: ship the smallest version that still holds its ground. Default-autonomous and ledger-logged; the user gate re-engages iff the outcome is PIVOT/KILL or the decision crosses a one-way door (Invariant 11). One-way doors and reputation-critical decisions are exempt — gather deliberately (per landscape R4). Log the decision to the method ledger; REVIEW
 conformance catches a missing entry.
 
 The weighted scoring prevents the common failure mode of "everything looks OK except the one thing that matters."
@@ -229,7 +225,7 @@ Recognize these patterns:
 
 ## Relationship to RULES.md
 
-VALIDATION.md is the **central decision gate** in the PREP PHASE pipeline. It runs after AMBITION.md, LANDSCAPE.md, STRATEGY.md, and PACING.md, and before SPECIFICATION.md and EXECUTOR.md.
+VALIDATION.md is the **central decision gate** in the PREP PHASE pipeline. It runs after AMBITION.md (incl. PACING), LANDSCAPE.md, and STRATEGY.md, and before SPECIFICATION.md and EXECUTOR.md.
 
 Once VALIDATION produces a COMMIT decision, the learnings (NOT code) flow into SPECIFICATION.md, which produces the locked execution specification. EXECUTOR.md then hands off to RULES.md for autonomous execution.
 
@@ -237,7 +233,7 @@ The spike prototype remains throwaway — DO NOT carry code into the real projec
 
 ```
 PREP PHASE:
-AMBITION.md → LANDSCAPE.md → STRATEGY.md → PACING.md → VALIDATION.md (GATE 2) → SPECIFICATION.md → EXECUTOR.md → RULES.md
+AMBITION.md (incl. PACING) → LANDSCAPE.md → STRATEGY.md → VALIDATION.md (GATE 2) → SPECIFICATION.md → EXECUTOR.md → RULES.md
 ```
 
 ---

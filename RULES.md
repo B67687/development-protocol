@@ -23,31 +23,26 @@
 | 11. | [Known Failure Patterns](#11-known-failure-patterns)
 | 12. | [Session Kickoff](#12-session-kickoff)
 
-> **Not sure what to build, or have a raw intent? (prep-phase)**
-> Enter the **PREP PHASE** — a structured sequence with **three decision gates**
-> that prevent goalpost drift before you commit to the full build:
+> **Not sure what to build, or have a raw intent? (prep-phase)** Enter the **PREP PHASE** — a structured sequence with **three decision gates** that prevent goalpost drift before you commit to the full build:
 >
-> **Gate 0 — EXTRACTION:** [EXTRACTION.md](EXTRACTION.md) — Extract X (real problem) from Y (stated solution).
-> 10 proven techniques. If you can describe the problem without solution words, pass.
-
-> **Fundamentals Check:** [FUNDAMENTALS.md](FUNDAMENTALS.md) — Identify one-way door decisions,
-> validate with minimum prototype, detect LLM bias. Prevents wrong-foundation failures.
-
-> **Gate 1 — AMBITION Dialogue:** [AMBITION.md](AMBITION.md) — Clarify your intent via Socratic back-and-forth until the goal is falsifiable and both parties agree.
+> **Gate 0 — EXTRACTION:** [EXTRACTION.md](EXTRACTION.md) — Extract X (real problem) from Y (stated solution). 10 proven techniques. If you can describe the problem without solution words, pass.
+>
+> **Fundamentals Check:** [FUNDAMENTALS.md](FUNDAMENTALS.md) — Identify one-way door decisions, validate with minimum prototype, detect LLM bias. Prevents wrong-foundation failures.
+>
+> **Gate 1 — AMBITION Dialogue:** [AMBITION.md](AMBITION.md) — Clarify intent via Socratic back-and-forth until the goal is falsifiable and both parties agree.
+> **Pacing:** phase budgets are set inside AMBITION (PACING folded).
 > **Research:** [LANDSCAPE.md](LANDSCAPE.md) — Map existing solutions and identify unknowns.
-> **Pacing:** [PACING.md](PACING.md) — Decompose total appetite into phase budgets.
+> **Multi:** [FUNDAMENTALS.md](FUNDAMENTALS.md) § MULTI — probe the problem from 3+ disciplines for blind spots.
+> **Decomposition:** [DECOMPOSITION.md](DECOMPOSITION.md) — Cynefin classify + MECE tree → KNOWN/RESEARCH/PROTOTYPE.
+> **Strategy:** [STRATEGY.md](STRATEGY.md) — Rumelt kernel; human ratifies before execution (the single ratification gate, Invariant 11).
 > **Gate 2 — Prototyping:** [VALIDATION.md](VALIDATION.md) — Rapid throwaway prototypes, then KILL/PIVOT/COMMIT based on evidence, not enthusiasm.
 > **Seriousness:** [SERIOUSNESS.md](SERIOUSNESS.md) — kill criteria; drop weak ideas before they cost. Skippable ONLY for protocol-improvement recursion (Invariant 4).
-> **Multi:** [MULTI.md](MULTI.md) — probe the problem from 3+ disciplines for blind spots.
-> **Decomposition:** [DECOMPOSITION.md](DECOMPOSITION.md) — Cynefin classify + MECE tree → KNOWN/RESEARCH/PROTOTYPE.
-> **Strategy:** [STRATEGY.md](STRATEGY.md) — Rumelt kernel; human ratifies before execution.
 >
 > If COMMIT: [SPECIFICATION.md](SPECIFICATION.md) — Lock the plan (16 sections §0-15, frozen after this).
 > [EXECUTOR.md](EXECUTOR.md) — Hand off for execution. Includes POLISH (human final pass) post-execution.
-> [EXPLAINER.md](docs/EXPLAINER.md) — AI-generated architecture explainer for non-coder verification.
-> [REVIEW.md](REVIEW.md) — **Meta-review gate**: independent agent audits protocol compliance. Includes SPEC_SYNC (spec-to-code fidelity).
+> [REVIEW.md](REVIEW.md) — **Meta-review gate**: independent agent audits protocol compliance; generates the EXPLAINER (per docs/EXPLAINER.md) and runs SPEC_SYNC (spec-to-code fidelity).
 > **Single-source-of-truth:** RULES.md always wins on conflicts between protocol documents.
-> **Recursion meta-rule:** Every step in this protocol is recursive. If the output of a step is still ambiguous after one pass, apply the step again at a deeper level. Most problems resolve within 2-3 recursions. If 3 recursions still don't converge, the problem needs a different framing (not deeper iteration of the same framing).
+> **Recursion meta-rule:** Every step is recursive — if a step's output is still ambiguous after one pass, apply it again deeper. Most problems resolve in 2-3 recursions. If 3 still don't converge, the problem needs a different framing (not deeper iteration of the same framing).
 
 ## 1. Project Type Routing
 
@@ -55,7 +50,7 @@ The protocol is NOT a fixed pipeline — it's a routing system that selects the 
 
 ```
 ├── NO — I'm not sure yet, or I have a raw intent
-│   └── PREP PHASE — Follow the prep sequence above (EXTRACTION -> SERIOUSNESS -> FUNDAMENTALS -> MULTI -> DECOMPOSITION -> AMBITION -> LANDSCAPE -> STRATEGY -> PACING -> VALIDATION -> SPECIFICATION -> EXECUTOR)
+│   └── PREP PHASE — Follow the prep sequence above (EXTRACTION -> SERIOUSNESS -> FUNDAMENTALS (incl. MULTI) -> DECOMPOSITION -> AMBITION (incl. PACING) -> LANDSCAPE -> STRATEGY -> VALIDATION -> SPECIFICATION -> EXECUTOR)
 │       (Output: SPECIFICATION.md → enter routing below)
 └── YES — I know what I'm building
     │
@@ -84,21 +79,18 @@ The protocol is NOT a fixed pipeline — it's a routing system that selects the 
 
 ### Sub-Cycle Routing (Recursive Protocol)
 
-Every dimension in the MECE tree gets a **Level of Care** (see DECOMPOSITION.md).
-If a dimension is Level 3 or higher, start a NEW protocol cycle for it:
+Every dimension in the MECE tree gets a **Level of Care** (see DECOMPOSITION.md). If a dimension is Level 3 or higher, start a NEW protocol cycle for it:
 
 ```
 NEW SESSION (fresh context)
   │
   ├── Inherits: parent project's X, one-way doors, appetite
   ├── Own scope: the sub-component only
-  ├── Pipeline: AMBITION → LANDSCAPE → STRATEGY → PACING → VALIDATION → SPECIFICATION → EXECUTOR (incl. POLISH) → EXPLAINER → REVIEW (incl. SPEC_SYNC) → REFLECT
+  ├── Pipeline: AMBITION (incl. PACING) → LANDSCAPE → STRATEGY → VALIDATION → SPECIFICATION → EXECUTOR (incl. POLISH) → REVIEW (incl. EXPLAINER + SPEC_SYNC) → REFLECT
   └── Output: sub-component spec + code → integrated back into parent
 ```
 
-The sub-cycle is NOT a full EXTRACTION — the parent already validated the problem.
-It starts at AMBITION (set appetite for the sub-component) and goes through REVIEW.
-The parent project integrates the sub-component's output at the POLISH phase.
+The sub-cycle is NOT a full EXTRACTION — the parent already validated the problem. It starts at AMBITION (set appetite for the sub-component) and goes through REVIEW; the parent integrates the output at POLISH.
 
 ## 2. Intent Decomposition (Recursive Breakdown)
 
@@ -112,8 +104,6 @@ The parent project integrates the sub-component's output at the POLISH phase.
 > 3. User confirmation gate (confirm each level)
 > 4. Convergence (stop when every leaf fits one session)
 >    **Key rule:** If still unknown after 3 levels, it is Complex. Assign to prototype.
-
----
 
 ---
 
@@ -220,9 +210,7 @@ Define this at bootstrap. It locks when you enter WORK. It does NOT lock during 
 
 ### Learning Shift (documented discovery)
 
-Goalpost shifts are not failures. They are evidence that you learned something
-during WORK that you could not have known before. This is a success of the protocol,
-not a breakdown. The protocols job is to make that shift cheap.
+Goalpost shifts are not failures — they're evidence you learned something during WORK that you could not have known before. The protocol's job is to make that shift cheap.
 
 When a shift happens, document it:
 
@@ -234,9 +222,7 @@ LEARNING SHIFT
   What this enables: [why the shift is worth it]
 ```
 
-Shifts are recorded in `.omo/shift-log.md`. Up to 5 shifts per project (up from 3 in v2.
-Shifts are learning, not failures). After 5 shifts, consider starting a fresh cycle
-rather than continuing to shift the same project.
+Shifts are recorded in `.omo/shift-log.md`. Up to 5 shifts per project (up from 3 in v2 — shifts are learning, not failures). After 5 shifts, consider starting a fresh cycle rather than continuing to shift the same project.
 
 ---
 
@@ -284,21 +270,18 @@ The AI MUST stop and ask before proceeding if ANY of these are true:
 
 ## 8. Verification Gates
 
-| Phase          | Must pass before reporting done                                           |
-| -------------- | ------------------------------------------------------------------------- |
-| **DISCOVER**   | Research summary complete, hypothesis tested, decision reached            |
-| **WORK**       | `[compile command]` + `[test command]` passes + tests written BEFORE code |
-| **ITERATE**    | Real-device test + UX convergence (3 rounds without meaningful change)    |
-| **             | **PERFECT**                                                               | Full lint + full test suite + forbidden-pattern audit + Constitution compliance + **SPEC SYNC** |
-| **DISTRIBUTE** | Spellcheck + link check + format conformance                              |
+| Phase | Must pass before reporting done |
+| --- | --- |
+| **DISCOVER** | Research summary complete, hypothesis tested, decision reached |
+| **WORK** | `[compile command]` + `[test command]` passes + tests written BEFORE code |
+| **ITERATE** | Real-device test + UX convergence (3 rounds without meaningful change) |
+| **PERFECT** | Full lint + full test suite + forbidden-pattern audit + Constitution compliance + **SPEC SYNC** |
+| **DISTRIBUTE** | Spellcheck + link check + format conformance |
 
 ### SPEC SYNC (Spec-to-Code Fidelity Gate — now part of REVIEW.md)
 
-Merged into REVIEW.md during structural reorganization. Original SPEC_SYNC.md file reduced to stub redirecting to REVIEW.md.
+The spec-to-code fidelity verification gate runs after POLISH and before DISTRIBUTE: it compares the specification against the as-built codebase, catalogues discrepancies as MISSING/OUTDATED/NEW, and ensures the live spec always reflects the as-built state. See REVIEW.md § Spec-to-Code Fidelity Check for the full research-backed protocol, verification checklist, and discrepancy recovery procedure.
 
-The spec-to-code fidelity verification gate that runs after POLISH and before DISTRIBUTE. It compares the specification against the as-built codebase, catalogues discrepancies as MISSING/OUTDATED/NEW, and ensures the live spec always reflects the as-built state.
-
-See REVIEW.md § Spec-to-Code Fidelity Check for the full research-backed protocol, verification checklist, and discrepancy recovery procedure.
 ---
 
 ## 9. Test Philosophy
@@ -358,9 +341,7 @@ Phase Exit: [phase name]
    - Would you use the same phase sequence again? [if no, note why]
 ```
 
-**Notes:** The protocol improves through self-audit. The dry run of Bus-Hop and Ithmb-Codec
-showed that the 3-file limit and 200-line cap help in STANDARD projects but can slow down
-PORT projects where the code is already known. Adjust rules per project type as patterns emerge.
+**Notes:** The protocol improves through self-audit. The dry run of Bus-Hop and Ithmb-Codec showed that the 3-file limit and 200-line cap help in STANDARD projects but can slow down PORT projects where the code is already known. Adjust rules per project type as patterns emerge.
 
 ---
 
@@ -372,46 +353,45 @@ PORT projects where the code is already known. Adjust rules per project type as 
 
 ### FP-CAT-1: Scope Expansion
 
-| ID     | Pattern                | Description                                                                                     |
-| ------ | ---------------------- | ----------------------------------------------------------------------------------------------- |
-| FP-001 | Feature Creep          | AI adds "helpful" features not in scope because nothing explicitly forbids them                 |
-| FP-002 | Polish Trap            | Polishing before core works — triggered by AI suggesting cosmetic improvements                  |
-| FP-003 | Rabbit Hole            | Deep optimization of something that might be removed                                            |
+| ID | Pattern | Description |
+| --- | --- | --- |
+| FP-001 | Feature Creep | AI adds "helpful" features not in scope because nothing explicitly forbids them |
+| FP-002 | Polish Trap | Polishing before core works — triggered by AI suggesting cosmetic improvements |
+| FP-003 | Rabbit Hole | Deep optimization of something that might be removed |
 | FP-004 | Learning Shift Cascade | One shift leads to another because the first reveals new information instead of inconsistencies |
 
 ### FP-CAT-2: Quality
 
-| ID     | Pattern            | Description                                                               |
-| ------ | ------------------ | ------------------------------------------------------------------------- |
-| FP-010 | Tautological Tests | Tests that pass on first run and only confirm what code already does      |
-| FP-011 | Missing Edge Cases | Happy path works, edge cases crash silently                               |
+| ID | Pattern | Description |
+| --- | --- | --- |
+| FP-010 | Tautological Tests | Tests that pass on first run and only confirm what code already does |
+| FP-011 | Missing Edge Cases | Happy path works, edge cases crash silently |
 | FP-012 | Security Blindness | AI generates functional code that skips auth, validation, or sanitization |
-| FP-013 | Dependency Bloat   | Adding a library instead of writing 5 lines of code                       |
-| FP-014 | Context Decay      | Later AI sessions contradict earlier decisions because context was lost   |
+| FP-013 | Dependency Bloat | Adding a library instead of writing 5 lines of code |
+| FP-014 | Context Decay | Later AI sessions contradict earlier decisions because context was lost |
 
 ### FP-CAT-3: Process
 
-| ID     | Pattern              | Description                                                                   |
-| ------ | -------------------- | ----------------------------------------------------------------------------- |
-| FP-020 | Phase Drift          | Working on DISTRIBUTE tasks during WORK phase without realizing it            |
-| FP-021 | Silent Pivot         | Changing the approach without documenting or approving the change             |
-| FP-022 | Assumption Hardening | Early assumptions become locked-in without being verified                     |
-| FP-023 | Review Debt          | AI generates more code than can be reviewed, creating an accumulating backlog |
-| FP-024 | Confident Wrongness  | Code compiles, runs, and is subtly incorrect — the hardest pattern to catch   |
+| ID | Pattern | Description |
+| --- | --- | --- |
+| FP-020 | Phase Drift | Working on DISTRIBUTE tasks during WORK phase without realizing it |
+| FP-021 | Silent Pivot | Changing the approach without documenting or approving the change |
+| FP-022 | Assumption Hardening | Early assumptions become locked-in without being verified |
+| FP-023 | Review Debt | AI generates more code than can be reviewed, creating an accumulating backlog |
+| FP-024 | Confident Wrongness | Code compiles, runs, and is subtly incorrect — the hardest pattern to catch |
 
 ### FP-CAT-4: Protocol Governance
 
-| ID     | Pattern             | Description                                                                              |
-| ------ | ------------------- | ---------------------------------------------------------------------------------------- |
-| FP-030 | Rule Rigidity       | Protocol rules that help general cases actively slow down specific project types         |
-| FP-031 | Over-governance     | Spending more time managing the protocol than building the product                       |
-| FP-032 | Self-Audit Skipping | Rushing phase exits without running the self-audit                                       |
-| FP-033 | Routing Error       | Choosing the wrong route at bootstrap, forcing the project into the wrong phase sequence |
+| ID | Pattern | Description |
+| --- | --- | --- |
+| FP-030 | Rule Rigidity | Protocol rules that help general cases actively slow down specific project types |
+| FP-031 | Over-governance | Spending more time managing the protocol than building the product |
+| FP-032 | Self-Audit Skipping | Rushing phase exits without running the self-audit |
+| FP-033 | Routing Error | Choosing the wrong route at bootstrap, forcing the project into the wrong phase sequence |
 
 ### Using Failure Patterns
 
 When the AI recognizes a failure pattern, it MUST:
-
 1. Flag it: "Warning: this looks like FP-001 (Feature Creep)."
 2. Explain why: "You asked for a login form, but I'm generating password recovery. This was not in scope."
 3. Stop and ask: "Should I continue with this, or revert to the original scope?"
@@ -436,7 +416,6 @@ If blocked, refuse and explain. If clear, proceed."
 ## After Project: Close the Feedback Loop
 
 The protocol improves with each project. After shipping:
-
 1. **Routing check** — Did the bootstrap routing choose the right path? If not, update the decision tree.
 2. **Phase gate review** — Did phases have the right boundaries? Too strict or too loose? Adjust.
 3. **Stop rule audit** — Did the stop rules fire when needed? Any false negatives? Tighten.
@@ -445,7 +424,7 @@ The protocol improves with each project. After shipping:
 
 Run the Phase Exit Checklist (Section 9) one last time at project end, then update this file.
 
-**Tool-first governance (meta):** The protocol enforces a tool-first rule on AI executors (Section 5 — tool-first constraint). This same principle applies to anyone executing or planning with this protocol. If a deterministic tool handles a task better than a reasoning agent, use the tool. Grep instead of reading every file. `cargo fmt` instead of manually formatting. A compiler instead of guessing types. The protocol improves when its own executors follow the same rules they enforce.
+**Tool-first governance (meta):** The protocol enforces a tool-first rule on AI executors (Section 5 — tool-first constraint). The same principle applies to anyone executing or planning with this protocol: if a deterministic tool handles a task better than a reasoning agent, use the tool. Grep instead of reading every file. `cargo fmt` instead of manually formatting. A compiler instead of guessing types. The protocol improves when its own executors follow the same rules they enforce.
 
 ---
 
@@ -453,21 +432,12 @@ Run the Phase Exit Checklist (Section 9) one last time at project end, then upda
 
 Current: v2.2.0
 
-v2.2 adds: Two-gate architecture — AMBITION dialogue (Gate 1: is the goal clear enough?) and VALIDATION prototyping gate (Gate 2: should we build this?). The prototyping gate is now the central decision mechanism. Revised AMBITION.md as a Socratic dialogue protocol with 6 rounds (appetite through lock).
+v2.2 adds: Two-gate architecture — AMBITION dialogue (Gate 1: is the goal clear enough?) and VALIDATION prototyping gate (Gate 2: should we build this?). The prototyping gate is now the central decision mechanism. AMBITION.md revised as a 6-round Socratic dialogue (appetite through lock).
 
->
-
-v2.0 adds: Constitution (immutable project DNA), Test Philosophy (test-first enforcement),
-Failure Patterns catalog (20 documented AI failure modes), Evolution/Phase Exit reflection,
-improved phase definitions, and enhanced stop rules.
+v2.0 adds: Constitution (immutable project DNA), Test Philosophy (test-first enforcement), Failure Patterns catalog (20 documented AI failure modes), Evolution/Phase Exit reflection, improved phase definitions, and enhanced stop rules.
 
 ---
 
 ## Origin
 
-Extracted from Ithmb-Codec C# (3 weeks, 436 commits) and Rust (1 month, 321 commits),
-Bus-Hop (Kotlin, 2.5 months, 249 commits) — across ~1,000 real commits.
-Synthesized from 30+ research sources across 6 research agents covering:
-Shape Up, Cascade Methodology, Spec-Driven Development (GitHub Spec Kit, sdd-pilot, PAW),
-AI governance frameworks (ai-project-governance, Meta_Kim, Superpowers, AIAgentMinder),
-AGENTS.md standards (arXiv:2601.20404, arXiv:2602.11988), and bootstrap tooling patterns.
+Extracted from Ithmb-Codec C# (3 weeks, 436 commits) and Rust (1 month, 321 commits), Bus-Hop (Kotlin, 2.5 months, 249 commits) — across ~1,000 real commits. Synthesized from 30+ research sources across 6 research agents covering: Shape Up, Cascade Methodology, Spec-Driven Development (GitHub Spec Kit, sdd-pilot, PAW), AI governance frameworks (ai-project-governance, Meta_Kim, Superpowers, AIAgentMinder), AGENTS.md standards (arXiv:2601.20404, arXiv:2602.11988), and bootstrap tooling patterns.

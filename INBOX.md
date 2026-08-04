@@ -26,7 +26,7 @@ If the protocol fits, pick the run shape. Default when unsure: **Standard**.
 
 | Mode | Use when | Run shape |
 | --- | --- | --- |
-| **Light** | Small, well-scoped, reversible work (single fix, small script) | Simplified pass: capture → extraction-lite → implement → verify. Skip heavyweight steps (FUNDAMENTALS/MULTI/AMBITION/LANDSCAPE/STRATEGY) unless a gate flags risk. **Verification floor never skipped**: review + targeted tests stay. One-way doors (schema/API/data/security) → Standard regardless of size. Escalate/re-triage if the work grows past its bounds.
+| **Light** | Small, well-scoped, reversible work (single fix, small script) | Simplified pass: capture → extraction-lite → implement → verify. Skip heavyweight steps (FUNDAMENTALS/AMBITION/LANDSCAPE/STRATEGY) unless a gate flags risk. **Verification floor never skipped**: review + targeted tests stay. One-way doors (schema/API/data/security) → Standard regardless of size. Escalate/re-triage if the work grows past its bounds.
 | **Standard** (default) | Everything else | The full pipeline as documented. |
 | **Brownfield** | Work in an existing project not built with the protocol | **Bounded reanchor pass first**: AI reads the repo, proposes a compressed goals/philosophy/point statement, user corrects/ratifies it, THEN EXTRACTION proceeds with the reanchored framing. Timeboxed — ends in the ratified statement, never open-ended.
 
@@ -193,7 +193,7 @@ previously had no concept of multi-project trajectory or strategic patience.
 The pipeline becomes:
 
 ```
-RAW INTENT → [INBOX] → [PRIORITIZE (optional)] → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → MULTI → DECOMPOSITION → AMBITION → LANDSCAPE → STRATEGY → PACING → VALIDATION → SPECIFICATION → EXECUTOR (incl. POLISH) → EXPLAINER → REVIEW (incl. SPEC_SYNC) → REFLECT → ship
+RAW INTENT → [INBOX] → [PRIORITIZE (optional)] → EXTRACTION → SERIOUSNESS → FUNDAMENTALS (incl. MULTI) → DECOMPOSITION → AMBITION (incl. PACING) → LANDSCAPE → STRATEGY → VALIDATION → SPECIFICATION → EXECUTOR (incl. POLISH) → REVIEW (incl. EXPLAINER + SPEC_SYNC) → REFLECT → ship
 ```
 
 The `.omo/inbox/parked/` directory accumulates over sessions — enabling pattern detection of recurring concerns.

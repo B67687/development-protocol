@@ -114,14 +114,14 @@ Before proceeding to DECOMPOSITION, check whether you (or the team) have the ski
 
 | Capability | Check | Mitigation if Missing |
 | --- | --- | --- |
-| **Domain knowledge** | Do you understand the problem domain well enough to evaluate solutions? | Add a learning phase to PACING or schedule a domain expert consultation. |
+| **Domain knowledge** | Do you understand the problem domain well enough to evaluate solutions? | Add a learning phase to the AMBITION budget or schedule a domain expert consultation. |
 | **Technical skills** | Does the team have experience with the chosen tech stack? | Factor learning curve into appetite. Consider spikes for unfamiliar tools. |
 | **Tooling/infrastructure** | Do you have the build tools, CI, hosting, and test environment ready? | Add infra setup to project scope. Do not assume it "just works." |
 | **External dependencies** | Are the libraries, APIs, or services you depend on stable and available? | Validate dependency readiness before DECOMPOSITION. Add fallback options. |
 | **Legal/compliance** | Are there licensing, regulatory, or compliance constraints? | Flag for FUNDAMENTALS Step 1 as a potential one-way door decision. |
-| **Self-assessment calibration** | Rate your confidence in each capability above (1-5). Then explain the domain in your own words — AI checks if explanation depth matches confidence. | Gap between confidence score and explanation quality reveals unknown unknowns. High confidence + vague explanation = Dunning-Kruger signal. Add learning phase to PACING. |
+| **Self-assessment calibration** | Rate your confidence in each capability above (1-5). Then explain the domain in your own words — AI checks if explanation depth matches confidence. | Gap between confidence score and explanation quality reveals unknown unknowns. High confidence + vague explanation = Dunning-Kruger signal. Add learning phase to the AMBITION budget. |
 
-If a capability gap would block execution, add it as a prerequisite step in PACING. Do not proceed to DECOMPOSITION with known capability gaps — they will compound during execution.
+If a capability gap would block execution, add it as a prerequisite step in the AMBITION budget. Do not proceed to DECOMPOSITION with known capability gaps — they will compound during execution.
 ## Validation Depth Decision Tree
 
 ```
@@ -191,12 +191,65 @@ and primarily useful for:
 - **Technology stacks that constrain future choices** — any build on a platform whose
   migration cost increases with adoption depth
 
+## MULTI — Multidisciplinary Probe (folded from MULTI.md)
+
+> Purpose: before committing to a decomposition strategy, check whether perspectives from OTHER fields (ethics, psychology, economics, ecology, design, sociology, law) have been considered. Without this, non-technical factors that determine real-world success are discovered too late.
+
+**Step 1 — Domain Relevance Filter** (1 min). Classify the problem to select disciplines:
+
+| Problem Type | Relevant Disciplines |
+|---|---|
+| User-facing product | + Psychology, Design, Ethics |
+| Data-intensive system | + Ethics, Law, Economics |
+| Platform/marketplace | + Economics, Sociology, Ecology |
+| AI/ML system | + Ethics, Psychology, Law, Philosophy |
+| Infrastructure/tool | + Economics, Security |
+| Health/safety system | + Ethics, Medicine, Law |
+| Public-facing service | + Sociology, Accessibility, Law |
+| Internal/automation tool | + Psychology (team dynamics) |
+
+If not in table, use CATWOE (from EXTRACTION): "Who is directly affected? Indirectly? Regulators or watchdogs?"
+
+**Step 2 — Quick Probes** (3-5 min). Pick 2-3 disciplines, ONE question each:
+
+- **Ethics:** "Who could be harmed? What values (privacy, autonomy, fairness, dignity) are at stake?"
+- **Psychology:** "What cognitive biases might this exploit or create? Does it respect user attention?"
+- **Economics:** "What incentives does this create? Who captures the value? What does it replace?"
+- **Ecology:** "Environmental footprint? Does it encourage waste or resource consolidation?"
+- **Design:** "Is the fundamental interaction intuitive? Does it respect the user's goals or the system's?"
+- **Sociology:** "How does this affect social dynamics, power structures, or community cohesion?"
+- **Law/Regulation:** "Compliance requirements, data protection obligations, liability implications?"
+- **Medicine/Health:** "Could this affect physical or mental wellbeing, even indirectly?"
+- **Accessibility:** "Does this assume able-bodied users? What happens for users with different capabilities?"
+
+**Step 3 — Flag and Route** (1 min):
+
+| Outcome | Action |
+|---|---|
+| No concerns | Proceed to DECOMPOSITION |
+| Light flags | Document in .omo/plans/multi-findings.md; address in SPECIFICATION non-goals/constraints |
+| Serious flags | Run Value Scenario (Step 4) before DECOMPOSITION |
+
+**Step 4 — Value Scenario** (escalation, 5 min). If serious concerns flagged: write a 3-sentence story of a realistic use case where a non-technical value is at stake; then answer "What would we need to change in the design to prevent this?"
+
+```
+Example: "A student uses Oh-My-Learner to study for exams. The system schedules review at 2 AM because it maximizes retention based on SM-2. The student loses sleep, performs worse, and blames the tool for poor exam results."
+```
+
+**Escalation:** Light (Step 2 only, 3-5 min) → Medium (Steps 2+3, 5-10 min) → Heavy (Steps 2+3+4, 10-15 min, for health/finance/AI/children/vulnerable populations).
+
+**Design principles:** (1) relevance filter first — not all disciplines apply; (2) flag, don't gate — surface concerns, don't block; (3) escalation path — most problems stop at Light; (4) CATWOE in EXTRACTION handles stakeholders; MULTI adds the cross-disciplinary lens.
+
+MULTI findings feed: SPECIFICATION (non-goals, constraints, design for change), REVIEW (flagged concerns addressed), REFLECT (did the protocol catch blind spots?).
+
+**Provenness:** Domain Relevance Filter — custom; Quick Probes + Value Scenario — Value Sensitive Design (Friedman & Hendry); CATWOE — Checkland Soft Systems Methodology.
+
 ## Integration
 
 FUNDAMENTALS.md sits between EXTRACTION and DECOMPOSITION in the protocol pipeline:
 
 ```
-EXTRACTION → FUNDAMENTALS → MULTI → DECOMPOSITION → AMBITION → LANDSCAPE → STRATEGY → PACING → VALIDATION → SPECIFICATION → EXECUTOR (incl. POLISH) → EXPLAINER → REVIEW (incl. SPEC_SYNC) → REFLECT → ship
+EXTRACTION → FUNDAMENTALS (incl. MULTI) → DECOMPOSITION → AMBITION (incl. PACING) → LANDSCAPE → STRATEGY → VALIDATION → SPECIFICATION → EXECUTOR (incl. POLISH) → REVIEW (incl. EXPLAINER + SPEC_SYNC) → REFLECT → ship
 ```
 
 

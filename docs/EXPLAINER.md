@@ -1,6 +1,6 @@
 # EXPLAINER.md — Code Explanation Template
 
-> Produced during POLISH phase, consumed before SPEC SYNC.
+> Generated at REVIEW start, before the fixed checklist (folded step — no standalone EXPLAINER step).
 > Bridges the gap between "the AI built it" and "you understand what it does and why."
 > One explanation per project. Updated as the project evolves.
 
@@ -14,7 +14,7 @@ Think of it as a guided tour. Your AI agent fills in the template below for ever
 
 ## The Standardized Explanation Template
 
-Every project gets one explanation with these five sections. The AI fills them out after the code is built (during POLISH) and before the next round of work begins (before SPEC SYNC).
+Every project gets one explanation with these five sections. The AI fills them out after the code is built, finalized at REVIEW start (folded step).
 
 ### 1. Macro Architecture (3-5 sentences)
 
@@ -97,7 +97,7 @@ The AI follows a two-pass process. It never generates the explainer retroactivel
 
 The AI drafts sections 1 (Macro Architecture), 2 (Data Flow Walk), and 4 (Key Decisions) at the specification level. These describe the intended architecture. The user reviews and approves this macro design before the AI writes a single line of code. This is the architecture approval gate -- if the macro design is wrong, it's cheaper to fix now than after implementation.
 
-**Pass 2: After code is built (during POLISH).**
+**Pass 2: After code is built (finalized at REVIEW start).**
 
 The AI revisits every section and updates it to match what was actually built. The Data Flow Walk becomes precise (real function names, real error paths). The Module Breakdown lists real modules with their actual public APIs. The Quality Guarantees reflect what tests and checks actually exist, not what was planned.
 
@@ -109,17 +109,17 @@ This two-pass structure prevents the most common failure: a beautiful explainer 
 
 ## Pipeline Integration
 
-EXPLAINER.md sits at the boundary between POLISH and SPEC SYNC in the Development Protocol pipeline:
+EXPLAINER.md is generated as the first action of **REVIEW** (folded step — the pipeline no longer has a standalone EXPLAINER step). The reviewer produces it from this template before running the fixed checklist; checks 1.5/1.6/3.1-3.4 then verify it against the as-built code.
 
 ```
 RAW INTENT → EXTRACTION → FUNDAMENTALS → DECOMPOSITION
   → AMBITION → LANDSCAPE → VALIDATION → SPECIFICATION
-  → EXECUTOR → POLISH → **EXPLAINER.md** → SPEC_SYNC
-  → REVIEW → ship
+  → EXECUTOR → REVIEW (generates EXPLAINER.md here)
+  → REFLECT → ship
 ```
 
-- **Produced**: During POLISH, after code passes quality gates and before the human final pass is complete.
-- **Consumed**: Before SPEC SYNC, so the explainer's updated understanding feeds into the spec-to-code fidelity check.
+- **Produced**: At REVIEW start, after EXECUTOR and before the fixed checklist runs.
+- **Consumed**: By REVIEW's own checks 1.5/1.6/3.1-3.4, which verify the explainer matches the code.
 - **Updated**: Every cycle. When the project changes (new features, refactors, bug fixes), the explainer changes with it.
 
 The explainer is not a substitute for SPECIFICATION.md. The spec is for the builder (what to build). The explainer is for the owner (what was built and why). They describe the same system at different levels of detail for different audiences.
