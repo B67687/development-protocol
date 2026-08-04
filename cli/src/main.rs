@@ -22,126 +22,135 @@ fn has_heading(content: &str, name: &str) -> bool {
     })
 }
 
+fn render(template: &str, pairs: &[(&str, &str)]) -> String {
+    pairs
+        .iter()
+        .fold(template.to_string(), |acc, (key, value)| {
+            acc.replace(key, value)
+        })
+}
+
 fn render_template(template: &str, name: &str, ptype: &str, lang: &str, scope: &str) -> String {
-    template
-        .replace("{{PROJECT_NAME}}", name)
-        .replace("{{PROJECT_TYPE}}", ptype)
-        .replace("{{LANGUAGE}}", lang)
-        .replace("{{SCOPE_DESCRIPTION}}", scope)
-        .replace("{{PHASE}}", "DISCOVER")
+    render(
+        template,
+        &[
+            ("{{PROJECT_NAME}}", name),
+            ("{{PROJECT_TYPE}}", ptype),
+            ("{{LANGUAGE}}", lang),
+            ("{{SCOPE_DESCRIPTION}}", scope),
+            ("{{PHASE}}", "DISCOVER"),
+        ],
+    )
+}
+
+/// Load a scaffold template from the repo `template/` dir at runtime, falling
+/// back to the compile-time embedded copy (mirrors the RULES.md pattern).
+fn load_template(name: &str) -> io::Result<String> {
+    let template_path = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .parent()
+        .unwrap()
+        .join("template")
+        .join(name);
+    if template_path.exists() {
+        fs::read_to_string(&template_path)
+    } else {
+        let fallback = match name {
+            "editorconfig.tmpl" => include_str!("../../template/editorconfig.tmpl"),
+            "gitignore.tmpl" => include_str!("../../template/gitignore.tmpl"),
+            "changelog.tmpl" => include_str!("../../template/changelog.tmpl"),
+            "ci.yml.tmpl" => include_str!("../../template/ci.yml.tmpl"),
+            "release.yml.tmpl" => include_str!("../../template/release.yml.tmpl"),
+            "glossary.tmpl" => include_str!("../../template/glossary.tmpl"),
+            "what-is-this.tmpl" => include_str!("../../template/what-is-this.tmpl"),
+            "scope-warp-log.tmpl" => include_str!("../../template/scope-warp-log.tmpl"),
+            other => {
+                return Err(io::Error::new(
+                    io::ErrorKind::NotFound,
+                    format!("Unknown template: {other}"),
+                ));
+            }
+        };
+        Ok(fallback.to_string())
+    }
 }
 
 // ── Scaffold helpers ──────────────────────────────────────────────────────
 
-fn build_command_for(lang: &str) -> &str {
-    match lang.to_lowercase().as_str() {
-        "rust" | "cargo" => "cargo build --all-features",
-        "kotlin" | "kt" | "android" => "./gradlew assembleDebug",
-        "typescript" | "ts" | "javascript" | "js" | "node" | "bun" => "npm run build",
-        "python" | "py" => "python -m build",
-        "go" | "golang" => "go build ./...",
-        "csharp" | "c#" | "dotnet" | ".net" => "dotnet build",
-        _ => "[your build command]",
-    }
+struct LangCmd {
+    aliases: &'static [&'static str],
+    build: &'static str,
+    test: &'static str,
+    lint: &'static str,
 }
 
-fn test_command_for(lang: &str) -> &str {
-    match lang.to_lowercase().as_str() {
-        "rust" | "cargo" => "cargo test",
-        "kotlin" | "kt" | "android" => "./gradlew test",
-        "typescript" | "ts" | "javascript" | "js" | "node" | "bun" => "npm test",
-        "python" | "py" => "python -m pytest",
-        "go" | "golang" => "go test ./...",
-        "csharp" | "c#" | "dotnet" | ".net" => "dotnet test",
-        _ => "[your test command]",
-    }
-}
+const LANG_CMDS: &[LangCmd] = &[
+    LangCmd {
+        aliases: &["rust", "cargo"],
+        build: "cargo build --all-features",
+        test: "cargo test",
+        lint: "cargo clippy --all-targets",
+    },
+    LangCmd {
+        aliases: &["kotlin", "kt", "android"],
+        build: "./gradlew assembleDebug",
+        test: "./gradlew test",
+        lint: "./gradlew lint",
+    },
+    LangCmd {
+        aliases: &["typescript", "ts", "javascript", "js", "node", "bun"],
+        build: "npm run build",
+        test: "npm test",
+        lint: "npx biome ci",
+    },
+    LangCmd {
+        aliases: &["python", "py"],
+        build: "python -m build",
+        test: "python -m pytest",
+        lint: "ruff check .",
+    },
+    LangCmd {
+        aliases: &["go", "golang"],
+        build: "go build ./...",
+        test: "go test ./...",
+        lint: "golangci-lint run",
+    },
+    LangCmd {
+        aliases: &["csharp", "c#", "dotnet", ".net"],
+        build: "dotnet build",
+        test: "dotnet test",
+        lint: "dotnet build -- TreatWarningsAsErrors",
+    },
+];
 
-fn lint_command_for(lang: &str) -> &str {
-    match lang.to_lowercase().as_str() {
-        "rust" | "cargo" => "cargo clippy --all-targets",
-        "kotlin" | "kt" | "android" => "./gradlew lint",
-        "typescript" | "ts" | "javascript" | "js" => "npx biome ci",
-        "python" | "py" => "ruff check .",
-        "go" | "golang" => "golangci-lint run",
-        "csharp" | "c#" | "dotnet" | ".net" => "dotnet build -- TreatWarningsAsErrors",
-        _ => "[your lint command]",
-    }
+fn lang_cmds(lang: &str) -> &'static LangCmd {
+    let l = lang.to_lowercase();
+    LANG_CMDS
+        .iter()
+        .find(|c| c.aliases.contains(&l.as_str()))
+        .unwrap_or(&LangCmd {
+            aliases: &[],
+            build: "[your build command]",
+            test: "[your test command]",
+            lint: "[your lint command]",
+        })
 }
 
 fn scaffold_editorconfig(dir: &Path) -> io::Result<()> {
-    let content = "root = true
-
-[*]
-indent_style = space
-indent_size = 4
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
-
-[*.md]
-trim_trailing_whitespace = false
-
-[*.{yml,yaml}]
-indent_size = 2
-";
+    let content = load_template("editorconfig.tmpl")?;
     fs::write(dir.join(".editorconfig"), content)?;
     println!("  Created .editorconfig");
     Ok(())
 }
 
 fn scaffold_gitignore(dir: &Path) -> io::Result<()> {
-    let content = "# Dependencies
-/ vendor/
-node_modules/
-target/
-build/
-dist/
-
-# IDE
-.idea/
-*.iml
-.vscode/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Build artifacts
-*.log
-*.tmp
-*.cache
-";
+    let content = load_template("gitignore.tmpl")?;
     fs::write(dir.join(".gitignore"), content)?;
     println!("  Created .gitignore");
     Ok(())
 }
 
 fn scaffold_changelog(dir: &Path, name: &str) -> io::Result<()> {
-    let content = format!(
-        "# Changelog
-
-All notable changes to {name} will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/),
-and this project adheres to [Semantic Versioning](https://semver.org/).
-
-## [Unreleased]
-
-### Added
-
-- Initial project scaffolded via Development Protocol
-
-### Changed
-
-### Fixed
-
-### Removed
-"
-    );
+    let content = render(&load_template("changelog.tmpl")?, &[("{{NAME}}", name)]);
     fs::write(dir.join("CHANGELOG.md"), content)?;
     println!("  Created CHANGELOG.md");
     Ok(())
@@ -151,42 +160,14 @@ fn scaffold_ci_workflow(dir: &Path, lang: &str) -> io::Result<()> {
     let workflows_dir = dir.join(".github").join("workflows");
     fs::create_dir_all(&workflows_dir)?;
 
-    let build = build_command_for(lang);
-    let test = test_command_for(lang);
-    let lint = lint_command_for(lang);
-
-    let content = format!(
-        "name: CI
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
-jobs:
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      # Phase compliance: verify RULES.md phase is set
-      - name: Check RULES.md phase
-        run: |
-          if ! grep -q \"Current: WORK\\|Current: PERFECT\\|Current: DISTRIBUTE\\|Current: ITERATE\\|Current: DISCOVER\" RULES.md; then
-            echo \"ERROR: RULES.md phase not set.\"
-            exit 1
-          fi
-
-      - name: Build
-        run: {build}
-
-      - name: Lint
-        run: {lint}
-
-      - name: Test
-        run: {test}
-"
+    let cmds = lang_cmds(lang);
+    let content = render(
+        &load_template("ci.yml.tmpl")?,
+        &[
+            ("{{BUILD}}", cmds.build),
+            ("{{TEST}}", cmds.test),
+            ("{{LINT}}", cmds.lint),
+        ],
     );
     fs::write(workflows_dir.join("ci.yml"), content)?;
     println!("  Created .github/workflows/ci.yml");
@@ -197,32 +178,7 @@ fn scaffold_release_workflow(dir: &Path) -> io::Result<()> {
     let workflows_dir = dir.join(".github").join("workflows");
     fs::create_dir_all(&workflows_dir)?;
 
-    let content = r#"name: Release
-
-on:
-  push:
-    tags: ["v*"]
-
-jobs:
-  release:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-      - name: Build
-        run: [your build command]
-      - name: Generate release notes
-        run: |
-          VERSION="${GITHUB_REF_NAME#v}"
-          sed -n "/^## \[$VERSION\]/,/^## \[/p" CHANGELOG.md | head -n -2 > release-notes.md
-      - name: Create Release
-        uses: softprops/action-gh-release@v2
-        with:
-          body_path: release-notes.md
-          files: |
-            [path to your build artifact]
-"#;
+    let content = load_template("release.yml.tmpl")?;
     fs::write(workflows_dir.join("release.yml"), content)?;
     println!("  Created .github/workflows/release.yml");
     Ok(())
@@ -232,87 +188,31 @@ fn scaffold_docs_glossary(dir: &Path) -> io::Result<()> {
     let docs_dir = dir.join("docs");
     fs::create_dir_all(&docs_dir)?;
 
-    let content = "# Glossary
-
-Key terms and concepts used in this project.
-
-| Term | Definition |
-|------|------------|
-|      |            |
-
-_Add terms as you encounter them during development._
-";
+    let content = load_template("glossary.tmpl")?;
     fs::write(docs_dir.join("glossary.md"), content)?;
     println!("  Created docs/glossary.md");
     Ok(())
 }
 
-fn scaffold_what_is_this(dir: &Path, name: &str) -> io::Result<()> {
+fn scaffold_what_is_this(dir: &Path, name: &str, ptype: &str, lang: &str) -> io::Result<()> {
     let docs_dir = dir.join("docs");
     fs::create_dir_all(&docs_dir)?;
 
-    let content = format!("# What Is {name}?
-
-**{name}** is a {{{{PROJECT_TYPE}}}} project built with {{{{LANGUAGE}}}}.
-
-## Problem
-
-_What gap does this project fill? Why does it exist?_
-
-## Architecture
-
-_How is the project structured? What are the main components?_
-
-## Status
-
-_Current phase, what's working, what's next._
-
----
-
-_This file should answer \"what is this project?\" for anyone — including future you — in under 2 minutes._
-");
+    let content = render(
+        &load_template("what-is-this.tmpl")?,
+        &[
+            ("{{NAME}}", name),
+            ("{{PROJECT_TYPE}}", ptype),
+            ("{{LANGUAGE}}", lang),
+        ],
+    );
     fs::write(docs_dir.join("what-is-this.md"), content)?;
     println!("  Created docs/what-is-this.md");
     Ok(())
 }
 
 fn scaffold_scope_warp_log(dir: &Path) -> io::Result<()> {
-    let content = "# Scope Warp Log
-
-Track conscious scope expansions here. Max 3 warps per project.
-
-## Warp 1
-
-- **Feature added:**
-- **Rationale:**
-- **Cost:**
-- **Deferred from V2:**
-- **Date:**
-
----
-
-## Warp 2
-
-- **Feature added:**
-- **Rationale:**
-- **Cost:**
-- **Deferred from V2:**
-- **Date:**
-
----
-
-## Warp 3
-
-- **Feature added:**
-- **Rationale:**
-- **Cost:**
-- **Deferred from V2:**
-- **Date:**
-
----
-
-*If you need more than 3 warps, force-enter PERFECT phase.*
-";
+    let content = load_template("scope-warp-log.tmpl")?;
     fs::write(dir.join("scope-warp-log.md"), content)?;
     println!("  Created scope-warp-log.md");
     Ok(())
@@ -355,7 +255,7 @@ enum Commands {
         #[arg(short, long)]
         set: Option<String>,
         /// Check current phase without changing
-        #[arg(short, long)]
+        #[arg(long)]
         status: bool,
     },
     /// Validate RULES.md is complete and correct
@@ -487,7 +387,7 @@ fn cmd_init(
 
     // Create CLAUDE.md
     let claude = "@AGENTS.md\n@RULES.md\n\n# Claude-specific additions\n";
-    fs::write(current_dir.join("CLAUDE.md"), &claude)?;
+    fs::write(current_dir.join("CLAUDE.md"), claude)?;
     println!("  Created CLAUDE.md");
 
     // Scaffold supporting files
@@ -497,23 +397,34 @@ fn cmd_init(
     scaffold_ci_workflow(&current_dir, &lang)?;
     scaffold_release_workflow(&current_dir)?;
     scaffold_docs_glossary(&current_dir)?;
-    scaffold_what_is_this(&current_dir, &pname)?;
+    scaffold_what_is_this(&current_dir, &pname, &ptype, &lang)?;
     scaffold_scope_warp_log(&current_dir)?;
 
     println!("\nProject scaffolded. Next steps:");
     println!("  1. Edit RULES.md: set your V1 scope, Constitution, and AI persona");
     println!("  2. Set the phase: `project-kit phase --set work`");
-    println!("  3. Initialize git: `git init && git add -A && git commit -m \"chore: initial scaffold\"`");
+    println!(
+        "  3. Initialize git: `git init && git add -A && git commit -m \"chore: initial scaffold\"`"
+    );
     println!("  4. Start your AI session by having it read RULES.md");
 
     Ok(())
+}
+
+fn restore_branch(branch: &str, temp_branch: &str) {
+    let _ = Command::new("git").args(["checkout", branch]).status();
+    let _ = Command::new("git")
+        .args(["branch", "-D", temp_branch])
+        .status();
 }
 
 fn cmd_publish(message: &str, tag: Option<&str>) -> io::Result<()> {
     // Verify we're in a git repo
     if !Path::new(".git").exists() {
         eprintln!("FAIL: No .git directory found. Run `git init` first.");
-        return Ok(());
+        return Err(io::Error::other(
+            "FAIL: No .git directory found. Run `git init` first.",
+        ));
     }
 
     // Save current branch name
@@ -521,7 +432,7 @@ fn cmd_publish(message: &str, tag: Option<&str>) -> io::Result<()> {
         &Command::new("git")
             .args(["rev-parse", "--abbrev-ref", "HEAD"])
             .output()
-            .map_err(|e| io::Error::new(io::ErrorKind::Other, e))?
+            .map_err(io::Error::other)?
             .stdout,
     )
     .trim()
@@ -534,37 +445,34 @@ fn cmd_publish(message: &str, tag: Option<&str>) -> io::Result<()> {
     let status = Command::new("git")
         .args(["checkout", "--orphan", &temp_branch])
         .status()
-        .map_err(|e| io::Error::new(io::ErrorKind::Other, e))?;
+        .map_err(io::Error::other)?;
     if !status.success() {
         eprintln!("FAIL: Could not create orphan branch.");
-        return Ok(());
+        return Err(io::Error::other("FAIL: Could not create orphan branch."));
     }
 
     // Add all files
     let status = Command::new("git")
         .args(["add", "-A"])
         .status()
-        .map_err(|e| io::Error::new(io::ErrorKind::Other, e))?;
+        .map_err(io::Error::other)?;
     if !status.success() {
         eprintln!("FAIL: Could not add files.");
-        return Ok(());
+        return Err(io::Error::other("FAIL: Could not add files."));
     }
 
     // Commit squashed
     let status = Command::new("git")
         .args(["commit", "-m", message])
         .status()
-        .map_err(|e| io::Error::new(io::ErrorKind::Other, e))?;
+        .map_err(io::Error::other)?;
     if !status.success() {
         eprintln!("FAIL: Could not create commit. Check git config (user.name, user.email).");
         // Go back to original branch
-        let _ = Command::new("git")
-            .args(["checkout", &branch_name])
-            .status();
-        let _ = Command::new("git")
-            .args(["branch", "-D", &temp_branch])
-            .status();
-        return Ok(());
+        restore_branch(&branch_name, &temp_branch);
+        return Err(io::Error::other(
+            "FAIL: Could not create commit. Check git config (user.name, user.email).",
+        ));
     }
 
     // Force-with-lease push to main
@@ -577,16 +485,13 @@ fn cmd_publish(message: &str, tag: Option<&str>) -> io::Result<()> {
             "--force-with-lease",
         ])
         .status()
-        .map_err(|e| io::Error::new(io::ErrorKind::Other, e))?;
+        .map_err(io::Error::other)?;
     if !status.success() {
         eprintln!("FAIL: Push failed. Is 'origin' set up correctly?");
-        let _ = Command::new("git")
-            .args(["checkout", &branch_name])
-            .status();
-        let _ = Command::new("git")
-            .args(["branch", "-D", &temp_branch])
-            .status();
-        return Ok(());
+        restore_branch(&branch_name, &temp_branch);
+        return Err(io::Error::other(
+            "FAIL: Push failed. Is 'origin' set up correctly?",
+        ));
     }
 
     // Tag if requested
@@ -594,7 +499,7 @@ fn cmd_publish(message: &str, tag: Option<&str>) -> io::Result<()> {
         let status = Command::new("git")
             .args(["tag", tag_name])
             .status()
-            .map_err(|e| io::Error::new(io::ErrorKind::Other, e))?;
+            .map_err(io::Error::other)?;
         if status.success() {
             let _ = Command::new("git")
                 .args(["push", "origin", tag_name])
@@ -604,12 +509,7 @@ fn cmd_publish(message: &str, tag: Option<&str>) -> io::Result<()> {
     }
 
     // Return to original branch and clean up
-    let _ = Command::new("git")
-        .args(["checkout", &branch_name])
-        .status();
-    let _ = Command::new("git")
-        .args(["branch", "-D", &temp_branch])
-        .status();
+    restore_branch(&branch_name, &temp_branch);
 
     println!("Published! GitHub main now has 1 commit.");
     println!("  Message: {}", message);
@@ -656,7 +556,7 @@ fn cmd_phase(set: Option<String>, status: bool) -> io::Result<()> {
         // Update the phase line (simple replace for v0.1.0)
         let new_content = if content.contains("**Current:") {
             content.replace(
-                &content
+                content
                     .lines()
                     .find(|l| l.contains("**Current:"))
                     .unwrap_or("**Current:** `WORK`"),
@@ -677,7 +577,9 @@ fn cmd_phase(set: Option<String>, status: bool) -> io::Result<()> {
         println!("Phase set to: {}", phase_upper);
 
         // Run phase exit reflection if moving *out* of a phase
-        println!("\nTip: Run the Phase Exit Checklist (Section 9 in RULES.md) if you're leaving a completed phase.");
+        println!(
+            "\nTip: Run the Phase Exit Checklist (Section 9 in RULES.md) if you're leaving a completed phase."
+        );
     }
 
     Ok(())
@@ -737,4 +639,71 @@ fn cmd_check() -> io::Result<()> {
     }
 
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn has_heading_matches_phase_sections() {
+        assert!(has_heading("## Phase Definitions\n", "Phase Definitions"));
+        assert!(has_heading(
+            "## 3. Phase Definitions\n",
+            "Phase Definitions"
+        ));
+        assert!(!has_heading("### Sub\n", "Sub"));
+    }
+
+    #[test]
+    fn render_replaces_known_markers_and_keeps_unknown() {
+        let out = render("a {{X}} b {{Y}} c", &[("{{X}}", "1"), ("{{Y}}", "2")]);
+        assert_eq!(out, "a 1 b 2 c");
+        let out = render("a {{X}} b {{Y}}", &[("{{X}}", "1")]);
+        assert_eq!(out, "a 1 b {{Y}}");
+    }
+
+    #[test]
+    fn lang_cmds_lookup() {
+        let rust = lang_cmds("rust");
+        assert_eq!(rust.build, "cargo build --all-features");
+        assert_eq!(rust.test, "cargo test");
+        assert_eq!(rust.lint, "cargo clippy --all-targets");
+        let py = lang_cmds("python");
+        assert_eq!(py.test, "python -m pytest");
+        assert_eq!(py.lint, "ruff check .");
+        let node = lang_cmds("node");
+        assert_eq!(node.lint, "npx biome ci");
+        let unknown = lang_cmds("cobol");
+        assert_eq!(unknown.build, "[your build command]");
+        assert_eq!(unknown.test, "[your test command]");
+        assert_eq!(unknown.lint, "[your lint command]");
+        let upper = lang_cmds("Rust");
+        assert_eq!(upper.build, "cargo build --all-features");
+    }
+
+    #[test]
+    fn ci_workflow_uses_fixed_phase_grep() {
+        let rendered = render(
+            &load_template("ci.yml.tmpl").unwrap(),
+            &[("{{BUILD}}", "b"), ("{{TEST}}", "t"), ("{{LINT}}", "l")],
+        );
+        assert!(rendered.contains(r"`(DISCOVER|WORK|ITERATE|PERFECT|DISTRIBUTE)`"));
+        assert!(!rendered.contains(r"Current: WORK\|"));
+    }
+
+    #[test]
+    fn what_is_this_renders_all_markers() {
+        let rendered = render(
+            &load_template("what-is-this.tmpl").unwrap(),
+            &[
+                ("{{NAME}}", "demo"),
+                ("{{PROJECT_TYPE}}", "standard"),
+                ("{{LANGUAGE}}", "rust"),
+            ],
+        );
+        assert!(!rendered.contains("{{"));
+        assert!(rendered.contains("# What Is demo?"));
+        assert!(rendered.contains("**demo** is a standard project built with rust."));
+    }
 }
