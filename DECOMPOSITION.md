@@ -1,6 +1,6 @@
 # DECOMPOSITION.md — Intent Decomposition (v3)
 
-> This runs between FUNDAMENTALS (one-way doors validated) and AMBITION (appetite set).
+> This runs in the prep sequence between FUNDAMENTALS (one-way doors validated) and AMBITION (appetite set): `INBOX → PRIORITIZE → EXTRACTION → SERIOUSNESS → FUNDAMENTALS (incl. MULTI) → DECOMPOSITION → AMBITION (incl. PACING) → LANDSCAPE → STRATEGY → VALIDATION → SPECIFICATION → EXECUTOR → REVIEW (incl. EXPLAINER + SPEC_SYNC) → REFLECT → ship`.
 >
 > **Purpose:** Take the validated problem (X from EXTRACTION) and break it systematically
 > into KNOWN, NEEDS RESEARCH, and NEEDS PROTOTYPE dimensions. Every gap found here

@@ -106,6 +106,7 @@ Engineering to problem extraction — delay convergence to gather information.
 4. The downselected X enters AMBITION normally.
 
 **When to use:** High-uncertainty domains. **When not:** Low-uncertainty.
+Set-based candidates proceed through SERIOUSNESS/DECOMPOSITION normally; downselect happens after FUNDAMENTALS.
 
 
 ### Step 2.4: Decide
@@ -114,7 +115,7 @@ Engineering to problem extraction — delay convergence to gather information.
 | -------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | **Validated** (passes all tests above)             | Proceed to SERIOUSNESS.md. Run the Seriousness Gate to evaluate whether X is worth pursuing.       |
 | **Unclear** (partially extracted, some tests pass) | Do one more round with different techniques. Decompose only the clear parts.                       |
-| **Unknown** (no convergence after 10 techniques)    | Prototype the most likely X. Run VALIDATION before decomposition. The prototype IS the extraction. |
+| **Unknown** (no convergence after 10 techniques)    | Prototype the most likely X. Run VALIDATION before decomposition (prototype IS the extraction; return to DECOMPOSITION with the validated X). |
 
 
 ---
@@ -168,36 +169,7 @@ Round 3: One-way doors validated, appetite set
 
 ```
 
-### Layer 3: Checkmarks
-
-```
-
-[✓] Language clarified
-[✓] Intent landscape completed
-[✓] 10 extraction techniques applied
-[✓] X confirmed
-[->] FUNDAMENTALS — one-way door analysis pending
-[ ] AMBITION
-[ ] DECOMPOSITION
-[ ] EXECUTOR
-[ ] REVIEW
-[ ] SHIPPED
-
-```
-
-The three layers update as phases progress. New sessions catch up by
-reading this file.
-
-AMBITION [ ] PENDING
-FUNDAMENTALS [ ] PENDING
-EXECUTOR [ ] PENDING
-REVIEW [ ] PENDING
-SHIPPED [ ]
-
-```
-
-The checkpoint log IS the project memory. Every conclusion, every alternative
-considered. New sessions catch up by reading this file.
+The three layers update as phases progress. New sessions catch up by reading this file (checkpoint: `.omo/protocol-state.md`).
 ---
 
 ## Step 3: Intent Landscape (Explore Alternative Framings)
@@ -262,7 +234,7 @@ Technique 6 — Problem Statement Wall:
 - ✅ Measurable: hours spent re-learning vs. refreshing
 - ✅ Terminal — cannot break down further
 
-**Decision:** COMMIT — proceed to DECOMPOSITION.
+**Decision:** COMMIT — proceed to SERIOUSNESS.
 
 ## Provenness Requirement (v3 Rule)
 

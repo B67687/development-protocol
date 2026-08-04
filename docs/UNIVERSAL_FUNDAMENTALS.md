@@ -33,7 +33,7 @@ The protocol already runs on these implicitly. Each is validated by multiple ind
 
 | # | Fundamental | Independent expressions | Protocol steps that operationalize it |
 |---|---|---|---|
-| 1 | **Iteration / feedback loop** | PDCA lineage (Shewhart 1939 → Deming → ISO 9001), OODA, scientific method (Ibn al-Haytham ~1020), power law of practice (Newell & Rosenbloom) | AMBITION (rounds), EXECUTOR (checkpoints), REFLECT, PACING (adjustment) |
+| 1 | **Iteration / feedback loop** | PDCA lineage (Shewhart 1939 → Deming → ISO 9001), OODA, scientific method (Ibn al-Haytham ~1020), power law of practice (Newell & Rosenbloom) | AMBITION (rounds, incl. PACING budget adjustment), EXECUTOR (checkpoints), REFLECT |
 | 2 | **Variation-selection-retention** (generation/evaluation split) | Campbell 1960 BVSR (explicitly cross-domain), evolution, markets, design | EXTRACTION (10 techniques → convergence rule), PRIORITIZE (score → debias → bet), VALIDATION (spike → KILL/PIVOT/COMMIT), LANDSCAPE (search → evaluate) |
 | 3 | **Decomposition / hierarchy / near-decomposability** | Simon 1962 watchmaker argument, Brand's shearing layers, INCOSE | DECOMPOSITION (MECE tree), SPECIFICATION (MACRO/MESO/MICRO), EXECUTOR (size rule) |
 | 4 | **Uncertainty management / requisite variety** | Ashby's Law ("only variety absorbs variety"), Conant-Ashby good-regulator theorem, satisficing (Simon 1955) | SERIOUSNESS (commitment probe), VALIDATION (prototype before commit), FUNDAMENTALS (one-way door validation), LANDSCAPE (verification tiers) |

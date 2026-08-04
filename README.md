@@ -11,7 +11,7 @@ Part of a trio of meta-projects:
 Built by following [the Development Protocol](https://github.com/B67687/Development-Protocol) itself — a recursive self-completeness test.
 
 ## The Pipeline
-
+```
 RAW INTENT
 │
 ▼
@@ -51,22 +51,15 @@ RAW INTENT
 │ (if COMMIT)
 ▼
 ┌─────────────────────────────────────────────────┐
-│ FUNDAMENTALS │
-│ Identify one-way door decisions. Validate each │
-│ with minimum prototype. Detect LLM bias. │
-│ Then proceed to decomposition only when │
-│ foundations are proven safe. │
+│ FUNDAMENTALS (incl. MULTI)            │
+│ One-way door validation, LLM bias,   │
+│ multidisciplinary probes (MULTI)      │
+│ Proceed to decomposition only when   │
+│ foundations are proven safe.         │
 └─────────────────────────────────────────────────┘
     │
     ▼
 ┌─────────────────────────────────────────────────┐
-│ MULTI (Multidisciplinary Probe) │
-│ Domain Relevance Filter → Quick Probes → Flag │
-│ Ethics, Psychology, Economics, Ecology, Design │
-│ Sociology, Law, Medicine Accessibility │
-└─────────────────────────────────────────────────┘
-    │
-    ▼
 │ DECOMPOSITION │
 │ Cynefin classify → MECE tree → confirm each │
 │ level → KNOWN / RESEARCH / PROTOTYPE routing │
@@ -74,9 +67,9 @@ RAW INTENT
 │
 ▼
 ┌─────────────────────────────────────────────────┐
-│ AMBITION (research-interleaved) │
-│ Each round: answer → research → ask → ... │
-│ Tightening loop until convergence │
+│ AMBITION (incl. PACING)               │
+│ Research-interleaved goal tightening │
+│ + phase budget allocation (PACING)   │
 └─────────────────────────────────────────────────┘
 │
 ▼
@@ -90,13 +83,6 @@ RAW INTENT
 │ STRATEGY (strategic ratification gate)          │
 │ Pre-commit → AI kernel proposal → human ratify   │
 │ → premortem. Commander's intent (ADP 6-0).       │
-└─────────────────────────────────────────────────┘
-│
-▼
-┌─────────────────────────────────────────────────┐
-│ PACING (phase budget allocation)                │
-│ Per-phase budget, AI session boundaries,         │
-│ human energy rules, macro cycle structure        │
 └─────────────────────────────────────────────────┘
 │
 ▼
@@ -120,17 +106,19 @@ RAW INTENT
 │
 ▼
 ┌─────────────────────────────────────────────────┐
-│ EXPLAINER → REVIEW (incl. SPEC_SYNC)             │
-│ → REFLECT → ship                                │
+│ REVIEW (incl. EXPLAINER + SPEC_SYNC)  │
+│ EXPLAINER generated here → REFLECT → ship
 └─────────────────────────────────────────────────┘
 
 ```
 
-**Prep-sequence:** `INBOX` -> `PRIORITIZE` (optional) -> `EXTRACTION` -> `SERIOUSNESS` -> `FUNDAMENTALS` -> `MULTI` -> `DECOMPOSITION` -> `AMBITION` -> `LANDSCAPE` -> `STRATEGY` -> `PACING` -> `VALIDATION` -> `SPECIFICATION` -> `EXECUTOR` -> `EXPLAINER` -> `REVIEW` -> `REFLECT` -> ship
+**Prep-sequence:** `INBOX` -> `PRIORITIZE` (optional) -> `EXTRACTION` -> `SERIOUSNESS` -> `FUNDAMENTALS` (incl. MULTI) -> `DECOMPOSITION` -> `AMBITION` (incl. PACING) -> `LANDSCAPE` -> `STRATEGY` -> `VALIDATION` -> `SPECIFICATION` -> `EXECUTOR` -> `REVIEW` (incl. EXPLAINER + SPEC_SYNC) -> `REFLECT` -> ship
+
+Ship = the SHIP exit checklist in [REFLECT.md](REFLECT.md): state block written, success criteria closed, ledger clean, maintenance status declared.
 
 See [REVIEW.md](REVIEW.md) for the independence protocol and fixed checklist.
 
-**Domain Scope:** The full 17-step pipeline applies to any project type. The execution
+**Domain Scope:** The full 14-step pipeline applies to any project type. The execution
 phase (SPECIFICATION through REVIEW) uses universal methodologies for specifying,
 building, verifying, documenting, and reflecting on any deliverable. Engineering-specific
 CI, operations, and production quality details are documented separately in the
@@ -203,6 +191,8 @@ This includes the what-matters analysis — the principal contradiction (抓主�
 The dedicated gate is STRATEGY.md (after LANDSCAPE); this posture is invoked
 whenever the AI makes a strategic decision — including in other steps — and the
 user ratifies strategy; routine execution does not require per-action ratification.
+Ratification is single (Invariant 11): AMBITION scope + strategic kernel + phase
+budget ratified together at STRATEGY; other gates auto-run with escalation on one-way doors.
 
 **Method Invocation Completeness (Standing Principle):** Every documented method
 is either APPLIED (with an evidence artifact), SKIPPED (with a pre-authorized
@@ -241,6 +231,8 @@ proposes the sufficiency analysis, the user ratifies (Strategist Posture).
 > side), Actionability removes deferral (time side); the default path is the
 > minimum-effort path that ships.
 
+**No-Expounding (Density Norm):** Prose survives only if it changes a decision, action, or criterion. Point-form, tables, and examples are the default; expository paragraphs, meta-commentary, and repeated instructions are removed. Applies to the protocol's own documents and the project artifacts it produces. Provenance governs: cut scaffold and verbosity, never substance — any removed decision, criterion, or example is archived in git history, never silently lost. Expound only where a paragraph alters behavior; otherwise compress.
+
 ---
 
 ## Composability
@@ -262,15 +254,15 @@ from the condition. This enables skipping steps that are already resolved.
 
 | Group | Steps | Constraint |
 |---|---|---|
-| Validation | MULTI + FUNDAMENTALS | Both depend on SERIOUSNESS; no cross-dependency |
+| Validation | MULTI (runs inside FUNDAMENTALS) | MULTI depends on SERIOUSNESS; no cross-dependency |
 | Spikes | Multiple VALIDATION spikes in parallel | Independent hypotheses, each isolated |
-| Wrap | EXPLAINER + REVIEW (via SPEC_SYNC merged into REVIEW) | All depend on EXECUTOR; no cross-dependency |
+| Wrap | REVIEW (incl. EXPLAINER + SPEC_SYNC) | Depends on EXECUTOR; no cross-dependency |
 
 ### External Methodology Composition
 
 | Methodology | Compose By |
 |---|---|
-| **Shape Up** | Replace AMBITION + PACING with Shape Up pitching. DECOMPOSITION + LANDSCAPE + VALIDATION serve as shaping. |
+| **Shape Up** | Replace AMBITION (incl. PACING) with Shape Up pitching. DECOMPOSITION + LANDSCAPE + VALIDATION serve as shaping. |
 | **Design Sprint** | Run VALIDATION as a full Design Sprint week. EXTRACTION → DECOMPOSITION → AMBITION feeds the sprint brief. |
 | **Lean Startup** | VALIDATION as Build-Measure-Learn loop. SPECIFICATION records pivot-or-persevere. |
 | **Scrum** | EXECUTOR milestones as sprints. REVIEW as sprint review. REFLECT as retrospective. |
@@ -284,30 +276,31 @@ validated foundation. Always run this chain before entering execution.
 ---
 
 ## Contents
+| File | Purpose |
+|---|---|
 | `INBOX.md` | Step -1: Thought capture, clustering, triage. Select one cluster for EXTRACTION, park rest. |
 | `PRIORITIZE.md` | Step 0.5: Idea comparison & betting — 4-dimension scoring (incl. Matters), optional. Runs between INBOX and EXTRACTION. |
 | `EXTRACTION.md` | Gate 0 - Extract X (real problem) from Y (stated solution), 10 proven techniques |
 | `SERIOUSNESS.md` | Phase 1: Commitment Probe. Phase 2: Dimension Scoring. Phase 3: Kill Criteria. |
-| `FUNDAMENTALS.md` | Identify one-way door decisions, validate with minimum prototype, detect LLM bias |
-| `MULTI.md` | Multidisciplinary probe: Domain Relevance Filter, Quick Probes, Flag |
+| `FUNDAMENTALS.md` | One-way doors, minimum-prototype validation, LLM bias detect + MULTI multidisciplinary probes |
 | `DECOMPOSITION.md` | Intent decomposition - Cynefin classify, MECE tree, KNOW/RESEARCH/PROTOTYPE routing |
-| `AMBITION.md` | Gate 1 - Research-interleaved dialogue to clarify intent |
+| `AMBITION.md` | Gate 1 - Research-interleaved dialogue to clarify intent + phase budget (PACING folded) |
 | `LANDSCAPE.md` | Research protocol - map what exists |
 | `STRATEGY.md` | Strategic ratification gate — AI kernel proposal, human ratify, premortem (commander's intent) |
-| `PACING.md` | Phase budget allocation, tracking, adjustment, session boundaries, human energy rules |
 | `VALIDATION.md` | Gate 2 - rapid prototyping with KILL/PIVOT/COMMIT |
-| `SPECIFICATION.md` | Locked plan-IS-spec template (14 sections) |
+| `SPECIFICATION.md` | Locked plan-IS-spec template (16 sections §0-15) |
 | `EXECUTOR.md` (incl. POLISH) | AI execution handoff with autonomy levels + human final pass post-execution |
-| `EXPLAINER.md` | AI-generated code explainer for non-coder (docs/EXPLAINER.md) |
-| `REVIEW.md` (incl. SPEC_SYNC) | **Meta-review gate** — independent agent audits protocol compliance + spec-to-code fidelity |
+| `REVIEW.md` (incl. EXPLAINER + SPEC_SYNC) | **Meta-review gate** — independent agent audits protocol compliance + spec-to-code fidelity; EXPLAINER generated here |
 | `REFLECT.md` | **Protocol retrospective** — how well did the protocol guide us? 7 questions, 35 min |
+| `RULES.md` | Project Bootstrap Protocol — routing decision tree, constitution, phase definitions, test philosophy, stop rules |
+| `STANDARDS.md` | Production standards for AI-generated projects — quality tiers (T1/T2/T3) and per-tier rules |
 | `.omo/reviews/` | Review findings archive — one file per review run |
 | `docs/engineering-plugin.md` | Engineering Plugin — CI, Operations, Production Quality addendum for technical deliverables |
 | `docs/METHOD_LEDGER.md` | Method Invocation Completeness — the .omo/method-ledger.jsonl schema, 3 states, conformance check (Standing Artifact) |
 | `docs/SKIP_CATALOG.md` | Pre-authorized skip conditions per method (MEL pattern) + deviation template (Standing Artifact) |
+| `docs/` | PROTOCOL_MODEL, METHOD_LEDGER, UNIVERSAL_FUNDAMENTALS, EXPLAINER, SKIP_CATALOG, SPEC_SYNC, standards/, adr/, research/ |
 | `cli/` | project-kit — optional Rust CLI: bootstrap projects with RULES.md governance (`init` / `phase` / `check` / `publish`) |
 
 ## Origin
 
 Generated by following the Development Protocol (v3.0.0) through its PREP PHASE on itself — producing a refined version that centers the prototyping gate as the key innovation. July 2026.
-```

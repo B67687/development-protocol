@@ -46,23 +46,23 @@ Standards are organized by project type. Each rule is tagged **[T1]**, **[T2]**,
 
 | # | Rule | Tier | Why | Source |
 |---|------|------|-----|--------|
-| 2.1 | **[MANDATORY]** No file exceeds 250 lines of production code | T1 | Files over 250 lines cannot be reviewed in one pass and hide complexity. | Development Protocol RULES.md §5; PEP 8; Software Engineering at Google |
+| 2.1 | **[MANDATORY]** No file exceeds 250 lines of production code | T1 | Files over 250 lines cannot be reviewed in one pass and hide complexity. | Development Protocol RULES.md §6; PEP 8; Software Engineering at Google |
 | 2.2 | **[MANDATORY]** Every public function/class MUST have a doc comment (what, parameters, returns, errors) | T1 | Without docs, the next AI agent cannot safely call this function. | JavaDoc/TSDoc/Python docstring conventions |
 | 2.3 | **[MANDATORY]** No function exceeds 40 lines of code (comments and whitespace excluded) | T1 | Functions over 40 lines do more than one thing. | NASA Power of 10 Rule #2 |
 | 2.4 | **[MANDATORY]** No magic numbers, no magic strings. Every literal MUST be a named constant or enum | T1 | Magic values hide intent. | NASA Power of 10 Rule #1; SonarQube |
 | 2.5 | **[MANDATORY]** No function with more than 3 nesting levels | T1 | Deep nesting is provably harder to understand. | NASA Power of 10 Rule #4 |
 | 2.6 | **[MANDATORY]** No function with more than 4 parameters. Use a parameter object for more. | T1 | 4+ parameters force callers to remember argument order. | NASA Power of 10 (implied); Clean Code |
 | 2.7 | **[MANDATORY]** No TODO, FIXME, HACK, XXX without an associated issue number | T1 | Unlinked TODO comments are permanent code smell. | SonarQube; Google Code Review |
-| 2.8 | **[MANDATORY]** All code MUST compile with zero warnings at strictest level | T1 | Warnings are deferred errors. | Development Protocol RULES.md §5 |
+| 2.8 | **[MANDATORY]** All code MUST compile with zero warnings at strictest level | T1 | Warnings are deferred errors. | Development Protocol RULES.md §6 |
 | 2.9 | **[STRONGLY RECOMMENDED]** No function may have cyclomatic complexity > 10 | T1 | Complexity > 10 correlates strongly with defect density. | McCabe (1976); SonarQube |
 | 2.10 | **[MANDATORY]** No dead code: every function, variable, import, and type must be used | T1 | Orphaned code confuses readers and wastes maintenance effort. | Karpathy Guidelines Step 3; SonarQube |
 | 2.11 | **[MANDATORY]** AI agents MUST NOT reformat, restyle, or reorganize existing code when making changes | T1 | Side-effect changes introduce review noise and obscure the change. | Karpathy Guidelines Step 3; Agent Skills |
 | 2.12 | **[MANDATORY]** AI agents MUST NOT refactor code they were not asked to modify | T1 | Unsolicited refactoring breaks the principle of least surprise. | Karpathy Guidelines Step 3; Agent Skills |
 | 2.13 | **[STRONGLY RECOMMENDED]** Every module MUST have a single responsibility expressed in its module-level doc comment | T1 | Without an explicit responsibility, modules accumulate unrelated functionality. | Parnas modular decomposition |
-| 2.14 | **[STRONGLY RECOMMENDED]** No AI agent may add dependencies without explicit human approval | T1 | Dependency bloat is the #1 avoidable source of supply chain risk. | Development Protocol RULES.md §4, §6 |
+| 2.14 | **[STRONGLY RECOMMENDED]** No AI agent may add dependencies without explicit human approval | T1 | Dependency bloat is the #1 avoidable source of supply chain risk. | Development Protocol RULES.md §6 |
 | 2.15 | **[MANDATORY]** All dependencies MUST be pinned to exact versions | T1 | Floating ranges produce unreproducible builds. | Supply chain security; OWASP |
 | 2.16 | **[STRONGLY RECOMMENDED]** Lint MUST pass before commit. Strictest available profile. | T1 | AI agents produce code that "looks right" but violates conventions. | Agent Skills lint skill |
-| 2.17 | **[MANDATORY]** No AI agent may implement a feature not explicitly listed in V1 scope | T1 | Feature creep is the #1 failure pattern. | Development Protocol RULES.md §4 |
+| 2.17 | **[MANDATORY]** No AI agent may implement a feature not explicitly listed in V1 scope | T1 | Feature creep is the #1 failure pattern. | Development Protocol RULES.md §5 |
 | 2.18 | **[STRONGLY RECOMMENDED]** No abstractions for a single use case. Flatten unnecessary hierarchies. | T1 | AI agents over-abstract by default. | Karpathy Guidelines Step 2 |
 | 2.19 | **[STRONGLY RECOMMENDED]** No flexibility/configurability not explicitly requested | T1 | Future-proofing adds complexity today for a future that may never arrive. | Karpathy Guidelines Step 2 — YAGNI |
 | 2.20 | **[MANDATORY]** Every conditional must handle the else case explicitly, even if a no-op comment | T1 | Silent fallthrough is the source of most logic bugs. | Defensive programming |
@@ -71,16 +71,16 @@ Standards are organized by project type. Each rule is tagged **[T1]**, **[T2]**,
 
 | # | Rule | Tier | Why | Source |
 |---|------|------|-----|--------|
-| 3.1 | **[MANDATORY]** Test MUST be written BEFORE implementation in WORK phase | T1 | Tests written after code confirm what code does, not what it should do. | RULES.md §8; TDD (Beck); Agent Skills tdd |
-| 3.2 | **[MANDATORY]** Every test MUST fail on incorrect output, pass on correct output | T1 | A test that passes on the first run is suspicious. | RULES.md §8 |
-| 3.3 | **[MANDATORY]** One behavior per test. Test names MUST describe the expected outcome. | T1 | `test_decode_unknown_format_returns_error` tells you what broke. | RULES.md §8 |
-| 3.4 | **[MANDATORY]** Edge case tests MUST be written BEFORE happy path tests | T1 | If code can't handle the edge case, it shouldn't handle the happy path. | RULES.md §8 |
+| 3.1 | **[MANDATORY]** Test MUST be written BEFORE implementation in WORK phase | T1 | Tests written after code confirm what code does, not what it should do. | RULES.md §9; TDD (Beck); Agent Skills tdd |
+| 3.2 | **[MANDATORY]** Every test MUST fail on incorrect output, pass on correct output | T1 | A test that passes on the first run is suspicious. | RULES.md §9 |
+| 3.3 | **[MANDATORY]** One behavior per test. Test names MUST describe the expected outcome. | T1 | `test_decode_unknown_format_returns_error` tells you what broke. | RULES.md §9 |
+| 3.4 | **[MANDATORY]** Edge case tests MUST be written BEFORE happy path tests | T1 | If code can't handle the edge case, it shouldn't handle the happy path. | RULES.md §9 |
 | 3.5 | **[MANDATORY]** Every error path documented in errors section MUST have a corresponding test | T1 | Untested error paths fail in production. | Osmani 80% Problem |
 | 3.6 | **[MANDATORY]** Line coverage ≥ 80%, branch coverage ≥ 70% | T1 | Below these thresholds correlates with undetected bugs. | Google Testing at Scale; SonarQube |
 | 3.7 | **[STRONGLY RECOMMENDED]** Mutation testing ≥ 60% mutation score | T2 | Line coverage lies. Mutation testing reveals untested logic. | Trail of Bits genotoxic |
 | 3.8 | **[STRONGLY RECOMMENDED]** Every public API function MUST have a property-based test | T2 | Example-based tests only cover cases you think of. | QuickCheck; Hypothesis; fast-check |
 | 3.9 | **[STRONGLY RECOMMENDED]** Every parser/deserializer MUST have fuzz tests | T2 | Fuzzing finds the edge case property tests missed. | OWASP ASVS V1.5; Google OSS-Fuzz |
-| 3.10 | **[MANDATORY]** Bug found in production → FIRST write regression test, THEN fix | T1 | Without a regression test, the same bug will be reintroduced. | RULES.md §8; Google SRE |
+| 3.10 | **[MANDATORY]** Bug found in production → FIRST write regression test, THEN fix | T1 | Without a regression test, the same bug will be reintroduced. | RULES.md §9; Google SRE |
 | 3.11 | **[STRONGLY RECOMMENDED]** No test may depend on another test. Must be independently runnable. | T1 | Test order dependencies create non-deterministic failures. | Google Testing at Google |
 | 3.12 | **[STRONGLY RECOMMENDED]** No network calls in unit tests. Use fakes. | T1 | Network-dependent tests are slow, flaky, and non-deterministic. | Google Test Sizing |
 | 3.13 | **[STRONGLY RECOMMENDED]** Every test file MUST correspond to exactly one production file | T1 | Scattered test files hide coverage gaps. | Standard test conventions |
@@ -132,7 +132,7 @@ Standards are organized by project type. Each rule is tagged **[T1]**, **[T2]**,
 
 | # | Rule | Tier | Why | Source |
 |---|------|------|-----|--------|
-| 6.1 | **[STRONGLY RECOMMENDED]** No optimization without a benchmark proving the need | T1 | AI agents optimize preemptively, creating complexity for hypothetical bottlenecks. | Development Protocol RULES.md Decision Framework §3 |
+| 6.1 | **[STRONGLY RECOMMENDED]** No optimization without a benchmark proving the need | T1 | AI agents optimize preemptively, creating complexity for hypothetical bottlenecks. | Development Protocol RULES.md Decision Framework §6 |
 | 6.2 | **[STRONGLY RECOMMENDED]** Every public API MUST have a documented latency SLO | T3 | Without an SLO, you cannot know if a change improved or degraded performance. | Google SRE Book Ch. 4 |
 | 6.3 | **[STRONGLY RECOMMENDED]** Every algorithm choice MUST document its time/space complexity | T1 | An O(n³) algorithm chosen over O(n log n) for simplicity will fail at scale. | Data structures standard practice |
 | 6.4 | **[STRONGLY RECOMMENDED]** No synchronous I/O in hot paths | T2 | Synchronous I/O blocks event loops and destroys throughput. | Async best practices; Google SRE |
@@ -213,7 +213,7 @@ Standards are organized by project type. Each rule is tagged **[T1]**, **[T2]**,
 |---|------|------|-----|--------|
 | 11.1 | **[MANDATORY]** Build MUST be reproducible: same source + same toolchain = same binary | T1 | Non-reproducible builds cannot be audited or verified. | Reproducible Builds; OpenSSF SLSA |
 | 11.2 | **[MANDATORY]** All toolchain versions MUST be pinned (compiler, linter, formatter, runner) | T1 | Floating toolchains produce non-reproducible builds. | DevContainer/Docker/nix |
-| 11.3 | **[MANDATORY]** Every new project MUST have CI configured at bootstrap, not after features | T1 | CI configured post-hoc misses the first N commits where most architecture decisions happen. | RULES.md §3 |
+| 11.3 | **[MANDATORY]** Every new project MUST have CI configured at bootstrap, not after features | T1 | CI configured post-hoc misses the first N commits where most architecture decisions happen. | RULES.md §8 (Verification Gates) |
 | 11.4 | **[STRONGLY RECOMMENDED]** Every project MUST use a formatter with project-wide config | T1 | Style debates waste human time. Formatters end them deterministically. | Tool-First Rule |
 | 11.5 | **[STRONGLY RECOMMENDED]** Every project MUST use static type checking at strictest level | T1 | Type checking catches incorrect data shape assumptions. | Programming Skill references |
 | 11.6 | **[STRONGLY RECOMMENDED]** Every project MUST use a linter at most stringent profile | T1 | Linters catch structural issues AI systematically produce. | RULES.md §5 |
