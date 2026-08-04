@@ -163,13 +163,15 @@ Record:
 | 35-64 | **SCHEDULE** | Park in .omo/backlog/. Set revisit date. No FUNDAMENTALS work.       |
 | < 35  | **DROP**     | Record why in .omo/decisions/. No revisit for 90 days.               |
 
+> **Asymmetric routing (Invariant 11):** COMMIT and SCHEDULE are applied by the AI and ledger-logged by default. DROP always re-engages the user — an idea is never silently killed. Borderline scores (within ±5 of a threshold) also re-engage the user gate.
+
 ## Heuristics (When the User is Unsure)
 
 | Situation                                    | Gate Response                                                                         |
 | -------------------------------------------- | ------------------------------------------------------------------------------------- |
 | 2+ mixed/unsure answers in Phase 1           | Default to SCHEDULE, not COMMIT                                                       |
 | All dimensions cluster 30-60 total           | Check Confidence dimension. If < 10, recommend a 1-day experiment before FUNDAMENTALS |
-| Urgency >= 16 but all others < 10            | Flag urgency without substance. Auto-DROP or SCHEDULE with 90-day delay               |
+| Urgency >= 16 but all others < 10            | Flag urgency without substance. Auto-SCHEDULE with 90-day delay; DROP re-engages the user (Invariant 11) |
 | Recent behavior: did nothing                 | Apply −5 penalty. If total >= 65, auto-schedule 1-week delay before COMMIT            |
 | Maybe on the $100 bet                        | Treat as No (−5)                                                                      |
 | First-time idea (just extracted)             | Apply −10 skepticism bonus                                                            |

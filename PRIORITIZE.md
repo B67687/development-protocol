@@ -51,9 +51,9 @@ Frame the decision as a **bet**, not a ranking:
 
 > **"If I have [X hours/days] of focused time — which one of these do I want to spend it on?"**
 
-**What Matters Check (principal contradiction):** before betting — which ONE of these matters most against the mission right now? What does not doing it cost? The AI proposes this analysis; the user ratifies (Strategist Posture). 10 seconds, forced when ≥2 candidates or mission ambiguity; not a matrix.
+**What Matters Check (principal contradiction):** before betting — which ONE of these matters most against the mission right now? What does not doing it cost? The AI proposes this analysis and logs it (Strategist Posture); ratification of the chosen bet folds into the single gate at STRATEGY (Invariant 11). 10 seconds, forced when ≥2 candidates or mission ambiguity; not a matrix.
 
-> **LOG the AI proposal and the user's ratification to the method ledger.** REVIEW conformance catches a missing entry (mirrors the Sufficiency Checkpoint in VALIDATION.md — this closes the enforcement asymmetry: without the log, the check can be silently skipped and no one can tell).
+> **LOG the AI proposal to the method ledger.** REVIEW conformance catches a missing entry (mirrors the Sufficiency Checkpoint in VALIDATION.md — this closes the enforcement asymmetry: without the log, the check can be silently skipped and no one can tell). User ratification of the bet is captured once, at the STRATEGY gate (Invariant 11).
 
 | Bet outcome | Action |
 |---|---|
@@ -77,7 +77,7 @@ PRIORITIZE         [✓] COMPLETE
 ## Integration
 
 ```
-INBOX → [PRIORITIZE] → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → MULTI → DECOMPOSITION → AMBITION → LANDSCAPE → STRATEGY → PACING → VALIDATION → SPECIFICATION → EXECUTOR (incl. POLISH) → EXPLAINER → REVIEW (incl. SPEC_SYNC) → REFLECT → ship
+INBOX → [PRIORITIZE] → EXTRACTION → SERIOUSNESS → FUNDAMENTALS (incl. MULTI) → DECOMPOSITION → AMBITION (incl. PACING) → LANDSCAPE → STRATEGY → VALIDATION → SPECIFICATION → EXECUTOR (incl. POLISH) → REVIEW (incl. EXPLAINER + SPEC_SYNC) → REFLECT → ship
 ```
 
 PRIORITIZE is **optional**. When the #1 cluster from INBOX is clear and the user is confident, skip it. The pipeline defaults to `INBOX → EXTRACTION`.

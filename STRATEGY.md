@@ -1,13 +1,15 @@
 # STRATEGY.md — Strategic Ratification Gate (v1)
 
-> **This is a pipeline step** between LANDSCAPE and PACING. It runs after research
-> (LANDSCAPE) has mapped the landscape and before budget (PACING) and prototyping
+> **This is a pipeline step** between LANDSCAPE and VALIDATION. It runs after research
+> (LANDSCAPE) has mapped the landscape and before prototyping
 > (VALIDATION) commit resources.
 >
 > **Purpose:** Produce a ratified strategic intent — the "how we win" — before any
 > budget is allocated or prototype built. LANDSCAPE answers "what exists?"; STRATEGY
 > answers "given what exists, how do we win?" and locks the approach with the human's
 > explicit sign-off.
+
+> **THE single ratification gate (Invariant 11):** AMBITION's locked scope + the strategic kernel + the phase budget are ratified here together, in one interaction. No other step asks for user ratification by default.
 >
 > **The posture (protocol-wide, see README):** the AI leads strategy as a world-class
 > strategist. It proposes; the human ratifies; the human owns execution. This is the
@@ -135,17 +137,17 @@ STRATEGY           [✓] COMPLETE
   [✓] Phase 2: AI kernel proposal (diagnosis, policy, actions, intent, falsification, confidence)
   [✓] Phase 3: Human ratification — amendments logged, reason in own words
   [✓] Phase 4: Premortem gate passed (top 3 failure causes patched)
-  [→] Ratified strategic intent → PACING (budget) → VALIDATION (prototype)
+  [→] Ratified strategic intent → VALIDATION (prototype)
 ```
 
 ## Integration
 
 ```
-INBOX → PRIORITIZE → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → MULTI → DECOMPOSITION → AMBITION → LANDSCAPE → [STRATEGY] → PACING → VALIDATION → SPECIFICATION → EXECUTOR → EXPLAINER → REVIEW → REFLECT → ship
+INBOX → PRIORITIZE → EXTRACTION → SERIOUSNESS → FUNDAMENTALS (incl. MULTI) → DECOMPOSITION → AMBITION (incl. PACING) → LANDSCAPE → [STRATEGY] → VALIDATION → SPECIFICATION → EXECUTOR → REVIEW (incl. EXPLAINER + SPEC_SYNC) → REFLECT → ship
 ```
 
 STRATEGY consumes: AMBITION's locked ambition + LANDSCAPE's research map.
-STRATEGY produces: the ratified strategic intent that PACING budgets and VALIDATION tests.
+STRATEGY produces: the ratified strategic intent that VALIDATION tests.
 
 ## Provenness
 

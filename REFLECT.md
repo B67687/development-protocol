@@ -23,7 +23,7 @@ This is the protocol's value proposition. Concrete evidence that the gates worke
 
 This is how the protocol improves. Every gap found here is a fix for the next version.
 
-> *Example: "PACING said EXECUTOR gets 30% of appetite, but the AI spent 50% on debugging. The budget didn't account for verification tax."*
+> *Example: "The AMBITION budget said EXECUTOR gets 30% of appetite, but the AI spent 50% on debugging. The budget didn't account for verification tax."*
 
 ### Q3: What changed in the protocol during this project? (Learning Shifts)
 

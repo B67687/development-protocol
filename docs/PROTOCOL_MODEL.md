@@ -9,7 +9,7 @@
 The protocol's states are its pipeline steps:
 
 ```
-INBOX → PRIORITIZE(opt) → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → MULTI → DECOMPOSITION → AMBITION → LANDSCAPE → STRATEGY → PACING → VALIDATION → SPECIFICATION → EXECUTOR → EXPLAINER → REVIEW → REFLECT → SHIP
+INBOX → PRIORITIZE(opt) → EXTRACTION → SERIOUSNESS → FUNDAMENTALS (incl. MULTI) → DECOMPOSITION → AMBITION (incl. PACING) → LANDSCAPE → STRATEGY → VALIDATION → SPECIFICATION → EXECUTOR → REVIEW (incl. EXPLAINER) → REFLECT → SHIP
 ```
 
 | State | Meaning |
@@ -18,18 +18,15 @@ INBOX → PRIORITIZE(opt) → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → MU
 | `PRIORITIZE` (optional) | 2-10 ideas compared on Want/Know/Work/Matters (4-dimension), What-Matters Check picks one bet — AI proposal + user ratification both logged |
 | `EXTRACTION` | X (real problem) extracted from Y (stated request) |
 | `SERIOUSNESS` | Commitment gate — is X worth pursuing? (D2b proven-earner benchmark fires when the money-tier decision is live) |
-| `FUNDAMENTALS` | One-way doors, LLM bias, capability audit, chain analysis |
-| `MULTI` | Cross-disciplinary probes |
+| `FUNDAMENTALS` | One-way doors, LLM bias, capability audit, chain analysis + multidisciplinary probes (MULTI folded) |
 | `DECOMPOSITION` | MECE tree, Cynefin, Level of Care |
-| `AMBITION` | 5-round research-interleaved goal tightening |
+| `AMBITION` | 5-round research-interleaved goal tightening + phase budget allocation (PACING folded) |
 | `LANDSCAPE` | Structured research — Declared Coverage declared up front; Intuition-First Route standing mode |
 | `STRATEGY` | Strategic ratification gate — AI kernel proposal, human ratify, premortem |
-| `PACING` | Budget and timeline allocation |
 | `VALIDATION` | Prototyping gate — KILL/PIVOT/COMMIT; Sufficiency Checkpoint ratifies ship/defer before COMMIT |
-| `SPECIFICATION` | 14-section spec template |
+| `SPECIFICATION` | 16-section spec template (§0-15) |
 | `EXECUTOR` | Implementation (incl. FINISH gate) |
-| `EXPLAINER` | Architecture documentation |
-| `REVIEW` | Independent meta-review (incl. Spec-to-Code Fidelity Check + Method Conformance Check) |
+| `REVIEW` | Independent meta-review (incl. EXPLAINER generation + Spec-to-Code Fidelity Check + Method Conformance Check) |
 | `REFLECT` | Protocol retrospective (7 questions) |
 | `SHIP` | Delivery |
 
@@ -37,7 +34,7 @@ INBOX → PRIORITIZE(opt) → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → MU
 
 ### Standard path (forward, step-to-next-step)
 ```
-INBOX → PRIORITIZE → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → MULTI → DECOMPOSITION → AMBITION → LANDSCAPE → STRATEGY → PACING → VALIDATION → SPECIFICATION → EXECUTOR → EXPLAINER → REVIEW → REFLECT → SHIP
+INBOX → PRIORITIZE → EXTRACTION → SERIOUSNESS → FUNDAMENTALS (incl. MULTI) → DECOMPOSITION → AMBITION (incl. PACING) → LANDSCAPE → STRATEGY → VALIDATION → SPECIFICATION → EXECUTOR → REVIEW (incl. EXPLAINER) → REFLECT → SHIP
 ```
 
 ### Valid deviations
@@ -56,16 +53,16 @@ INBOX → PRIORITIZE → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → MULTI �
 | `REVIEW → EXTRACTION` | Review found wrong problem extracted |
 | `REFLECT → EXTRACTION` | Learning shifts — protocol itself changed, new cycle |
 | Any step → `INBOX` | Protocol improvement cycle (recursion) or new intent |
-| `EXTRACTION → FUNDAMENTALS` (skip SERIOUSNESS) | Protocol improvement cycle ONLY (per Invariant 4); FUNDAMENTALS and MULTI still required (per Invariant 5) |
+| `EXTRACTION → FUNDAMENTALS` (skip SERIOUSNESS) | Protocol improvement cycle ONLY (per Invariant 4); FUNDAMENTALS (incl. MULTI) still required (per Invariant 5) |
 | **Any step → any EARLIER step (Gate Restart)** | Deliberate divergence restart: the user may always jump back to any previous gate and restart from there — no failure trigger required. Divergence is a valid reason to restart from an earlier gate when continuing would compound the divergence. |
 
 ### Invalid transitions
 ```
 PRIORITIZE → anything except EXTRACTION
 EXTRACTION → anything except SERIOUSNESS (when NOT a protocol-improvement recursion; recursion per Invariant 4)
-EXECUTOR → SHIP (must pass through EXPLAINER, REVIEW, REFLECT)
+EXECUTOR → SHIP (must pass through REVIEW, REFLECT)
 REVIEW → SHIP (must pass through REFLECT)
-SERIOUSNESS → SPECIFICATION (skipping FUNDAMENTALS, MULTI, DECOMPOSITION, AMBITION, LANDSCAPE, PACING, VALIDATION)
+SERIOUSNESS → SPECIFICATION (skipping FUNDAMENTALS (incl. MULTI), DECOMPOSITION, AMBITION (incl. PACING), LANDSCAPE, VALIDATION)
 ```
 > These are invariants: **no project ships without passing REVIEW and REFLECT. No project skips from extraction to specification without the middle gates.**
 
@@ -87,10 +84,12 @@ When the user declares a divergence and chooses to restart from an earlier gate:
 2. **The prep-sequence is order-preserved** when steps are used: INBOX before EXTRACTION, EXTRACTION before FUNDAMENTALS, FUNDAMENTALS before DECOMPOSITION, DECOMPOSITION before AMBITION, LANDSCAPE before VALIDATION, VALIDATION before SPECIFICATION, SPECIFICATION before EXECUTOR.
 3. **PRIORITIZE is always optional** — never mandatory, never blocking.
 4. **Recursion exemption is reserved for protocol improvement cycles only** — SERIOUSNESS may be skipped there and nowhere else.
-5. **Skipping SERIOUSNESS in protocol-improvement cycles does not skip FUNDAMENTALS or MULTI.**
+5. **Skipping SERIOUSNESS in protocol-improvement cycles does not skip FUNDAMENTALS (incl. MULTI).**
 6. **The pipeline can loop backward (to EXTRACTION, LANDSCAPE, SPECIFICATION) but never jumps forward past a gate.** Run-Shape Light mode may skip heavyweight steps (per INBOX.md) — sanctioned by the front-door triage, not a gate jump; skipped steps are logged with SKIP_CATALOG codes, never silent.
 9. **Run-Shape mode is chosen at INBOX and logged** — Light mode skips steps legitimately but NEVER skips ledger obligations, the verification floor (review + targeted tests), or one-way doors (schema/API/data/security force Standard).
 10. **Autonomous learning is gated by feedback velocity** — the model may learn-and-apply without ratification ONLY where feedback is machine-checkable (compiler, tests, ledger, grep = `fast`). Where feedback is slow (strategy, taste, ambition, mission) ratification precedes application. Ambiguous cases default to ratification. The gate governs declarative learning only; procedural skill remains user-owned (Dual ZPD). Velocity classification is logged per autonomous-learning decision (Emission Rule 9).
+
+11. **One ratification per run (asymmetric gate default).** The STRATEGY ratification is the single user gate of a run: AMBITION's locked scope + the strategic kernel + the phase budget are ratified together, in one interaction. Every other user confirmation — EXTRACTION X, DECOMPOSITION tree, SERIOUSNESS COMMIT/SCHEDULE, VALIDATION COMMIT and Sufficiency Checkpoint, PRIORITIZE What-Matters — is default-autonomous and ledger-logged; any step automatically re-engages the user gate iff it crosses a one-way door (schema/API/data/security or expensive-to-reverse), and DROP/KILL outcomes always re-engage the user. This invariant governs how many times the user is asked, not whether compliance is checked — the REVIEW Method Conformance Check still catches silent skips. Extends the asymmetric-ratify principle of Invariant 10 to the prep-sequence.
 
 ## Adding or Removing a Step (Transition Update Procedure)
 

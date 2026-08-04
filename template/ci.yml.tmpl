@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Phase compliance: verify RULES.md phase is set
+      - name: Check RULES.md phase
+        run: |
+          if ! grep -Eq '^\*\*Current:\*\* `(DISCOVER|WORK|ITERATE|PERFECT|DISTRIBUTE)`' RULES.md; then
+            echo "ERROR: RULES.md phase not set (expected '**Current:** `PHASE`')."
+            exit 1
+          fi
+
+      - name: Build
+        run: {{BUILD}}
+
+      - name: Lint
+        run: {{LINT}}
+
+      - name: Test
+        run: {{TEST}}

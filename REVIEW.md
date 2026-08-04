@@ -21,11 +21,16 @@
 | ----------------- | ------------------------------------------------------------------------------------------------- |
 | Before phase exit | Every phase transition calls for a review (DISCOVER → WORK, WORK → PERFECT, PERFECT → DISTRIBUTE) |
 | Before DISTRIBUTE | **Mandatory.** No project ships without a clean review.                                           |
-| After EXPLAINER   | Verify the explainer matches the code, not the spec.                                              |
+| After EXPLAINER generation (folded into REVIEW) | Verify the explainer matches the code, not the spec.                                             |
 | After SPEC SYNC   | Double-check the sync gate's own work.                                                            |
 | On any ambiguity  | If you feel uncertain about quality, run a review.                                                |
 
 **Exception**: PROTOTYPING phase (VALIDATION.md) — prototypes are throwaway by design. Review is not needed. But the KILL/PIVOT/COMMIT decision itself should be reviewed if you're unsure.
+
+## EXPLAINER (Folded Step)
+
+The EXPLAINER step (formerly standalone, docs/EXPLAINER.md) now runs as the first action of REVIEW. Before running the fixed checklist, generate the project's EXPLAINER.md from the template in docs/EXPLAINER.md (Macro Architecture, Data Flow Walk, Module Breakdown, Key Decisions, Quality Guarantees — plus the Mandatory Check). Checks 1.5/1.6/3.1-3.4 below then verify it. The pipeline no longer has a separate EXPLAINER step; the artifact is produced here.
+
 
 ---
 
@@ -79,9 +84,10 @@ The ledger is machine-checked at the meta-gate:
 - [ ] Fitness: prescribed methods invoked with resolvable evidence?
 - [ ] Skip-rate per reason code: no code trending up as a lazy-out?
 - [ ] Omitted entries: any uncatalogued omission present? (RED FLAG → fix ticket)
-- [ ] What-Matters ratification (PRIORITIZE): the AI proposal AND the user's
-      ratification both logged? Missing ratification entry = RED FLAG → fix
-      ticket (mirrors Sufficiency Checkpoint — closes the S22 asymmetry)
+- [ ] What-Matters (PRIORITIZE): the AI proposal logged; user ratification folded
+      into the single gate (Invariant 11) — flag if the proposal is missing or the
+      single-gate entry is absent (closes the S22 asymmetry)
+
 - [ ] Divergence metric: invocation rate vs outcome quality — no reward for
       checklist completion alone (specification-gaming guard)
 - [ ] Net-effort justification: every method or rule added or changed in this
@@ -92,6 +98,11 @@ The ledger is machine-checked at the meta-gate:
       decisions logged with velocity classification; slow-velocity decisions have a
       ratification entry. Missing classification or missing slow-ratification = RED
       FLAG → fix ticket (machine-checked by ledger-check.py).
+
+- [ ] One-Gate conformance (Invariant 11): exactly one user ratification per run
+      (STRATEGY: scope + kernel + budget), logged. Any auto-escalated one-way-door
+      gate logged; an unlogged extra user gate or a missing single-gate entry = RED
+      FLAG → fix ticket.
 
 > Sources: process-mining conformance checking (van der Aalst), NASA SWE-072
 > traceability, OpenAI process supervision, Krakovna specification gaming.
