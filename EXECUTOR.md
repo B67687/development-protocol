@@ -263,6 +263,27 @@ For Tier 2+ projects (runtime, CLI, library, or performance-sensitive), consult 
 
 **Where they run:** mechanisms are implemented in the PROJECT (CI/lint/tests). The protocol's job is to REQUIRE them; the FINISH gate CHECKs them.
 
+### Architecture Fitness Audit (per level) + Escalation Rule
+
+An architecture problem is not only "does structure exist for this concern" — it is whether the structure is the optimal GENERAL one for the class, at every level. Two failure modes: structure **absent** (no home for the concern) vs **malformed** (present, wrong class-fit).
+
+| Level | Question | Check | Type |
+| --- | --- | --- | --- |
+| **MACRO** (meta) | Is the top paradigm optimal for the product class? (No style suits all problems — Shaw & Clements boxology) | Qualitative paradigm-fit gate: class-ID via Cynefin / Problem Frames; the MACRO decision records its class-ID reasoning + one falsification criterion | Human gate |
+| **MESO** | Are component contracts right-shaped for their class? | Contract/invariant checks, interface rules, transition-table tests | Codified |
+| **MICRO** | Is the implementation minimally correct for the class? | Layer/import rules, size rules, mutation testing | Codified |
+
+Fitness functions verify COMPLIANCE with the chosen architecture — they cannot judge the choice itself; that is the MACRO gate's job. ATAM-style evaluation also runs within a class, not across classes.
+
+**Escalation rule (when a problem is structural):**
+1. **Diagnose top-down, never surface-first** — scan the **meta architecture first**, then descend one level at a time (meta → subsystem → feature) until the problem's home is found: the first level whose structure is wrong-shaped for its class. Never commit to a fix at the surface before this scan — surface fixes add bloat to the whole system.
+2. **Bloat Test** — reject any fix that requires adding an exception, special case, or workaround: the structure at some level is forcing that bloat. The right fix removes the exception; the wrong fix adds it. A clean top-down scan (every level right-shaped) means the problem is genuinely local — fix locally, bloat-free.
+3. **Recurrence signal** — recurring defects at the same boundary (change amplification, co-change clusters, every feature paying the same tax / Conway imprint) makes the scan mandatory, not optional.
+4. **Fix at the found level, atomically and reversibly** (Strangler Fig / evolutionary architecture) — never rewrite-by-default.
+5. **Gate:** modularity must be sound before an up-level fix — a bad modular monolith is not fixed by microservices (Simon Brown's boundary condition).
+
+**Re-audit cadence:** every MACRO decision records a review date; a decision later reversed is marked superseded in its own record.
+
 > **Source:** State-machine modeling and transition tests (Harel 1987; Torkar et al.), co-change prediction (D'Ambros et al., MSR 2010), fitness functions (Ford, Parsons, Kua), characterization tests (Feathers), mutation testing (Just et al., FSE 2014), change amplification (Ousterhout). Confidence: Medium-High — strongest on mutation testing and co-change prediction.
 
 ---
@@ -354,3 +375,5 @@ If the answer is "nothing" — but the addition is also unnecessary (the artifac
 | **Value** | The marginal quality gain is positive | The marginal quality gain is zero or negative |
 
 **The deep counterweight (from M1's own counter-evidence):** redundancy is sometimes the point — safety-critical systems deliberately add. The test is NOT "never add". It is "addition beyond the completion boundary destroys value". Know where the boundary is.
+
+**Structural form:** if an addition is *needed* because the system has no natural home for the concern — the fix would require an exception — apply the Bloat Test (Escalation rule): the problem is architectural, not the addition's.
