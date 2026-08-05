@@ -74,6 +74,8 @@ Project: {{PROJECT_NAME}}
 
 - {{SCOPE_DESCRIPTION}}
 
+> Each scope item becomes an `approved` feature entry (`F-###`) in FEATURES.md (docs/FEATURES.md). Tests carry feature IDs; an `applied` feature has linked tests.
+
 ### OUT OF SCOPE (explicitly not V1)
 
 - (deferred to V2)
@@ -142,6 +144,7 @@ The AI MUST stop and ask before proceeding if ANY of these are true:
 3. **One behavior per test.** Test names describe the expected outcome.
 4. **Edge cases are explicit.** Written BEFORE happy path tests.
 5. **Regression tests lock bugs.** When a bug is found, FIRST write a test that reproduces it.
+6. **Tests anchor to features.** Each test carries its feature ID (`F-###` — FEATURES.md); an `applied` feature with no linked test is untested intent, a test with no feature is dead weight — flag both.
 
 ---
 

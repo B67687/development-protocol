@@ -298,7 +298,7 @@ validated foundation. Always run this chain before entering execution.
 | `docs/engineering-plugin.md` | Engineering Plugin — CI, Operations, Production Quality addendum for technical deliverables |
 | `docs/METHOD_LEDGER.md` | Method Invocation Completeness — the .omo/method-ledger.jsonl schema, 3 states, conformance check (Standing Artifact) |
 | `docs/SKIP_CATALOG.md` | Pre-authorized skip conditions per method (MEL pattern) + deviation template (Standing Artifact) |
-| `docs/` | PROTOCOL_MODEL, METHOD_LEDGER, UNIVERSAL_FUNDAMENTALS, EXPLAINER, SKIP_CATALOG, SPEC_SYNC, standards/, adr/, research/ |
+| `docs/` | PROTOCOL_MODEL, METHOD_LEDGER, UNIVERSAL_FUNDAMENTALS, FEATURES, EXPLAINER, SKIP_CATALOG, SPEC_SYNC, standards/, adr/, research/ |
 | `cli/` | project-kit — optional Rust CLI: bootstrap projects with RULES.md governance (`init` / `phase` / `check` / `publish`) |
 
 ## Origin
