@@ -199,7 +199,12 @@ Define this at bootstrap. It locks when you enter WORK. It does NOT lock during 
 - [ ]
 - [ ]
 
-> Each IN SCOPE item becomes an `approved` feature entry (`F-###`) in FEATURES.md (docs/FEATURES.md) — the seed of the standing feature/behavior inventory. OUT OF SCOPE items are never-proposed there (or `archived` with a reason if previously applied).
+> Each IN SCOPE item becomes an `approved` feature entry (`F-###`) in FEATURES.md (docs/FEATURES.md) — the seed of the standing feature/behavior inventory. **The feature draft is AI-generated, default-autonomous, at AMBITION** (MECE leaves seed `proposed` F-###) **and folds into the STRATEGY ratification** — the scope block IS the inventory; no second user gate (Invariant 11). **Tiered:** Type-1 / one-way-door projects write full behavior contracts at AMBITION; Type-2 / fast-path projects carry a bare inventory (IDs + one-line intent) hardened to full contracts at SPECIFICATION. OUT OF SCOPE items are never-proposed there (or `archived` with a reason if previously applied).
+> **Mid-pipeline adoption (backfill):** a project already past AMBITION when this inventory
+> discipline lands seeds FEATURES.md at the next Session Kickoff — from the current V1 scope
+> + whatever has shipped — and gives each `applied` feature a characterization test
+> (EXECUTOR Regression-Lock) before any further edits to it. No retroactive ceremony;
+> the differential lock starts at adoption, not at project birth.
 
 ### OUT OF SCOPE (explicitly not in V1)
 
@@ -300,7 +305,7 @@ The spec-to-code fidelity verification gate runs after POLISH and before DISTRIB
 4. **Edge cases are explicit.** Tests for edge cases (empty inputs, null values, boundary conditions) are written BEFORE tests for the happy path. If the AI cannot handle the edge case, it should not handle the happy path.
 5. **No test-only changes without corresponding code.** Tests cannot be added in isolation. Every test must have an implementation that makes it pass.
 6. **Regression tests lock bugs.** When a bug is found, the FIRST action is to write a test that reproduces it. Then fix the code. The test stays as a regression guard.
-7. **Tests anchor to features.** Each test carries its feature ID (`F-###` — see FEATURES.md trace tags): tests that prove a feature contract, feature entries that name their tests. An `applied` feature with no linked test is untested intent; a test with no feature is dead weight or an unregistered feature — flag both. **Behavior-coverage signal:** run mutation testing on the core module; surviving mutants on a feature's contract mean the intent is not actually tested.
+7. **Tests anchor to features.** Each test carries its feature ID (`F-###` — see FEATURES.md trace tags): tests that prove a feature contract, feature entries that name their tests. An `applied` feature with no linked test is untested intent; a test with no feature is dead weight or an unregistered feature — flag both. **Behavior-coverage signal:** run mutation testing on the core module; surviving mutants on a feature's contract mean the intent is not actually tested. **Tiered teeth:** surviving mutants are TRIAGED (equivalent / killed / real-gap); a real-gap mutant on an `applied` feature's contract BLOCKS at REVIEW (separate-evaluator disposition, ledger-recorded); a core-wide sweep stays a checklist. Mutation score is a coverage signal; the hard BLOCK lives on BASELINES (golden-file diffs — see EXECUTOR Regression-Lock).
 
 ---
 
@@ -411,6 +416,7 @@ State current phase and what that means I can/cannot do.
 State V1 scope and what's out of scope.
 State the Constitution principles.
 Check stop rules.
+Regression scan: read FEATURES.md; flag any `applied` feature whose behavior is untested or whose baseline is drifting; if this session's task touches an `applied` feature, its contract tests must PASS before edits (regression-first).
 If blocked, refuse and explain. If clear, proceed."
 ```
 

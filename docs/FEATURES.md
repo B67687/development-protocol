@@ -1,6 +1,6 @@
 # FEATURES.md — Standing Feature & Behavior Inventory
 
-> **Living artifact (mandated).** The project's complete reference of intended + confirmed features and how each is *supposed to behave*. It is the differential against which both **problem-detection** ("what deviated from intent?") and **testing** ("what should we prove?") are measured — one reference, two uses. Created at SPECIFICATION, maintained through EXECUTOR and every subsequent cycle. Updated in the same PR as the code that changes a feature.
+> **Living artifact (mandated).** The project's complete reference of intended + confirmed features and how each is *supposed to behave*. It is the differential against which both **problem-detection** ("what deviated from intent?") and **testing** ("what should we prove?") are measured — one reference, two uses. Seeded at AMBITION (AI-generated `proposed` F-### folded into the STRATEGY ratification — the scope block IS the inventory), hardened to full behavior contracts at SPECIFICATION, maintained through EXECUTOR and every subsequent cycle. Updated in the same PR as the code that changes a feature.
 
 ---
 
@@ -21,7 +21,7 @@ proposed ──▶ approved ──▶ applied ──▶ archived
                               └── superseded (→ archived; successor F-###)
 ```
 
-> **Statuses are exactly these four:** `proposed` / `approved` / `applied` / `archived`. A proposal that fails ratification is simply not entered (or is `archived` with the reason). A `proposed` entry older than one cycle re-competes at the betting table or is `archived` (Clean Slate Rule 10).
+> **Statuses are exactly these four:** `proposed` / `approved` / `applied` / `archived`. A proposal that fails ratification is simply not entered (or is `archived` with a reason). **`archived` carries a reason taxonomy** — `rejected` (failed vetting, with the evidence that killed it), `superseded` (replaced by a successor F-###, noted in the entry), `clean-slate` (dropped by the betting table, Clean Slate Rule 10) — ledger-logged, zero new user interactions (Invariant 11). A `proposed` entry older than one cycle re-competes at the betting table or is `archived` (Clean Slate Rule 10).
 
 | Status | Meaning | Can be shipped? |
 | --- | --- | --- |

@@ -114,6 +114,15 @@ The ledger is machine-checked at the meta-gate:
       co-change / change-amplification at one boundary) checked — no unexamined meta-
       level constraint on a feature flagged in REVIEW.
 
+- [ ] Regression-Lock conformance (Cluster AM): any `applied` feature's golden
+      baseline (golden file / visual snapshot) changed in this run carries a ledger
+      entry recording the REGRESSION DECISION plus reviewer attestation — a silent
+      baseline update (laundered regression) = RED FLAG → fix ticket.
+- [ ] Mutation disposition conformance (Cluster AM): surviving mutants were TRIAGED
+      (equivalent / killed / real-gap); a real-gap mutant's disposition is ledger-
+      recorded; an UNRESOLVED real-gap mutant on an `applied` feature's contract
+      = RED FLAG → fix ticket.
+
 > Sources: process-mining conformance checking (van der Aalst), NASA SWE-072
 > traceability, OpenAI process supervision, Krakovna specification gaming.
 > Confidence: High on mechanism, Medium on thresholds (need real-run tuning).
