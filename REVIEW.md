@@ -104,6 +104,16 @@ The ledger is machine-checked at the meta-gate:
       gate logged; an unlogged extra user gate or a missing single-gate entry = RED
       FLAG → fix ticket.
 
+- [ ] FEATURES.md conformance (Cluster AE): statuses valid (proposed/approved/applied/
+      archived); every IN SCOPE item is an `approved` entry; no `applied` feature lacks
+      linked tests; every test references a known F-###; `Reviewed:` dates within cadence.
+      Orphan feature, unanchored test, or stale review = RED FLAG → fix ticket.
+
+- [ ] Architecture fitness audit (Cluster AE): the MACRO paradigm-fit gate ran and is
+      logged (a falsification criterion on MACRO decisions); escalation signal (recurring
+      co-change / change-amplification at one boundary) checked — no unexamined meta-
+      level constraint on a feature flagged in REVIEW.
+
 > Sources: process-mining conformance checking (van der Aalst), NASA SWE-072
 > traceability, OpenAI process supervision, Krakovna specification gaming.
 > Confidence: High on mechanism, Medium on thresholds (need real-run tuning).
@@ -157,7 +167,7 @@ This is the most important check. Non-coder verification depends on it.
 | 4.2 | Build/compilation succeeds              | Run the build command. Exit code 0 is PASS.                                                  |
 | 4.3 | No leaked secrets or credentials        | Grep for `-----BEGIN`, `api_key`, `password`, `token`, `secret`. Any hit is FAIL.            |
 | 4.4 | README has install/running instructions | Can a new user get the project running from README alone?                                    |
-| 4.5 | CI config exists (if applicable)*          | Check for .github/workflows/, .gitlab-ci.yml, Jenkinsfile, etc. *See Engineering Plugin §4 |
+| 4.5 | CI config or local check script exists (if applicable)* | Check for .github/workflows/, .gitlab-ci.yml, Jenkinsfile, etc., or run ./scripts/check.sh. *See Engineering Plugin §4 |
 | 4.6 | Standards audit passes*                    | Run ./scripts/audit.sh from the Standards repo. *See Engineering Plugin §4                  |
 
 ### Phase 5: Regression Defenses

@@ -199,6 +199,8 @@ Define this at bootstrap. It locks when you enter WORK. It does NOT lock during 
 - [ ]
 - [ ]
 
+> Each IN SCOPE item becomes an `approved` feature entry (`F-###`) in FEATURES.md (docs/FEATURES.md) — the seed of the standing feature/behavior inventory. OUT OF SCOPE items are never-proposed there (or `archived` with a reason if previously applied).
+
 ### OUT OF SCOPE (explicitly not in V1)
 
 - — deferred to V2
@@ -298,6 +300,7 @@ The spec-to-code fidelity verification gate runs after POLISH and before DISTRIB
 4. **Edge cases are explicit.** Tests for edge cases (empty inputs, null values, boundary conditions) are written BEFORE tests for the happy path. If the AI cannot handle the edge case, it should not handle the happy path.
 5. **No test-only changes without corresponding code.** Tests cannot be added in isolation. Every test must have an implementation that makes it pass.
 6. **Regression tests lock bugs.** When a bug is found, the FIRST action is to write a test that reproduces it. Then fix the code. The test stays as a regression guard.
+7. **Tests anchor to features.** Each test carries its feature ID (`F-###` — see FEATURES.md trace tags): tests that prove a feature contract, feature entries that name their tests. An `applied` feature with no linked test is untested intent; a test with no feature is dead weight or an unregistered feature — flag both. **Behavior-coverage signal:** run mutation testing on the core module; surviving mutants on a feature's contract mean the intent is not actually tested.
 
 ---
 

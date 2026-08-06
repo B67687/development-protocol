@@ -567,6 +567,8 @@ Rationale: {{why this level was chosen}}
 - [ ] Tier 2 sections 8-11 are filled for production projects
 - [ ] Tier 3 sections 12-14 are filled for open-source projects
 - [ ] **Spec self-consistency grep** — run `grep -n "Step " SPEC.md` and confirm step/phase numbering is monotonic with no duplicates before EXECUTOR starts
+- [ ] **FEATURES.md** exists (docs/FEATURES.md template): every IN SCOPE item is an `approved` entry; no `applied` feature lacks linked tests; statuses are valid (proposed/approved/applied/archived)
+- [ ] **Test anchoring** — every test references a feature ID (F-###); a test proving no feature contract is flagged, not silently carried
 
 For engineering deliverables, also verify from the [Engineering Plugin](docs/engineering-plugin.md):
 - [ ] Quality gates (plugin §1) have concrete commands
