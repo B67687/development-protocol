@@ -134,7 +134,7 @@ project is engineering-deliverable.
 
 | # | Check | How to Verify |
 |---|-------|---------------|
-| 4.5 | CI config exists | Check for .github/workflows/, .gitlab-ci.yml, Jenkinsfile, etc. |
+| 4.5 | CI config or local check script exists | Check for .github/workflows/, .gitlab-ci.yml, Jenkinsfile, etc., or run ./scripts/check.sh (this repo). All checks must pass. |
 | 4.6 | Standards audit passes | Run ./scripts/audit.sh from the Standards repo on this project. All checks must pass. |
 
 ---

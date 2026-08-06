@@ -91,6 +91,9 @@ When the user declares a divergence and chooses to restart from an earlier gate:
 
 11. **One ratification per run (asymmetric gate default).** The STRATEGY ratification is the single user gate of a run: AMBITION's locked scope + the strategic kernel + the phase budget are ratified together, in one interaction. Every other user confirmation — EXTRACTION X, DECOMPOSITION tree, SERIOUSNESS COMMIT/SCHEDULE, VALIDATION COMMIT and Sufficiency Checkpoint, PRIORITIZE What-Matters — is default-autonomous and ledger-logged; any step automatically re-engages the user gate iff it crosses a one-way door (schema/API/data/security or expensive-to-reverse), and DROP/KILL outcomes always re-engage the user. This invariant governs how many times the user is asked, not whether compliance is checked — the REVIEW Method Conformance Check still catches silent skips. Extends the asymmetric-ratify principle of Invariant 10 to the prep-sequence.
 
+### Design Principle: Sentinels, not just Gates
+A gate fires when you ARRIVE at a step; a sentinel fires when you DON'T. Every user-facing gate can be skipped (friction economics) or rubber-stamped (93% automation bias) — so gates are not enforcement. The protocol's real sentinel is the **method-ledger conformance check at REVIEW**: REVIEW blocks SHIP if any step's entry/exit artifact is missing, a transition was not logged, or a skipped step has no SKIP_CATALOG code. An unlogged transition IS an invariant violation. This is the deterministic sentinel that exists today; harness-side hooks (Stop/pre-tool completion gates, deny-and-continue — OpenCode; see harness handoff) upgrade it from review-time to real-time enforcement. Until then, "REVIEW blocks on conformance" is the teeth.
+
 ## Adding or Removing a Step (Transition Update Procedure)
 
 When a step is added, removed, renamed, or reordered:
@@ -113,3 +116,4 @@ The transition-table test for the protocol itself:
 - [ ] No orphaned references to removed/renamed steps anywhere in `*.md`
 - [ ] Prep-sequence (README.md) matches this transition table
 - [ ] Invariants hold: no path skips REVIEW → REFLECT → SHIP chain
+- [ ] Ledger conformance: every transition in this run is logged; unlogged transition = sentinel violation (Design Principle above)

@@ -114,6 +114,15 @@ The ledger is machine-checked at the meta-gate:
       co-change / change-amplification at one boundary) checked — no unexamined meta-
       level constraint on a feature flagged in REVIEW.
 
+- [ ] Regression-Lock conformance (Cluster AM): any `applied` feature's golden
+      baseline (golden file / visual snapshot) changed in this run carries a ledger
+      entry recording the REGRESSION DECISION plus reviewer attestation — a silent
+      baseline update (laundered regression) = RED FLAG → fix ticket.
+- [ ] Mutation disposition conformance (Cluster AM): surviving mutants were TRIAGED
+      (equivalent / killed / real-gap); a real-gap mutant's disposition is ledger-
+      recorded; an UNRESOLVED real-gap mutant on an `applied` feature's contract
+      = RED FLAG → fix ticket.
+
 > Sources: process-mining conformance checking (van der Aalst), NASA SWE-072
 > traceability, OpenAI process supervision, Krakovna specification gaming.
 > Confidence: High on mechanism, Medium on thresholds (need real-run tuning).
@@ -167,7 +176,7 @@ This is the most important check. Non-coder verification depends on it.
 | 4.2 | Build/compilation succeeds              | Run the build command. Exit code 0 is PASS.                                                  |
 | 4.3 | No leaked secrets or credentials        | Grep for `-----BEGIN`, `api_key`, `password`, `token`, `secret`. Any hit is FAIL.            |
 | 4.4 | README has install/running instructions | Can a new user get the project running from README alone?                                    |
-| 4.5 | CI config exists (if applicable)*          | Check for .github/workflows/, .gitlab-ci.yml, Jenkinsfile, etc. *See Engineering Plugin §4 |
+| 4.5 | CI config or local check script exists (if applicable)* | Check for .github/workflows/, .gitlab-ci.yml, Jenkinsfile, etc., or run ./scripts/check.sh. *See Engineering Plugin §4 |
 | 4.6 | Standards audit passes*                    | Run ./scripts/audit.sh from the Standards repo. *See Engineering Plugin §4                  |
 
 ### Phase 5: Regression Defenses

@@ -94,7 +94,7 @@ When a SPEC.md section implementation fails, do not escalate to the human on the
 | Attempt | Action | Escalation |
 | --- | --- | --- |
 | 1st failure | Retry once with full context preserved. Log error + attempted fix. | — |
-| 2nd failure | Run Midpoint Protocol Check early. Assess whether the approach is fundamentally wrong. | Flag root-cause hypothesis to human. |
+| 2nd failure | Run Midpoint Protocol Check early. Assess whether the approach is fundamentally wrong. **Regression-class symptoms (worked before, broken now): route through the /solve regression path (Difference Check → Binary Search) BEFORE any retry 3.** | Flag root-cause hypothesis to human. |
 | 3rd failure | Stop. Present: (1) all attempts, (2) root-cause analysis, (3) options: Revise Spec / Work Around (documented risk) / Abandon. | BLOCKING — human decision required. |
 
 **Retry discipline:** each retry must attempt a DIFFERENT approach. Re-running the same failed strategy is not a retry.
@@ -250,6 +250,8 @@ For Tier 2+ projects (runtime, CLI, library, or performance-sensitive), consult 
 
 **Core requirement:** `docs/PROJECT_MODEL.md` exists and is current (mandated by SPECIFICATION.md § PROJECT_MODEL) — whole-project state machine, valid/invalid transitions, invariants, blast radius map.
 
+**Seam registry (extends the blast-radius map):** record every known coupling seam — the cross-level boundaries where silent behavior change has happened (e.g. i18n activation races, re-render vs in-flight state, shared mutable arrays). Schema: seam ID, boundaries, co-change cluster, regression history (one line per incident). Update: whenever a regression traces to a seam or co-change analysis reveals a new sibling group. Check: the regression-per-seam rate is the metric that tells which architecture level to descend to (Escalation rule step 1).
+
 **Enforced mechanisms (research, strongest first):**
 
 | Mechanism | What it does | Evidence | Setup cost |
@@ -353,8 +355,16 @@ Add to the Polish Checklist:
 - [ ] Transition-table test passes (all states × events)
 - [ ] No co-change sibling of a modified file was missed (checked via git log analysis)
 - [ ] Layer rules pass (domain imports only domain)
-- [ ] Mutation testing run on core module — surviving mutants reviewed as regression checklist
+- [ ] Mutation testing run on core module — surviving mutants TRIAGED: equivalent → dismissed (documented); killed → coverage confirmed; real-gap → disposition recorded in ledger and BLOCKING at REVIEW (separate evaluator decides) on contract features; core-wide sweep stays a checklist. Mutation score is a coverage signal, not a gate — the hard BLOCK lives on BASELINES (golden-file diff), see Regression-Lock.
 - [ ] Evidence-gated merge: every change merged with its evidence artifacts (tests, proofs, ledger entries) attached — no merge without evidence (v3-agent-standard)
+
+### Regression-Lock (the differential lock against intent)
+> **Runs at:** the FINISH gate + every subsequent change to an `applied` feature. The executable differential between declared intent and shipped reality — the answer to "everything breaks eventually".
+
+A feature is not done when its code exists; it is done when its behavior is LOCKED against drift:
+1. **Characterization/contract tests** — every `applied` feature's postconditions + acceptance scenarios (FEATURES.md) are pinned by tests that FAIL on regression (RULES §9 rule 7). A test that would pass on broken output is a tautology — kill it.
+2. **Baselines (golden files / visual snapshots)** — for visual or output-shaped features, a golden baseline locks appearance/behavior. Baseline-update discipline: changing a baseline is a REGRESSION DECISION, not a ceremony — the update must be reviewed by a separate evaluator (never the worker who changed it) and recorded in the ledger with the reason. Updating a baseline to make a failing check pass without that review is regression laundering (Ithmb `a9962de`).
+3. **Hard teeth:** REVIEW blocks SHIP if an `applied` feature's baseline changed without review, a contract test is missing, or a triaged real-gap mutant is unresolved. These run through the REVIEW Method Conformance + ledger conformance check (the sentinel that exists today); real-time harness hooks upgrade them later (harness handoff).
 
 ---
 
