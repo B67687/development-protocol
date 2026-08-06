@@ -12,107 +12,106 @@ Built by following [the Development Protocol](https://github.com/B67687/Developm
 
 ## The Pipeline
 ```
-RAW INTENT
-│
-▼
+                         RAW INTENT
+                         │
+                         ▼
 ┌─────────────────────────────────────────────────┐
-│ INBOX (Step -1) │
-│ Multi-thought capture → cluster → triage │
-│ Select one cluster for EXTRACTION, park rest │
+│ INBOX (Step -1)                                 │
+│ Multi-thought capture → cluster → triage        │
+│ Select one cluster for EXTRACTION, park rest    │
 └─────────────────────────────────────────────────┘
-│
-▼
+                         │
+                         ▼
 ┌─────────────────────────────────────────────────┐
-│ PRIORITIZE (optional, Step 0.5) │
-│ Deep comparison of 2-10 ideas from INBOX │
-│ 4-dimension scoring (Want × Know × Work × Matters) │
-│ Bet decision → EXTRACTION or park │
+│ PRIORITIZE (optional, Step 0.5)                 │
+│ Deep comparison of 2-10 ideas from INBOX        │
+│ 4-dim scoring: Want × Know × Work × Matters     │
+│ Bet decision → EXTRACTION or park               │
 └─────────────────────────────────────────────────┘
-│
-▼
+                         │
+                         ▼
 ┌─────────────────────────────────────────────────┐
-│ EXTRACTION (Step 0) │
-│ Extract X (real problem) from Y (stated │
-│ solution). 10 proven techniques: Goal Climb, │
-│ No-Computer Check, Why-Tree, Contextual Probe, │
-│ Mom Question, Problem Statement Wall, │
-│ Job/Pain/Gain Map, Laddering, Socratic Probe, │
-│ Cognitive Interview. │
+│ EXTRACTION (Step 0)                             │
+│ Extract real problem X from stated solution Y   │
+│ 10 techniques: Goal Climb, Why-Tree, Contextual │
+│ Probe, No-Computer Check, Mom Question, Problem │
+│ Statement Wall, Job/Pain/Gain Map, Laddering,   │
+│ Socratic Probe, Cognitive Interview.            │
 └─────────────────────────────────────────────────┘
-│
-▼
+                         │
+                         ▼
 ┌─────────────────────────────────────────────────┐
-│ SERIOUSNESS (Idea Evaluation Gate) │
-│ Phase 1: Commitment Probe │
-│ Phase 2: Dimension Scoring (0-100) │
-│ Phase 3: Kill Criteria / Pre-commit Off-Ramp │
-│ Exit: COMMIT / SCHEDULE / DROP │
+│ SERIOUSNESS (Idea Evaluation Gate)              │
+│ Phase 1: Commitment Probe                       │
+│ Phase 2: Dimension Scoring (0-100)              │
+│ Phase 3: Kill Criteria / Pre-commit Off-Ramp    │
+│ Exit: COMMIT / SCHEDULE / DROP                  │
 └─────────────────────────────────────────────────┘
-│ (if COMMIT)
-▼
+                         │  (if COMMIT)
+                         ▼
 ┌─────────────────────────────────────────────────┐
-│ FUNDAMENTALS (incl. MULTI)            │
-│ One-way door validation, LLM bias,   │
-│ multidisciplinary probes (MULTI)      │
-│ Proceed to decomposition only when   │
-│ foundations are proven safe.         │
+│ FUNDAMENTALS (incl. MULTI)                      │
+│ One-way door validation, LLM bias,              │
+│ multidisciplinary probes (MULTI)                │
+│ Proceed to decomposition only when              │
+│ foundations are proven safe.                    │
 └─────────────────────────────────────────────────┘
-    │
-    ▼
+                         │
+                         ▼
 ┌─────────────────────────────────────────────────┐
-│ DECOMPOSITION │
-│ Cynefin classify → MECE tree → confirm each │
-│ level → KNOWN / RESEARCH / PROTOTYPE routing │
+│ DECOMPOSITION                                   │
+│ Cynefin classify → MECE tree → confirm each     │
+│ level → KNOWN / RESEARCH / PROTOTYPE routing    │
 └─────────────────────────────────────────────────┘
-│
-▼
+                         │
+                         ▼
 ┌─────────────────────────────────────────────────┐
-│ AMBITION (incl. PACING)               │
-│ Research-interleaved goal tightening │
-│ + phase budget allocation (PACING)   │
+│ AMBITION (incl. PACING)                         │
+│ Research-interleaved goal tightening            │
+│ + phase budget allocation (PACING)              │
 └─────────────────────────────────────────────────┘
-│
-▼
+                         │
+                         ▼
 ┌─────────────────────────────────────────────────┐
-│ LANDSCAPE (structured research)                │
-│ Frame → Search → Evaluate → Synthesize         │
+│ LANDSCAPE (structured research)                 │
+│ Frame → Search → Evaluate → Synthesize          │
 └─────────────────────────────────────────────────┘
-│
-▼
+                         │
+                         ▼
 ┌─────────────────────────────────────────────────┐
 │ STRATEGY (strategic ratification gate)          │
-│ Pre-commit → AI kernel proposal → human ratify   │
-│ → premortem. Commander's intent (ADP 6-0).       │
+│ Pre-commit → AI kernel proposal → human ratify  │
+│ → premortem. Commander's intent (ADP 6-0).      │
 └─────────────────────────────────────────────────┘
-│
-▼
+                         │
+                         ▼
 ┌─────────────────────────────────────────────────┐
-│ VALIDATION (prototype gate) │
-│ KILL / PIVOT / COMMIT based on evidence │
+│ VALIDATION (prototype gate)                     │
+│ KILL / PIVOT / COMMIT based on evidence         │
 └─────────────────────────────────────────────────┘
-│ (if COMMIT)
-▼
+                         │  (if COMMIT)
+                         ▼
 ┌─────────────────────────────────────────────────┐
-│ SPECIFICATION │
-│ + Design for Change section (v3) │
+│ SPECIFICATION                                   │
+│ + Design for Change section (v3)                │
 └─────────────────────────────────────────────────┘
-│
-▼
+                         │
+                         ▼
 ┌─────────────────────────────────────────────────┐
 │ EXECUTOR (incl. POLISH)                         │
 │ Interface, Test, Boundary, Size, Cycle,         │
 │ Appetite, AI, Abstraction, Dependency, Backlog  │
 └─────────────────────────────────────────────────┘
-│
-▼
+                         │
+                         ▼
 ┌─────────────────────────────────────────────────┐
-│ REVIEW (incl. EXPLAINER + SPEC_SYNC)  │
-│ EXPLAINER generated here → REFLECT → ship
+│ REVIEW (incl. EXPLAINER + SPEC_SYNC)            │
+│ EXPLAINER generated here → REFLECT → ship       │
 └─────────────────────────────────────────────────┘
 
 ```
 
-**Prep-sequence:** `INBOX` -> `PRIORITIZE` (optional) -> `EXTRACTION` -> `SERIOUSNESS` -> `FUNDAMENTALS` (incl. MULTI) -> `DECOMPOSITION` -> `AMBITION` (incl. PACING) -> `LANDSCAPE` -> `STRATEGY` -> `VALIDATION` -> `SPECIFICATION` -> `EXECUTOR` -> `REVIEW` (incl. EXPLAINER + SPEC_SYNC) -> `REFLECT` -> ship
+**Prep-sequence:** `INBOX` → `PRIORITIZE` (optional) → `EXTRACTION` → `SERIOUSNESS` → `FUNDAMENTALS` (incl. MULTI) → `DECOMPOSITION` → `AMBITION` (incl. PACING) → `LANDSCAPE` → `STRATEGY` → `VALIDATION` → `SPECIFICATION` → `EXECUTOR` → `REVIEW` (incl. EXPLAINER + SPEC_SYNC) → `REFLECT` → ship
 
 Ship = the SHIP exit checklist in [REFLECT.md](REFLECT.md): state block written, success criteria closed, ledger clean, maintenance status declared.
 

@@ -167,7 +167,7 @@ This is the most important check. Non-coder verification depends on it.
 | 4.2 | Build/compilation succeeds              | Run the build command. Exit code 0 is PASS.                                                  |
 | 4.3 | No leaked secrets or credentials        | Grep for `-----BEGIN`, `api_key`, `password`, `token`, `secret`. Any hit is FAIL.            |
 | 4.4 | README has install/running instructions | Can a new user get the project running from README alone?                                    |
-| 4.5 | CI config exists (if applicable)*          | Check for .github/workflows/, .gitlab-ci.yml, Jenkinsfile, etc. *See Engineering Plugin §4 |
+| 4.5 | CI config or local check script exists (if applicable)* | Check for .github/workflows/, .gitlab-ci.yml, Jenkinsfile, etc., or run ./scripts/check.sh. *See Engineering Plugin §4 |
 | 4.6 | Standards audit passes*                    | Run ./scripts/audit.sh from the Standards repo. *See Engineering Plugin §4                  |
 
 ### Phase 5: Regression Defenses
