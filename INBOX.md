@@ -142,7 +142,33 @@ The #1 cluster enters EXTRACTION. Everything else goes to Someday/Maybe.
 | Same cluster won last week | User is stuck. Run EXTRACTION with "What's blocking you?" probe. |
 | More than 6 clusters       | User is fragmented. Do raw dump only. Come back tomorrow.        |
 
-## Output Format
+## Phase 5: Raw-Thinking Pass (5-10 min — GENERATION before EXTRACTION)
+
+> The Intuition-First principle made STRUCTURAL. Before EXTRACTION strips Y into X,
+> run a pure generation pass on the selected cluster: no gates, no ceremony, no
+> structure. Surface every intuition, perspective, connection, and alternative
+> framing — including ones the user did NOT raise.
+
+**The pass:**
+1. **Generate freely** — divergent, uncensored, no self-criticism. List every
+   perspective on the cluster, every adjacent domain it might touch, every hidden
+   connection to other parked clusters, every possible framing of the problem.
+2. **Timebox** (5-10 min). Raw thinking is a layer, not a mode of procrastination.
+3. **Produce the thick frame** — a connection map (what relates to what, and the
+   unstated assumptions), the alternative framings, and the candidate X's. This
+   frame IS the input to EXTRACTION.
+
+> **The guard (why this is not an excuse to skip the protocol):** raw GENERATES,
+> protocol VERIFIES. Raw thinking widens the frame; EXTRACTION/AMBITION/STRATEGY
+> then narrow it with evidence, gates, and contracts. A raw insight that skips
+> EXTRACTION is an unverified guess. The gates stay — they now operate on a rich
+> frame instead of a thin one-line statement.
+
+**Why this exists:** research shows most failures are in problem FRAMING, not
+solving (Thread 7 / Cluster AM). A thick frame caught at generation time prevents
+EXTRACTION from over-narrowing onto the user's stated wording — the exact failure
+mode "you don't consider enough perspectives." The frame's connection map is the
+permanent form of the connection-mining pass that Cluster AM ran once.
 
 After INBOX completes, update the checkpoint (`.omo/protocol-state.md`):
 
@@ -151,6 +177,7 @@ INBOX              [✓] COMPLETE
   [✓] Raw dump: 8 items captured
   [✓] Clusters: 5 identified
   [✓] Triage: Cluster C selected
+  [✓] Raw-Thinking Pass: thick frame produced (connection map + alternative framings)
   [✓] Others parked at .omo/inbox/parked/
 
 SOMEDAY/MAYBE      [ ] PENDING (next review: 2026-08-03)
