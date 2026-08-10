@@ -158,6 +158,7 @@ Run the protocol on a fresh intent in five moves:
 | **Effortlessness** | Least user effort that still yields a durable outcome (durability first, speed second). Ceremony is a tax; additions must justify themselves in net effort saved or they are 画蛇添足 (rejected). User is the authority on their own felt effort. Consolidation's counterweight. | — |
 | **Actionability** | Action-biased: ship at ~80% sufficiency; one-way doors and reputation-critical decisions exempt. User is the authority on "enough"; AI proposes the sufficiency analysis. Effortlessness' counterpart (removes deferral, not friction). | — |
 | **No-Expounding** | Prose survives only if it changes a decision, action, or criterion. Point-form and tables are the default. Provenance governs: cut scaffold and verbosity, never substance. | — |
+| **Raw-Thinking Mode** | Generate before verify: a structured generation pass (intuitions, perspectives, connections, alternative framings) always precedes the narrowing steps — INBOX Phase 5 before EXTRACTION. Raw GENERATES, protocol VERIFIES; the gates stay, they operate on a thick frame instead of a thin one-line statement. Makes Intuition-First structural (Thread 7 / Cluster AM). | INBOX.md § Phase 5 |
 
 <details>
 <summary>Full rationale (the principles in depth)</summary>

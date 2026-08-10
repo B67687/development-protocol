@@ -42,6 +42,11 @@ Every time someone says "I want Y" or "We need Y":
 
 ### Step 2.1: Capture Y (the stated request)
 
+> **Input:** INBOX's Raw-Thinking Pass produces the thick frame — the connection map,
+> alternative framings, and candidate X's. Use it as the working context for this step.
+> If no frame exists (cluster entered directly), spend 2-3 min generating one first —
+> never extract from a thin one-line statement alone. Raw generates, EXTRACTION verifies.
+
 Write down exactly what the person said, verbatim. Do NOT paraphrase.
 
 > "I want a flashcard CLI with spaced repetition."
