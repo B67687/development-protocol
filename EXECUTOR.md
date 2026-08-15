@@ -286,6 +286,16 @@ Fitness functions verify COMPLIANCE with the chosen architecture — they cannot
 
 **Re-audit cadence:** every MACRO decision records a review date; a decision later reversed is marked superseded in its own record.
 
+### Migration Protocol (the HOW of an up-level move)
+
+When the Escalation rule concludes an up-level move is required, execute it as a migration — never a rewrite-by-default. The audit machinery DETECTS + ESCALATES; this protocol EXECUTES + RE-ANCHORS. A restructure started and abandoned halfway is worse than not restructuring.
+
+1. **Trigger** — Bloat Test fire, seam-metric spike, or Architecture Fitness Audit FAIL at any level (existing machinery). The top-down scan confirming the level — and clearing the modularity gate (Escalation step 5), which must be sound before an up-level move — is already done; this runs on that conclusion.
+2. **Migration contract (BEFORE touching code)** — enumerate everything downstream that re-anchors: FEATURES.md contracts (F-### statuses, behavior contracts), tests / golden baselines / characterization tests, the seam registry (keyed to the OLD boundaries — a restructure MOVES the seams), PROJECT_MODEL state machine + blast-radius map, ADRs, docs. This list IS "everything we want migrated" — written first, ratified, ledger-logged. *Ratification note:* an up-level restructure is expensive-to-reverse, so this re-engages the single user gate via Invariant 11's one-way-door clause — log it as the auto-escalated gate; no further user gates beyond this and STRATEGY.
+3. **Executable migration** — atomic reversible moves, one seam at a time (Strangler Fig). Regression-Lock holds each step: characterization pinned BEFORE the move; baselines regenerated per Regression-Lock §2 (REVIEW-time teeth, like all Regression-Lock enforcement) — never silent.
+4. **Verification** — the downstream cascade re-verified: every migrated feature's contract passes, seam registry updated to the NEW boundaries, PROJECT_MODEL transitions valid, ledger complete, separate-evaluator sign-off.
+5. **Decision record** — ADR entry + FEATURES.md re-anchoring, so the next session starts from the new architecture, not the stale docs.
+
 > **Source:** State-machine modeling and transition tests (Harel 1987; Torkar et al.), co-change prediction (D'Ambros et al., MSR 2010), fitness functions (Ford, Parsons, Kua), characterization tests (Feathers), mutation testing (Just et al., FSE 2014), change amplification (Ousterhout). Confidence: Medium-High — strongest on mutation testing and co-change prediction.
 
 ---
