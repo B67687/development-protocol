@@ -247,6 +247,8 @@ Shifts are recorded in `.omo/shift-log.md`. Up to 5 shifts per project (up from 
 - **Testing requirements** — coverage threshold, test types expected
 - **Documentation requirements** — doc comments on public APIs, changelog format
 - **Tool-first rule** — never hand-roll what a deterministic tool handles. Format → use formatter (`cargo fmt` / `dprint` / `prettier`). Type-check → use compiler. Lint → use linter (`clippy` / `ruff`). Fuzz → use fuzzer (`cargo-fuzz` / `jazzer`). The AI's effort goes to novel composition and edge case reasoning, not to tasks a tool handles deterministically and perfectly.
+- **Architecture visibility** — every message surfaces architecture-level context, not a diff dump: what changed, at which seam (seam registry), why, what's downstream (PROJECT_MODEL blast-radius map), and what stayed untouched. The user interacts at the architecture level, never the implementation level.
+- **Friction budget** — user-facing ceremony is a budgeted resource: one ratification per run (Invariant 11), default-autonomy elsewhere, auto-escalation only on one-way doors. Rigor is agent-internal: the AI runs the heavyweight checks itself; the user sees plan + result. Skip ceremony, never rigor — a skipped step is ledger-logged with a SKIP_CATALOG code, and the verification floor (review + targeted tests + ledger conformance) always holds.
 
 ### Decision Framework (inviolable priority order)
 

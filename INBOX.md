@@ -32,6 +32,8 @@ If the protocol fits, pick the run shape. Default when unsure: **Standard**.
 
 Run-Shape (front door) is orthogonal to DECOMPOSITION § Level of Care (per-leaf routing inside Standard runs). Log the chosen mode and any reanchor ratification to the method ledger.
 
+**Calibration rule (pick by evidence, not optimism):** choose the run shape from the reference class — unknown count, one-way doors, blast radius, novelty, and how similar past work actually went (planning fallacy: inside-view estimates are systematically optimistic). When unsure: **Standard**. Mid-run, if the work crashes past its bounds (the "this isn't working" moment), RE-SELECT the shape upward (Light → Standard; Standard is the full pipeline — there is no higher shape) — a logged shape decision (per Invariant 9) that revokes the front-door skip for the remaining scope and re-runs the skipped heavyweight gates before forward progress (Invariant 6 ordering holds), not a manual restart and not an admission of failure.
+
 ## When to Use This
 
 Every time someone has multiple thoughts, not one clear Y:

@@ -122,6 +122,14 @@ The ledger is machine-checked at the meta-gate:
       (equivalent / killed / real-gap); a real-gap mutant's disposition is ledger-
       recorded; an UNRESOLVED real-gap mutant on an `applied` feature's contract
       = RED FLAG → fix ticket.
+- [ ] Cross-cluster interference check (Cluster AQ): this run's changes touch no
+      concurrent cluster's territory (shared docs, overlapping files, .omo/ state)
+      — overlapping edits to another active cluster's files = RED FLAG → fix ticket.
+- [ ] Migration conformance (Cluster AO): if the seam registry was re-keyed or an
+      ADR records an up-level move, the ledger holds the migration contract, pre-move
+      characterization pins, per-baseline REGRESSION DECISION entries, and separate-
+      evaluator sign-off; PROJECT_MODEL transitions valid. Absent contract or sign-off
+      = RED FLAG → fix ticket.
 
 > Sources: process-mining conformance checking (van der Aalst), NASA SWE-072
 > traceability, OpenAI process supervision, Krakovna specification gaming.

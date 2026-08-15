@@ -148,6 +148,10 @@ Not all sources are equal. Use the **CRAAP test** to calibrate confidence:
 
 **Calibration rule:** A blog post from a domain expert (tier 4) can beat a 2018 academic paper about tools that no longer exist. Hierarchy = guidance, not dogma.
 
+### Parallelize research lanes (when to fan out — applies to Steps 2–4)
+
+LANDSCAPE is the protocol's most parallel phase: research lanes are independent by construction — outputs merge without coordination at Step 5's evidence-table synthesis. Fan out to a swarm (team-mode / parallel subagents) when: sub-tasks partition cleanly, each lane lands in the shared evidence table, and lanes never need to talk mid-task. **The partition test:** if members can't be separated so they never communicate mid-task, you have a meeting, not a swarm. Never parallelize coordinated implementation — EXECUTOR is linear, one verified transition at a time. Swarms are safe here because the evidence table records every lane's output, the method ledger records each lane's invocation, the feature inventory gives parallel lanes one shared contract, and Step 5's evidence-table synthesis re-syncs the single thread of truth between parallel bursts.
+
 ### Verification Tiers (Research on Demand)
 
 Every claim that could affect planning or decisions receives a verification tier.

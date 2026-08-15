@@ -70,7 +70,7 @@ Scenario: {{name}}
 
 - Tests reference features by ID: `F-001` in test name, docstring, or a `@F-001` tag. Grep-able: `grep -rn "F-001" tests/` returns every test anchored to that feature.
 - Feature entries reference tests in the Test Anchoring table (reverse link).
-- **CI staleness check (optional but recommended, a short script):** warn if `Reviewed:` is older than cadence; block if older than 2× cadence; fail if an `applied` feature has zero linked tests or a test references an unknown `F-###`.
+- **CI staleness check (mandatory, a short script):** warn if `Reviewed:` is older than cadence; block if older than 2× cadence; fail if an `applied` feature has zero linked tests or a test references an unknown `F-###`. Optional = rots — the REVIEW Method Conformance already treats a stale review as RED FLAG; this check makes it machine-detectable.
 
 ## Relationship to other artifacts
 
