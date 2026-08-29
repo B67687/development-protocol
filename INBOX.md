@@ -34,6 +34,18 @@ Run-Shape (front door) is orthogonal to DECOMPOSITION § Level of Care (per-leaf
 
 **Calibration rule (pick by evidence, not optimism):** choose the run shape from the reference class — unknown count, one-way doors, blast radius, novelty, and how similar past work actually went (planning fallacy: inside-view estimates are systematically optimistic). When unsure: **Standard**. Mid-run, if the work crashes past its bounds (the "this isn't working" moment), RE-SELECT the shape upward (Light → Standard; Standard is the full pipeline — there is no higher shape) — a logged shape decision (per Invariant 9) that revokes the front-door skip for the remaining scope and re-runs the skipped heavyweight gates before forward progress (Invariant 6 ordering holds), not a manual restart and not an admission of failure.
 
+### Brownfield direction assessment
+
+The Brownfield row's reanchor pass is **evaluative, not just descriptive**: a codebase is authoritative about the past and feasibility, SILENT about value and future direction. Direction evidence lives in the intent layer (README, ADRs, changelog, issue clusters, roadmap, support history) — code is evidence about the vehicle, not the direction. Bounded step (≤1 session, ~45 min):
+
+1. **Pre-committed kill criteria** — before gathering evidence, name what would make each verdict wrong (premortem over ALL FOUR verdicts: continue / turn-in-place / turn-via-migration / full-migrate). Those failure stories become the evidence checklist (Klein premortem — ~30% more correct risk identification).
+2. **Intent-layer recovery (timeboxed, ~45 min)** — README, ADRs, changelog, issues, roadmap; ONE stakeholder conversation (the user, unless the user names others). Output: one-paragraph reconstructed original problem ("built to do X, for Y, assuming Z about the world") + its "still real if…" test (Chesterton's Fence, two-sided: recover the reasons, then TEST them against current reality — "is this still the world?").
+3. **Two scored questions, scored independently** — (a) Is the problem still real? (value — from outside the repo); (b) Is the architecture the right vehicle? (feasibility-of-direction). Never let "ugly/hard to change" input into either score (Spolsky rewrite trap: Netscape's 3-year rewrite never shipped). Characterization tests are direction-BLIND by design — barred from direction evidence.
+4. **Ratification — one interaction, one gate**: the user ratifies the reanchored statement AND the direction verdict + execution-mode together (Invariant 11 single-gate entry, ledger-logged). continue / turn-in-place: default-autonomous with an argued rationale in the ledger; turn-via-migration / full-migrate: expensive-to-reverse → auto-escalated user gate (Invariant 11 clause — EXECUTOR Migration Protocol's ratification note already does this). "Continue" is argued, never implicit.
+5. **Verdict template** — output is the (direction, execution-mode) pair: continue / turn-in-place / turn-via-migration / full-migrate. Execution mode selection is a cheap architecture probe, not a second full assessment: Choke Point Test — viable iff ~90%+ of calls intercept at one layer (route by tenant/endpoint/flag, compare outputs); fail → "you don't have a strangler project yet, you have an architecture project". The Migration Protocol (EXECUTOR) is the execution arm.
+
+The direction verdict is a value judgment = slow-velocity → log velocity classification per METHOD_LEDGER rule 9.
+
 ## When to Use This
 
 Every time someone has multiple thoughts, not one clear Y:

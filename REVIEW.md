@@ -24,6 +24,7 @@
 | After EXPLAINER generation (folded into REVIEW) | Verify the explainer matches the code, not the spec.                                             |
 | After SPEC SYNC   | Double-check the sync gate's own work.                                                            |
 | On any ambiguity  | If you feel uncertain about quality, run a review.                                                |
+| After REVIEW passes | Adversarial review agent runs on spec only |
 
 **Exception**: PROTOTYPING phase (VALIDATION.md) — prototypes are throwaway by design. Review is not needed. But the KILL/PIVOT/COMMIT decision itself should be reviewed if you're unsure.
 
@@ -130,6 +131,19 @@ The ledger is machine-checked at the meta-gate:
       characterization pins, per-baseline REGRESSION DECISION entries, and separate-
       evaluator sign-off; PROJECT_MODEL transitions valid. Absent contract or sign-off
       = RED FLAG → fix ticket.
+- [ ] Outcome-verdict conformance (Cluster AT): every completed cluster has a rule-11
+      verdict record with a disposition (tracked practice change (owner) | consciously
+      deferred); deferred lessons carry a re-review trigger. Absent verdict or
+      disposition-less lesson = RED FLAG → fix ticket. Verdicts are required only
+      for clusters completed after this rule's adoption — no retroactive verdicts for
+      pre-adoption runs.
+- [ ] Quality-bar conformance (Cluster AT): the project's QUALITY_BAR profile was
+      chosen at AMBITION with a one-paragraph risk rationale, and this run was verified
+      against it (diff-size cap, no self-approve, named reviewer for Profile B).
+      Evidence: profile + rationale in the AMBITION read-back; diff-size computed from
+      this run's git diff vs the last review; no-self-approve and named-reviewer
+      attested in the ledger. A rationale consisting solely of the QUALITY_BAR.md
+      template phrases = RED FLAG → fix ticket.
 
 > Sources: process-mining conformance checking (van der Aalst), NASA SWE-072
 > traceability, OpenAI process supervision, Krakovna specification gaming.
@@ -195,6 +209,53 @@ This is the most important check. Non-coder verification depends on it.
 | 5.2 | Test count increased since last review              | Compare with previous review's test count. Flat or decreasing is suspicious. |
 | 5.3 | Edge cases are tested (empty input, zero, boundary) | Search test files for "empty", "zero", "edge", "boundary", "error".          |
 
+## Adversarial Review Agent (Fresh-Eyes Protocol)
+
+A second independent agent reviews with **only the spec**, not the implementation. This catches spec-code drift that same-agent review misses — the finding from the March 2026 "Cross-Context Review" paper: fresh context produces better detection than extra effort in the same session.
+
+### When to Run
+
+After the REVIEW.md checklist passes, before DISTRIBUTE. The adversarial review is a **gate on the spec**, not the code.
+
+### How It Works
+
+1. **Launch a NEW agent session** — different from both the builder and the reviewer that ran the checklist.
+2. **Give it ONLY**: `SPECIFICATION.md` + `RULES.md`. No code, no EXPLAINER, no implementation files, no conversation history.
+3. **Ask**: "Does this spec make sense? Are there contradictions? Missing requirements? Ambiguities?"
+4. The adversarial agent produces a **Spec Quality Report** (see format below).
+5. **If contradictions or ambiguities found → FAIL.** Fix the spec before shipping. Do not ship a spec you cannot defend in isolation.
+
+### Independence Requirements
+
+- **No access to codebase** — the agent sees only the spec and rules.
+- **No conversation history** — fresh session, no memory of decisions made.
+- **No knowledge of implementation** — blind to what was built, how, or why.
+- **Standalone document** — the spec must be self-sufficient; if it needs the code to be understood, the spec is incomplete.
+
+### Spec Quality Report Format
+
+```markdown
+# Spec Quality Report: [Project Name] — [Date]
+
+## Contradictions
+
+- [Any section that contradicts another, with section numbers]
+
+## Missing Requirements
+
+- [Requirements the spec implies but does not state, or gaps in coverage]
+
+## Ambiguities
+
+- [Statements open to multiple interpretations, with the interpretations found]
+
+## Verdict: PASS / FAIL
+
+- **PASS**: Spec is internally consistent, complete, and unambiguous.
+- **FAIL**: Contradictions, missing requirements, or ambiguities found. List each as a fix ticket.
+```
+
+> **Why this works:** The same agent that built the system cannot unsee the implementation. A fresh agent evaluating the spec alone discovers whether the spec *as written* is sufficient — or whether it silently depends on knowledge that only exists in the code. If the spec cannot stand alone, future maintainers (human or AI) will drift.
 ---
 
 ## Output Format
@@ -274,7 +335,10 @@ After the review produces findings:
 [RE-REVIEW] (targeted, only fail items)
     │
     ▼
-[PHASE EXIT] (all clears)
+[ADVERSARIAL REVIEW] → Spec Quality Report
+    │
+    ├── if FAIL → fix spec → re-run adversarial review
+    └── if PASS → [DISTRIBUTE]
 ```
 
 ---

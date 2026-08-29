@@ -96,6 +96,7 @@ After answering, update two places:
 1. **`.omo/reflect.md`** — the reflection record for this project
 2. **`~/.config/opencode/LESSONS.md`** — append any new lessons (if Q4 produced something new)
 3. **Artifact hygiene (retention):** prune the `.omo/` corpus per the use-based criterion — keep what's cited/live/resume-required, archive stale files to `.omo/archive/`, delete nothing irreversibly. Bounded; rides this step (no new pipeline stage).
+4. **One-line "what this run learned"** — every run ends with a single user-facing line: the distilled lesson of this run (a felt-progress signal the user sees; motivation guard, Cluster AT). This line is the user's felt-progress signal, not the evaluation — verdicts remain REVIEW-authored and time-separated (METHOD_LEDGER rule 11).
 
 ## Frequency
 

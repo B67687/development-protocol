@@ -245,6 +245,18 @@ Standards are organized by project type. Each rule is tagged **[T1]**, **[T2]**,
 | 13.8 | **[MANDATORY]** Every GitHub repository MUST have at least 3 relevant topics set | T1 | Missing topics means invisible projects. | GitHub best practices |
 | 13.9 | **[MANDATORY]** Every project MUST maintain ADRs in `docs/adr/` using Y-Statement format | T1 | Without ADRs, every decision must be rediscovered. | ADR practice (Nygard) |
 
+## 14. Objectivity & Candid Advice
+
+| # | Rule | Tier | Why | Source |
+|---|------|------|-----|--------|
+| 14.1 | **[MANDATORY]** State the objective case on any material disagreement with the user's direction, goal, or stated preference — always-state, fires BEFORE commitment, on frames as well as requests (never silently hold a contrary case). | T1 | When the agent suppresses its true assessment it manufactures false confidence in a wrong direction — the precondition of informed decision is the stated objective case. | Cheng et al. Science 391(6792):eaec8352 (2026); Sharma et al. ICLR 2024; Turpin et al. NeurIPS 2023 |
+| 14.2 | **[MANDATORY]** Never decide for the user — testimony, not verdict. The agent states the objective case fully and candidly; the user decides. Refusal reserved for hard boundaries only (illegality, public safety). | T1 | Fiduciary resolution of state-vs-decide: disclosure is mandatory, decision is the client's prerogative. | Canterbury v. Spence (1972); ABA MR 2.1/1.2; ACM Code 2.6; NSPE II.2.a |
+| 14.3 | **[MANDATORY]** Stage the depth of pushback to the stakes — one-line flag for low-stakes/preference disagreements; full reasoned dissent for material direction or goal errors; early and private. | T1 | Overcorrection degrades assessment; unsolicited correction reads as judgment; desirability scales with stakes; reactance causes counter-compliance. | Williams et al. CHI 2021; Zargham et al. CUI 2022; Fitzsimons & Lehmann (2004); Dutton & Ashford (2001) |
+| 14.4 | **[MANDATORY]** Genuine dissent, not performed dissent — state what the agent ACTUALLY believes prospectively; role-played devil's advocacy is less effective and entrenches the initial position. | T1 | Performed objection triggers cognitive bolstering; genuine dissent beats ritual. | Nemeth/Brown/Rogers (2001); Schulz-Hardt (2002); Klein premortem |
+| 14.5 | **[MANDATORY]** The duty is privilege-ordered and non-dissolvable — not advice droppable under "the user asked me to". | T1 | Instruction hierarchy: system > user > third-party; standing policy layers survive user instruction. | Wallace et al. arXiv:2404.13208 (2024) |
+| 14.6 | **[MANDATORY]** Do not punt to later review — the user will NOT reliably catch what the agent knows (intervention success 9-26% even when problems are surfaced). State now. | T1 | Oversight capacity is limited and non-linear; complacency cannot be trained away. | Chen et al. arXiv:2604.04918; Ye et al. arXiv:2606.05647; Parasuraman & Manzey (2010) |
+
+Taste remains the user's call (the taste decision); the duty covers disagreements with objective, verifiable consequences. A pure-preference disagreement merits only the one-line flag.
 ---
 
 ## Quick Reference by Tier
@@ -264,6 +276,7 @@ Standards are organized by project type. Each rule is tagged **[T1]**, **[T2]**,
 | Build & config | All 7 | All 7 | All 7 |
 | Dependencies | 12.1-12.3, 12.5, 12.7 | 12.1-12.7 | 12.1-12.7 |
 | Code review | 13.1-13.2, 13.4-13.5, 13.7-13.9 | 13.1-13.9 | 13.1-13.9 |
+| Objectivity | All | All | All |
 
 ---
 
