@@ -47,6 +47,10 @@ unsafe: the trauma data shows 16% false checks).
 
 9. **Trust-boundary conformance (feedback-velocity gate)** — every autonomous-learning decision (field `learning: true`) logs a velocity classification (`fast`/`slow`/`medium`, per PROTOCOL_MODEL Invariant 10). A `slow`-velocity decision requires a ratification entry (`ratified` field). Missing velocity classification, or missing ratification on a slow decision, = omitted state = red flag at REVIEW. Machine-checked by `ledger-check.py`.
 
+10. **Resolution gate** — every run's lessons get a disposition: `tracked practice change (owner)` | `consciously deferred`. Recording without a resolution gate decays into recurring opinions (Loeffler ESEM 2017) — a lesson with no disposition is `omitted` state. Applying a tracked practice change is an autonomous-learning decision — rule 9 velocity classification and slow-velocity ratification apply at apply time.
+
+11. **Outcome verdict (per cluster)** — a verdict record `{"case", "what_worked": [], "what_didnt": [], "disposition", "owner", "reviewed_ts"}` written to `.omo/outcome-verdicts.jsonl` by the independent REVIEW agent (author + time separation from the run — contamination guard). The run itself records facts only; a self-authored verdict is `omitted` state (reward-hacking surface, METR 2025). Verdicts are TIME-SEPARATED from the eval, and never acted on as a single-cycle delta (small-N regime — aggregate over many cycles).
+
 ## The Self-Critique Reconciliation
 
 At each gate (per step completion), the executor writes a mandatory reconciliation
@@ -64,6 +68,7 @@ At each REVIEW meta-gate, the ledger is machine-checked:
   (the "creeping exceptions" failure mode).
 - **Divergence metric** — invocation rate vs outcome quality. Never reward
   checklist completion (specification gaming, Krakovna); divergence is the alarm.
+- **Rules 10/11 conformance** — every completed cluster has a verdict record with a disposition (rule 11) and every lesson carries a disposition (rule 10); a deferred lesson has a re-review trigger. Absent verdict or disposition-less lesson = `omitted` state = red flag.
 
 ## Integration
 

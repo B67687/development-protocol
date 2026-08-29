@@ -46,6 +46,9 @@ Every time someone says "I want Y" or "We need Y":
 > alternative framings, and candidate X's. Use it as the working context for this step.
 > If no frame exists (cluster entered directly), spend 2-3 min generating one first —
 > never extract from a thin one-line statement alone. Raw generates, EXTRACTION verifies.
+> Brownfield runs: the direction-assessment output (INBOX Brownfield direction
+> assessment) IS the working context, like the thick frame — extract from the ratified
+> (direction, execution-mode) pair, not from a first read of the code.
 
 Write down exactly what the person said, verbatim. Do NOT paraphrase.
 

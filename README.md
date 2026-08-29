@@ -265,8 +265,9 @@ validated foundation. Always run this chain before entering execution.
 |---|---|
 | `docs/METHOD_LEDGER.md` | Method Invocation Completeness — the .omo/method-ledger.jsonl schema, 3 states, conformance check (Standing Artifact) |
 | `docs/SKIP_CATALOG.md` | Pre-authorized skip conditions per method (MEL pattern) + deviation template (Standing Artifact) |
+| `docs/QUALITY_BAR.md` | Per-project quality contract — two named profiles (A internal/no-PII, B customer-facing), chosen at AMBITION, ratified at STRATEGY, verified at REVIEW (Standing Artifact) |
 | `docs/engineering-plugin.md` | Engineering Plugin — CI, Operations, Production Quality addendum for technical deliverables |
-| `docs/` | PROTOCOL_MODEL, METHOD_LEDGER, UNIVERSAL_FUNDAMENTALS, FEATURES, EXPLAINER, SKIP_CATALOG, SPEC_SYNC, standards/, adr/, research/ |
+| `docs/` | PROTOCOL_MODEL, METHOD_LEDGER, UNIVERSAL_FUNDAMENTALS, FEATURES, EXPLAINER, SKIP_CATALOG, QUALITY_BAR, SPEC_SYNC, standards/, adr/, research/ |
 | `.omo/reviews/` | Review findings archive — one file per review run |
 
 ### Tooling

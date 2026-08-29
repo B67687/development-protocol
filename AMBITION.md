@@ -96,6 +96,8 @@ Prototype cheaply, learn what only building can teach, then decide. This matches
 
 > "We are building a **document-driven protocol with a rapid prototyping gate as the central decision mechanism** because we believe it will reduce goalpost fatigue — enabling shipping ambitious projects within their original scope by revealing critical unknowns before committing to the full build. We will know it worked when: (1) we can reach a KILL/COMMIT decision within 3 days, (2) builds that COMMIT ship without scope warps, and (3) killed projects are clearly 'not worth it' in hindsight. We are bounded by: any team size, document-driven, any project type, shippable output, and the prototyping gate must be faster than the full build."
 
+**Quality bar (proposed):** [Profile A | Profile B] — one-paragraph risk rationale (cross-ref docs/QUALITY_BAR.md). Ratified at STRATEGY as part of scope.
+
 **Confirmed:** YES — this is the goal.
 
 ## Pacing & Budget (folded from PACING.md)
