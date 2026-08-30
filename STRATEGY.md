@@ -28,6 +28,12 @@ If the approach is already clear and low-risk, STRATEGY may be abbreviated to th
 proposal + ratification (Phase 2 + 3 only). The premortem gate is mandatory for any
 one-way-door or high-stakes decision.
 
+## Skip Conditions
+
+> **Skip when:** SERIOUSNESS score <50 AND project appetite <1 week AND no one-way doors.
+> **Risk of skipping:** no strategic ratification — approach may be wrong and you commit without sign-off.
+> **Light mode:** skipped — strategy IS the ratification gate (Invariant 11), so skipping means you're in Light mode by definition.
+
 ## The Core Loop (4 Phases)
 
 ### Phase 1 — Pre-Commitment (human first)
@@ -67,6 +73,8 @@ The human **edits the proposal** rather than accepting/rejecting wholesale.
 - Mechanism: amendments are logged and visible. The human must write a ratification
   reason in their own words (no rubber-stamping).
 - The amended proposal is final only after the human's explicit sign-off.
+
+> **Bias check (load `BIAS_CATALOG.md` §IKEA Effect):** Before ratifying, ask — "Would I still choose this if someone else proposed it?" If the answer hesitates, the attachment is to authorship, not strategy.
 
 ### Phase 4 — Execution & Review Gates
 

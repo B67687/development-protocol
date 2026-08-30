@@ -249,6 +249,7 @@ Shifts are recorded in `.omo/shift-log.md`. Up to 5 shifts per project (up from 
 - **Tool-first rule** — never hand-roll what a deterministic tool handles. Format → use formatter (`cargo fmt` / `dprint` / `prettier`). Type-check → use compiler. Lint → use linter (`clippy` / `ruff`). Fuzz → use fuzzer (`cargo-fuzz` / `jazzer`). The AI's effort goes to novel composition and edge case reasoning, not to tasks a tool handles deterministically and perfectly.
 - **Architecture visibility** — every message surfaces architecture-level context, not a diff dump: what changed, at which seam (seam registry), why, what's downstream (PROJECT_MODEL blast-radius map), and what stayed untouched. The user interacts at the architecture level, never the implementation level.
 - **Friction budget** — user-facing ceremony is a budgeted resource: one ratification per run (Invariant 11), default-autonomy elsewhere, auto-escalation only on one-way doors. Rigor is agent-internal: the AI runs the heavyweight checks itself; the user sees plan + result. Skip ceremony, never rigor — a skipped step is ledger-logged with a SKIP_CATALOG code, and the verification floor (review + targeted tests + ledger conformance) always holds.
+- **Objectivity duty** — **Mandatory, non-dissolvable — do not remove or weaken per-project.** State the objective case on any material disagreement with the user's direction, goal, or stated preference; never decide for the user (testimony, not verdict — reconciled with the taste decision: the agent never judges taste, but always states the objective case). One-line flag for low-stakes taste; full reasoned dissent for material direction/goal errors; early + private (Dutton & Ashford 2001). Privilege-ordered (instruction hierarchy — not advice droppable under "the user asked me to"). See STANDARDS.md §14.
 
 ### Decision Framework (inviolable priority order)
 
@@ -308,6 +309,7 @@ The spec-to-code fidelity verification gate runs after POLISH and before DISTRIB
 5. **No test-only changes without corresponding code.** Tests cannot be added in isolation. Every test must have an implementation that makes it pass.
 6. **Regression tests lock bugs.** When a bug is found, the FIRST action is to write a test that reproduces it. Then fix the code. The test stays as a regression guard.
 7. **Tests anchor to features.** Each test carries its feature ID (`F-###` — see FEATURES.md trace tags): tests that prove a feature contract, feature entries that name their tests. An `applied` feature with no linked test is untested intent; a test with no feature is dead weight or an unregistered feature — flag both. **Behavior-coverage signal:** run mutation testing on the core module; surviving mutants on a feature's contract mean the intent is not actually tested. **Tiered teeth:** surviving mutants are TRIAGED (equivalent / killed / real-gap); a real-gap mutant on an `applied` feature's contract BLOCKS at REVIEW (separate-evaluator disposition, ledger-recorded); a core-wide sweep stays a checklist. Mutation score is a coverage signal; the hard BLOCK lives on BASELINES (golden-file diffs — see EXECUTOR Regression-Lock).
+
 
 ---
 
@@ -406,6 +408,18 @@ When the AI recognizes a failure pattern, it MUST:
 2. Explain why: "You asked for a login form, but I'm generating password recovery. This was not in scope."
 3. Stop and ask: "Should I continue with this, or revert to the original scope?"
 
+### Failure Capture & Knowledge Loop
+
+When a failure is detected, capture it systematically to feed back into the protocol:
+
+1. **Create a failure capture** — Copy the template from [FAILURE_CAPTURE.md](FAILURE_CAPTURE.md) and fill it in. Save as `lessons/FC-[YYYY]-[###]-[short-name].md`.
+2. **Match to existing pattern** — Does this failure match an FP-### in the catalog? If yes, update the pattern's description with this real-world example.
+3. **New pattern?** — If not in the catalog, add it with the next available FP-### ID. Follow the existing format: ID, Pattern name, one-line description.
+4. **Protocol gaps** — If the failure reveals a gap in the protocol (a rule that should have caught it but didn't), feed that into §10 Evolution & Phase Exit for improvement.
+5. **Session kickoff reference** — At session start (§12), load recent failure captures from `lessons/` for pattern recognition. The AI checks: "Have we seen this pattern before? What happened last time?"
+
+The capture template extends the method ledger pattern for failures specifically. The method ledger tracks what methods were applied; the failure capture tracks what went wrong and what we learned. Together, they close the learning loop: successes feed the ledger, failures feed the capture, both feed the protocol.
+
 ---
 
 ## 12. Session Kickoff
@@ -419,6 +433,7 @@ State V1 scope and what's out of scope.
 State the Constitution principles.
 Check stop rules.
 Regression scan: read FEATURES.md; flag any `applied` feature whose behavior is untested or whose baseline is drifting; if this session's task touches an `applied` feature, its contract tests must PASS before edits (regression-first).
+Priming: if rule-11 verdicts exist from prior runs, read `.omo/outcome-verdicts.jsonl` — "here's what worked last time" (and what didn't). None exist (first run / pre-adoption): skip.
 If blocked, refuse and explain. If clear, proceed."
 ```
 

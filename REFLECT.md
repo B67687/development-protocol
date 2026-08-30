@@ -72,6 +72,13 @@ builds pattern recognition over multiple projects.
 This is Musashi's insight: the master transcends methodology. The protocol
 should help you outgrow it, not trap you in it.
 
+### Q8: Kill-Gate Calibration — Were the right things killed?
+
+Review kill decisions for this cycle:
+- Were the right things killed? Were survivors actually worth it?
+- Kill rate vs base rate for this project class (see KILL_LOG.md) — calibrated or drifting?
+- Feed result into KILL_LOG.md counterfactual. If <70% correct → thresholds too aggressive; >90% → too conservative.
+
 ### Automated Retrospective Trigger (magic-spec pattern)
 
 REFLECT is not only a manual step — it is ALSO triggered automatically at
@@ -96,6 +103,7 @@ After answering, update two places:
 1. **`.omo/reflect.md`** — the reflection record for this project
 2. **`~/.config/opencode/LESSONS.md`** — append any new lessons (if Q4 produced something new)
 3. **Artifact hygiene (retention):** prune the `.omo/` corpus per the use-based criterion — keep what's cited/live/resume-required, archive stale files to `.omo/archive/`, delete nothing irreversibly. Bounded; rides this step (no new pipeline stage).
+4. **One-line "what this run learned"** — every run ends with a single user-facing line: the distilled lesson of this run (a felt-progress signal the user sees; motivation guard, Cluster AT). This line is the user's felt-progress signal, not the evaluation — verdicts remain REVIEW-authored and time-separated (METHOD_LEDGER rule 11).
 
 ## Frequency
 

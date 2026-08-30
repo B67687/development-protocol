@@ -1,0 +1,122 @@
+[
+  {
+    "id": "p01",
+    "name": "Solo Dev Dashboard",
+    "domain": "personal_tool",
+    "stated_Y": "I want a personal analytics dashboard that shows my GitHub stats",
+    "hidden_tacit_X": "I feel disconnected from my own work output — I can't tell if I'm being productive or just busy. The dashboard is a proxy for needing to feel in control.",
+    "revealed_history": [
+      "Built 3 dashboard projects, abandoned all within 2 weeks",
+      "Spends 2hrs/day checking GitHub notifications",
+      "Last shipped feature was a README badge, not actual code"
+    ]
+  },
+  {
+    "id": "p02",
+    "name": "OSS CLI Tool",
+    "domain": "oss_library",
+    "stated_Y": "I want to build a CLI tool that converts markdown to PDF with nice formatting",
+    "hidden_tacit_X": "I want recognition in the OSS community. The tool is a vehicle for social proof — I've been watching others get stars and want that validation.",
+    "revealed_history": [
+      "Starred 12 similar tools but never contributed to any",
+      "Has 3 abandoned repos with 'coming soon' READMEs",
+      "Active on Twitter praising other OSS maintainers"
+    ]
+  },
+  {
+    "id": "p03",
+    "name": "Production API",
+    "domain": "production_service",
+    "stated_Y": "We need to build a real-time notification API for our SaaS product",
+    "hidden_tacit_X": "Our churn rate is 12% and the CEO asked me to 'do something about retention'. I picked notifications because it's the easiest thing to demo in a board meeting.",
+    "revealed_history": [
+      "Last quarter shipped analytics feature nobody uses",
+      "Team velocity dropped 40% after last sprint",
+      "Customer support tickets about missing features, not notifications"
+    ]
+  },
+  {
+    "id": "p04",
+    "name": "Data Pipeline",
+    "domain": "production_service",
+    "stated_Y": "I want to build a data pipeline that syncs our CRM data to our warehouse",
+    "hidden_tacit_X": "The CEO keeps asking for 'unified customer view' dashboards. I know the real problem is that sales and support don't share context, but fixing that requires org change, not code.",
+    "revealed_history": [
+      "Built 2 ETL tools that nobody adopted",
+      "Sales team still uses spreadsheets",
+      "Last data project took 6 months, was deprecated in 2"
+    ]
+  },
+  {
+    "id": "p05",
+    "name": "Mobile App",
+    "domain": "personal_tool",
+    "stated_Y": "I want to build a habit tracking app that's simpler than the ones on the market",
+    "hidden_tacit_X": "I'm trying to build a habit of building things. The app itself is the habit I'm trying to form — I don't actually care about habit tracking.",
+    "revealed_history": [
+      "Downloaded 5 habit apps, used each for < 1 week",
+      "Has a 'product ideas' note with 47 entries, 0 implemented",
+      "Last app idea was abandoned after building the login screen"
+    ]
+  },
+  {
+    "id": "p06",
+    "name": "AI Wrapper",
+    "domain": "oss_library",
+    "stated_Y": "I want to build an open-source wrapper around GPT-4 that makes it easy to build AI-powered apps",
+    "hidden_tacit_X": "I want to be seen as an AI expert. The wrapper is a networking play — if people use my tool, I get invited to speak and consult.",
+    "revealed_history": [
+      "Hasn't published a blog post or talk about AI",
+      "Twitter bio says 'AI enthusiast' but no shipped AI products",
+      "Follows 200 AI accounts, interacts with none"
+    ]
+  },
+  {
+    "id": "p07",
+    "name": "Internal Tool",
+    "domain": "production_service",
+    "stated_Y": "We need an internal tool for our ops team to manage customer accounts",
+    "hidden_tacit_X": "The ops team complains to me directly and I want them to stop. Building a tool is cheaper than having another conversation about process.",
+    "revealed_history": [
+      "Previous internal tool was never adopted — ops used email instead",
+      "Ops team asked for better documentation, not a tool",
+      "Last time built an admin panel, 3 people used it once"
+    ]
+  },
+  {
+    "id": "p08",
+    "name": "Learning Project",
+    "domain": "research_prototype",
+    "stated_Y": "I want to build a compiler for a toy language to learn how compilers work",
+    "hidden_tacit_X": "I feel inadequate compared to peers who work on 'hard' problems. Building a compiler is a status signal to myself that I'm a 'real' engineer.",
+    "revealed_history": [
+      "Has 3 unfinished 'learning projects' — none past parser stage",
+      "Spends more time reading about compilers than building them",
+      "Last time completed a learning project was 2 years ago"
+    ]
+  },
+  {
+    "id": "p09",
+    "name": "Marketplace MVP",
+    "domain": "production_service",
+    "stated_Y": "I want to build an MVP for a freelance marketplace connecting designers with startups",
+    "hidden_tacit_X": "I quit my job 3 months ago and need to show progress to my partner and parents. The marketplace is a shield against the question 'what are you working on?'",
+    "revealed_history": [
+      "Hasn't talked to any designers or startups about the idea",
+      "Spends 3hrs/day on competitor research (reading, not interviewing)",
+      "Last startup idea was abandoned after 1 week of market research"
+    ]
+  },
+  {
+    "id": "p10",
+    "name": "DevOps Automation",
+    "domain": "production_service",
+    "stated_Y": "I want to build a tool that automates our CI/CD pipeline and reduces deployment time",
+    "hidden_tacit_X": "Our deployments fail 30% of the time and I'm the one who gets paged. I want to stop being the human fallback for broken infrastructure.",
+    "revealed_history": [
+      "Last 3 automation tools were abandoned — team reverted to manual",
+      "Devs prefer manual deploys because they don't trust automation",
+      "Spends 5hrs/week on deployment firefighting, 0hrs on improving docs"
+    ]
+  }
+]
