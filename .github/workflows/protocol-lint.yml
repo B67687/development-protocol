@@ -2,26 +2,13 @@ name: Protocol Lint
 
 on:
   push:
-    branches: [main, dev]
-    paths:
-      - "*.md"
-      - "docs/**"
-      - "scripts/**"
-      - ".omo/**"
-      - ".github/workflows/protocol-lint.yml"
+    branches: [main]
   pull_request:
-    branches: [main, dev]
-    paths:
-      - "*.md"
-      - "docs/**"
-      - "scripts/**"
-      - ".omo/**"
-
+    branches: [main]
 jobs:
   lint:
     name: 7-Rule Ceremony Check
     runs-on: ubuntu-latest
-    timeout-minutes: 1
     steps:
       - uses: actions/checkout@v4
 
