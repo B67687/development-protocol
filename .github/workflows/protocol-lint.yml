@@ -1,0 +1,16 @@
+name: Protocol Lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  lint:
+    name: 7-Rule Ceremony Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run protocol lint
+        run: bash scripts/protocol-lint.sh

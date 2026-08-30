@@ -111,6 +111,19 @@ OUT OF SCOPE (V1):
 >
 > **MICRO:** No cloud dependencies beyond the Arrivelah API. All user data stored locally on device. No accounts.
 
+## 1.5 Traceability Matrix (Bidirectional)
+
+| Spec Section | Idea Source | Phase Artifact | Decision Record |
+|-------------|-------------|----------------|-----------------|
+| §2 Architecture | INBOX Cluster B | DECOMPOSITION tree, Dimension A2 | FUNDAMENTALS one-way door #1 |
+| §6 UX | EXTRACTION X #2 | AMBITION Round 3 steering | STRATEGY kernel, action #3 |
+| §5 Dependencies | LANDSCAPE finding #4 | VALIDATION spike learnings | — |
+| §7 Timeline | AMBITION PACING | — | SERIOUSNESS appetite |
+
+**Purpose:** trace WHY each spec section exists. Forward: INBOX/EXTRACTION idea → which § affected. Backward: § → source idea/decision.
+**Maintenance:** filled at SPECIFICATION creation (once) and checked at REVIEW for drift.
+**Bidirectional:** also add forward refs from INBOX/EXTRACTION artifacts: `This idea → §X`.
+
 ---
 
 ## 2. Architecture & Design Decisions

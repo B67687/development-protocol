@@ -190,6 +190,39 @@ Record:
 
 ---
 
+## Calibration & Evidence
+
+> Scores without base rates are stories. Calibrate before you decide.
+
+### Reference Class Forecasting
+
+For each SERIOUSNESS decision, ask: "What class of project is this?" Look up its base rate — what % of similar projects ship what was planned? Use the base rate as your prior, then adjust with dimension scores.
+
+| Class | Base Rate (ship what was planned) | Source |
+|-------|----------------------------------|--------|
+| Personal tool | ~70% | Anecdotal / Shape Up |
+| Open-source library | ~40% | OSS completion rates |
+| Production service | ~30% | Standish CHAOS |
+| Research prototype | ~20% | Academic lab rates |
+
+**Score anchoring defense:** Before scoring, the AI reads the base rate. Then scores. Prevents enthusiasm anchoring.
+
+### Inter-Rater Reliability (lightweight)
+
+When unsure, run SERIOUSNESS twice — once human alone, once AI alone — compare scores. Divergence >20 points on any dimension → discuss before deciding. No extra humans needed.
+
+### Decision Journal Entry
+
+After the kill/commit decision, log:
+
+| Date | Project | Class | Score | Base Rate | Decision | Actual Outcome (filled later) |
+|------|---------|-------|-------|-----------|----------|-------------------------------|
+| 2026-08-30 | _example_ | Personal tool | 58 COMMIT | 70% | COMMIT | shipped in 6 days |
+
+Feeds into `KILL_LOG.md` calibration loop. Reviewed at REFLECT Q8.
+
+---
+
 ## Risk Register
 
 A project-level risk register tracks risks from evaluation through execution.

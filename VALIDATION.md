@@ -18,6 +18,13 @@ You've completed AMBITION.md (Gate 1 — goal clear + phase budget, PACING folde
 
 ---
 
+## Skip Conditions
+
+> **Skip when:** problem is Complicated (not Complex) in Cynefin AND no one-way doors AND you already validated this exact hypothesis.
+> **Risk of skipping:** building something that shouldn't exist — the spike would have KILLed it.
+> **Light mode:** skipped — spike overkill for low-stakes decisions.
+
+
 ## The Prototype Mindset (Required)
 
 Before you prototype, adopt this stance. It determines whether this gate works or wastes time:
@@ -147,6 +154,18 @@ Each criterion has a weight. Core assumption validation is the MOST important �
 conformance catches a missing entry.
 
 The weighted scoring prevents the common failure mode of "everything looks OK except the one thing that matters."
+
+---
+
+## Preference-Based Kill Criteria
+
+> Before the technical kill matrix, check whether the human actually wants this — stated =/= revealed is a leading kill signal.
+
+1. **Energy test:** "After talking about this for 30 minutes, does the human have MORE energy or LESS?" Less → kill, regardless of technical merit.
+2. **Conversation test:** "Has the human brought this up unprompted in the last week?" No → kill — it's not real enough.
+3. **Sacrifice test:** "What would the human give up to make this happen? Have they given anything up yet?" Nothing → kill — no skin in the game.
+
+These fire BEFORE the weighted matrix (below). Technical criteria (feasibility, worth) matter, but preference criteria are earlier predictors — a project that fails all three rarely survives contact with reality.
 
 ---
 

@@ -7,10 +7,17 @@
 
 # Whitelist the tracked corpus
 !/*.md
+!/.github/**
+!/prototype/**
+!/fixtures/**
 !/cli/**
 !/docs/**
 !/scripts/**
 !/template/**
+
+# But ignore caches inside whitelisted trees
+prototype/**/__pycache__/
+fixtures/__pycache__/
 
 # .omo/ is its own nested git repo — never part of the parent tree
 /.omo/

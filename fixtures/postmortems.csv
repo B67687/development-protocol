@@ -1,0 +1,11 @@
+project,initial_idea,outcome
+CloudDeploy,"We need a CI/CD tool that deploys to any cloud",failed
+QuickAPI,"I want to build a REST API framework for Python",shipped
+DataSync,"Build a real-time data sync between our databases",killed
+NoteApp,"I want a note-taking app that syncs across devices",shipped
+AIWriter,"Build an AI writing assistant for technical docs",failed
+MobileFirst,"Create a mobile-first PWA for our e-commerce site",shipped
+ChatBot,"Build a customer support chatbot using GPT-4",killed
+MetricsTool,"I want a dashboard that shows all our KPIs in one place",shipped
+ProtoLang,"Build a prototype programming language for fun",failed
+HireFlow,"Create an applicant tracking system for our HR team",killed

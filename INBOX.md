@@ -207,6 +207,27 @@ EXTRACTION         [->] IN PROGRESS
   [→] X confirmed
 ```
 
+## Assumption Ledger (Preference Layer Feed)
+
+> Every idea carries assumptions. Name them now; test them before you commit.
+
+| # | Assumption | Source | Confidence | Test ("How would we know if wrong?") | Status |
+|---|------------|--------|------------|--------------------------------------|--------|
+| A1 | _example: users want CLI over GUI_ | inferred | medium | Ask 3 users to choose: CLI vs GUI vs "neither" | active |
+| A2 | _example: CI time is the bottleneck_ | stated | low | Measure deploy frequency vs build time | active |
+
+- **Source:** stated (user said it) / inferred (we concluded it) / assumed (we never checked)
+- **Confidence:** high / medium / low
+- **Test:** concrete, falsifiable — not "we'll see"
+- **Status:** active → confirmed / invalidated / deferred
+
+Seed with assumptions surfaced in Phases 1–5. Carry forward:
+- **EXTRACTION** reconciles stated vs revealed vs tacit (Preference Layer Analysis) against this ledger.
+- **SERIOUSNESS** scoring is anchored by the ledger's confidence column — low-confidence assumptions lower Know/Matters scores.
+- **FUNDAMENTALS** validates one-way doors (L60–100) using the ledger as its input list.
+
+**Rule:** every assumption gets a Test. No test = not an assumption, it's a blind spot.
+
 ## Strategic Alignment Check
 
 Before proceeding to EXTRACTION, ask one question about the selected cluster:
