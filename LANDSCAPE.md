@@ -17,6 +17,12 @@ AMBITION.md produced a hypothesis that needs testing against reality. Before val
 - What approaches have been tried and failed?
 - Where are the real unknowns vs. perceived unknowns?
 
+## Skip Conditions
+
+> **Skip when:** you've built this exact thing before AND the domain hasn't changed AND no competitor has moved since your last build.
+> **Risk of skipping:** competitor solved it better, or a known failure mode repeats; you ship what already exists.
+> **Light mode:** skipped — acceptable only when you're the domain expert on this exact shape.
+
 ## Governing Modes — Intuition-First Route
 
 > **A protocol-wide standing mode, applied here first.** The AI answers from latent

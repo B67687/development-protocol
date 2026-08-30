@@ -28,6 +28,12 @@
 
 **Exception**: PROTOTYPING phase (VALIDATION.md) — prototypes are throwaway by design. Review is not needed. But the KILL/PIVOT/COMMIT decision itself should be reviewed if you're unsure.
 
+## Skip Conditions
+
+> **Skip when:** Light mode AND project <4 hours AND no one-way doors.
+> **Risk of skipping:** no independent verification — you ship what you wrote. Acceptable only when blast radius is trivial.
+> **Light mode:** self-review only (2.1 + 2.4) — full checklist deferred to Standard.
+
 ## EXPLAINER (Folded Step)
 
 The EXPLAINER step (formerly standalone, docs/EXPLAINER.md) now runs as the first action of REVIEW. Before running the fixed checklist, generate the project's EXPLAINER.md from the template in docs/EXPLAINER.md (Macro Architecture, Data Flow Walk, Module Breakdown, Key Decisions, Quality Guarantees — plus the Mandatory Check). Checks 1.5/1.6/3.1-3.4 below then verify it. The pipeline no longer has a separate EXPLAINER step; the artifact is produced here.
@@ -179,6 +185,7 @@ Each item is binary: **PASS** or **FAIL**. No partial credit. Each FAIL becomes 
 | 2.4 | No prohibited patterns used                  | Read RULES.md section 5 (or STANDARDS.md). Check codebase for `as any`, `@ts-ignore`, empty catch blocks, unwrap(), panic(). |
 | 2.5 | Project type routing matches actual project  | Read RULES.md section 1. Does the selected route fit? (A "DISCOVER-FIRST" route on a well-understood domain is a mismatch.)  |
 
+| 2.6 | Iteration viability | Before DISTRIBUTE: (a) anything changed since AMBITION? (b) still the right problem? (c) would you start today knowing what you know? If any 'no' → trigger feedback loop (§ Feedback Loops), not just fix ticket. |
 ### Phase 3: Spec-vs-Explainer Cross-Reference
 
 This is the most important check. Non-coder verification depends on it.
@@ -384,3 +391,11 @@ After REVIEW completes, save key findings to `.omo/reviews/latest.md`.
 REFLECT should reference these findings when answering Q2: What did the protocol miss?
 If the review found protocol-level gaps (not project-level), those become REFLECT inputs directly.
 That's it. The protocol does the rest.
+
+## Feedback Loops (Iteration Points)
+
+- **Loop 1: EXECUTOR → AMBITION** — Trigger: midpoint check or 3+ consecutive failures. Action: revisit appetite + success criteria. Recorded in `.omo/reflect.md`.
+- **Loop 2: REVIEW → SPECIFICATION** — Trigger: CRITICAL/MAJOR spec-code drift. Action: fix the spec, not just the code. Recorded in `.omo/reviews/latest.md`.
+- **Loop 3: 3+ Failures → DECOMPOSITION** — Trigger: 3+ failures in same component. Action: decomposition was wrong; re-classify Cynefin. Recorded in `lessons/FC-*.md`.
+- **Loop 4: Mid-Pipeline Shape Re-selection** — Trigger: Cynefin class changed at any phase transition. Action: re-run DECOMPOSITION Step 1. Recorded in METHOD_LEDGER.
+

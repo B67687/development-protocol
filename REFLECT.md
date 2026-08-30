@@ -72,6 +72,13 @@ builds pattern recognition over multiple projects.
 This is Musashi's insight: the master transcends methodology. The protocol
 should help you outgrow it, not trap you in it.
 
+### Q8: Kill-Gate Calibration — Were the right things killed?
+
+Review kill decisions for this cycle:
+- Were the right things killed? Were survivors actually worth it?
+- Kill rate vs base rate for this project class (see KILL_LOG.md) — calibrated or drifting?
+- Feed result into KILL_LOG.md counterfactual. If <70% correct → thresholds too aggressive; >90% → too conservative.
+
 ### Automated Retrospective Trigger (magic-spec pattern)
 
 REFLECT is not only a manual step — it is ALSO triggered automatically at

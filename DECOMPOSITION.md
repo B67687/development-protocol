@@ -6,6 +6,12 @@
 > into KNOWN, NEEDS RESEARCH, and NEEDS PROTOTYPE dimensions. Every gap found here
 > is cheaper than any gap found later.
 
+## Skip Conditions
+
+> **Skip when:** problem has <3 sub-dimensions AND no one-way doors AND Cynefin = Clear/Complicated-well-understood.
+> **Risk of skipping:** hidden complexity surfaces in EXECUTOR as rework; a dimension wrongly marked KNOWN becomes a prototype surprise.
+> **Light mode:** skipped — use only for small reversible tasks.
+
 ## The Method — 4 Steps
 
 ### Step 1: Cynefin Classify

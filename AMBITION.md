@@ -55,6 +55,7 @@ I need a thing that takes me from intention to final product (end to end), and p
 
 **Response:** *[User attempts to restate the concept in their own words. If they can restate clearly, AI confirms and moves on. If they struggle, AI offers a clearer explanation and checks again: "Let me try explaining differently..." followed by "Now in your own words."]*
 ### Round 3 — Steer (AI reframes)
+> **Bias check (load `BIAS_CATALOG.md`):** Which biases are most likely this round? Check §Anchoring (AI's proposal anchors) and §Planning Fallacy (budget estimates). Ask: "What was the first number mentioned? Would you change your answer if it were 50% higher/lower?"
 
 **Insight from AI:** The pipeline should center on a **prototyping gate** as the critical decision mechanism — not just a step before the spec, but the central decision point.
 
@@ -139,7 +140,41 @@ Budget is allocated and locked here, alongside the scope. Track actuals after ea
 
 **Example** (this protocol's own run): appetite 1 week (~20h); EXTRACTION 1h | FUNDAMENTALS 1h | DECOMPOSITION 1h | AMBITION 2h | LANDSCAPE 2h | STRATEGY 1h | VALIDATION 2h | SPECIFICATION 2h | EXECUTOR 6h | REVIEW 1h; buffer 2h (10%).
 
+**Absolute time estimates (for a 40-hour appetite):**
+
+| Phase | % Budget | Hours |
+|-------|----------|-------|
+| INBOX | 2% | 1h |
+| EXTRACTION | 5% | 2h |
+| SERIOUSNESS | 2% | 1h |
+| FUNDAMENTALS | 5% | 2h |
+| DECOMPOSITION | 5% | 2h |
+| AMBITION | 10% | 4h |
+| LANDSCAPE | 10% | 4h |
+| STRATEGY | 5% | 2h |
+| VALIDATION | 10% | 4h |
+| SPECIFICATION | 10% | 4h |
+| EXECUTOR | 30% | 12h |
+| REVIEW | 5% | 2h |
+
+**Overrun rule:** If a phase exceeds 1.5× its budget, STOP and reassess — re-estimate or re-classify the project.
 Human confirms or adjusts; baseline recorded in `.omo/pacing-track.md`.
+---
+
+## Adaptive Depth (SERIOUSNESS-Gated)
+
+> Same protocol, different depth — gated by SERIOUSNESS score.
+
+| Mode | SERIOUSNESS Score | Phases Run | Time Budget |
+|------|------------------|------------|-------------|
+| **Light** | 35–50 (SCHEDULE-low) | INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICATION → EXECUTOR | <2 hours |
+| **Standard** | 51–80 | All 12 phases | 2–40 hours |
+| **Deep** | 81–120 | All 12 + EXTRACTION bouncing + LANDSCAPE deep research + STRATEGY premortem | 40+ hours |
+
+- **Light skips:** DECOMPOSITION (problem is simple), LANDSCAPE (no research needed), STRATEGY (approach obvious), VALIDATION (spike overkill), REVIEW (self-review sufficient)
+- **Light risks:** documented — "Skipping means: no bias check, no landscape mapping, no strategic ratification. Acceptable for low-stakes, reversible decisions."
+- **Mode override:** Human can force Deep on any project. AI recommends; human decides.
+
 ---
 
 ## Exit Criteria

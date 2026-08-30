@@ -86,6 +86,38 @@ After applying the applicable techniques (per INBOX.md Run-Shape Selector, Light
 **Convergence rule:** If 2+ techniques converged on the same X, stop. You found it.
 If all 10 techniques gave different answers, you haven't extracted enough — the person doesn't know what they actually need yet.
 
+### Preference Layer Analysis
+
+> People don't say what they mean. Three layers, three probes — then reconcile.
+
+| Layer | What it is | Probe |
+|-------|------------|-------|
+| **Stated** | What they said | Already covered by 10 techniques |
+| **Revealed** | What their behavior/history shows | "Show me your last 3 decisions on this topic" / "What did you actually spend time on?" / "Pull up your calendar last week" |
+| **Tacit** | What they can't articulate yet | "If you couldn't build this, what would you miss most?" / "What's the first thing you'd check in the morning?" / "What would your users say you should build?" |
+
+**Reconciliation:**
+- Stated =/= Revealed → which wins? Revealed > Stated for resource allocation; Stated > Revealed for vision/direction.
+- Stated ≈ Tacit gap large → flag as "needs bouncing" → route to Bouncing Protocol below.
+- Record gaps in INBOX Assumption Ledger (Source: revealed/tacit, Confidence: low, Status: active).
+
+### Bouncing Protocol (When Preferences Are Unclear)
+
+> "What you said vs what I think you meant" — 3 to 5 rounds, then sign-off.
+
+**Trigger:** any of (a) stated =/= revealed gap, (b) tacit layer is large, (c) user scores "unsure" in SERIOUSNESS heuristics, (d) 2+ working hypotheses won't converge.
+
+| Round | AI does | User does |
+|-------|---------|-----------|
+| 1 | Restates X in 3 different framings | Picks closest + explains why |
+| 2 | Names 3 biggest assumptions | Confirms/denies + provides evidence |
+| 3 | Proposes "what you said vs what I think you meant" table | Reconciles — corrects the table |
+| 4–5 (if needed) | Zooms into gap areas from Round 3 | Resolves remaining gaps |
+
+**Exit (required):** User signs off with explicit "This is what I actually want" statement. This feeds AMBITION's exit criterion ("AI challenged 3 assumptions") — bouncing provides the challenges.
+- Max 5 rounds. No sign-off = not ready for SERIOUSNESS.
+
+
 ### Incomplete Extraction Detection
 
 These signals indicate the extraction is incomplete despite technique convergence — the user may be performing self-awareness rather than achieving it:

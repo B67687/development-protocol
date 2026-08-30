@@ -51,6 +51,17 @@ unsafe: the trauma data shows 16% false checks).
 
 11. **Outcome verdict (per cluster)** — a verdict record `{"case", "what_worked": [], "what_didnt": [], "disposition", "owner", "reviewed_ts"}` written to `.omo/outcome-verdicts.jsonl` by the independent REVIEW agent (author + time separation from the run — contamination guard). The run itself records facts only; a self-authored verdict is `omitted` state (reward-hacking surface, METR 2025). Verdicts are TIME-SEPARATED from the eval, and never acted on as a single-cycle delta (small-N regime — aggregate over many cycles).
 
+## Minimum Viable Ledger (Light Mode)
+
+For Light mode (SERIOUSNESS 35-50), only these rules are mandatory:
+
+- **Rule 1:** every method decision logged (applied/skipped/omitted)
+- **Rule 2:** `applied` requires evidence artifact
+- **Rule 8:** insertion discipline (read-after-write guard)
+- **Rule 10-11:** conformance check at REVIEW (verdict + lesson disposition)
+
+All other rules become optional in Light mode — logged if triggered, not required.
+This cuts ledger overhead ~60% for simple projects while keeping the audit trail.
 ## The Self-Critique Reconciliation
 
 At each gate (per step completion), the executor writes a mandatory reconciliation
