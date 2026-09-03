@@ -8,12 +8,11 @@ When SERIOUSNESS kills an idea (DROP) or VALIDATION kills a path (spike fails), 
 
 ## Template
 
-| ID    | Date       | Phase Killed | Class              | Score       | Kill Reason                                                       | Counterfactual (30-day check)                                                                       | Outcome                   |
-| ----- | ---------- | ------------ | ------------------ | ----------- | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------------------------- |
-| K-001 | 2026-08-29 | SERIOUSNESS  | Personal tool      | 28/120 DROP | Energy low, no revealed demand                                    | Did need persist? Did someone else build it?                                                        | Correct / Miss            |
-| K-002 | 2026-08-29 | VALIDATION   | Production service | spike KILL  | Core assumption falsified                                         | Did assumption become true later?                                                                   | —                         |
-| K-003 | 2026-09-03 | P2b WHICH-X? | Protocol seam      | Bar 2       | 1 same (narrow 85→100 only) — not chosen; 3 adjacent — not chosen | Retro: did seam choice hurt transmissibility? Check .omo/traces/colour-blind-85-100.md usage at 30d | Pending (30d: 2026-10-03) |
-| K-002 | 2026-08-29 | VALIDATION   | Production service | spike KILL  | Core assumption falsified                                         | Did assumption become true later?                                                                   | —                         |
+| ID    | Date       | Phase Killed | Class              | Score       | Kill Reason                                                       | Counterfactual (30-day check)                                                                         | Outcome        |
+| ----- | ---------- | ------------ | ------------------ | ----------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | -------------- |
+| K-001 | 2026-08-29 | SERIOUSNESS  | Personal tool      | 28/120 DROP | Energy low, no revealed demand                                    | Did need persist? Did someone else build it?                                                          | Correct / Miss |
+| K-002 | 2026-08-29 | VALIDATION   | Production service | spike KILL  | Core assumption falsified                                         | Did assumption become true later?                                                                     | —              |
+| K-003 | 2026-09-03 | P2b WHICH-X? | Protocol seam      | Bar 2       | 1 same (narrow 85→100 only) — not chosen; 3 adjacent — not chosen | 30d 2026-10-03: did seam choice hurt transmissibility? Check docs/traces/colour-blind-85-100.md usage | Pending        |
 
 **Field notes:**
 
