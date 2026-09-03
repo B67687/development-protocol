@@ -78,7 +78,7 @@ Adjustment: If no advantage named, score caps at 10.
 
 **D2b — Proven-Earner Benchmark (OPTIONAL — fires only when the money-tier decision is live)**
 
-When you are choosing this idea partly for the money component of benefit (library vs platform tier), add one external-validity pass after the D2 probe. Self-assessment cannot tell you whether the opportunity will actually benefit *you* financially — only a benchmark can. Benefit here = money + learning + capability + mission progress, minus time and effort; comfortable-money-is-good-money is a valid target.
+When you are choosing this idea partly for the money component of benefit (library vs platform tier), add one external-validity pass after the D2 probe. Self-assessment cannot tell you whether the opportunity will actually benefit _you_ financially — only a benchmark can. Benefit here = money + learning + capability + mission progress, minus time and effort; comfortable-money-is-good-money is a valid target.
 **Trigger (fires the check):** Is earning money from this idea part of your benefit calculation? If yes — even as a secondary motive — D2b fires. If you find yourself declaring money "not live" just to skip it, that avoidance is itself a signal to fire it.
 
 1. **Name the analog.** Who is the STRONGEST person already earning in this niche (benchmark the ceiling, not the most convenient comparison)? (e.g. Sidekiq's Mike Perham for the library tier.) If you cannot name anyone earning here, that is the strongest kill signal for the money component — the benefit collapses to learning/capability/mission alone.
@@ -164,19 +164,20 @@ Record:
 | < 35  | **DROP**     | Record why in .omo/decisions/. No revisit for 90 days.               |
 
 > **Asymmetric routing (Invariant 11):** COMMIT and SCHEDULE are applied by the AI and ledger-logged by default. DROP always re-engages the user — an idea is never silently killed. Borderline scores (within ±5 of a threshold) also re-engage the user gate.
+> **P2a gate — Bar 1 must clear before Bar 2:** COMMIT → enter LANDSCAPE/STRATEGY/AMBITION (P2b: same/scaled/adjacent/more). SCHEDULE/DROP → stop, log to `KILL_LOG.md` (Bar 1) + `.omo/decisions/`, do NOT enter P2b. Revisit only on scheduled date or new evidence.
 
 ## Heuristics (When the User is Unsure)
 
-| Situation                                    | Gate Response                                                                         |
-| -------------------------------------------- | ------------------------------------------------------------------------------------- |
-| 2+ mixed/unsure answers in Phase 1           | Default to SCHEDULE, not COMMIT                                                       |
-| All dimensions cluster 30-60 total           | Check Confidence dimension. If < 10, recommend a 1-day experiment before FUNDAMENTALS |
+| Situation                                    | Gate Response                                                                                            |
+| -------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| 2+ mixed/unsure answers in Phase 1           | Default to SCHEDULE, not COMMIT                                                                          |
+| All dimensions cluster 30-60 total           | Check Confidence dimension. If < 10, recommend a 1-day experiment before FUNDAMENTALS                    |
 | Urgency >= 16 but all others < 10            | Flag urgency without substance. Auto-SCHEDULE with 90-day delay; DROP re-engages the user (Invariant 11) |
-| Recent behavior: did nothing                 | Apply −5 penalty. If total >= 65, auto-schedule 1-week delay before COMMIT            |
-| Maybe on the $100 bet                        | Treat as No (−5)                                                                      |
-| First-time idea (just extracted)             | Apply −10 skepticism bonus                                                            |
-| Recurring idea (keeps surfacing)             | Apply +10 persistence bonus                                                           |
-| Kill criterion untested but Confidence >= 15 | Auto-cap Confidence at 8                                                              |
+| Recent behavior: did nothing                 | Apply −5 penalty. If total >= 65, auto-schedule 1-week delay before COMMIT                               |
+| Maybe on the $100 bet                        | Treat as No (−5)                                                                                         |
+| First-time idea (just extracted)             | Apply −10 skepticism bonus                                                                               |
+| Recurring idea (keeps surfacing)             | Apply +10 persistence bonus                                                                              |
+| Kill criterion untested but Confidence >= 15 | Auto-cap Confidence at 8                                                                                 |
 
 ## Anti-Sunk-Cost Mechanisms
 
@@ -198,12 +199,12 @@ Record:
 
 For each SERIOUSNESS decision, ask: "What class of project is this?" Look up its base rate — what % of similar projects ship what was planned? Use the base rate as your prior, then adjust with dimension scores.
 
-| Class | Base Rate (ship what was planned) | Source |
-|-------|----------------------------------|--------|
-| Personal tool | ~70% | Anecdotal / Shape Up |
-| Open-source library | ~40% | OSS completion rates |
-| Production service | ~30% | Standish CHAOS |
-| Research prototype | ~20% | Academic lab rates |
+| Class               | Base Rate (ship what was planned) | Source               |
+| ------------------- | --------------------------------- | -------------------- |
+| Personal tool       | ~70%                              | Anecdotal / Shape Up |
+| Open-source library | ~40%                              | OSS completion rates |
+| Production service  | ~30%                              | Standish CHAOS       |
+| Research prototype  | ~20%                              | Academic lab rates   |
 
 **Score anchoring defense:** Before scoring, the AI reads the base rate. Then scores. Prevents enthusiasm anchoring.
 
@@ -215,9 +216,9 @@ When unsure, run SERIOUSNESS twice — once human alone, once AI alone — compa
 
 After the kill/commit decision, log:
 
-| Date | Project | Class | Score | Base Rate | Decision | Actual Outcome (filled later) |
-|------|---------|-------|-------|-----------|----------|-------------------------------|
-| 2026-08-30 | _example_ | Personal tool | 58 COMMIT | 70% | COMMIT | shipped in 6 days |
+| Date       | Project   | Class         | Score     | Base Rate | Decision | Actual Outcome (filled later) |
+| ---------- | --------- | ------------- | --------- | --------- | -------- | ----------------------------- |
+| 2026-08-30 | _example_ | Personal tool | 58 COMMIT | 70%       | COMMIT   | shipped in 6 days             |
 
 Feeds into `KILL_LOG.md` calibration loop. Reviewed at REFLECT Q8.
 
@@ -236,33 +237,33 @@ Update at every phase transition.
 
 ### Risk Assessment
 
-| # | Risk | L(1-5) | I(1-5) | Score(LxI) | Mitigation | Owner | Status |
-|---|---|---|---|---|---|---|---|
-| R1 | {{what could go wrong}} | 1-5 | 1-5 | LxI | {{how to reduce}} | {{who}} | {{open/mitigated/closed}} |
+| #   | Risk                    | L(1-5) | I(1-5) | Score(LxI) | Mitigation        | Owner   | Status                    |
+| --- | ----------------------- | ------ | ------ | ---------- | ----------------- | ------- | ------------------------- |
+| R1  | {{what could go wrong}} | 1-5    | 1-5    | LxI        | {{how to reduce}} | {{who}} | {{open/mitigated/closed}} |
 
 **Likelihood:** 1=Rare, 3=Possible, 5=Almost certain.
 **Impact:** 1=Negligible, 3=Moderate setback, 5=Project failure.
 
-| Score | Action |
-|---|---|
-| 1-6 | Low — log, monitor at next transition |
-| 7-12 | Medium — assign mitigation owner, check every phase |
+| Score | Action                                                         |
+| ----- | -------------------------------------------------------------- |
+| 1-6   | Low — log, monitor at next transition                          |
+| 7-12  | Medium — assign mitigation owner, check every phase            |
 | 13-25 | High — documented mitigation plan required before FUNDAMENTALS |
 
 ### Pipeline Integration
 
-| Phase | Action |
-|---|---|
-| SERIOUSNESS | **Initialize** register with risks from Phase 2 dimensions |
-| FUNDAMENTALS | **Add** one-way door chain risks. Cross-reference HIGH chains. |
-| DECOMPOSITION | **Add** decomposition gaps between KNOWN/RESEARCH/PROTOTYPE |
-| LANDSCAPE | **Update** likelihood/impact based on research findings |
-| STRATEGY | **Add** ratification-deferral and premortem findings; log rejected-proposal risk |
-| VALIDATION | **Close** risks the spike disproves |
-| SPECIFICATION | **Reference** in Timeline contingency and circuit breaker |
-| EXECUTOR | **Log** risks discovered during implementation |
-| REVIEW | **Verify** completeness. Unmitigated HIGH blocks DISTRIBUTE. |
-| REFLECT | **Close** — did the register capture what materialized? |
+| Phase         | Action                                                                           |
+| ------------- | -------------------------------------------------------------------------------- |
+| SERIOUSNESS   | **Initialize** register with risks from Phase 2 dimensions                       |
+| FUNDAMENTALS  | **Add** one-way door chain risks. Cross-reference HIGH chains.                   |
+| DECOMPOSITION | **Add** decomposition gaps between KNOWN/RESEARCH/PROTOTYPE                      |
+| LANDSCAPE     | **Update** likelihood/impact based on research findings                          |
+| STRATEGY      | **Add** ratification-deferral and premortem findings; log rejected-proposal risk |
+| VALIDATION    | **Close** risks the spike disproves                                              |
+| SPECIFICATION | **Reference** in Timeline contingency and circuit breaker                        |
+| EXECUTOR      | **Log** risks discovered during implementation                                   |
+| REVIEW        | **Verify** completeness. Unmitigated HIGH blocks DISTRIBUTE.                     |
+| REFLECT       | **Close** — did the register capture what materialized?                          |
 
 Keep the register lean (< 10 items). Every entry should be a risk you would
 actually revisit. Noise in the register is worse than no register.
