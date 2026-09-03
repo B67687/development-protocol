@@ -44,21 +44,21 @@ own words, BEFORE the AI proposes.
 - Why: prevents anchoring on the AI's frame and forces genuine thinking. Evidence:
   delegation without structured engagement degrades skill ~17% (Shen & Tamkin 2026,
   RCT); pre-commitment is the anti-deskilling keystone.
-- Format: the human writes 1-3 sentences: *What is the challenge? What outcome
-  matters? What would I do if I had to decide now?*
+- Format: the human writes 1-3 sentences: _What is the challenge? What outcome
+  matters? What would I do if I had to decide now?_
 
 ### Phase 2 — Proposal (AI, kernel format)
 
 The AI drafts the strategy as a Rumelt kernel with intent and falsification blocks:
 
-| Block | Required content |
-|---|---|
-| **Diagnosis** | What is happening, and *why does it persist*? (dual diagnosis: surface + structural) |
-| **Guiding policy** | The chosen approach — including an explicit **NOT-list** (what we will not do) |
-| **Coherent actions** | 3-7 mutually consistent actions derived from the policy |
-| **Intent block** | Purpose, key tasks, desired end state, limits (ADP 6-0 style, 3-5 sentences) |
-| **Falsification signals** | Observable events that would invalidate the strategy, plus a review trigger |
-| **Confidence statement** | Calibrated confidence per decision domain + the strongest counterargument (contra-ruling) |
+| Block                     | Required content                                                                          |
+| ------------------------- | ----------------------------------------------------------------------------------------- |
+| **Diagnosis**             | What is happening, and _why does it persist_? (dual diagnosis: surface + structural)      |
+| **Guiding policy**        | The chosen approach — including an explicit **NOT-list** (what we will not do)            |
+| **Coherent actions**      | 3-7 mutually consistent actions derived from the policy                                   |
+| **Intent block**          | Purpose, key tasks, desired end state, limits (ADP 6-0 style, 3-5 sentences)              |
+| **Falsification signals** | Observable events that would invalidate the strategy, plus a review trigger               |
+| **Confidence statement**  | Calibrated confidence per decision domain + the strongest counterargument (contra-ruling) |
 
 The AI leads here — it decides the strategy from the LANDSCAPE map and its
 cross-domain knowledge, not from the user's prior. The user is not expected to
@@ -89,15 +89,15 @@ Two gates bookend execution:
 
 ## Authority-Boundary Rules
 
-| # | Rule | Rationale / Evidence |
-|---|---|---|
-| 1 | **No unratified action.** The AI executes nothing before human sign-off. | Core posture; EU AI Act Art. 14 HITL |
-| 2 | **Intent is 3-5 sentences.** Purpose, key tasks, end state, limits. | ADP 6-0: longer intent is not internalized |
-| 3 | **Deviations are reported, not hidden.** Report deviation as soon as possible when intent cannot be followed. | ADP 6-0 ¶18 |
-| 4 | **Underwrite mistakes of initiative, not omission.** Honest errors from initiative are accepted; not reporting is not excused. | ADP 6-0 ¶26 |
-| 5 | **Disciplined initiative only.** Acting outside intent is the failure mode. | Sickles/Meade at Gettysburg |
-| 6 | **No scope creep.** New domain/novel situation → new cycle, not auto-extension of prior mandate. | Prevents drift beyond ratified intent |
-| 7 | **The AI cannot overrule the human.** Final say = human accept / amend / disregard-and-decide. | Meaningful human oversight |
+| #   | Rule                                                                                                                           | Rationale / Evidence                       |
+| --- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
+| 1   | **No unratified action.** The AI executes nothing before human sign-off.                                                       | Core posture; EU AI Act Art. 14 HITL       |
+| 2   | **Intent is 3-5 sentences.** Purpose, key tasks, end state, limits.                                                            | ADP 6-0: longer intent is not internalized |
+| 3   | **Deviations are reported, not hidden.** Report deviation as soon as possible when intent cannot be followed.                  | ADP 6-0 ¶18                                |
+| 4   | **Underwrite mistakes of initiative, not omission.** Honest errors from initiative are accepted; not reporting is not excused. | ADP 6-0 ¶26                                |
+| 5   | **Disciplined initiative only.** Acting outside intent is the failure mode.                                                    | Sickles/Meade at Gettysburg                |
+| 6   | **No scope creep.** New domain/novel situation → new cycle, not auto-extension of prior mandate.                               | Prevents drift beyond ratified intent      |
+| 7   | **The AI cannot overrule the human.** Final say = human accept / amend / disregard-and-decide.                                 | Meaningful human oversight                 |
 
 ## Keeping the AI Honest
 
@@ -154,21 +154,22 @@ STRATEGY           [✓] COMPLETE
 INBOX → PRIORITIZE → EXTRACTION → SERIOUSNESS → FUNDAMENTALS (incl. MULTI) → DECOMPOSITION → AMBITION (incl. PACING) → LANDSCAPE → [STRATEGY] → VALIDATION → SPECIFICATION → EXECUTOR → REVIEW (incl. EXPLAINER + SPEC_SYNC) → REFLECT → ship
 ```
 
-STRATEGY consumes: AMBITION's locked ambition + LANDSCAPE's research map.
+STRATEGY consumes: AMBITION's locked ambition + LANDSCAPE's research map + P2b WHICH-X? decision (same / scaled / adjacent / more-than-X) — the chosen variant's scope is the strategy's subject. Without a logged WHICH-X (or explicit P2b skip rationale), STRATEGY is blocked.
+STRATEGY produces: the ratified strategic intent that VALIDATION tests.
 STRATEGY produces: the ratified strategic intent that VALIDATION tests.
 
 ## Provenness
 
-| Element | Source | Evidence |
-|---|---|---|
-| **Kernel-format proposal** | Rumelt, *Good Strategy/Bad Strategy* | Widely validated in practice; high confidence |
-| **Commander's intent model** | ADP 6-0 Mission Command | U.S. Army doctrine; high |
-| **Bounded-editing ratification** | Dietvorst et al. (2018), modifiable algorithms | Experiments; high |
-| **Pre-commitment anti-deskilling** | Shen & Tamkin (2026), RCT | Randomized trial; high |
-| **Premortem gate** | Klein (2007), HBR | Field + experimental; high |
-| **AAR gate** | FM 7-0 Appendix K | U.S. Army doctrine; high |
-| **Confidence statements** | LLM overconfidence research (arXiv 2605.23909) | Benchmarks; high |
-| **Contra-ruling / sycophancy defense** | Anthropic (2023); Cheng et al. Science (2026) | Red-team + experiments; high |
-| **Augmentation Trap** | Caosun & Aral (2026) | Longitudinal analysis; medium-high |
+| Element                                | Source                                         | Evidence                                      |
+| -------------------------------------- | ---------------------------------------------- | --------------------------------------------- |
+| **Kernel-format proposal**             | Rumelt, _Good Strategy/Bad Strategy_           | Widely validated in practice; high confidence |
+| **Commander's intent model**           | ADP 6-0 Mission Command                        | U.S. Army doctrine; high                      |
+| **Bounded-editing ratification**       | Dietvorst et al. (2018), modifiable algorithms | Experiments; high                             |
+| **Pre-commitment anti-deskilling**     | Shen & Tamkin (2026), RCT                      | Randomized trial; high                        |
+| **Premortem gate**                     | Klein (2007), HBR                              | Field + experimental; high                    |
+| **AAR gate**                           | FM 7-0 Appendix K                              | U.S. Army doctrine; high                      |
+| **Confidence statements**              | LLM overconfidence research (arXiv 2605.23909) | Benchmarks; high                              |
+| **Contra-ruling / sycophancy defense** | Anthropic (2023); Cheng et al. Science (2026)  | Red-team + experiments; high                  |
+| **Augmentation Trap**                  | Caosun & Aral (2026)                           | Longitudinal analysis; medium-high            |
 
-*Full reference: agentic-workflows/AI_STRATEGY_PROTOCOL.md (standalone reference doc).*
+_Full reference: agentic-workflows/AI_STRATEGY_PROTOCOL.md (standalone reference doc)._

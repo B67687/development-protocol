@@ -12,6 +12,7 @@
 ## When to Use This
 
 AMBITION.md produced a hypothesis that needs testing against reality. Before validating with prototypes, establish:
+
 - What already exists?
 - What's adjacent and worth learning from?
 - What approaches have been tried and failed?
@@ -22,6 +23,8 @@ AMBITION.md produced a hypothesis that needs testing against reality. Before val
 > **Skip when:** you've built this exact thing before AND the domain hasn't changed AND no competitor has moved since your last build.
 > **Risk of skipping:** competitor solved it better, or a known failure mode repeats; you ship what already exists.
 > **Light mode:** skipped — acceptable only when you're the domain expert on this exact shape.
+
+> **P2b entry gate — Bar 1 must have cleared:** Do not enter LANDSCAPE unless `SERIOUSNESS` = COMMIT (P2a). LANDSCAPE must emit a `WHICH-X?` decision — same / scaled / adjacent / more-than-X — logged before STRATEGY. If SKIP applies, log which variant was implicitly chosen and why P2b was not needed.
 
 ## Governing Modes — Intuition-First Route
 
@@ -35,17 +38,18 @@ AMBITION.md produced a hypothesis that needs testing against reality. Before val
 
 Answer directly from pattern-sensing when the question is about:
 
-| Domain | Examples |
-| --- | --- |
-| **Pattern recognition** | "Does this architecture remind you of something?" "What's the shape of this problem?" |
-| **Synthesis / judgment** | "What should I prioritize?" "What's the simplest path?" "Is this a good direction?" |
-| **Comparison** | "Which approach is more robust?" "What's the tradeoff here?" |
-| **Meta-decisions** | "Which problem matters most?" "Should I trust this plan?" "Is this worth doing?" |
-| **Familiar ground** | Domains where the agent's prior in-domain claims have survived verification (method ledger) |
+| Domain                   | Examples                                                                                    |
+| ------------------------ | ------------------------------------------------------------------------------------------- |
+| **Pattern recognition**  | "Does this architecture remind you of something?" "What's the shape of this problem?"       |
+| **Synthesis / judgment** | "What should I prioritize?" "What's the simplest path?" "Is this a good direction?"         |
+| **Comparison**           | "Which approach is more robust?" "What's the tradeoff here?"                                |
+| **Meta-decisions**       | "Which problem matters most?" "Should I trust this plan?" "Is this worth doing?"            |
+| **Familiar ground**      | Domains where the agent's prior in-domain claims have survived verification (method ledger) |
 
 ### When to overlay structure (opt-in, per case)
 
 Add chain-of-thought, tools, or agentic machinery only when:
+
 1. **Exactness demanded** — math, facts, dates, versions, APIs, compliance
 2. **Stakes are high** — one-way doors, large bets, irreversible decisions
 3. **The answer fails a cheap sanity probe** — it contradicts known constraints, or the calibration signal says "plausible shape, not recognized pattern"
@@ -54,11 +58,11 @@ Add chain-of-thought, tools, or agentic machinery only when:
 
 Every direct answer should carry an honest calibration tag:
 
-| Tag | Meaning | Default treatment |
-| --- | --- | --- |
-| **"I recognize this pattern"** | Strong latent match — high-confidence intuition | Accept and act; if the claim is consequential, still apply RoD tier (L1 minimum) |
-| **"This shape is plausible"** | Weak match — pattern feels right but isn't anchored | Sanity-probe; if consequential, apply RoD tier (L1 minimum) |
-| **"I'm uncertain / this is speculative"** | No reliable match | Research or decompose before acting (RoD tier per consequence) |
+| Tag                                       | Meaning                                             | Default treatment                                                                |
+| ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **"I recognize this pattern"**            | Strong latent match — high-confidence intuition     | Accept and act; if the claim is consequential, still apply RoD tier (L1 minimum) |
+| **"This shape is plausible"**             | Weak match — pattern feels right but isn't anchored | Sanity-probe; if consequential, apply RoD tier (L1 minimum)                      |
+| **"I'm uncertain / this is speculative"** | No reliable match                                   | Research or decompose before acting (RoD tier per consequence)                   |
 
 The calibration tag is a REPORT, not a permission gate. The user decides what to do with the answer — trust it, probe it, or check it (via Research on Demand tiers).
 
@@ -72,7 +76,7 @@ The calibration tag is a REPORT, not a permission gate. The user decides what to
 
 > **The honest caveat (Polanyi's Revenge):** intuition is unverbalized expertise — legitimate when it carries honest calibration and is fed by an outcome loop. Log intuition-driven decisions and their outcomes to build the feedback loop that makes intuition trainable over time (Kahneman & Klein: valid intuition requires high-validity environment + opportunity to learn).
 
-*LANDSCAPE.md is a meta-protocol for doing research — HOW to research, how to evaluate sources, how to avoid bias, and when to stop.*
+_LANDSCAPE.md is a meta-protocol for doing research — HOW to research, how to evaluate sources, how to avoid bias, and when to stop._
 
 ---
 
@@ -85,6 +89,7 @@ The calibration tag is a REPORT, not a permission gate. The user decides what to
 Before searching, define what you're looking for and what you're NOT looking for.
 
 **Framing questions (from the hypothesis):**
+
 - **Direct:** What existing solutions solve this problem? What's their approach? What are their limitations?
 - **Adjacent:** What neighboring fields have solved similar problems? What can we borrow?
 - **Technology:** What tools, frameworks, or platforms are relevant? Mature vs. experimental?
@@ -92,6 +97,7 @@ Before searching, define what you're looking for and what you're NOT looking for
 - **Unknowns:** What don't you know that you don't know? (Question bank: generate 10 naive questions about this domain.)
 
 **Scope boundary:** Define what you will NOT research:
+
 - Out of scope topics (prevents rabbit holes)
 - Geographic/community coverage: DECLARE the ecosystems, languages and communities you will
   research (not just exclude) — default to sampling non-Western (esp. Chinese) and specialised
@@ -107,29 +113,31 @@ Before searching, define what you're looking for and what you're NOT looking for
 
 Surface what you already know before searching for novelty: 64-81% of expert design thinking is pattern recognition, not analytical invention (Kannengiesser & Gero 2019); experts recognize the situation as a known type and the response follows (Klein 1985; Manteuffel 2018).
 
-**The Default Project question:** "What project, architecture, or problem does this remind me of?" — surface that match explicitly, even as guesswork; experts begin with a "default template" and refine by finding what's *different* (Dorst & Cross 2001).
+**The Default Project question:** "What project, architecture, or problem does this remind me of?" — surface that match explicitly, even as guesswork; experts begin with a "default template" and refine by finding what's _different_ (Dorst & Cross 2001).
 
 **Reference types (in priority order):**
 
-| Priority | Type | What to look for | How it works |
-| --- | --- | --- | --- |
-| **1st** | **Pattern / architecture** | What structural shape does this problem have? What similar architecture have I seen? | Tacit pattern matching — the expert "sees" the situation as a type (Klein: 80-90% of expert decisions) |
-| **2nd** | **Direct precedent** | Existing solutions to the exact problem | Explicit adaptation — open-source projects, commercial products, published architectures |
-| **3rd** | **Negative precedent** | Attempts that failed and why | Postmortems, discontinued projects, migration case studies |
-| **4th** | **Component precedent** | Reusable building blocks | Libraries, frameworks, APIs, SDKs, platforms |
+| Priority | Type                       | What to look for                                                                     | How it works                                                                                           |
+| -------- | -------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| **1st**  | **Pattern / architecture** | What structural shape does this problem have? What similar architecture have I seen? | Tacit pattern matching — the expert "sees" the situation as a type (Klein: 80-90% of expert decisions) |
+| **2nd**  | **Direct precedent**       | Existing solutions to the exact problem                                              | Explicit adaptation — open-source projects, commercial products, published architectures               |
+| **3rd**  | **Negative precedent**     | Attempts that failed and why                                                         | Postmortems, discontinued projects, migration case studies                                             |
+| **4th**  | **Component precedent**    | Reusable building blocks                                                             | Libraries, frameworks, APIs, SDKs, platforms                                                           |
 
 **Survey method:**
+
 1. **Default Project** — Ask "What does this remind me of?" and write the answer. Surfaces the tacit pattern match before it fades.
 2. **Pattern check** — What 2-3 architectural patterns does the situation suggest? Most real systems use 1-3 patterns (Harrison & Avgeriou 2008); more than 3 = overcomplicating.
 3. **Search for each reference type** — 5-10 minutes per type, timeboxed. Pattern recognition first, solution-finding second.
-4. **Document** each reference: name, approach, key insight, what it tells you about what's *different* about your situation.
+4. **Document** each reference: name, approach, key insight, what it tells you about what's _different_ about your situation.
 5. **Before concluding:** ask "What if there's already an architecture that handles 80% of this?" (fights NIH bias).
 
-**Output:** A pattern map — the 1-3 architectural patterns/default templates framing this problem, plus existing solutions/components to leverage. Key insight: what's *different* from the template, not what to copy.
+**Output:** A pattern map — the 1-3 architectural patterns/default templates framing this problem, plus existing solutions/components to leverage. Key insight: what's _different_ from the template, not what to copy.
 
 ### Step 2: Search
 
 **Search strategies (in priority order):**
+
 1. **Direct search** — GitHub, language registries (crates.io / PyPI / npm), academic databases, technical blogs
 2. **Citation chaining** — When you find a good source, check what IT cites (backward), then who cites IT (forward, via Google Scholar). Two to three levels deep is usually enough.
 3. **Adjacent search** — "What tools do [adjacent field] use?" or "How does [similar problem] work in [different domain]?"
@@ -142,13 +150,13 @@ Surface what you already know before searching for novelty: 64-81% of expert des
 
 Not all sources are equal. Use the **CRAAP test** to calibrate confidence:
 
-| Criterion | What to check | High confidence | Low confidence |
-| --- | --- | --- | --- |
-| **Currency** | When was it published? | < 2 years old for tech | > 5 years old |
-| **Relevance** | Does it directly address your question? | Direct match | Tangential, feel adjacent |
-| **Authority** | Who wrote it? What's their expertise? | Domain expert, practitioner | Unknown author, anonymous |
-| **Accuracy** | Is the information verifiable? | Cites sources, reproducible | Anecdotal, no evidence |
-| **Purpose** | Why does this exist? | Inform, educate | Sell, promote, evangelize |
+| Criterion     | What to check                           | High confidence             | Low confidence            |
+| ------------- | --------------------------------------- | --------------------------- | ------------------------- |
+| **Currency**  | When was it published?                  | < 2 years old for tech      | > 5 years old             |
+| **Relevance** | Does it directly address your question? | Direct match                | Tangential, feel adjacent |
+| **Authority** | Who wrote it? What's their expertise?   | Domain expert, practitioner | Unknown author, anonymous |
+| **Accuracy**  | Is the information verifiable?          | Cites sources, reproducible | Anecdotal, no evidence    |
+| **Purpose**   | Why does this exist?                    | Inform, educate             | Sell, promote, evangelize |
 
 **Evidence hierarchy (highest to lowest):** 1. Replicated controlled experiments → 2. Single controlled experiments → 3. Systematic case studies → 4. Expert opinion with documented experience → 5. Anecdotes ("this worked for me" — useful for hypotheses) → 6. Marketing/vendor content (directional at best).
 
@@ -167,14 +175,15 @@ confidence — research shows verbalized confidence is a poor correctness predic
 hallucination 73-86% (FActScore), so grounding consequential claims in retrieved
 evidence is the single highest-impact intervention.
 
-| Tier | Trigger | Action | Cost |
-| --- | --- | --- | --- |
-| **L0 — No check** | Trivial claim, no decision impact; output of executed code/tool (self-verifying) | State it; no tool calls | ~0 |
-| **L1 — Lightweight authoritative check** (DEFAULT for factual claims) | Any claim that could affect planning/decisions; any number, date, name, version, API, or citation | One targeted search against an authoritative source (official docs, spec, standards). CRAAP-screen for authority + currency. | 1 call |
-| **L2 — Cross-check** | Decision-relevant, surprising, contested, or newly-claimed; would trigger rework if wrong | 2+ independent sources; corroborate; attach per-claim citations; VERIFY each citation resolves and supports the claim (CJR study: AI search engines mis-cite >60% of the time) | 2-4 calls |
-| **L3 — Deep verification** | One-way-door / high-stakes decision (kill/pivot/commit; spec commitments; legal/regulatory/financial) | Multi-source research with adversarial refutation pass; independent corroboration; external oracle where one exists (run the test/compile, don't ask the model); human review gate; explicit abstention if unverifiable | Mini-research project |
+| Tier                                                                  | Trigger                                                                                               | Action                                                                                                                                                                                                                  | Cost                  |
+| --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| **L0 — No check**                                                     | Trivial claim, no decision impact; output of executed code/tool (self-verifying)                      | State it; no tool calls                                                                                                                                                                                                 | ~0                    |
+| **L1 — Lightweight authoritative check** (DEFAULT for factual claims) | Any claim that could affect planning/decisions; any number, date, name, version, API, or citation     | One targeted search against an authoritative source (official docs, spec, standards). CRAAP-screen for authority + currency.                                                                                            | 1 call                |
+| **L2 — Cross-check**                                                  | Decision-relevant, surprising, contested, or newly-claimed; would trigger rework if wrong             | 2+ independent sources; corroborate; attach per-claim citations; VERIFY each citation resolves and supports the claim (CJR study: AI search engines mis-cite >60% of the time)                                          | 2-4 calls             |
+| **L3 — Deep verification**                                            | One-way-door / high-stakes decision (kill/pivot/commit; spec commitments; legal/regulatory/financial) | Multi-source research with adversarial refutation pass; independent corroboration; external oracle where one exists (run the test/compile, don't ask the model); human review gate; explicit abstention if unverifiable | Mini-research project |
 
 **Operating rules:**
+
 1. **Decisiveness gate**: before checking, ask "would the decision change if this claim were false?" If no → L0. If yes → L1 minimum.
 2. **Disagreement escalates, confidence never de-escalates**: two sources disagreeing escalates a tier. AI certainty never lowers one.
 3. **Ground, don't recall**: consequential claims must come from retrieved evidence, not model memory. Closed-book claims are L2 minimum.
@@ -215,13 +224,14 @@ Type: [green/supports hypothesis / red/contradicts / gray/unknown]
 
 **Feature comparison matrix:**
 
-| Feature | Your concept | Competitor A | Competitor B |
-| --- | --- | --- | --- |
-| Core feature 1 | ✅ Planned | ✅ Existing | ❌ |
-| Core feature 2 | ❌ | ✅ | ✅ |
-| Unique feature | ✅ | ❌ | ❌ |
+| Feature        | Your concept | Competitor A | Competitor B |
+| -------------- | ------------ | ------------ | ------------ |
+| Core feature 1 | ✅ Planned   | ✅ Existing  | ❌           |
+| Core feature 2 | ❌           | ✅           | ✅           |
+| Unique feature | ✅           | ❌           | ❌           |
 
 **Positioning analysis:**
+
 - Where does your project fit on: simple ↔ powerful, opinionated ↔ flexible, library ↔ platform?
 - What do competitors NOT do well? That's your opportunity.
 - What do competitors do well that you should learn from? That's your reference.
@@ -231,6 +241,7 @@ Type: [green/supports hypothesis / red/contradicts / gray/unknown]
 ## Confirmation Bias Safeguards
 
 Research naturally confirms what you want to believe. These are required:
+
 1. **Pre-register your questions** — Before you start, write down what you expect to find. Compare with actual findings.
 2. **Active negative results search** — Search for "why [approach] failed" and "limitations of [tool]" — not just success stories. Required, not optional.
 3. **Devil's advocate pass** — After a finding, actively argue the opposite: "What if this source is wrong?" "What if I'm misinterpreting this?"
@@ -253,14 +264,15 @@ Research naturally confirms what you want to believe. These are required:
 
 Research has diminishing returns. Most value comes from the first 2 hours:
 
-| After | % of value found | Should you continue? |
-| --- | --- | --- |
-| 30 min | ~40% | Yes — surface scan |
-| 2 hours | ~70% | Maybe — if important unknowns remain |
-| 4 hours | ~85% | Probably not — diminishing returns |
-| 8 hours | ~95% | Stop — you're over-researching |
+| After   | % of value found | Should you continue?                 |
+| ------- | ---------------- | ------------------------------------ |
+| 30 min  | ~40%             | Yes — surface scan                   |
+| 2 hours | ~70%             | Maybe — if important unknowns remain |
+| 4 hours | ~85%             | Probably not — diminishing returns   |
+| 8 hours | ~95%             | Stop — you're over-researching       |
 
 **Saturation signals (any ONE means stop):**
+
 1. **No new sources** — The last hour of searching returned nothing novel. Same findings repeated.
 2. **Convergence** — 3+ independent sources in different categories agree on the same finding.
 3. **Diminishing relevance** — New findings are increasingly tangential to your hypothesis.
@@ -274,11 +286,11 @@ Research has diminishing returns. Most value comes from the first 2 hours:
 
 **Worked example — "Should we use Rust or Go?"**
 
-| Claim | Evidence | Tier | Confidence |
-| --- | --- | --- | --- |
-| "Rust is memory-safe by default" | Academic papers, 10+ years of evidence | Tier 1 | High |
-| "Go is faster to write" | Surveys, practitioner reports | Tier 4 | Medium |
-| "Our specific use case needs >10M req/s" | Benchmark your prototype, not research | — | Prototype needed |
+| Claim                                    | Evidence                               | Tier   | Confidence       |
+| ---------------------------------------- | -------------------------------------- | ------ | ---------------- |
+| "Rust is memory-safe by default"         | Academic papers, 10+ years of evidence | Tier 1 | High             |
+| "Go is faster to write"                  | Surveys, practitioner reports          | Tier 4 | Medium           |
+| "Our specific use case needs >10M req/s" | Benchmark your prototype, not research | —      | Prototype needed |
 
 The output of LANDSCAPE.md is not "which is better" — it's "what's the evidence landscape, and where should we prototype to resolve the remaining uncertainty?"
 
@@ -299,6 +311,7 @@ The output of LANDSCAPE.md is not "which is better" — it's "what's the evidenc
 Cache results in structured markdown docs so future research waves build on past work, not repeat it.
 
 **Cache rules:**
+
 - **Document every significant research wave** in a versioned markdown file (e.g., `research/SUPER_ANALYSIS.md`) with a `Date:` header
 - **Check cache before researching** — if a cached doc addresses the question, verify its date and only refresh if stale
 - **Staleness heuristic:** fast-changing topics (model benchmarks) stale after 2 weeks; stable topics (architectural patterns) valid for months
