@@ -1,14 +1,14 @@
 # Development Protocol
 
-A document-driven development protocol with three decision gates that prevent solution-jumping and catch wrong foundations before you build on them.
+A Protocol of Protocols — a recursive strategist at every altitude: `P1 WANT` (incl. tacit) → `P2a SHOULD-BUILD?` (DROP/COMMIT) → `P2b WHICH-X?` (same/scaled/adjacent/more) → `P3 BEST PLAN` → `P4 EXECUTE`. Two-bar gate hardens the seam: `SERIOUSNESS` Bar 1 must COMMIT before `LANDSCAPE` Bar 2 emits WHICH-X?.
 
 Part of a trio of meta-projects:
 
-- Development Protocol (this) — process from intent to product
+- Development Protocol (this) — PoP from intent to product (watertight 85→100% in this dogfood)
 - Standards (github.com/B67687/Standards) — what good means, automated audits
 - Lessons — cross-project knowledge base, loaded every session
 
-Built by following [the Development Protocol](https://github.com/B67687/Development-Protocol) itself — a recursive self-completeness test.
+Live trace: [`docs/traces/colour-blind-85-100.md`](docs/traces/colour-blind-85-100.md) — P1 tacit → P2a COMMIT → P2b more-than-X (COLOUR-BLIND funnel as illustration). K-003 logged. Built by following itself (recursive self-test).
 
 ## Table of Contents
 
@@ -19,7 +19,8 @@ Built by following [the Development Protocol](https://github.com/B67687/Developm
 - [Contents](#contents)
 - [Origin](#origin)
 
-## The Pipeline
+## The Pipeline — PoP altitudes (P1 → P2a → P2b → P3 → P4)
+
 ```
                          RAW INTENT
                          │
@@ -135,31 +136,31 @@ is software, hardware, infrastructure, or other technical systems.
 
 ## Quick Start
 
-Run the protocol on a fresh intent in five moves:
+Run the protocol as PoP — five moves map to altitudes:
 
-| # | Move | Step |
-|---|------|------|
-| 1 | **Capture** | Dump raw thoughts into `INBOX.md`; cluster + triage; select one cluster |
-| 2 | **Extract the problem** | `EXTRACTION` (Gate 0): real problem X from stated solution Y |
-| 3 | **Commit or drop** | `SERIOUSNESS`: commitment probe → COMMIT / SCHEDULE / DROP |
-| 4 | **Tighten + ratify** | `FUNDAMENTALS` one-way doors → `DECOMPOSITION` routing → `AMBITION` goal + budget → `LANDSCAPE` research → `STRATEGY` ratification |
-| 5 | **Build → review → reflect** | `VALIDATION` (KILL/PIVOT/COMMIT) → `SPECIFICATION` → `EXECUTOR` → `REVIEW` meta-gate → `REFLECT` |
+| #   | Move                         | Altitude   | Step                                                                                                         |
+| --- | ---------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------ |
+| 1   | **Capture**                  | P1 WANT    | Dump raw thoughts into `INBOX.md`; cluster → triage → select one cluster                                     |
+| 2   | **Extract the problem**      | P1 ladder  | `EXTRACTION` Gate 0: real problem X from stated Y (incl. tacit)                                              |
+| 3   | **Should we build it?**      | P2a Bar 1  | `SERIOUSNESS`: COMMIT / SCHEDULE / DROP — no P2b unless COMMIT                                               |
+| 4   | **Which X? + best plan**     | P2b → P3   | `FUNDAMENTALS` → `DECOMPOSITION` → `AMBITION` → `LANDSCAPE` **must emit WHICH-X?** → `STRATEGY` ratification |
+| 5   | **Build → review → reflect** | P4 EXECUTE | `VALIDATION` → `SPECIFICATION` → `EXECUTOR` → `REVIEW` → `REFLECT`                                           |
 
 ## Standing Principles
 
-| Principle | Rule | See |
-|-----------|------|-----|
-| **Relationship to Harness** | Rides on an agent harness (OpenCode, OMO, Codex, Claude Code) for scaffolding; supplies the methodology no harness ships — extraction, gates, ratification, validation, review, reflection. Never duplicates harness machinery. | [harness survey](docs/research/harness-survey-2026-07.md) |
-| **Consolidation** | Living methodology: folds in better mechanisms from the ecosystem and cites sources. Nothing invented for its own sake. | — |
-| **Research on Demand** | Any step may dispatch verification for consequential claims; tier (L0–L3) set by cost-of-being-wrong, never AI confidence. Ground in retrieved evidence, not model memory. Research is a right, not a phase. | LANDSCAPE.md § Verification Tiers |
-| **Intuition-First** | Answer from latent pattern-sensing first; structure is an opt-in overlay for exactness domains, high stakes, or failed sanity probes. Intuition trusted only where the domain is regular and feedback-available (Kahneman & Klein 2009). Never skips RoD — changes the generation path, not the verification duty. | LANDSCAPE.md § Intuition-First Route |
-| **Strategist Posture** | The AI proposes strategy as a falsifiable kernel (Rumelt + intent block); the user ratifies; the user owns execution. AI cannot act on unratified strategy. Ratification is single (Invariant 11); other gates auto-run with escalation on one-way doors. | STRATEGY.md |
-| **Method Invocation Completeness** | Every method is APPLIED (evidence artifact), SKIPPED (pre-authorized catalog code), or OMITTED (red flag). Decisions recorded in the method ledger; machine-checked at REVIEW. | docs/METHOD_LEDGER.md |
-| **Effortlessness** | Least user effort that still yields a durable outcome (durability first, speed second). Ceremony is a tax; additions must justify themselves in net effort saved or they are 画蛇添足 (rejected). User is the authority on their own felt effort. Consolidation's counterweight. | — |
-| **Actionability** | Action-biased: ship at ~80% sufficiency; one-way doors and reputation-critical decisions exempt. User is the authority on "enough"; AI proposes the sufficiency analysis. Effortlessness' counterpart (removes deferral, not friction). | — |
-| **No-Expounding** | Prose survives only if it changes a decision, action, or criterion. Point-form and tables are the default. Provenance governs: cut scaffold and verbosity, never substance. | — |
-| **Friction Budget** | User-facing ceremony is a budgeted resource: one ratification per run, default-autonomy, escalation only on one-way doors. Rigor is agent-internal — the AI runs the heavyweight checks; the user sees plan + result. Skip ceremony, never rigor: skipped steps are ledger-logged with a SKIP_CATALOG code and the verification floor holds. | RULES.md §6 |
-| **Raw-Thinking Mode** | Generate before verify: a structured generation pass (intuitions, perspectives, connections, alternative framings) always precedes the narrowing steps — INBOX Phase 5 before EXTRACTION. Raw GENERATES, protocol VERIFIES; the gates stay, they operate on a thick frame instead of a thin one-line statement. Makes Intuition-First structural (Thread 7 / Cluster AM). | INBOX.md § Phase 5 |
+| Principle                          | Rule                                                                                                                                                                                                                                                                                                                                                                      | See                                                       |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| **Relationship to Harness**        | Rides on an agent harness (OpenCode, OMO, Codex, Claude Code) for scaffolding; supplies the methodology no harness ships — extraction, gates, ratification, validation, review, reflection. Never duplicates harness machinery.                                                                                                                                           | [harness survey](docs/research/harness-survey-2026-07.md) |
+| **Consolidation**                  | Living methodology: folds in better mechanisms from the ecosystem and cites sources. Nothing invented for its own sake.                                                                                                                                                                                                                                                   | —                                                         |
+| **Research on Demand**             | Any step may dispatch verification for consequential claims; tier (L0–L3) set by cost-of-being-wrong, never AI confidence. Ground in retrieved evidence, not model memory. Research is a right, not a phase.                                                                                                                                                              | LANDSCAPE.md § Verification Tiers                         |
+| **Intuition-First**                | Answer from latent pattern-sensing first; structure is an opt-in overlay for exactness domains, high stakes, or failed sanity probes. Intuition trusted only where the domain is regular and feedback-available (Kahneman & Klein 2009). Never skips RoD — changes the generation path, not the verification duty.                                                        | LANDSCAPE.md § Intuition-First Route                      |
+| **Strategist Posture**             | The AI proposes strategy as a falsifiable kernel (Rumelt + intent block); the user ratifies; the user owns execution. AI cannot act on unratified strategy. Ratification is single (Invariant 11); other gates auto-run with escalation on one-way doors.                                                                                                                 | STRATEGY.md                                               |
+| **Method Invocation Completeness** | Every method is APPLIED (evidence artifact), SKIPPED (pre-authorized catalog code), or OMITTED (red flag). Decisions recorded in the method ledger; machine-checked at REVIEW.                                                                                                                                                                                            | docs/METHOD_LEDGER.md                                     |
+| **Effortlessness**                 | Least user effort that still yields a durable outcome (durability first, speed second). Ceremony is a tax; additions must justify themselves in net effort saved or they are 画蛇添足 (rejected). User is the authority on their own felt effort. Consolidation's counterweight.                                                                                          | —                                                         |
+| **Actionability**                  | Action-biased: ship at ~80% sufficiency; one-way doors and reputation-critical decisions exempt. User is the authority on "enough"; AI proposes the sufficiency analysis. Effortlessness' counterpart (removes deferral, not friction).                                                                                                                                   | —                                                         |
+| **No-Expounding**                  | Prose survives only if it changes a decision, action, or criterion. Point-form and tables are the default. Provenance governs: cut scaffold and verbosity, never substance.                                                                                                                                                                                               | —                                                         |
+| **Friction Budget**                | User-facing ceremony is a budgeted resource: one ratification per run, default-autonomy, escalation only on one-way doors. Rigor is agent-internal — the AI runs the heavyweight checks; the user sees plan + result. Skip ceremony, never rigor: skipped steps are ledger-logged with a SKIP_CATALOG code and the verification floor holds.                              | RULES.md §6                                               |
+| **Raw-Thinking Mode**              | Generate before verify: a structured generation pass (intuitions, perspectives, connections, alternative framings) always precedes the narrowing steps — INBOX Phase 5 before EXTRACTION. Raw GENERATES, protocol VERIFIES; the gates stay, they operate on a thick frame instead of a thin one-line statement. Makes Intuition-First structural (Thread 7 / Cluster AM). | INBOX.md § Phase 5                                        |
 
 <details>
 <summary>Full rationale (the principles in depth)</summary>
@@ -172,7 +173,7 @@ Run the protocol on a fresh intent in five moves:
 
 **Intuition-First (Default Generation Mode):** The AI answers from latent pattern-sensing FIRST, always. This is the default generation mode — direct, unforced, zero scaffolding. Structure (chain-of-thought, tools, agentic machinery) is an OPT-IN overlay applied only when: (a) the domain demands exactness (math, facts, compliance), (b) the stakes are high (one-way doors, large bets), or (c) the answer fails a cheap sanity probe. This matches the Dreyfus expert model and ADP 6-0 doctrine: intuition by default, deliberate analysis as the exception, validation when time permits. The universal guard is twofold: honest calibration signaling — "I recognize this pattern" vs "this shape is plausible" vs "I'm uncertain or this is speculative" — AND reliability: intuition is trusted when the domain is regular and feedback-available (Kahneman & Klein 2009), or when the agent's prior claims in this domain survived verification (the method ledger). Otherwise the intuition is premature — study first (Research on Demand; one-way doors always). A capable model's direct answer is not a draft awaiting structure; it is the answer. See LANDSCAPE.md § Intuition-First Route.
 
-> **Relationship to Research on Demand:** RoD governs *claims that will affect planning or decisions*. Intuition-First governs *how answers are generated*. The two compose: the AI generates intuitively, and consequential claims are still verified per RoD tiers — L1 remains the default for factual claims that affect planning, regardless of how confident the model felt. Intuition never skips RoD; it changes the *generation path*, not the *verification duty*.
+> **Relationship to Research on Demand:** RoD governs _claims that will affect planning or decisions_. Intuition-First governs _how answers are generated_. The two compose: the AI generates intuitively, and consequential claims are still verified per RoD tiers — L1 remains the default for factual claims that affect planning, regardless of how confident the model felt. Intuition never skips RoD; it changes the _generation path_, not the _verification duty_.
 
 **Strategist Posture (Governing Mode):** The AI leads strategy as a world-class strategist — for ANY work, regardless of user expertise. The AI decides strategy and proposes it in a structured, falsifiable format (Rumelt kernel + intent block); the user ratifies (accept / amend / disregard-and-decide); the user owns execution. This is the commander's intent model (ADP 6-0): the AI sets strategic direction, the human is the accountable commander. The AI cannot act on unratified strategy. This includes the what-matters analysis — the principal contradiction (抓主要矛盾): what matters most against the mission, priced by cost-of-not-doing. The AI proposes it; the user ratifies (Strategist Posture). The dedicated gate is STRATEGY.md (after LANDSCAPE); this posture is invoked whenever the AI makes a strategic decision — including in other steps — and the user ratifies strategy; routine execution does not require per-action ratification. Ratification is single (Invariant 11): AMBITION scope + strategic kernel + phase budget ratified together at STRATEGY; other gates auto-run with escalation on one-way doors.
 
@@ -201,28 +202,28 @@ The protocol can be composed in three ways beyond the default pipeline:
 Each step documents its entry condition in its file. Run any step standalone by starting
 from the condition. This enables skipping steps that are already resolved.
 
-| Combination | When to use |
-|---|---|
-| EXTRACTION → SERIOUSNESS | Quick-evaluate an idea without full protocol |
+| Combination                           | When to use                                      |
+| ------------------------------------- | ------------------------------------------------ |
+| EXTRACTION → SERIOUSNESS              | Quick-evaluate an idea without full protocol     |
 | VALIDATION → SPECIFICATION → EXECUTOR | Build a researched project without re-extracting |
-| LANDSCAPE → REVIEW | Audit an existing solution's research quality |
+| LANDSCAPE → REVIEW                    | Audit an existing solution's research quality    |
 
 ### Pipeline Parallelism
 
-| Group | Steps | Constraint |
-|---|---|---|
-| Validation | MULTI (runs inside FUNDAMENTALS) | MULTI depends on SERIOUSNESS; no cross-dependency |
-| Spikes | Multiple VALIDATION spikes in parallel | Independent hypotheses, each isolated |
-| Wrap | REVIEW (incl. EXPLAINER + SPEC_SYNC) | Depends on EXECUTOR; no cross-dependency |
+| Group      | Steps                                  | Constraint                                        |
+| ---------- | -------------------------------------- | ------------------------------------------------- |
+| Validation | MULTI (runs inside FUNDAMENTALS)       | MULTI depends on SERIOUSNESS; no cross-dependency |
+| Spikes     | Multiple VALIDATION spikes in parallel | Independent hypotheses, each isolated             |
+| Wrap       | REVIEW (incl. EXPLAINER + SPEC_SYNC)   | Depends on EXECUTOR; no cross-dependency          |
 
 ### External Methodology Composition
 
-| Methodology | Compose By |
-|---|---|
-| **Shape Up** | Replace AMBITION (incl. PACING) with Shape Up pitching. DECOMPOSITION + LANDSCAPE + VALIDATION serve as shaping. |
-| **Design Sprint** | Run VALIDATION as a full Design Sprint week. EXTRACTION → DECOMPOSITION → AMBITION feeds the sprint brief. |
-| **Lean Startup** | VALIDATION as Build-Measure-Learn loop. SPECIFICATION records pivot-or-persevere. |
-| **Scrum** | EXECUTOR milestones as sprints. REVIEW as sprint review. REFLECT as retrospective. |
+| Methodology       | Compose By                                                                                                       |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------- |
+| **Shape Up**      | Replace AMBITION (incl. PACING) with Shape Up pitching. DECOMPOSITION + LANDSCAPE + VALIDATION serve as shaping. |
+| **Design Sprint** | Run VALIDATION as a full Design Sprint week. EXTRACTION → DECOMPOSITION → AMBITION feeds the sprint brief.       |
+| **Lean Startup**  | VALIDATION as Build-Measure-Learn loop. SPECIFICATION records pivot-or-persevere.                                |
+| **Scrum**         | EXECUTOR milestones as sprints. REVIEW as sprint review. REFLECT as retrospective.                               |
 
 ### What Does NOT Compose
 
@@ -233,47 +234,48 @@ validated foundation. Always run this chain before entering execution.
 ---
 
 ## Contents
+
 ### Steps
 
-| File | Purpose |
-|---|---|
-| `INBOX.md` | Step -1: Thought capture, clustering, triage. Select one cluster for EXTRACTION, park rest. |
-| `PRIORITIZE.md` | Step 0.5: Idea comparison & betting — 4-dimension scoring (incl. Matters), optional. Runs between INBOX and EXTRACTION. |
-| `EXTRACTION.md` | Gate 0 - Extract X (real problem) from Y (stated solution), 10 proven techniques |
-| `SERIOUSNESS.md` | Phase 1: Commitment Probe. Phase 2: Dimension Scoring. Phase 3: Kill Criteria. |
-| `FUNDAMENTALS.md` | One-way doors, minimum-prototype validation, LLM bias detect + MULTI multidisciplinary probes |
-| `DECOMPOSITION.md` | Intent decomposition - Cynefin classify, MECE tree, KNOW/RESEARCH/PROTOTYPE routing |
-| `AMBITION.md` | Gate 1 - Research-interleaved dialogue to clarify intent + phase budget (PACING folded) |
-| `LANDSCAPE.md` | Research protocol - map what exists |
-| `STRATEGY.md` | Strategic ratification gate — AI kernel proposal, human ratify, premortem (commander's intent) |
-| `VALIDATION.md` | Gate 2 - rapid prototyping with KILL/PIVOT/COMMIT |
-| `SPECIFICATION.md` | Locked plan-IS-spec template (16 sections §0-15) |
-| `EXECUTOR.md` (incl. POLISH) | AI execution handoff with autonomy levels + human final pass post-execution |
-| `REVIEW.md` (incl. EXPLAINER + SPEC_SYNC) | **Meta-review gate** — independent agent audits protocol compliance + spec-to-code fidelity; EXPLAINER generated here |
-| `REFLECT.md` | **Protocol retrospective** — how well did the protocol guide us? 7 questions, 35 min |
+| File                                      | Purpose                                                                                                                 |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `INBOX.md`                                | Step -1: Thought capture, clustering, triage. Select one cluster for EXTRACTION, park rest.                             |
+| `PRIORITIZE.md`                           | Step 0.5: Idea comparison & betting — 4-dimension scoring (incl. Matters), optional. Runs between INBOX and EXTRACTION. |
+| `EXTRACTION.md`                           | Gate 0 - Extract X (real problem) from Y (stated solution), 10 proven techniques                                        |
+| `SERIOUSNESS.md`                          | Phase 1: Commitment Probe. Phase 2: Dimension Scoring. Phase 3: Kill Criteria.                                          |
+| `FUNDAMENTALS.md`                         | One-way doors, minimum-prototype validation, LLM bias detect + MULTI multidisciplinary probes                           |
+| `DECOMPOSITION.md`                        | Intent decomposition - Cynefin classify, MECE tree, KNOW/RESEARCH/PROTOTYPE routing                                     |
+| `AMBITION.md`                             | Gate 1 - Research-interleaved dialogue to clarify intent + phase budget (PACING folded)                                 |
+| `LANDSCAPE.md`                            | Research protocol - map what exists                                                                                     |
+| `STRATEGY.md`                             | Strategic ratification gate — AI kernel proposal, human ratify, premortem (commander's intent)                          |
+| `VALIDATION.md`                           | Gate 2 - rapid prototyping with KILL/PIVOT/COMMIT                                                                       |
+| `SPECIFICATION.md`                        | Locked plan-IS-spec template (16 sections §0-15)                                                                        |
+| `EXECUTOR.md` (incl. POLISH)              | AI execution handoff with autonomy levels + human final pass post-execution                                             |
+| `REVIEW.md` (incl. EXPLAINER + SPEC_SYNC) | **Meta-review gate** — independent agent audits protocol compliance + spec-to-code fidelity; EXPLAINER generated here   |
+| `REFLECT.md`                              | **Protocol retrospective** — how well did the protocol guide us? 7 questions, 35 min                                    |
 
 ### Governance
 
-| File | Purpose |
-|---|---|
-| `RULES.md` | Project Bootstrap Protocol — routing decision tree, constitution, phase definitions, test philosophy, stop rules |
-| `STANDARDS.md` | Production standards for AI-generated projects — quality tiers (T1/T2/T3) and per-tier rules |
+| File           | Purpose                                                                                                          |
+| -------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `RULES.md`     | Project Bootstrap Protocol — routing decision tree, constitution, phase definitions, test philosophy, stop rules |
+| `STANDARDS.md` | Production standards for AI-generated projects — quality tiers (T1/T2/T3) and per-tier rules                     |
 
 ### Standing Artifacts
 
-| Path | Purpose |
-|---|---|
-| `docs/METHOD_LEDGER.md` | Method Invocation Completeness — the .omo/method-ledger.jsonl schema, 3 states, conformance check (Standing Artifact) |
-| `docs/SKIP_CATALOG.md` | Pre-authorized skip conditions per method (MEL pattern) + deviation template (Standing Artifact) |
-| `docs/QUALITY_BAR.md` | Per-project quality contract — two named profiles (A internal/no-PII, B customer-facing), chosen at AMBITION, ratified at STRATEGY, verified at REVIEW (Standing Artifact) |
-| `docs/engineering-plugin.md` | Engineering Plugin — CI, Operations, Production Quality addendum for technical deliverables |
-| `docs/` | PROTOCOL_MODEL, METHOD_LEDGER, UNIVERSAL_FUNDAMENTALS, FEATURES, EXPLAINER, SKIP_CATALOG, QUALITY_BAR, SPEC_SYNC, standards/, adr/, research/ |
-| `.omo/reviews/` | Review findings archive — one file per review run |
+| Path                         | Purpose                                                                                                                                                                    |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `docs/METHOD_LEDGER.md`      | Method Invocation Completeness — the .omo/method-ledger.jsonl schema, 3 states, conformance check (Standing Artifact)                                                      |
+| `docs/SKIP_CATALOG.md`       | Pre-authorized skip conditions per method (MEL pattern) + deviation template (Standing Artifact)                                                                           |
+| `docs/QUALITY_BAR.md`        | Per-project quality contract — two named profiles (A internal/no-PII, B customer-facing), chosen at AMBITION, ratified at STRATEGY, verified at REVIEW (Standing Artifact) |
+| `docs/engineering-plugin.md` | Engineering Plugin — CI, Operations, Production Quality addendum for technical deliverables                                                                                |
+| `docs/`                      | PROTOCOL_MODEL, METHOD_LEDGER, UNIVERSAL_FUNDAMENTALS, FEATURES, EXPLAINER, SKIP_CATALOG, QUALITY_BAR, SPEC_SYNC, standards/, adr/, research/                              |
+| `.omo/reviews/`              | Review findings archive — one file per review run                                                                                                                          |
 
 ### Tooling
 
-| Path | Purpose |
-|---|---|
+| Path   | Purpose                                                                                                               |
+| ------ | --------------------------------------------------------------------------------------------------------------------- |
 | `cli/` | project-kit — optional Rust CLI: bootstrap projects with RULES.md governance (`init` / `phase` / `check` / `publish`) |
 
 ## Origin
