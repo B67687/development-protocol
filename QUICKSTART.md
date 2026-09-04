@@ -7,7 +7,7 @@
 1. **INBOX** captures every idea — don't judge, just dump. (P1 WANT)
 2. **EXTRACTION** finds the real problem X hidden inside your stated solution Y. (P1 WANT)
 3. **SERIOUSNESS** Bar 1 — should we build X at all? (P2a: COMMIT / SCHEDULE / DROP). If DROP, stop — no variants.
-4. **LANDSCAPE + STRATEGY + AMBITION** Bar 2 — if COMMIT, which X? same / scaled / adjacent / more-than-X? Then set appetite. (P2b)
+4. **LANDSCAPE + STRATEGY + AMBITION** Bar 2 — if COMMIT, which X? same / scaled / adjacent / more-than-X? Then set appetite. (P2b) Fall-through: `docs/appendix/p2b-mapping-appendix.md` templates + `p4-late-appendix.md` stencil — fill if it sharpens WHICH-X?; else log skip.
 5. **FUNDAMENTALS** checks for one-way doors — things you can't undo. (P3 BEST_PLAN gate)
 6. **DECOMPOSITION** splits the chosen variant by Cynefin complexity. (P3)
 7. **VALIDATION** spikes the riskiest assumption (KILL / PIVOT / COMMIT). (P3)

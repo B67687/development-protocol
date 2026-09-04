@@ -14,10 +14,10 @@
 
 **Design influences:** Volere (Robertson & Robertson 2006) — requirements shell (27→14 sections); IEEE 830 / ISO 29148 — SRS structure; Shape Up (Singer 2019) — pitch format; Jackson Problem Frames (2001) — domain analysis.
 
-| Layer | Level | Scope | Changing this requires |
-| --- | --- | --- | --- |
-| **MACRO** | System | Decisions constraining the entire project | A learning shift (RULES.md section 5) |
-| **MESO** | Component | Contracts between components | Interface renegotiation |
+| Layer     | Level          | Scope                                        | Changing this requires                |
+| --------- | -------------- | -------------------------------------------- | ------------------------------------- |
+| **MACRO** | System         | Decisions constraining the entire project    | A learning shift (RULES.md section 5) |
+| **MESO**  | Component      | Contracts between components                 | Interface renegotiation               |
 | **MICRO** | Implementation | Bounds within which the executor has freedom | None — executor decides within bounds |
 
 **Format per section:** MACRO = system-level decision (heavy rationale); MESO = component contracts; MICRO = implementation bounds (blank = executor decides freely).
@@ -113,12 +113,13 @@ OUT OF SCOPE (V1):
 
 ## 1.5 Traceability Matrix (Bidirectional)
 
-| Spec Section | Idea Source | Phase Artifact | Decision Record |
-|-------------|-------------|----------------|-----------------|
-| §2 Architecture | INBOX Cluster B | DECOMPOSITION tree, Dimension A2 | FUNDAMENTALS one-way door #1 |
-| §6 UX | EXTRACTION X #2 | AMBITION Round 3 steering | STRATEGY kernel, action #3 |
-| §5 Dependencies | LANDSCAPE finding #4 | VALIDATION spike learnings | — |
-| §7 Timeline | AMBITION PACING | — | SERIOUSNESS appetite |
+| Spec Section        | Idea Source                 | Phase Artifact                                                                                     | Decision Record                |
+| ------------------- | --------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------ |
+| §2 Architecture     | INBOX Cluster B             | DECOMPOSITION tree, Dimension A2                                                                   | FUNDAMENTALS one-way door #1   |
+| §6 UX               | EXTRACTION X #2             | AMBITION Round 3 steering                                                                          | STRATEGY kernel, action #3     |
+| §5 Dependencies     | LANDSCAPE finding #4        | VALIDATION spike learnings                                                                         | —                              |
+| §7 Timeline         | AMBITION PACING             | —                                                                                                  | SERIOUSNESS appetite           |
+| §2-§7 via P2b trace | LANDSCAPE WHICH-X? trace id | `docs/appendix/p2b-mapping-appendix.md` + `p4-late-appendix.md` + `prototype/tests/test_signal.py` | KILL_LOG retro (G7/G8 version) |
 
 **Purpose:** trace WHY each spec section exists. Forward: INBOX/EXTRACTION idea → which § affected. Backward: § → source idea/decision.
 **Maintenance:** filled at SPECIFICATION creation (once) and checked at REVIEW for drift.
@@ -153,13 +154,13 @@ Alternatives considered:
 
 Every project MUST document its whole-project state machine at `docs/PROJECT_MODEL.md`. Not optional polish — the project's health contract.
 
-| Element | What it is | Example |
-| --- | --- | --- |
-| **States** | The project's lifecycle states | `IDEA → SPEC'D → PROTOTYPED → IMPLEMENTED → POLISHED → SHIPPED → MAINTAINED → EVOLVED` |
-| **Valid transitions** | Allowed state changes, including feature additions and rollbacks | `SHIPPED → EVOLVED` (new feature), `SHIPPED → MAINTAINED` (bugfix) |
-| **Invalid transitions** | Forbidden state changes (the invariants) | `IMPLEMENTED → SHIPPED` without passing POLISHED |
-| **Invariants** | What must never change during any transition | "Database schema migrations are always backward-compatible", "API v1 responses never remove fields" |
-| **Blast radius map** | Which components are coupled and co-change together | "changing file A requires checking file B" (from git co-change analysis) |
+| Element                 | What it is                                                       | Example                                                                                             |
+| ----------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| **States**              | The project's lifecycle states                                   | `IDEA → SPEC'D → PROTOTYPED → IMPLEMENTED → POLISHED → SHIPPED → MAINTAINED → EVOLVED`              |
+| **Valid transitions**   | Allowed state changes, including feature additions and rollbacks | `SHIPPED → EVOLVED` (new feature), `SHIPPED → MAINTAINED` (bugfix)                                  |
+| **Invalid transitions** | Forbidden state changes (the invariants)                         | `IMPLEMENTED → SHIPPED` without passing POLISHED                                                    |
+| **Invariants**          | What must never change during any transition                     | "Database schema migrations are always backward-compatible", "API v1 responses never remove fields" |
+| **Blast radius map**    | Which components are coupled and co-change together              | "changing file A requires checking file B" (from git co-change analysis)                            |
 
 **Why it prevents regressions:** Every feature addition is a state transition; a documented transition table catches invariant violations at spec time, not as production regressions (research: state-machine transition-table tests caught 26 real field faults — Torkar; co-change analysis predicts defects at p=0.01 — D'Ambros; see EXECUTOR.md § Project Health Discipline).
 
@@ -239,11 +240,12 @@ Every project MUST document its whole-project state machine at `docs/PROJECT_MOD
 
 ## 4. Quality Gates & Verification
 
-> *Engineering-specific CI/Tooling details moved to [Engineering Plugin](docs/engineering-plugin.md#1-ci-tooling--quality-gates).*
+> _Engineering-specific CI/Tooling details moved to [Engineering Plugin](docs/engineering-plugin.md#1-ci-tooling--quality-gates)._
 
 ### MACRO — Quality Gates
 
 Define the acceptance criteria that gate each deliverable. Use EARS notation:
+
 > WHEN {{condition}} THEN {{action}} WHERE {{error}} THEN {{error-handling}}
 
 > **Example:**
@@ -252,7 +254,7 @@ Define the acceptance criteria that gate each deliverable. Use EARS notation:
 > WHERE verification fails
 > THEN the change SHALL be rejected with results.
 
-> *For engineering projects, replace this with concrete CI commands from the Engineering Plugin §1.*
+> _For engineering projects, replace this with concrete CI commands from the Engineering Plugin §1._
 
 **MESO/MICRO:** Which components have specific verification requirements (e.g., fuzz testing for the parser module)? Tool rules, format config, hooks, concrete CLI invocations. Engineering projects: see Engineering Plugin §1.
 
@@ -272,17 +274,17 @@ Define the acceptance criteria that gate each deliverable. Use EARS notation:
 
 > **Bus-Hop Example:**
 >
-> | Package | Version | Purpose | Contract | License |
-> | --- | --- | --- | --- | --- |
-> | Kotlin | 2.4.0 | Language | JVM bytecode | Apache-2.0 |
-> | Compose BOM | 2026.05.01 | UI framework | Compose API surface | Apache-2.0 |
-> | Material 3 | (via BOM) | Design system | Material Design components | Apache-2.0 |
-> | Retrofit | 3.x | HTTP client | REST API to Kotlin interfaces | Apache-2.0 |
-> | OkHttp | 5.x | HTTP transport | Request/response lifecycle | Apache-2.0 |
-> | Gson | (Retrofit converter) | JSON parsing | JSON to DTO mapping | Apache-2.0 |
-> | DataStore | (Jetpack) | Key-value persistence | Async Flow-based reads | Apache-2.0 |
-> | MockK | 1.x | Test mocking | Kotlin mock library | Apache-2.0 |
-> | JUnit 4 | 4.x | Test framework | Unit test execution | EPL-2.0 |
+> | Package     | Version              | Purpose               | Contract                      | License    |
+> | ----------- | -------------------- | --------------------- | ----------------------------- | ---------- |
+> | Kotlin      | 2.4.0                | Language              | JVM bytecode                  | Apache-2.0 |
+> | Compose BOM | 2026.05.01           | UI framework          | Compose API surface           | Apache-2.0 |
+> | Material 3  | (via BOM)            | Design system         | Material Design components    | Apache-2.0 |
+> | Retrofit    | 3.x                  | HTTP client           | REST API to Kotlin interfaces | Apache-2.0 |
+> | OkHttp      | 5.x                  | HTTP transport        | Request/response lifecycle    | Apache-2.0 |
+> | Gson        | (Retrofit converter) | JSON parsing          | JSON to DTO mapping           | Apache-2.0 |
+> | DataStore   | (Jetpack)            | Key-value persistence | Async Flow-based reads        | Apache-2.0 |
+> | MockK       | 1.x                  | Test mocking          | Kotlin mock library           | Apache-2.0 |
+> | JUnit 4     | 4.x                  | Test framework        | Unit test execution           | EPL-2.0    |
 >
 > **MESO:** Arrivelah API (arrivelah2.busrouter.sg) is the sole external runtime dependency. LTA DataMall accessed through Arrivelah proxy. No API key required. No other external services.
 >
@@ -353,15 +355,15 @@ Contingency: {{what happens if appetite exceeded}}
 >
 > **Appetite:** ~20 days (Phases 0-7)
 >
-> | Milestone | What ships | Checkpoint |
-> | --- | --- | --- |
-> | M1 | Research complete | docs/ with API spec, data model, theme decision |
-> | M2 | Domain layer | 49 domain tests pass |
-> | M3 | Data layer | 57 data tests pass |
-> | M4 | App shell | Running app with stop list, search, settings |
-> | M5 | Polished UI | Visual QA passes, APK under 2MB |
-> | M6 | CI pipeline | All CI jobs green |
-> | M7 | Production release | v1.0.x signed APK published |
+> | Milestone | What ships         | Checkpoint                                      |
+> | --------- | ------------------ | ----------------------------------------------- |
+> | M1        | Research complete  | docs/ with API spec, data model, theme decision |
+> | M2        | Domain layer       | 49 domain tests pass                            |
+> | M3        | Data layer         | 57 data tests pass                              |
+> | M4        | App shell          | Running app with stop list, search, settings    |
+> | M5        | Polished UI        | Visual QA passes, APK under 2MB                 |
+> | M6        | CI pipeline        | All CI jobs green                               |
+> | M7        | Production release | v1.0.x signed APK published                     |
 >
 > **Circuit breaker:** IF API latency exceeds 5 seconds for 3 consecutive calls THEN re-evaluate API choice.
 > **Contingency:** Ship M4 as v0.1.0 and defer polish if appetite exceeded.
@@ -408,7 +410,7 @@ Framework: {{test framework}}
 
 ## 9. Operational Resilience (Tier 2)
 
-> *Engineering-specific operations details moved to [Engineering Plugin](docs/engineering-plugin.md#2-operational--error-handling).*
+> _Engineering-specific operations details moved to [Engineering Plugin](docs/engineering-plugin.md#2-operational--error-handling)._
 
 ### MACRO — Resilience Strategy
 
@@ -449,14 +451,14 @@ Changelog: {{auto-generated / manual}}
 
 _Every product surfaces to its audience through a set of distribution surfaces. Enumerate ALL of them and when each is built — do not retrofit the adoption engine after the core is done (ithmb lesson: website added on top of the codec instead of planned)._
 
-| Surface | Built when? | Purpose / audience |
-| --- | --- | --- |
-| Website / landing | {{when — often the ADOPTION ENGINE for open-core, not polish}} | {{converts visitors, ranks search terms}} |
-| Web-app / demo | {{when}} | {{interactive proof, e.g. WASM demo}} |
-| Docs site | {{when}} | {{API reference, tutorials}} |
-| CLI | {{when}} | {{power users, scripting}} |
-| WASM demo | {{when}} | {{browser reach, zero-install evaluation}} |
-| C ABI / bindings | {{when — typically deferred until enterprise demand}} | {{language interoperability}} |
+| Surface           | Built when?                                                    | Purpose / audience                         |
+| ----------------- | -------------------------------------------------------------- | ------------------------------------------ |
+| Website / landing | {{when — often the ADOPTION ENGINE for open-core, not polish}} | {{converts visitors, ranks search terms}}  |
+| Web-app / demo    | {{when}}                                                       | {{interactive proof, e.g. WASM demo}}      |
+| Docs site         | {{when}}                                                       | {{API reference, tutorials}}               |
+| CLI               | {{when}}                                                       | {{power users, scripting}}                 |
+| WASM demo         | {{when}}                                                       | {{browser reach, zero-install evaluation}} |
+| C ABI / bindings  | {{when — typically deferred until enterprise demand}}          | {{language interoperability}}              |
 
 Distribution surfaces differ by money tier: **library** = docs + examples + web demo; **platform** = hosted service + dashboard + status page. List each surface's build milestone in Section 7 (Timeline).
 
@@ -466,18 +468,18 @@ Distribution surfaces differ by money tier: **library** = docs + examples + web 
 
 Intent: How does this project make goalpost shifts cheap instead of expensive? Before architecture decisions, note which design-for-change rules apply:
 
-| Rule | Applied? | How |
-| --- | --- | --- |
-| Interface Rule (no interface before 2nd consumer) | Yes/No | [specific modules where this applies] |
-| Test Rule (contract over implementation) | Yes/No | [test strategy] |
-| Module Boundary (single entry point) | Yes/No | [module structure] |
-| Size Rule (250/40 LOC limits) | Yes/No | [enforcement mechanism] |
-| Cycle Rule (shippable per cycle) | Yes/No | [cycle length, what "shippable" means] |
-| Appetite Rule (time before scope) | Yes/No | [time budget for this project] |
-| AI Rule (same structural checks) | Yes/No | [how AI code is reviewed] |
-| Rule of Three (extract on 3rd) | Yes/No | [abstraction strategy] |
-| Dependency Rule (core ≠ infra) | Yes/No | [module dependency direction] |
-| Clean Backlog (no perpetual) | Yes/No | [how old ideas compete] |
+| Rule                                              | Applied? | How                                    |
+| ------------------------------------------------- | -------- | -------------------------------------- |
+| Interface Rule (no interface before 2nd consumer) | Yes/No   | [specific modules where this applies]  |
+| Test Rule (contract over implementation)          | Yes/No   | [test strategy]                        |
+| Module Boundary (single entry point)              | Yes/No   | [module structure]                     |
+| Size Rule (250/40 LOC limits)                     | Yes/No   | [enforcement mechanism]                |
+| Cycle Rule (shippable per cycle)                  | Yes/No   | [cycle length, what "shippable" means] |
+| Appetite Rule (time before scope)                 | Yes/No   | [time budget for this project]         |
+| AI Rule (same structural checks)                  | Yes/No   | [how AI code is reviewed]              |
+| Rule of Three (extract on 3rd)                    | Yes/No   | [abstraction strategy]                 |
+| Dependency Rule (core ≠ infra)                    | Yes/No   | [module dependency direction]          |
+| Clean Backlog (no perpetual)                      | Yes/No   | [how old ideas compete]                |
 
 ---
 
@@ -584,6 +586,7 @@ Rationale: {{why this level was chosen}}
 - [ ] **Test anchoring** — every test references a feature ID (F-###); a test proving no feature contract is flagged, not silently carried
 
 For engineering deliverables, also verify from the [Engineering Plugin](docs/engineering-plugin.md):
+
 - [ ] Quality gates (plugin §1) have concrete commands
 - [ ] Fuzz targets exist in `fuzz/` directory (Tier 2+)
 - [ ] Benchmark suite exists in `benches/` (performance-sensitive)

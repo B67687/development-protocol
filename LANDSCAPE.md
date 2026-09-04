@@ -24,7 +24,7 @@ AMBITION.md produced a hypothesis that needs testing against reality. Before val
 > **Risk of skipping:** competitor solved it better, or a known failure mode repeats; you ship what already exists.
 > **Light mode:** skipped — acceptable only when you're the domain expert on this exact shape.
 
-> **P2b entry gate — Bar 1 must have cleared:** Do not enter LANDSCAPE unless `SERIOUSNESS` = COMMIT (P2a). LANDSCAPE must emit a `WHICH-X?` decision — same / scaled / adjacent / more-than-X — logged before STRATEGY. If SKIP applies, log which variant was implicitly chosen and why P2b was not needed.
+> **P2b entry gate — Bar 1 must have cleared:** Do not enter LANDSCAPE unless `SERIOUSNESS` = COMMIT (P2a). LANDSCAPE must emit a `WHICH-X?` decision — same / scaled / adjacent / more-than-X — logged before STRATEGY. If SKIP applies, log which variant was implicitly chosen and why P2b was not needed. If `docs/appendix/p2b-mapping-appendix.md` applies (capability has tables), STRATEGY must cite WHICH-X trace id; G7 keep/drop is logged there.
 
 ## Governing Modes — Intuition-First Route
 
@@ -144,7 +144,19 @@ Surface what you already know before searching for novelty: 64-81% of expert des
 4. **Expert search** — Who's writing or talking about this? (blog posts, talks, interviews)
 5. **Negative results search** — Actively search for "why X failed" or "X doesn't work" — not just "X best practices."
 
-**Depth guidance:** Initial scan 30 min/question (surface answer); deep dive 2 hours/question (if surface reveals important unknowns); stop when questions answered OR timebox expires OR sources converge (3+ independent sources agreeing).
+**Search backend (agnostic — no hard dependency):** any web search satisfies this protocol: public SearXNG, Tavily/Exa/Serper, even raw web + fetch. Requirements are the 5 strategies above + per-claim URLs + Verification Tiers below. Nothing in this file requires a specific engine.
+
+**Enhanced path (optional, progressive enhancement):** if the operator has a local stack (e.g. self-hosted SearXNG + extraction sidecar + `authoritative-search` / `meta-research` skills with connectors, trust scoring, effort modes), use it — it upgrades breadth (14 connectors, 4 langs), depth (full-page extract + archive fallback), and rigor (consensus → CONFIRMED/LIKELY/CONFLICTED/UNVERIFIED maps to L1/L2 below). Absence degrades gracefully to default search; never block on it, never hardcode its URLs.
+
+**Routing (intention clarity decides how-exhaustive):**
+
+| Situation                                              | Route                                                                                                                      | Why                                                          |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| No real intention / unknown domain (valley-of-despair) | Exhaustive fan-out (`meta-research` if available, else 3–5 manual sub-Qs: mechanism/landscape/implications)                | User can't frame Qs yet — cover what they didn't know to ask |
+| Framed Qs from Step 1 (AMBITION gave hypothesis)       | One targeted search per Q (`authoritative-search` if available, else any search + fetch full page for load-bearing claims) | Fan-out per Q is 5× waste once framed                        |
+| Single consequential claim                             | Verification Tier L1–L3 below (1 call → 2+ sources → deep + refutation)                                                    | Cheapest correct rigor                                       |
+
+**Depth guidance:** Initial scan 30 min/question (surface answer); deep dive 2 hours/question (if surface reveals important unknowns); stop when questions answered OR timebox expires OR sources converge (3+ independent sources agreeing). Enhanced-stack mapping: quick scan ≈ `effort=little` (3), default ≈ `medium` (5), wide sweep ≈ `full` (parallel fan-out).
 
 ### Step 3: Evaluate Sources
 
@@ -192,7 +204,7 @@ evidence is the single highest-impact intervention.
 6. **Corroborate or abstain**: a decision-critical claim with a single source is marked provisional. If it can't be corroborated and is decisive, say so explicitly rather than guess.
 7. **Verification budget**: escalate only while expected-loss reduction exceeds check cost (value of information theory).
 
-**This principle is STANDING** — it applies to every protocol step, not just LANDSCAPE. Any step may dispatch verification when a consequential claim is made.
+**This principle is STANDING** — it applies to every protocol step, not just LANDSCAPE. Any step may dispatch verification when a consequential claim is made. Backend-agnostic: L1 needs 1 authoritative source (official docs/spec/standard), L2 needs 2+ independent sources + resolved citations, L3 adds adversarial refutation + human gate. Enhanced-stack label mapping (optional): L2-corroborated ≈ CONFIRMED, single-authoritative ≈ LIKELY, disagreed ≈ escalate, community-only ≈ UNVERIFIED/provisional.
 
 ### Step 4: Capture Evidence
 
