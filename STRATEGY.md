@@ -154,7 +154,7 @@ STRATEGY           [✓] COMPLETE
 INBOX → PRIORITIZE → EXTRACTION → SERIOUSNESS → FUNDAMENTALS (incl. MULTI) → DECOMPOSITION → AMBITION (incl. PACING) → LANDSCAPE → [STRATEGY] → VALIDATION → SPECIFICATION → EXECUTOR → REVIEW (incl. EXPLAINER + SPEC_SYNC) → REFLECT → ship
 ```
 
-STRATEGY consumes: AMBITION's locked ambition + LANDSCAPE's research map + P2b WHICH-X? decision (same / scaled / adjacent / more-than-X) — the chosen variant's scope is the strategy's subject. Without a logged WHICH-X (or explicit P2b skip rationale), STRATEGY is blocked.
+STRATEGY consumes: AMBITION's locked ambition + LANDSCAPE's research map + P2b WHICH-X? decision (same / scaled / adjacent / more-than-X) — the chosen variant's scope is the strategy's subject. Without a logged WHICH-X (or explicit P2b skip rationale), STRATEGY is blocked. Ready means the capability has a signal type per `docs/appendix/p2b-mapping-appendix.md` §3 → `docs/appendix/p4-late-appendix.md` stencil; if Light, log why late P4 skipped.
 STRATEGY produces: the ratified strategic intent that VALIDATION tests.
 STRATEGY produces: the ratified strategic intent that VALIDATION tests.
 

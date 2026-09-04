@@ -4,7 +4,7 @@
 
 ## Overview
 
-Document-driven development protocol with three decision gates that prevent solution-jumping and catch wrong foundations before you build on them. Docs-only — the protocol is the product, not code. Recursively self-applies its own SE lifecycle.
+Protocol-of-protocols (PoP) — recursive strategist across the full means-ends chain, specialized to accomplishment. Four altitudes (docs/PHILOSOPHY.md): P1 WANT incl. tacit (3-layer extraction) → P2 SHOULD_WANT two-bar [P2a SHOULD-BUILD-X? DROP/COMMIT via SERIOUSNESS → P2b WHICH-X? same/scaled/adjacent/more via LANDSCAPE] → P3 BEST_PLAN (decomposition/strategy/landscape/failure/fundamentals) → P4 EXECUTE (spec/executor/validation/review/reflect/prioritize). Two gates enforce order; appendixes translate PoP decisions to SE artifacts.
 
 Part of a trio: this (process), Standards (what good means), Lessons (cross-project knowledge).
 
@@ -30,8 +30,16 @@ Development-Protocol/
 ├── REVIEW.md                          # Step 9: review & reflection
 ├── REFLECT.md                         # Step 10: post-execution reflection
 ├── PRIORITIZE.md                      # Step 11: priority ordering
-├── SERIOUSNESS.md                     # Step 12: risk & seriousness assessment
+├── SERIOUSNESS.md                     # Step 12: P2a SHOULD-BUILD-X? Bar 1 gate (DROP/COMMIT)
+├── QUICKSTART.md                      # 5-min P1/P2a/P2b + 30-min Light map
+├── BIAS_CATALOG.md                    # 8 biases, dangerous phases, detection prompts
+├── KILL_LOG.md                        # DROP/KILL log + 30d counterfactual
 ├── docs/
+│   ├── appendix/
+│   │   ├── p2b-mapping-appendix.md      # P2b early SWE: use-case/domain/quality/stakeholder/risk/keep-drop/version → SE tables + stencil
+│   │   └── p4-late-appendix.md          # P4 late SWE: test/V&V/build/deploy/env + CI stencil
+│   ├── traces/
+│   │   └── colour-blind-85-100.md     # Lived trace P1 tacit X → P2a COMMIT → P2b more-than-X
 │   ├── AGENTS.md                      # (this file's canonical location if moved)
 │   ├── FEATURES.md                    # F-### feature registry with lifecycle states
 │   ├── SE_ARTIFACT_REGISTRY.md        # Cross-repo SE artifact tracking
@@ -64,20 +72,22 @@ Development-Protocol/
 
 ## SE Lifecycle Artifacts
 
-| Artifact | File | Purpose | Status |
-|----------|------|---------|--------|
-| FEATURES | `docs/FEATURES.md` | F-### feature registry with lifecycle states | Active, 8 entries |
-| SPECIFICATION | `SPECIFICATION.md` | Three-layer model (MACRO/MESO/MICRO) | Active, 586L (see TECH_DEBT) |
-| ARCHITECTURE | `docs/adr/` | Architecture Decision Records (3 ADRs) | Active |
-| TECH_DEBT | `docs/TECH_DEBT_AUDIT.md` | Active debt triage, severity × effort | Active |
-| REGISTRY | `docs/SE_ARTIFACT_REGISTRY.md` | Cross-repo SE artifact tracking | Active, self-tracked |
-| CHECK-GATES | `scripts/check-local.sh` | Local verification: markdown + ADR + registry + .omo | Active |
-| ENGINEERING-PLUGIN | `docs/engineering-plugin.md` | §1.1 lifecycle, §3 traceability, §4 checks | Active |
-| HANDOVER | `Development-Protocol-Local/HANDOVER.md` | Session continuity across agents | Active, verified |
+| Artifact           | File                                     | Purpose                                              | Status                       |
+| ------------------ | ---------------------------------------- | ---------------------------------------------------- | ---------------------------- |
+| FEATURES           | `docs/FEATURES.md`                       | F-### feature registry with lifecycle states         | Active, 8 entries            |
+| SPECIFICATION      | `SPECIFICATION.md`                       | Three-layer model (MACRO/MESO/MICRO)                 | Active, 586L (see TECH_DEBT) |
+| ARCHITECTURE       | `docs/adr/`                              | Architecture Decision Records (3 ADRs)               | Active                       |
+| TECH_DEBT          | `docs/TECH_DEBT_AUDIT.md`                | Active debt triage, severity × effort                | Active                       |
+| REGISTRY           | `docs/SE_ARTIFACT_REGISTRY.md`           | Cross-repo SE artifact tracking                      | Active, self-tracked         |
+| CHECK-GATES        | `scripts/check-local.sh`                 | Local verification: markdown + ADR + registry + .omo | Active                       |
+| ENGINEERING-PLUGIN | `docs/engineering-plugin.md`             | §1.1 lifecycle, §3 traceability, §4 checks           | Active                       |
+| HANDOVER           | `Development-Protocol-Local/HANDOVER.md` | Session continuity across agents                     | Active, verified             |
 
 ## Pipeline Flow
 
-The 14-step pipeline: INBOX → EXTRACTION → AMBITION → DECOMPOSITION → STRATEGY → LANDSCAPE → FAILURE_CAPTURE → FUNDAMENTALS → EXECUTOR → VALIDATION → REVIEW → REFLECT → PRIORITIZE → SERIOUSNESS
+P1 WANT (INBOX → EXTRACTION → AMBITION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE Bar 2: same/scaled/adjacent/more + appendix mapping) → P3 BEST_PLAN (DECOMPOSITION → STRATEGY → FAILURE_CAPTURE → FUNDAMENTALS) → P4 EXECUTE (SPECIFICATION RTM §1.5 + EXECUTOR → VALIDATION → REVIEW 4 loops + Gate 2.6 → REFLECT Q8 → PRIORITIZE → KILL_LOG retro).
+
+Altitudes vary; recursive strategist. `docs/appendix/p2b-mapping-appendix.md` (early SWE) and `p4-late-appendix.md` (late SWE) are opt-in, depth-gated — Light logs skip, Standard+ fills.
 
 Each step produces a `.md` artifact. RULES.md governs routing and phase transitions. STANDARDS.md enforces quality tiers (T1 mandatory, T2 recommended, T3 optional).
 
