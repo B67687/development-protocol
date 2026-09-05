@@ -97,4 +97,26 @@ Closed three gaps + two latent bugs, all proven against live :8081:
 - docker-compose.yml pre-existing modification left untouched (out of scope).
 
 Swap-in claim is now literally true: point any Tavily client at :8081 with a base-URL swap
-for /search + /extract. Remaining P2b order: G2 crawl/map, G5 rerank.
+for /search + /extract.
+
+## G2 outcome — SHIPPED, live-proven (2026-09-05, Self-Hosted-Search 1e7774a)
+
+- `POST /tavily/map`: sitemap.xml (+ robots.txt Sitemap:) then seed outlinks — live on docs.searxng.org.
+- `POST /tavily/crawl {max_depth≤3, max_pages≤50}`: BFS same-host, Trafilatura markdown/page — 5 pages in 1.08s live (sync bounded; async difference documented).
+- stdlib-only link extraction (`html.parser`), same-host guard, no new deps.
+- Bugfix with teeth: installed Trafilatura rejects `output_format='text'` (wants `'txt'`) — was a latent 500 in /extract fallback, /search raw_content, and /tavily/extract, all fixed in the same file.
+- Docstring v1.2.0, CHANGELOG entry, gitleaks clean, compose untouched.
+
+Remaining P2b: G5 rerank only.
+
+## G5 outcome — SHIPPED, live-proven (2026-09-05, Self-Hosted-Search 2585d6b)
+
+The serving path scored trust × searxng-rank and ignored the query (flat 0.5/0.495/0.49 decay; instance stats URLs outranking docs). Harness.py already had a principled `rerank_results()` (authority/recency/consensus) but /search never called it — and it had no query-relevance signal either (dead `query_tokens_set` param).
+
+- `_rerank_search()` in server.py v1.3.0 (stdlib-only, container-safe, deterministic): dedup by normalized URL, then `0.35 relevance (query-term recall over title+snippet) + 0.35 authority (connectors trust import, else gov/edu/wiki/arxiv/github suffix fallback) + 0.15 recency (year-decay) + 0.15 consensus (title-Jaccard>0.3)`. Fetch pool widened (`max_results*2`, min 20) for rerank headroom.
+- Live before/after on `searxng privacy search engine settings`: term-covering about-pages now top at 0.62; old searxng-rank #1 demoted to #6 at 0.53; stats/preferences URLs below content pages.
+- Two latent bugs killed: native `/extract` non-markdown 500 (5th `'text'` site G2 missed) and `get_trust_score` NameError on connectors path → guarded import.
+- Self-inflicted crash-loop: dropped a closing `"""` mid-file, container crash-looped (host py_compile had run BEFORE the edit — verify AFTER every edit). Fixed + rebuilt.
+- Lesson banked in CHANGELOG: container COPYs server.py, never mounts — every change needs `up -d --build extractor`. Compose live config (extractor service + healthchecks) committed with the code.
+
+P2b order complete: G6 → G1(kill) → G4 → G3 → G2 → G5 all closed. Full Tavily surface (search/extract/crawl/map) + query-aware rerank, live on :8081.

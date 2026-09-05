@@ -9,6 +9,7 @@ Part of a trio of meta-projects:
 - Lessons — cross-project knowledge base, loaded every session
 
 Live trace: [`docs/traces/colour-blind-85-100.md`](docs/traces/colour-blind-85-100.md) — P1 tacit → P2a COMMIT → P2b more-than-X (COLOUR-BLIND funnel as illustration). K-003 logged. Built by following itself (recursive self-test).
+Live trace 2: [`docs/traces/local-search-review.md`](docs/traces/local-search-review.md) — Light funnel on the local search engine (P1 → P2a COMMIT → P2b same-X, ordered G6→G1→G4→G3→G2→G5); full Tavily surface + query-aware rerank shipped to Self-Hosted-Search.
 
 ## Table of Contents
 
@@ -161,6 +162,7 @@ Run the protocol as PoP — five moves map to altitudes:
 | **No-Expounding**                  | Prose survives only if it changes a decision, action, or criterion. Point-form and tables are the default. Provenance governs: cut scaffold and verbosity, never substance.                                                                                                                                                                                               | —                                                         |
 | **Friction Budget**                | User-facing ceremony is a budgeted resource: one ratification per run, default-autonomy, escalation only on one-way doors. Rigor is agent-internal — the AI runs the heavyweight checks; the user sees plan + result. Skip ceremony, never rigor: skipped steps are ledger-logged with a SKIP_CATALOG code and the verification floor holds.                              | RULES.md §6                                               |
 | **Raw-Thinking Mode**              | Generate before verify: a structured generation pass (intuitions, perspectives, connections, alternative framings) always precedes the narrowing steps — INBOX Phase 5 before EXTRACTION. Raw GENERATES, protocol VERIFIES; the gates stay, they operate on a thick frame instead of a thin one-line statement. Makes Intuition-First structural (Thread 7 / Cluster AM). | INBOX.md § Phase 5                                        |
+| **Flagship Adoption Probe**        | On each new flagship-model adoption, run the protocol once plan-free on a live task before changing any methodology: if the run exposes no new failure class, the methodology holds. New-model gains to date land execution-side (P4), not on the human-side gates (P1/P2) — adopt the model, keep the gates.                                                             | —                                                         |
 
 <details>
 <summary>Full rationale (the principles in depth)</summary>
@@ -188,6 +190,8 @@ Run the protocol as PoP — five moves map to altitudes:
 > Actionability is Effortlessness' counterpart — Effortlessness removes friction (cost side), Actionability removes deferral (time side); the default path is the minimum-effort path that ships.
 
 **No-Expounding (Density Norm):** Prose survives only if it changes a decision, action, or criterion. Point-form, tables, and examples are the default; expository paragraphs, meta-commentary, and repeated instructions are removed. Applies to the protocol's own documents and the project artifacts it produces. Provenance governs: cut scaffold and verbosity, never substance — any removed decision, criterion, or example is archived in git history, never silently lost. Expound only where a paragraph alters behavior; otherwise compress.
+
+**Flagship Adoption Probe:** Methodology changes are gated on observed failure, not model release notes. The 2026 evidence pattern: explicit-planning gates hold FOR on all three altitudes (want-extraction 14 findings, should-build 10, alternatives 6), while flagship gains concentrate in execution-side discipline (scope, clarification, long-context) — i.e. models got better at P4, not at replacing P1/P2. So each new flagship earns a plan-free probe run; only a novel failure class it exposes justifies a methodology edit. This is Consolidation's admission test.
 
 </details>
 
