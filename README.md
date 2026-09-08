@@ -1,6 +1,24 @@
-# Development Protocol
-
-> Stop your AI agent from coding the wrong thing. A step-by-step method that turns a vague idea into a scoped plan — what to build, whether to build it, and how — before any code gets written.
+<div align="center">
+  <img src="docs/icon.svg" alt="Development Protocol" width="96" height="96">
+  <h1>Development Protocol</h1>
+  <p><strong>Stop your AI agent from coding the wrong thing</strong></p>
+  <p>A step-by-step method that turns a vague idea into a scoped plan — what to build, whether to build it, and how — before any code gets written.</p>
+  <p>
+    <img src="https://img.shields.io/badge/license-MIT-d8b800" alt="MIT License">
+    <img src="https://img.shields.io/badge/docs--only-no%20build-0d1117" alt="Docs only">
+    <img src="https://img.shields.io/badge/steps-13-4285F4" alt="13 steps">
+    <img src="https://github.com/B67687/Development-Protocol/actions/workflows/protocol-lint.yml/badge.svg" alt="Protocol lint">
+    <img src="https://img.shields.io/badge/status-active-34a853" alt="Active">
+  </p>
+  <a href="docs/showcase.svg"><img src="docs/showcase.svg" alt="Without gates: straight to code, then rework. With gates: 4 checks, scoped plan, code." width="100%"></a>
+  <hr style="max-width: 360px;">
+  <sub>Built with AI assistance — see <a href="docs/CREDITS.md">CREDITS.md</a></sub>
+  <br>
+  <a href="docs/CREDITS.md"><img src="docs/badges/deepseek.svg" alt="DeepSeek"></a>
+  <a href="docs/CREDITS.md"><img src="docs/badges/opencode.svg" alt="OpenCode"></a>
+  <a href="docs/CREDITS.md"><img src="docs/badges/omo.svg" alt="Oh My OpenAgent"></a>
+  <br>
+</div>
 
 For builders and coding agents who run AI loops and want fewer reworks. Not for one-off prompts or code generation without review.
 
@@ -27,7 +45,8 @@ A person approves the strategy once, then the agent builds with checks along the
 
 Each step file states its entry condition, so you can also run steps standalone without starting from the top.
 
-Tip: start with `INBOX.md` even if you think you know the problem. The one-sentence extraction in step 2 often changes what you build in step 4.
+> [!TIP]
+> Start with `INBOX.md` even if you think you know the problem. The one-sentence extraction in step 2 often changes what you build in step 4.
 
 ## It works: two lived traces
 
@@ -42,7 +61,12 @@ WANT (what do you really want, including what you have not said yet) -> SHOULD-B
 
 The two gates in the middle are deliberate. The first asks if you should build at all. The second asks which version is worth building, after you have looked at the landscape. You do not research alternatives until you have committed to the problem.
 
-The full step order is INBOX, EXTRACTION, SERIOUSNESS, FUNDAMENTALS, DECOMPOSITION, AMBITION, LANDSCAPE, STRATEGY, VALIDATION, SPECIFICATION, EXECUTOR, REVIEW, REFLECT.
+<details>
+<summary>Full step order (13 steps)</summary>
+
+INBOX → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → DECOMPOSITION → AMBITION → LANDSCAPE → STRATEGY → VALIDATION → SPECIFICATION → EXECUTOR → REVIEW → REFLECT
+
+</details>
 
 ![PoP Pipeline — P1 WANT → P2 SHOULD → P3 PLAN → P4 EXECUTE](docs/diagrams/pop-pipeline.svg)
 
@@ -50,25 +74,27 @@ _Interactive version: [pop-pipeline.html](docs/diagrams/pop-pipeline.html) — a
 
 If the diagram feels detailed, follow the bold line above and open the interactive view only when you need a specific step.
 
-## Contents by phase
+<details>
+<summary><strong>Contents by phase</strong> — which file to open for your current stage</summary>
 
-- **Want (P1):** `INBOX.md`, `PRIORITIZE.md`, `EXTRACTION.md`: capture and clarify what you actually want.
-- **Should-build (P2a):** `SERIOUSNESS.md`, `FUNDAMENTALS.md`: decide if it is worth building now, later, or not at all.
-- **Which-version plus plan (P2b, P3):** `DECOMPOSITION.md`, `AMBITION.md`, `LANDSCAPE.md`, `STRATEGY.md`: choose which version to build and get it approved.
-- **Execute (P4):** `VALIDATION.md`, `SPECIFICATION.md`, `EXECUTOR.md`, `REVIEW.md`, `REFLECT.md`: prototype, specify, build, review, and learn.
-- **Rules and quality:** `RULES.md`, `STANDARDS.md`, `docs/QUALITY_BAR.md`, `docs/SKIP_CATALOG.md`, `docs/METHOD_LEDGER.md`: governance and checks.
+- **Want:** `INBOX.md`, `PRIORITIZE.md`, `EXTRACTION.md` — capture and clarify.
+- **Should-build:** `SERIOUSNESS.md`, `FUNDAMENTALS.md` — now, later, or never.
+- **Which-version + plan:** `DECOMPOSITION.md`, `AMBITION.md`, `LANDSCAPE.md`, `STRATEGY.md`.
+- **Execute:** `VALIDATION.md`, `SPECIFICATION.md`, `EXECUTOR.md`, `REVIEW.md`, `REFLECT.md`.
+- **Rules:** `RULES.md`, `STANDARDS.md`, `docs/QUALITY_BAR.md`, `docs/SKIP_CATALOG.md`, `docs/METHOD_LEDGER.md`.
 
-For file purposes and step entry or exit criteria, see the linked step docs and `RULES.md`.
+Step docs are the single source of truth for entry/exit criteria; see also `RULES.md`.
 
-The step docs are the single source of truth for how to run a gate. This README groups them so you can find the right file for your current altitude.
-
+</details>
 ## Composability
 
-- **Module mode:** `EXTRACTION` then `SERIOUSNESS` alone evaluates an idea fast. `VALIDATION` through `EXECUTOR` builds without re-extracting. `LANDSCAPE` then `REVIEW` audits existing research.
-- **External methods:** swap AMBITION for Shape Up pitching, run VALIDATION as a Design Sprint week or Lean Build-Measure-Learn loop, run EXECUTOR milestones as Scrum sprints.
-- **Do not reorder:** `EXTRACTION` through `AMBITION` must run in order. Skipping one leaves the plan without a checked foundation.
+- **Module mode:** `EXTRACTION` + `SERIOUSNESS` evaluates an idea fast. `VALIDATION` → `EXECUTOR` builds without re-extracting. `LANDSCAPE` + `REVIEW` audits existing research.
+- **External methods:** swap AMBITION for Shape Up pitching, run VALIDATION as a Design Sprint week, run EXECUTOR milestones as Scrum sprints.
 
-Pick the slice that fits your job, run it, and log what you skipped with a catalog code so review can still check it.
+> [!IMPORTANT]
+> Do not reorder `EXTRACTION` through `AMBITION`. Skipping one leaves the plan without a checked foundation.
+
+Log what you skipped with a catalog code so review can still check it.
 
 ## Core principles
 
@@ -82,27 +108,24 @@ These three shape every other rule. If a proposed addition does not serve one of
 
 ## Flagship Adoption Probe
 
-When a new flagship model arrives, run the protocol once on a live task without changing any method. Keep the method unless the run exposes a genuinely new failure class. Model gains so far land in execution, not in the want and should-build gates, so adopt the model and keep the gates.
+> [!NOTE]
+> When a new flagship model arrives, run the protocol once on a live task without changing any method. Keep the method unless the run exposes a genuinely new failure class. Model gains so far land in execution, not in the want and should-build gates, so adopt the model and keep the gates.
 
-## Appendix
-
-Deeper material lives in `docs/`: protocol model, method ledger schema, skip catalog, quality bar, explainer, spec sync, standards, ADRs, and research notes including the harness survey. Review runs archive under `.omo/reviews/`.
+<details>
+<summary><strong>Appendix</strong> — deeper material in <code>docs/</code></summary>
 
 - `docs/PROTOCOL_MODEL.md`: the state machine and valid transitions
 - `docs/METHOD_LEDGER.md` and `docs/SKIP_CATALOG.md`: how completeness is tracked
 - `docs/QUALITY_BAR.md`: the per-project quality contract
 - `docs/EXPLAINER.md` and `docs/SPEC_SYNC.md`: closing the build-to-docs loop
+- Review runs archive under `.omo/reviews/`
+
+</details>
 
 ## Contribute
 
-Small, cited improvements beat big rewrites. Propose a change with its source and the effort it saves, and keep prose decision-changing or cut it. Open an issue or PR with the failing trace attached.
+Small, cited improvements beat big rewrites. Open an issue or PR with the failing trace attached — if it saves a future run 15 minutes or prevents a class of mistake, it belongs.
 
-If you can show the change saves a future run 15 minutes or prevents a class of mistake, it belongs.
+## License
 
-## License and links
-
-License: see LICENSE in this repo. Links: [Issues](../../issues) · [Traces](docs/traces/) · [Diagrams](docs/diagrams/pop-pipeline.html) · Companion projects: [Standards](https://github.com/B67687/Standards) and Lessons.
-
-## Origin
-
-Built by running the protocol on itself (v3.0.0): the prep phase centered the prototyping gate as the key addition. July 2026.
+MIT — see [LICENSE](LICENSE).
