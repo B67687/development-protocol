@@ -52,13 +52,12 @@ Development-Protocol/
 │   ├── PROTOCOL_MODEL.md              # Protocol model documentation
 │   ├── EXPLAINER.md                   # Protocol explainer for newcomers
 │   ├── CI_TEST_GATE.md                # CI test gate specification
-│   ├── SPEC_SYNC.md                   # Specification synchronization
 │   ├── SKIP_CATALOG.md                # Catalog of skippable items
 │   ├── UNIVERSAL_FUNDAMENTALS.md      # Universal fundamentals reference
 │   ├── adr/                           # Architecture Decision Records
-│   │   ├── 001-two-stage-pipeline.md
-│   │   ├── 002-prototyping-gate.md
-│   │   └── 003-document-driven.md
+│   │   ├── ADR-001-two-stage-pipeline.md
+│   │   ├── ADR-002-prototyping-gate.md
+│   │   └── ADR-003-document-driven.md
 │   ├── research/                      # Research artifacts
 │   └── standards/                     # Standards reference docs
 ├── scripts/
