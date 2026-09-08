@@ -41,7 +41,7 @@ The traditional test pyramid is adapted for AI-assisted development. The AI gene
 | **Quantity** | Many — every public function gets at least one test |
 | **Dependencies** | Real objects preferred; in-memory fakes for stores/caches |
 
-**Agent responsibility:** Generate tests from SPECIFICATION.md, not from implementation. Tests must describe expected behavior before any code exists.
+**Agent responsibility:** Generate tests from ../steps/SPECIFICATION.md, not from implementation. Tests must describe expected behavior before any code exists.
 
 **Human responsibility:** Review for tautological tests (tests that always pass), missing edge cases, and testing implementation details.
 
@@ -100,10 +100,10 @@ See [§5 Mutation Testing](#5-mutation-testing) for full details.
 
 ### When: During WORK Phase, BEFORE Implementation (TDD)
 
-Tests are written during the WORK phase, BEFORE implementation code exists. This is non-negotiable — the protocol's test philosophy (RULES.md §9) mandates test-first development.
+Tests are written during the WORK phase, BEFORE implementation code exists. This is non-negotiable — the protocol's test philosophy (../steps/RULES.md §9) mandates test-first development.
 
 ```
-SPECIFICATION.md complete
+../steps/SPECIFICATION.md complete
     |
     v
 +-----------+     +-----------+     +-----------+     +-----------+
@@ -119,9 +119,9 @@ SPECIFICATION.md complete
                   +-----------+     +-----------+
 ```
 
-### How: Agent Writes Tests from SPECIFICATION.md
+### How: Agent Writes Tests from ../steps/SPECIFICATION.md
 
-The agent reads SPECIFICATION.md (not implementation code) to derive test cases:
+The agent reads ../steps/SPECIFICATION.md (not implementation code) to derive test cases:
 
 1. **Read spec section** — understand the behavior contract
 2. **Identify inputs and outputs** — what goes in, what comes out
@@ -570,10 +570,10 @@ def test_process_order_insufficient_funds():
 
 | Document | Section | Relationship |
 | --- | --- | --- |
-| RULES.md | §9 Test Philosophy | Parent rules — TESTING.md operationalizes them |
-| RULES.md | §8.1 Type Safety Gate | Runs before test generation — types must pass first |
-| EXECUTOR.md | WORK phase | Tests written before implementation per TDD |
-| EXECUTOR.md | FINISH Gate / Polish Checklist | Test coverage verification (80%+ statement) |
-| EXECUTOR.md | Regression-Lock | Characterization tests lock applied features |
-| SPECIFICATION.md | §10 Testing | Test requirements derived from spec |
-| REVIEW.md | SPEC_SYNC | Verify tests match spec behavior contracts |
+| ../steps/RULES.md | §9 Test Philosophy | Parent rules — TESTING.md operationalizes them |
+| ../steps/RULES.md | §8.1 Type Safety Gate | Runs before test generation — types must pass first |
+| ../steps/EXECUTOR.md | WORK phase | Tests written before implementation per TDD |
+| ../steps/EXECUTOR.md | FINISH Gate / Polish Checklist | Test coverage verification (80%+ statement) |
+| ../steps/EXECUTOR.md | Regression-Lock | Characterization tests lock applied features |
+| ../steps/SPECIFICATION.md | §10 Testing | Test requirements derived from spec |
+| ../steps/REVIEW.md | SPEC_SYNC | Verify tests match spec behavior contracts |

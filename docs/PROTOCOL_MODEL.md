@@ -2,7 +2,7 @@
 
 > **Purpose:** The Development Protocol applies its own Project Health rule to itself. This document is the protocol's state machine — every step is a state, every arrow is a valid transition, and the invariants below are what must never change.
 >
-> **Why this exists:** The protocol mandates that every project document its whole-project state machine (see SPECIFICATION.md §2). This is that mandate applied to the protocol itself. Adding or removing a step means updating this transition table — making the change explicit instead of silently breaking the pipeline's invariants (the orphaned-reference cascade that cost us a full REVIEW cycle).
+> **Why this exists:** The protocol mandates that every project document its whole-project state machine (see ../steps/SPECIFICATION.md §2). This is that mandate applied to the protocol itself. Adding or removing a step means updating this transition table — making the change explicit instead of silently breaking the pipeline's invariants (the orphaned-reference cascade that cost us a full REVIEW cycle).
 
 ## States
 
@@ -14,7 +14,7 @@ INBOX → PRIORITIZE(opt) → EXTRACTION → SERIOUSNESS → FUNDAMENTALS (incl.
 
 | State | Meaning |
 |---|---|
-| `INBOX` | Raw-Thinking Pass first (Phase 5, Cluster AN): pure generation — intuitions, perspectives, connections, alternative framings (raw GENERATES, protocol VERIFIES). Then Run-Shape Selector triage (Light/Standard/Brownfield — see INBOX.md); raw thoughts captured, clustered, one cluster selected; mode + any reanchor ratification logged to method ledger |
+| `INBOX` | Raw-Thinking Pass first (Phase 5, Cluster AN): pure generation — intuitions, perspectives, connections, alternative framings (raw GENERATES, protocol VERIFIES). Then Run-Shape Selector triage (Light/Standard/Brownfield — see ../steps/INBOX.md); raw thoughts captured, clustered, one cluster selected; mode + any reanchor ratification logged to method ledger |
 | `PRIORITIZE` (optional) | 2-10 ideas compared on Want/Know/Work/Matters (4-dimension), What-Matters Check picks one bet — AI proposal + user ratification both logged |
 | `EXTRACTION` | X (real problem) extracted from Y (stated request) |
 | `SERIOUSNESS` | Commitment gate — is X worth pursuing? (D2b proven-earner benchmark fires when the money-tier decision is live) |
@@ -85,7 +85,7 @@ When the user declares a divergence and chooses to restart from an earlier gate:
 3. **PRIORITIZE is always optional** — never mandatory, never blocking.
 4. **Recursion exemption is reserved for protocol improvement cycles only** — SERIOUSNESS may be skipped there and nowhere else.
 5. **Skipping SERIOUSNESS in protocol-improvement cycles does not skip FUNDAMENTALS (incl. MULTI).**
-6. **The pipeline can loop backward (to EXTRACTION, LANDSCAPE, SPECIFICATION) but never jumps forward past a gate.** Run-Shape Light mode may skip heavyweight steps (per INBOX.md) — sanctioned by the front-door triage, not a gate jump; skipped steps are logged with SKIP_CATALOG codes, never silent.
+6. **The pipeline can loop backward (to EXTRACTION, LANDSCAPE, SPECIFICATION) but never jumps forward past a gate.** Run-Shape Light mode may skip heavyweight steps (per ../steps/INBOX.md) — sanctioned by the front-door triage, not a gate jump; skipped steps are logged with SKIP_CATALOG codes, never silent.
 9. **Run-Shape mode is chosen at INBOX and logged; may be re-selected upward mid-run** (logged, Invariant 6 ordering holds) — Light mode skips steps legitimately but NEVER skips ledger obligations, the verification floor (review + targeted tests), or one-way doors (schema/API/data/security force Standard).
 10. **Autonomous learning is gated by feedback velocity** — the model may learn-and-apply without ratification ONLY where feedback is machine-checkable (compiler, tests, ledger, grep = `fast`). Where feedback is slow (strategy, taste, ambition, mission) ratification precedes application. Ambiguous cases default to ratification. The gate governs declarative learning only; procedural skill remains user-owned (Dual ZPD). Velocity classification is logged per autonomous-learning decision (Emission Rule 9).
 

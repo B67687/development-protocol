@@ -144,9 +144,9 @@ The philosophical truths that recur across independent traditions. **These conve
 ## How the Protocol Uses This Map
 
 1. **EXECUTOR FINISH gate** — the 画蛇添足 test is mandatory: every added feature answers "what does this addition break that was already working?"
-2. **FUNDAMENTALS.md** — cross-references this file; each step's design should trace to a fundamental
-3. **LANDSCAPE.md** — the transfer-check gate applies before adopting principles from other domains
-4. **EXTRACTION.md** — the generation/evaluation split (BVSR) is the single best-evidenced fundamental; the protocol already half-uses it — double down
+2. **../steps/FUNDAMENTALS.md** — cross-references this file; each step's design should trace to a fundamental
+3. **../steps/LANDSCAPE.md** — the transfer-check gate applies before adopting principles from other domains
+4. **../steps/EXTRACTION.md** — the generation/evaluation split (BVSR) is the single best-evidenced fundamental; the protocol already half-uses it — double down
 
 ## Provenance
 
