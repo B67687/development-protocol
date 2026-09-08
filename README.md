@@ -7,24 +7,23 @@
     <img src="https://img.shields.io/badge/license-MIT-d8b800" alt="MIT License">
     <img src="https://img.shields.io/badge/docs--only-no%20build-0d1117" alt="Docs only">
     <img src="https://img.shields.io/badge/steps-13-4285F4" alt="13 steps">
-    <img src="https://github.com/B67687/Development-Protocol/actions/workflows/protocol-lint.yml/badge.svg" alt="Protocol lint">
-    <img src="https://img.shields.io/badge/status-active-34a853" alt="Active">
   </p>
   <a href="docs/showcase.svg"><img src="docs/showcase.svg" alt="Without gates: straight to code, then rework. With gates: 4 checks, scoped plan, code." width="100%"></a>
   <hr style="max-width: 360px;">
-  <sub>Built with AI assistance — see <a href="docs/CREDITS.md">CREDITS.md</a></sub>
-  <br>
-  <a href="docs/CREDITS.md"><img src="docs/badges/deepseek.svg" alt="DeepSeek"></a>
-  <a href="docs/CREDITS.md"><img src="docs/badges/opencode.svg" alt="OpenCode"></a>
-  <a href="docs/CREDITS.md"><img src="docs/badges/omo.svg" alt="Oh My OpenAgent"></a>
-  <br>
+  <sub>Built with AI assistance — see <a href="./docs/CREDITS.md">CREDITS.md</a></sub>
+<br>
+<a href="./docs/CREDITS.md"><img src="https://cdn.jsdelivr.net/gh/B67687/Development-Protocol@main/docs/badges/deepseek.svg" alt="DeepSeek"></a>
+<a href="./docs/CREDITS.md"><img src="https://cdn.jsdelivr.net/gh/B67687/Development-Protocol@main/docs/badges/opencode.svg" alt="OpenCode"></a>
+<a href="./docs/CREDITS.md"><img src="https://cdn.jsdelivr.net/gh/B67687/Development-Protocol@main/docs/badges/omo.svg" alt="Oh My OpenAgent"></a>
+<br>
+
 </div>
 
 For builders and coding agents who run AI loops and want fewer reworks. Not for one-off prompts or code generation without review.
 
 **In 15 seconds:** you ask `add dark mode`. The agent runs 4 checks: 1. understand what you actually want, 2. check whether it is worth building, 3. pick the best approach, 4. plan then execute. A full run with real decisions: [colour-blind trace](docs/traces/colour-blind-85-100.md) (mistakes kept in).
 
-Quick links: [Try it](#try-it-in-5-steps) · [Lived traces](#it-works-two-lived-traces) · [Pipeline](#the-pipeline-at-a-glance) · [Principles](#core-principles)
+Quick links: [Try it](#try-it-in-5-steps) · [Proof](#proof-two-real-runs) · [Pipeline](#the-pipeline-at-a-glance) · [Principles](#core-principles)
 
 ## The 4 checks
 
@@ -48,7 +47,7 @@ Each step file states its entry condition, so you can also run steps standalone 
 > [!TIP]
 > Start with `INBOX.md` even if you think you know the problem. The one-sentence extraction in step 2 often changes what you build in step 4.
 
-## It works: two lived traces
+## Proof: two real runs
 
 - [colour-blind-85-100](docs/traces/colour-blind-85-100.md): a vague wish to make the chain watertight → picked a broader fix over a narrow patch → shipped the missing wiring plus a one-page illustration.
 - [local-search-review](docs/traces/local-search-review.md): "search feels weak" → kept the same scope → shipped a full Tavily-compatible search surface with better ranking.
@@ -117,7 +116,7 @@ These three shape every other rule. If a proposed addition does not serve one of
 - `docs/PROTOCOL_MODEL.md`: the state machine and valid transitions
 - `docs/METHOD_LEDGER.md` and `docs/SKIP_CATALOG.md`: how completeness is tracked
 - `docs/QUALITY_BAR.md`: the per-project quality contract
-- `docs/EXPLAINER.md` and `docs/SPEC_SYNC.md`: closing the build-to-docs loop
+- `docs/EXPLAINER.md`: closing the build-to-docs loop
 - Review runs archive under `.omo/reviews/`
 
 </details>
