@@ -1,20 +1,21 @@
 # Development Protocol
 
-Turn a vague idea into a shipped result, without skipping the hard questions.
+> Stop your AI agent from coding the wrong thing. A step-by-step method that turns a vague idea into a scoped plan — what to build, whether to build it, and how — before any code gets written.
 
-This is a step-by-step method for going from "I have a rough idea" to something real and finished. It runs on top of coding assistants like OpenCode, Codex, or Claude Code, and tells you and the agent what to do at each stage, including when to stop, check, or drop the idea.
+For builders and coding agents who run AI loops and want fewer reworks. Not for one-off prompts or code generation without review.
 
-Use it when the idea is still fuzzy, the stakes feel high, or you have tried before and stalled. If the work is routine and reversible, skim the gates and keep moving. The method earns its cost where a wrong turn is expensive.
+**In 15 seconds:** you ask `add dark mode`. The agent runs 4 checks: 1. understand what you actually want, 2. check whether it is worth building, 3. pick the best approach, 4. plan then execute. A full run with real decisions: [colour-blind trace](docs/traces/colour-blind-85-100.md) (mistakes kept in).
 
-## Protocol in 30 seconds
+Quick links: [Try it](#try-it-in-5-steps) · [Lived traces](#it-works-two-lived-traces) · [Pipeline](#the-pipeline-at-a-glance) · [Principles](#core-principles)
 
-1. A protocol is just an agreed checklist for one job (for example, how to test an idea).
-2. This repo is a checklist of checklists: it picks the right small method at each stage.
-3. The stages run from what you want, to whether to build it, to which version, to the plan, to the build.
-4. Two gates guard the middle: commit to an idea before researching alternatives.
-5. A person approves the strategy once, then the agent builds with checks along the way.
+## The 4 checks
 
-That is the whole PoP idea in plain language: small checklists, picked at the right altitude, in a fixed order.
+1. **Understand** what you actually want, including what you have not said yet.
+2. **Should-build**: commit to the problem, schedule it, or drop it — before researching alternatives.
+3. **Which version**: same, scaled, adjacent, or more — picked after looking at the landscape.
+4. **Plan and build**: prototype, lock the plan, execute, verify, learn.
+
+A person approves the strategy once, then the agent builds with checks along the way. (The step codes — P1, P2a, P2b, P3, P4 — live in `docs/PHILOSOPHY.md`; you do not need them to start.)
 
 ## Try it in 5 steps
 
@@ -30,12 +31,10 @@ Tip: start with `INBOX.md` even if you think you know the problem. The one-sente
 
 ## It works: two lived traces
 
-- [colour-blind-85-100](docs/traces/colour-blind-85-100.md): the protocol finished its own last 15 percent. It started from a vague wish to make the chain watertight, picked a broader fix over a narrow patch, and shipped the missing wiring plus a one-page illustration.
-- [local-search-review](docs/traces/local-search-review.md): the protocol reviewed a local search engine and shipped a working upgrade. It started from "search feels weak," kept the same scope, and delivered a full Tavily-compatible search surface with better ranking.
+- [colour-blind-85-100](docs/traces/colour-blind-85-100.md): a vague wish to make the chain watertight → picked a broader fix over a narrow patch → shipped the missing wiring plus a one-page illustration.
+- [local-search-review](docs/traces/local-search-review.md): "search feels weak" → kept the same scope → shipped a full Tavily-compatible search surface with better ranking.
 
-Both traces ran the same altitudes you will run, so you can see the method before you trust it.
-
-Each trace links to the exact commits and decisions, so you can follow the thread from want to ship. No reconstruction, the record is the work.
+Both ran the same steps you will run, with commits and decisions linked. The record is the work — no reconstruction.
 
 ## The pipeline at a glance
 
@@ -45,7 +44,9 @@ The two gates in the middle are deliberate. The first asks if you should build a
 
 The full step order is INBOX, EXTRACTION, SERIOUSNESS, FUNDAMENTALS, DECOMPOSITION, AMBITION, LANDSCAPE, STRATEGY, VALIDATION, SPECIFICATION, EXECUTOR, REVIEW, REFLECT.
 
-Interactive diagram: [pop-pipeline.html](docs/diagrams/pop-pipeline.html) (archify showcase). The pipeline fits any project type, software notes live in the [Engineering Plugin](docs/engineering-plugin.md).
+![PoP Pipeline — P1 WANT → P2 SHOULD → P3 PLAN → P4 EXECUTE](docs/diagrams/pop-pipeline.svg)
+
+_Interactive version: [pop-pipeline.html](docs/diagrams/pop-pipeline.html) — archify showcase, click nodes for detail._ The pipeline fits any project type, software notes live in the [Engineering Plugin](docs/engineering-plugin.md).
 
 If the diagram feels detailed, follow the bold line above and open the interactive view only when you need a specific step.
 
