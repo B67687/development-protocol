@@ -1,6 +1,6 @@
 # Software Design Standards Hierarchy v1.0
 
-> This is a companion to RULES.md's Constitution section. The Constitution defines project-specific
+> This is a companion to ../../steps/RULES.md's Constitution section. The Constitution defines project-specific
 > immutable principles. This hierarchy defines the universal design philosophy that informs those
 > principles.
 
@@ -213,5 +213,5 @@ They are orthogonal and complementary:
 Both should be referenced when bootstrapping a new project.
 
 ---
-Also related: RULES.md's Constitution section defines PROJECT-SPECIFIC immutable principles,
+Also related: ../../steps/RULES.md's Constitution section defines PROJECT-SPECIFIC immutable principles,
 while this hierarchy defines the UNIVERSAL design philosophy that informs them.

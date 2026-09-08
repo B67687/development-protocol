@@ -28,7 +28,7 @@ from judge import judge_pair
 
 PERSONAS_PATH = os.path.join(HARNESS_DIR, "personas.json")
 
-# --- Preference Layer Probes (from EXTRACTION.md) ---
+# --- Preference Layer Probes (from ../../steps/EXTRACTION.md) ---
 TACIT_PROBES = [
     "what would you miss most",
     "what did you actually spend time on",
@@ -42,7 +42,7 @@ TACIT_PROBES = [
     "what evidence would prove this wrong",
 ]
 
-# --- Bias Detection Prompts (from BIAS_CATALOG.md) ---
+# --- Bias Detection Prompts (from ../../steps/BIAS_CATALOG.md) ---
 BIAS_PROMPTS = [
     "What was the first number mentioned? Would my answer change if it were 50% higher or lower?",  # Anchoring
     "If I were starting fresh today with no history, would I choose this same path?",  # Sunk Cost

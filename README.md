@@ -7,24 +7,24 @@
     <img src="https://img.shields.io/badge/license-MIT-d8b800" alt="MIT License">
     <img src="https://img.shields.io/badge/docs--only-no%20build-0d1117" alt="Docs only">
     <img src="https://img.shields.io/badge/steps-13-4285F4" alt="13 steps">
-    <img src="https://github.com/B67687/Development-Protocol/actions/workflows/protocol-lint.yml/badge.svg" alt="Protocol lint">
-    <img src="https://img.shields.io/badge/status-active-34a853" alt="Active">
   </p>
   <a href="docs/showcase.svg"><img src="docs/showcase.svg" alt="Without gates: straight to code, then rework. With gates: 4 checks, scoped plan, code." width="100%"></a>
   <hr style="max-width: 360px;">
-  <sub>Built with AI assistance — see <a href="docs/CREDITS.md">CREDITS.md</a></sub>
-  <br>
-  <a href="docs/CREDITS.md"><img src="docs/badges/deepseek.svg" alt="DeepSeek"></a>
-  <a href="docs/CREDITS.md"><img src="docs/badges/opencode.svg" alt="OpenCode"></a>
-  <a href="docs/CREDITS.md"><img src="docs/badges/omo.svg" alt="Oh My OpenAgent"></a>
-  <br>
-</div>
+  <sub>Built with AI assistance — see <a href="./docs/CREDITS.md">CREDITS.md</a></sub>
+<br>
+<a href="./docs/CREDITS.md"><img src="https://cdn.jsdelivr.net/gh/B67687/Development-Protocol@main/docs/badges/deepseek.svg" alt="DeepSeek"></a>
+<a href="./docs/CREDITS.md"><img src="https://cdn.jsdelivr.net/gh/B67687/Development-Protocol@main/docs/badges/opencode.svg" alt="OpenCode"></a>
+<a href="./docs/CREDITS.md"><img src="https://cdn.jsdelivr.net/gh/B67687/Development-Protocol@main/docs/badges/omo.svg" alt="Oh My OpenAgent"></a>
 
+<br>
+
+</div>
+<br>
 For builders and coding agents who run AI loops and want fewer reworks. Not for one-off prompts or code generation without review.
 
 **In 15 seconds:** you ask `add dark mode`. The agent runs 4 checks: 1. understand what you actually want, 2. check whether it is worth building, 3. pick the best approach, 4. plan then execute. A full run with real decisions: [colour-blind trace](docs/traces/colour-blind-85-100.md) (mistakes kept in).
 
-Quick links: [Try it](#try-it-in-5-steps) · [Lived traces](#it-works-two-lived-traces) · [Pipeline](#the-pipeline-at-a-glance) · [Principles](#core-principles)
+Quick links: [Try it](#try-it-in-5-steps) · [Proof](#proof-two-real-runs) · [Pipeline](#the-pipeline-at-a-glance) · [Principles](#core-principles)
 
 ## The 4 checks
 
@@ -37,18 +37,18 @@ A person approves the strategy once, then the agent builds with checks along the
 
 ## Try it in 5 steps
 
-1. Brain dump into `INBOX.md`, then group similar thoughts and pick one to pursue.
-2. Run `EXTRACTION.md` on it: state the real problem in one sentence, separate from your first solution idea.
-3. Run `SERIOUSNESS.md`: score commitment honestly. Exit is COMMIT, SCHEDULE, or DROP. Only a COMMIT continues.
-4. Run `DECOMPOSITION.md`, `AMBITION.md`, then `LANDSCAPE.md`. End with a written choice of which version to build, then get human approval in `STRATEGY.md`.
-5. Prototype in `VALIDATION.md`, lock the plan in `SPECIFICATION.md`, build via `EXECUTOR.md`, then verify with `REVIEW.md` and `REFLECT.md`.
+1. Brain dump into `steps/INBOX.md`, then group similar thoughts and pick one to pursue.
+2. Run `steps/EXTRACTION.md` on it: state the real problem in one sentence, separate from your first solution idea.
+3. Run `steps/SERIOUSNESS.md`: score commitment honestly. Exit is COMMIT, SCHEDULE, or DROP. Only a COMMIT continues.
+4. Run `steps/DECOMPOSITION.md`, `steps/AMBITION.md`, then `steps/LANDSCAPE.md`. End with a written choice of which version to build, then get human approval in `steps/STRATEGY.md`.
+5. Prototype in `steps/VALIDATION.md`, lock the plan in `steps/SPECIFICATION.md`, build via `steps/EXECUTOR.md`, then verify with `steps/REVIEW.md` and `steps/REFLECT.md`.
 
 Each step file states its entry condition, so you can also run steps standalone without starting from the top.
 
 > [!TIP]
-> Start with `INBOX.md` even if you think you know the problem. The one-sentence extraction in step 2 often changes what you build in step 4.
+> Start with `steps/INBOX.md` even if you think you know the problem. The one-sentence extraction in step 2 often changes what you build in step 4.
 
-## It works: two lived traces
+## Proof: two real runs
 
 - [colour-blind-85-100](docs/traces/colour-blind-85-100.md): a vague wish to make the chain watertight → picked a broader fix over a narrow patch → shipped the missing wiring plus a one-page illustration.
 - [local-search-review](docs/traces/local-search-review.md): "search feels weak" → kept the same scope → shipped a full Tavily-compatible search surface with better ranking.
@@ -77,13 +77,13 @@ If the diagram feels detailed, follow the bold line above and open the interacti
 <details>
 <summary><strong>Contents by phase</strong> — which file to open for your current stage</summary>
 
-- **Want:** `INBOX.md`, `PRIORITIZE.md`, `EXTRACTION.md` — capture and clarify.
-- **Should-build:** `SERIOUSNESS.md`, `FUNDAMENTALS.md` — now, later, or never.
-- **Which-version + plan:** `DECOMPOSITION.md`, `AMBITION.md`, `LANDSCAPE.md`, `STRATEGY.md`.
-- **Execute:** `VALIDATION.md`, `SPECIFICATION.md`, `EXECUTOR.md`, `REVIEW.md`, `REFLECT.md`.
-- **Rules:** `RULES.md`, `STANDARDS.md`, `docs/QUALITY_BAR.md`, `docs/SKIP_CATALOG.md`, `docs/METHOD_LEDGER.md`.
+- **Want:** `steps/INBOX.md`, `steps/PRIORITIZE.md`, `steps/EXTRACTION.md` — capture and clarify.
+- **Should-build:** `steps/SERIOUSNESS.md`, `steps/FUNDAMENTALS.md` — now, later, or never.
+- **Which-version + plan:** `steps/DECOMPOSITION.md`, `steps/AMBITION.md`, `steps/LANDSCAPE.md`, `steps/STRATEGY.md`.
+- **Execute:** `steps/VALIDATION.md`, `steps/SPECIFICATION.md`, `steps/EXECUTOR.md`, `steps/REVIEW.md`, `steps/REFLECT.md`.
+- **Rules:** `steps/RULES.md`, `steps/STANDARDS.md`, `docs/QUALITY_BAR.md`, `docs/SKIP_CATALOG.md`, `docs/METHOD_LEDGER.md`.
 
-Step docs are the single source of truth for entry/exit criteria; see also `RULES.md`.
+Step docs are the single source of truth for entry/exit criteria; see also `steps/RULES.md`.
 
 </details>
 ## Composability

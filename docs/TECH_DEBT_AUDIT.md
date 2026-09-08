@@ -8,7 +8,7 @@
 | # | Item | Severity | Effort | Status | File/Location |
 |---|------|----------|--------|--------|---------------|
 | D-001 | Root sprawl: 18 .md files at root | medium | high | active | `/` (root) |
-| D-002 | SPECIFICATION.md oversized: 586 lines | medium | medium | active | `SPECIFICATION.md` |
+| D-002 | ../steps/SPECIFICATION.md oversized: 586 lines | medium | medium | active | `../steps/SPECIFICATION.md` |
 | D-003 | FEATURES.md was template-only (no F-### entries) | high | low | **resolved** | `docs/FEATURES.md` |
 | D-004 | No TECH_DEBT_AUDIT.md existed | high | low | **resolved** | `docs/TECH_DEBT_AUDIT.md` |
 | D-005 | SE_ARTIFACT_REGISTRY missing self-row | high | low | **resolved** | `docs/SE_ARTIFACT_REGISTRY.md` |
@@ -16,7 +16,7 @@
 | D-007 | No check-local.sh (only basic check.sh) | high | low | **resolved** | `scripts/check-local.sh` |
 | D-008 | No AGENTS.md at root | high | low | **resolved** | `AGENTS.md` |
 | D-009 | No .github/workflows (by design) | info | — | accepted | N/A |
-| D-010 | RULES.md placeholder content | low | high | deferred | `RULES.md` |
+| D-010 | ../steps/RULES.md placeholder content | low | high | deferred | `../steps/RULES.md` |
 
 ## Severity × Effort Matrix
 
@@ -41,7 +41,7 @@ Info     D-009          —               —
 
 Root contains 18 .md files: AMBITION, DECOMPOSITION, EXECUTOR, EXTRACTION, FAILURE_CAPTURE, FUNDAMENTALS, INBOX, LANDSCAPE, PRIORITIZE, REFLECT, REVIEW, RULES, SERIOUSNESS, SPECIFICATION, STANDARDS, STRATEGY, VALIDATION, README, AGENTS.
 
-The 14 pipeline steps are intentionally at root (per README.md design). RULES.md and STANDARDS.md are governance files also at root by design. However, this creates visual clutter and makes it harder to distinguish pipeline steps from governance from meta-files.
+The 14 pipeline steps are intentionally at root (per README.md design). ../steps/RULES.md and ../steps/STANDARDS.md are governance files also at root by design. However, this creates visual clutter and makes it harder to distinguish pipeline steps from governance from meta-files.
 
 **Options:**
 1. Accept as-is — the 14-step root layout is the protocol's identity
@@ -50,12 +50,12 @@ The 14 pipeline steps are intentionally at root (per README.md design). RULES.md
 
 **Recommendation:** Accept as-is (option 1). The root sprawl IS the protocol's structure. Moving steps would break the README.md pipeline diagram and every cross-reference.
 
-### D-002: SPECIFICATION.md Oversized (586 lines)
+### D-002: ../steps/SPECIFICATION.md Oversized (586 lines)
 
 **Severity:** medium | **Effort:** medium
 
-SPECIFICATION.md contains 16 sections (§0-15) at 586 lines. The three-layer model (MACRO/MESO/MICRO) is comprehensive but dense. Could be split into:
-- `SPECIFICATION.md` — overview + MACRO layer
+../steps/SPECIFICATION.md contains 16 sections (§0-15) at 586 lines. The three-layer model (MACRO/MESO/MICRO) is comprehensive but dense. Could be split into:
+- `../steps/SPECIFICATION.md` — overview + MACRO layer
 - `docs/specification-meso.md` — MESO layer details
 - `docs/specification-micro.md` — MICRO layer details + templates
 

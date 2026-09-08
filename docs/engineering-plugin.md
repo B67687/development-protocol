@@ -9,15 +9,15 @@
 > organizational change, creative work. The universal execution core (SPEC §0-3, §5-8,
 > §10-14) applies without this addendum.
 
-This plugin is consumed by SPECIFICATION.md (§4, §9), EXECUTOR.md (Production Quality),
-and REVIEW.md (checklist items 4.5, 4.6). It lives here so the main protocol files
+This plugin is consumed by ../steps/SPECIFICATION.md (§4, §9), ../steps/EXECUTOR.md (Production Quality),
+and ../steps/REVIEW.md (checklist items 4.5, 4.6). It lives here so the main protocol files
 stay universal.
 
 ---
 
 ## 1. CI, Tooling & Quality Gates
 
-Used by SPECIFICATION.md §4. Replace with your project's actual CI commands.
+Used by ../steps/SPECIFICATION.md §4. Replace with your project's actual CI commands.
 
 ### MACRO — System Gates
 
@@ -141,7 +141,7 @@ feature has zero linked tests or a test references an unknown `F-###`.
 
 ## 2. Operational & Error Handling
 
-Used by SPECIFICATION.md §9. Replace with your system's operations setup.
+Used by ../steps/SPECIFICATION.md §9. Replace with your system's operations setup.
 
 ### MACRO — Operational Strategy
 
@@ -175,7 +175,7 @@ _Error message format, log line format, structured logging schema._
 
 ## 3. Production Quality Requirements
 
-Used by EXECUTOR.md. These requirements apply to Tier 2+ projects (those with a runtime,
+Used by ../steps/EXECUTOR.md. These requirements apply to Tier 2+ projects (those with a runtime,
 CLI, library, or performance-sensitive component). They are not optional polish — they
 are baseline quality gates that must pass before a spec is considered execution-ready.
 
@@ -194,14 +194,14 @@ are baseline quality gates that must pass before a spec is considered execution-
 7. **Feature traceability**: Every F-### in `docs/FEATURES.md` MUST have ≥1 anchored test (see §1.1). `cargo-deny` and `gitleaks` are MANDATORY T1 gates — not T2. A feature without a test anchor is unverified intent; a gate that only runs at release misses everything merged in between.
 
 > **`FEATURES.md` is the living spec** — it tracks what exists and how it behaves.
-> `SPECIFICATION.md` is the static plan-IS-spec frozen at execution start.
-> Keep `FEATURES.md` current; let `SPECIFICATION.md` reflect the locked design decisions.
+> `../steps/SPECIFICATION.md` is the static plan-IS-spec frozen at execution start.
+> Keep `FEATURES.md` current; let `../steps/SPECIFICATION.md` reflect the locked design decisions.
 
 ---
 
 ## 4. Engineering-Specific Review Checks
 
-Used by REVIEW.md Phase 4. These supplement the universal review checklist when the
+Used by ../steps/REVIEW.md Phase 4. These supplement the universal review checklist when the
 project is engineering-deliverable.
 
 | # | Check | How to Verify |
@@ -259,7 +259,7 @@ Type safety verification runs as a **pre-commit gate BEFORE implementation begin
 - [ ] Test coverage verified — coverage.py/c8 reports 80%+ on new code
 
 **Test generation workflow (TDD for software):**
-1. Write tests from SPECIFICATION.md (not from implementation)
+1. Write tests from ../steps/SPECIFICATION.md (not from implementation)
 2. Run tests — must fail (red phase)
 3. Implement code
 4. Run tests — must pass (green phase)

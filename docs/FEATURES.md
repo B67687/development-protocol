@@ -15,8 +15,8 @@ Feature registry for the Development Protocol itself. Each feature has a lifecyc
 
 - **State:** applied
 - **Contract:** Multi-thought capture → cluster → triage. Select one cluster for EXTRACTION, park rest. Preserves raw intent without premature filtering.
-- **Test Anchoring:** INBOX.md exists, contains cluster/triage instructions, referenced by RULES.md routing.
-- **File:** `INBOX.md` (250 lines)
+- **Test Anchoring:** ../steps/INBOX.md exists, contains cluster/triage instructions, referenced by ../steps/RULES.md routing.
+- **File:** `../steps/INBOX.md` (250 lines)
 
 ### F-002: Engineering Plugin Lifecycle
 
@@ -56,16 +56,16 @@ Feature registry for the Development Protocol itself. Each feature has a lifecyc
 ### F-007: Three-Layer Specification Model
 
 - **State:** applied
-- **Contract:** SPECIFICATION.md defines MACRO (strategy), MESO (structure), MICRO (implementation) layers. Provides templates with Bus-Hop examples. §15 verification checklist references FEATURES.md.
-- **Test Anchoring:** SPECIFICATION.md contains all three layer definitions, §15 references FEATURES.md.
-- **File:** `SPECIFICATION.md` (586 lines — flagged as oversized in TECH_DEBT)
+- **Contract:** ../steps/SPECIFICATION.md defines MACRO (strategy), MESO (structure), MICRO (implementation) layers. Provides templates with Bus-Hop examples. §15 verification checklist references FEATURES.md.
+- **Test Anchoring:** ../steps/SPECIFICATION.md contains all three layer definitions, §15 references FEATURES.md.
+- **File:** `../steps/SPECIFICATION.md` (586 lines — flagged as oversized in TECH_DEBT)
 
 ### F-008: Standards Tier System
 
 - **State:** applied
-- **Contract:** STANDARDS.md defines T1 (mandatory), T2 (recommended), T3 (optional) tiers. Covers 14 domains: error handling, code quality, testing, docs, security, performance, architecture, AI attribution, CI/CD, AI laziness, build, deps, review, objectivity.
-- **Test Anchoring:** STANDARDS.md contains all 14 section headings, tier definitions present.
-- **File:** `STANDARDS.md` (285 lines)
+- **Contract:** ../steps/STANDARDS.md defines T1 (mandatory), T2 (recommended), T3 (optional) tiers. Covers 14 domains: error handling, code quality, testing, docs, security, performance, architecture, AI attribution, CI/CD, AI laziness, build, deps, review, objectivity.
+- **Test Anchoring:** ../steps/STANDARDS.md contains all 14 section headings, tier definitions present.
+- **File:** `../steps/STANDARDS.md` (285 lines)
 
 ## Trace Tags
 
@@ -80,11 +80,11 @@ Feature registry for the Development Protocol itself. Each feature has a lifecyc
 
 | Feature | Depends On | Referenced By |
 |---------|-----------|---------------|
-| F-001 INBOX | — | RULES.md routing, README.md pipeline |
+| F-001 INBOX | — | ../steps/RULES.md routing, README.md pipeline |
 | F-002 Engineering Plugin | — | F-003, F-004, F-008 |
 | F-003 SE Registry | F-002 | AGENTS.md, check-local.sh |
 | F-004 Check Gates | F-002, F-003 | AGENTS.md, push workflow |
 | F-005 HANDOVER | — | AGENTS.md, session workflow |
-| F-006 ADR | — | AGENTS.md, RULES.md governance |
-| F-007 Specification | F-006 | SPECIFICATION.md §15 |
-| F-008 Standards | — | RULES.md, STANDARDS.md |
+| F-006 ADR | — | AGENTS.md, ../steps/RULES.md governance |
+| F-007 Specification | F-006 | ../steps/SPECIFICATION.md §15 |
+| F-008 Standards | — | ../steps/RULES.md, ../steps/STANDARDS.md |

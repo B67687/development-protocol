@@ -122,4 +122,4 @@ RAW INTENT → EXTRACTION → FUNDAMENTALS → DECOMPOSITION
 - **Consumed**: By REVIEW's own checks 1.5/1.6/3.1-3.4, which verify the explainer matches the code.
 - **Updated**: Every cycle. When the project changes (new features, refactors, bug fixes), the explainer changes with it.
 
-The explainer is not a substitute for SPECIFICATION.md. The spec is for the builder (what to build). The explainer is for the owner (what was built and why). They describe the same system at different levels of detail for different audiences.
+The explainer is not a substitute for ../steps/SPECIFICATION.md. The spec is for the builder (what to build). The explainer is for the owner (what was built and why). They describe the same system at different levels of detail for different audiences.

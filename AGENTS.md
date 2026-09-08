@@ -14,26 +14,26 @@ Part of a trio: this (process), Standards (what good means), Lessons (cross-proj
 Development-Protocol/
 ├── AGENTS.md                          # This file
 ├── README.md                          # Pipeline overview, 14-step diagram, standing principles
-├── RULES.md                           # Project bootstrap protocol, constitution, phase definitions
-├── STANDARDS.md                       # T1/T2/T3 tier rules (error handling, testing, security, etc.)
-├── SPECIFICATION.md                   # Three-layer model (MACRO/MESO/MICRO), templates
-├── INBOX.md                           # Step -1: thought capture & triage
-├── EXTRACTION.md                      # Step 0: extract real problem from stated solution
-├── AMBITION.md                        # Step 1: scope & ambition definition
-├── DECOMPOSITION.md                   # Step 2: break into manageable pieces
-├── STRATEGY.md                        # Step 3: approach selection
-├── LANDSCAPE.md                       # Step 4: environment & constraint mapping
-├── FAILURE_CAPTURE.md                 # Step 5: failure mode analysis
-├── FUNDAMENTALS.md                    # Step 6: foundational requirements
-├── EXECUTOR.md                        # Step 7: execution planning
-├── VALIDATION.md                      # Step 8: validation strategy
-├── REVIEW.md                          # Step 9: review & reflection
-├── REFLECT.md                         # Step 10: post-execution reflection
-├── PRIORITIZE.md                      # Step 11: priority ordering
-├── SERIOUSNESS.md                     # Step 12: P2a SHOULD-BUILD-X? Bar 1 gate (DROP/COMMIT)
-├── QUICKSTART.md                      # 5-min P1/P2a/P2b + 30-min Light map
-├── BIAS_CATALOG.md                    # 8 biases, dangerous phases, detection prompts
-├── KILL_LOG.md                        # DROP/KILL log + 30d counterfactual
+├── steps/RULES.md                           # Project bootstrap protocol, constitution, phase definitions
+├── steps/STANDARDS.md                       # T1/T2/T3 tier rules (error handling, testing, security, etc.)
+├── steps/SPECIFICATION.md                   # Three-layer model (MACRO/MESO/MICRO), templates
+├── steps/INBOX.md                           # Step -1: thought capture & triage
+├── steps/EXTRACTION.md                      # Step 0: extract real problem from stated solution
+├── steps/AMBITION.md                        # Step 1: scope & ambition definition
+├── steps/DECOMPOSITION.md                   # Step 2: break into manageable pieces
+├── steps/STRATEGY.md                        # Step 3: approach selection
+├── steps/LANDSCAPE.md                       # Step 4: environment & constraint mapping
+├── steps/FAILURE_CAPTURE.md                 # Step 5: failure mode analysis
+├── steps/FUNDAMENTALS.md                    # Step 6: foundational requirements
+├── steps/EXECUTOR.md                        # Step 7: execution planning
+├── steps/VALIDATION.md                      # Step 8: validation strategy
+├── steps/REVIEW.md                          # Step 9: review & reflection
+├── steps/REFLECT.md                         # Step 10: post-execution reflection
+├── steps/PRIORITIZE.md                      # Step 11: priority ordering
+├── steps/SERIOUSNESS.md                     # Step 12: P2a SHOULD-BUILD-X? Bar 1 gate (DROP/COMMIT)
+├── steps/QUICKSTART.md                      # 5-min P1/P2a/P2b + 30-min Light map
+├── steps/BIAS_CATALOG.md                    # 8 biases, dangerous phases, detection prompts
+├── steps/KILL_LOG.md                        # DROP/KILL log + 30d counterfactual
 ├── docs/
 │   ├── appendix/
 │   │   ├── p2b-mapping-appendix.md      # P2b early SWE: use-case/domain/quality/stakeholder/risk/keep-drop/version → SE tables + stencil
@@ -61,7 +61,7 @@ Development-Protocol/
 │   ├── research/                      # Research artifacts
 │   └── standards/                     # Standards reference docs
 ├── scripts/
-│   ├── check.sh                       # CI gate: RULES.md phases + CLI contract + cargo
+│   ├── check.sh                       # CI gate: steps/RULES.md phases + CLI contract + cargo
 │   ├── check-local.sh                 # Local gates: markdown lint + ADR + registry + .omo leak
 │   └── ledger-check.py                # Ledger validation
 ├── cli/                               # Rust CLI tooling (cargo check/test)
@@ -74,7 +74,7 @@ Development-Protocol/
 | Artifact           | File                                     | Purpose                                              | Status                       |
 | ------------------ | ---------------------------------------- | ---------------------------------------------------- | ---------------------------- |
 | FEATURES           | `docs/FEATURES.md`                       | F-### feature registry with lifecycle states         | Active, 8 entries            |
-| SPECIFICATION      | `SPECIFICATION.md`                       | Three-layer model (MACRO/MESO/MICRO)                 | Active, 586L (see TECH_DEBT) |
+| SPECIFICATION      | `steps/SPECIFICATION.md`                       | Three-layer model (MACRO/MESO/MICRO)                 | Active, 586L (see TECH_DEBT) |
 | ARCHITECTURE       | `docs/adr/`                              | Architecture Decision Records (3 ADRs)               | Active                       |
 | TECH_DEBT          | `docs/TECH_DEBT_AUDIT.md`                | Active debt triage, severity × effort                | Active                       |
 | REGISTRY           | `docs/SE_ARTIFACT_REGISTRY.md`           | Cross-repo SE artifact tracking                      | Active, self-tracked         |
@@ -88,7 +88,7 @@ P1 WANT (INBOX → EXTRACTION → AMBITION) → P2a SHOULD-BUILD-X? (SERIOUSNESS
 
 Altitudes vary; recursive strategist. `docs/appendix/p2b-mapping-appendix.md` (early SWE) and `p4-late-appendix.md` (late SWE) are opt-in, depth-gated — Light logs skip, Standard+ fills.
 
-Each step produces a `.md` artifact. RULES.md governs routing and phase transitions. STANDARDS.md enforces quality tiers (T1 mandatory, T2 recommended, T3 optional).
+Each step produces a `.md` artifact. steps/RULES.md governs routing and phase transitions. steps/STANDARDS.md enforces quality tiers (T1 mandatory, T2 recommended, T3 optional).
 
 ## Local-First CI
 
@@ -106,7 +106,7 @@ bash scripts/check.sh
 - `Development-Protocol-Local/` — local-only session data, no remote
 - `cli/` — Rust tooling, only modify via cargo workflow
 - `docs/adr/` — ADRs are append-only once accepted
-- Root `RULES.md`, `STANDARDS.md` — governance files, changes require ADR
+- Root `steps/RULES.md`, `steps/STANDARDS.md` — governance files, changes require ADR
 
 ## What NOT to Do
 

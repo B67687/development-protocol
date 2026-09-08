@@ -1,11 +1,12 @@
 # Credits
 
-Built with AI assistance, steered by human direction.
+This project was built collaboratively. I defined the vision, architecture, and
+strategic direction; AI systems contributed to implementation, research, and
+design discussions, with continuous back-and-forth that often shaped the final
+outcome in ways neither of us predicted alone.
 
-| Model / harness           | Role                                  |
-| ------------------------- | ------------------------------------- |
-| DeepSeek V4 Flash         | Research, drafting, routine execution |
-| Muse Spark (via OpenCode) | Orchestration, planning, verification |
-| Oh My OpenAgent (OMO)     | Agent skills and workflow harness     |
+## AI Contributions
 
-The human (B67687) sets direction, approves strategy, and owns quality control. The protocol itself was designed the same way — AI proposes, human disposes.
+| Phase            | Model                    | Harness         | Role                                                                  |
+| ---------------- | ------------------------ | --------------- | --------------------------------------------------------------------- |
+| Full development | DeepSeek V4 Flash (high) | Oh My OpenAgent | AI: implementation, research, & discussion · Human: oversight & goals |

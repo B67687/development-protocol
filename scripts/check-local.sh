@@ -17,7 +17,7 @@ echo ""
 
 # Gate 1: Markdown lint — critical files exist and are non-empty
 echo "--- Gate 1: Critical file presence ---"
-for f in README.md RULES.md STANDARDS.md SPECIFICATION.md docs/FEATURES.md docs/SE_ARTIFACT_REGISTRY.md docs/TECH_DEBT_AUDIT.md AGENTS.md; do
+for f in README.md steps/RULES.md steps/STANDARDS.md steps/SPECIFICATION.md docs/FEATURES.md docs/SE_ARTIFACT_REGISTRY.md docs/TECH_DEBT_AUDIT.md AGENTS.md; do
   if [[ -f "$REPO_ROOT/$f" ]] && [[ -s "$REPO_ROOT/$f" ]]; then
     pass "$f exists and non-empty"
   else

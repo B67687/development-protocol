@@ -356,7 +356,7 @@ fn cmd_init(
     let template = if template_path.exists() {
         fs::read_to_string(&template_path)?
     } else {
-        include_str!("../../RULES.md").to_string()
+        include_str!("../../steps/RULES.md").to_string()
     };
     let rendered = render_template(&template, &pname, &ptype, &lang, &scope_description);
 
