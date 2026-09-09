@@ -201,9 +201,9 @@ If the tree leads to an ambiguous result, the ambiguity is a gap — document it
 
 ---
 
-## Relationship to docs/standards/UNIVERSAL_AUTOMATION_STANDARDS.md
+## Relationship to UNIVERSAL_AUTOMATION_STANDARDS.md
 
-`docs/standards/UNIVERSAL_AUTOMATION_STANDARDS.md` covers **process automation** (CI gates, releases, quality enforcement).
+`UNIVERSAL_AUTOMATION_STANDARDS.md` covers **process automation** (CI gates, releases, quality enforcement).
 This file covers **design decisions** (architecture, modules, expressions).
 
 They are orthogonal and complementary:

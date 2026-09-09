@@ -61,26 +61,26 @@ proposed ──▶ approved ──▶ applied ──▶ archived
                               └── superseded (→ archived; successor F-###)
 ```
 
-| Status | Meaning | Ship? |
-| --- | --- | --- |
-| `proposed` | Intended, not yet ratified into V1 | No |
-| `approved` | In V1 scope or added via learning shift | No — needs `applied` |
-| `applied` | Implemented, tests anchored, spec-synced | Yes |
-| `archived` | Removed/superseded; entry kept for history | No |
+| Status     | Meaning                                    | Ship?                |
+| ---------- | ------------------------------------------ | -------------------- |
+| `proposed` | Intended, not yet ratified into V1         | No                   |
+| `approved` | In V1 scope or added via learning shift    | No — needs `applied` |
+| `applied`  | Implemented, tests anchored, spec-synced   | Yes                  |
+| `archived` | Removed/superseded; entry kept for history | No                   |
 
 **Behavior contract (per feature):**
 
-| Field | What it captures |
-| --- | --- |
-| Preconditions | What must be true before the feature's behavior is expected |
-| Postconditions | What is guaranteed after it runs |
-| Invariants | What never changes while it is in use |
-| Error cases | What happens when inputs/state violate the preconditions |
+| Field          | What it captures                                            |
+| -------------- | ----------------------------------------------------------- |
+| Preconditions  | What must be true before the feature's behavior is expected |
+| Postconditions | What is guaranteed after it runs                            |
+| Invariants     | What never changes while it is in use                       |
+| Error cases    | What happens when inputs/state violate the preconditions    |
 
 **Test anchoring (mandatory for `applied`):**
 
-| Test file / name | Covers |
-| --- | --- |
+| Test file / name      | Covers                                                |
+| --------------------- | ----------------------------------------------------- |
 | `{{path::test_name}}` | `{{postcondition / scenario / error case it proves}}` |
 
 > **Anti-rot rule:** A `proposed`/`approved` feature MAY omit the test anchoring table.
@@ -96,16 +96,15 @@ that feature. Feature entries reference tests in the Test Anchoring table (rever
 `Reviewed:` is older than cadence; block if older than 2× cadence; fail if an `applied`
 feature has zero linked tests or a test references an unknown `F-###`.
 
-> **LINK to worked example:** See [Ithmb-Codec/docs/FEATURES.md](../../../Ithmb-Codec/docs/FEATURES.md)
-> for a complete F-### inventory with 24 features, full behavior contracts, test anchoring
-> tables, and trace tags. Do not inline that content — the pattern, not the data.
+> **Worked example pattern:** a complete F-### inventory lists every feature with behavior contracts, test-anchoring
+> tables, and trace tags (as done for sibling projects). Do not inline that content — the pattern, not the data.
 
 **Local vs GitHub CI split:**
 
-| Scope | Runs where | What | Latency |
-| --- | --- | --- | --- |
-| **Local** | Pre-commit (before push) | clippy / tsc --noEmit / ruff / lint / unit tests / cargo-deny / gitleaks / check-i18n.mjs / check-wasm-drift.sh | < 2 min |
-| **GitHub** | CI matrix (per-PR or scheduled) | webkit / macOS / Windows matrix / fuzz (scheduled) / benchmarks (trend) / coverage upload | minutes |
+| Scope      | Runs where                      | What                                                                                                            | Latency |
+| ---------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------- |
+| **Local**  | Pre-commit (before push)        | clippy / tsc --noEmit / ruff / lint / unit tests / cargo-deny / gitleaks / check-i18n.mjs / check-wasm-drift.sh | < 2 min |
+| **GitHub** | CI matrix (per-PR or scheduled) | webkit / macOS / Windows matrix / fuzz (scheduled) / benchmarks (trend) / coverage upload                       | minutes |
 
 > **Source:** nami's local-first principle — fast feedback loop (< 2 min) catches 80% of
 > issues before they leave the machine. GitHub CI handles platform-specific and
@@ -204,12 +203,12 @@ are baseline quality gates that must pass before a spec is considered execution-
 Used by ../steps/REVIEW.md Phase 4. These supplement the universal review checklist when the
 project is engineering-deliverable.
 
-| # | Check | How to Verify |
-|---|-------|---------------|
-| 4.5 | CI config or local check script exists | Check for .github/workflows/, .gitlab-ci.yml, Jenkinsfile, etc., or run ./scripts/check.sh (this repo). All checks must pass. |
-| 4.6 | Standards audit passes | Run ./scripts/audit.sh from the Standards repo on this project. All checks must pass. |
+| #   | Check                                                                               | How to Verify                                                                                                                                               |
+| --- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 4.5 | CI config or local check script exists                                              | Check for .github/workflows/, .gitlab-ci.yml, Jenkinsfile, etc., or run ./scripts/check.sh (this repo). All checks must pass.                               |
+| 4.6 | Standards audit passes                                                              | Run ./scripts/audit.sh from the Standards repo on this project. All checks must pass.                                                                       |
 | 4.7 | FEATURES.md current? Every `applied` F-### has test anchor and status is `applied`? | `grep -c F-` tests/ + check docs/FEATURES.md exists. Every `applied` feature MUST have ≥1 anchored test. Stale `Reviewed:` dates beyond cadence are a FAIL. |
-| 4.8 | TECH_DEBT_AUDIT.md severity×effort triaged or explicitly empty | Check docs/TECH_DEBT_AUDIT.md exists and has severity×effort matrix. If no debt found, file must state that explicitly (not just missing). |
+| 4.8 | TECH_DEBT_AUDIT.md severity×effort triaged or explicitly empty                      | Check docs/TECH_DEBT_AUDIT.md exists and has severity×effort matrix. If no debt found, file must state that explicitly (not just missing).                  |
 
 ---
 
@@ -227,12 +226,12 @@ Type safety verification runs as a **pre-commit gate BEFORE implementation begin
 
 **Language-specific commands:**
 
-| Language | Command | Config reference |
-| --- | --- | --- |
-| Python | `basedpyright --pythonversion 3.12` | `pyproject.toml` → `[tool.basedpyright]` |
-| TypeScript | `tsc --noEmit` | `tsconfig.json` → `"strict": true` |
-| Rust | `cargo clippy -- -D warnings` | `.clippy.toml` |
-| Go | `go vet ./...` + `staticcheck ./...` | `go.mod` + `staticcheck.conf` |
+| Language   | Command                              | Config reference                         |
+| ---------- | ------------------------------------ | ---------------------------------------- |
+| Python     | `basedpyright --pythonversion 3.12`  | `pyproject.toml` → `[tool.basedpyright]` |
+| TypeScript | `tsc --noEmit`                       | `tsconfig.json` → `"strict": true`       |
+| Rust       | `cargo clippy -- -D warnings`        | `.clippy.toml`                           |
+| Go         | `go vet ./...` + `staticcheck ./...` | `go.mod` + `staticcheck.conf`            |
 
 **Enforcement rules:**
 
@@ -249,16 +248,18 @@ Type safety verification runs as a **pre-commit gate BEFORE implementation begin
 
 **Add to Polish Checklist:**
 
-| Category | What to check | Evidence level |
-| --- | --- | --- |
-| **Type safety** | basedpyright/tsc --strict/clippy/ruff passes on all source files | Mandatory |
-| **Test coverage** | coverage.py/c8 reports 80%+ statement coverage on new code | Mandatory |
+| Category          | What to check                                                    | Evidence level |
+| ----------------- | ---------------------------------------------------------------- | -------------- |
+| **Type safety**   | basedpyright/tsc --strict/clippy/ruff passes on all source files | Mandatory      |
+| **Test coverage** | coverage.py/c8 reports 80%+ statement coverage on new code       | Mandatory      |
 
 **Exit Criteria addition:**
+
 - [ ] Type check passes on all source files
 - [ ] Test coverage verified — coverage.py/c8 reports 80%+ on new code
 
 **Test generation workflow (TDD for software):**
+
 1. Write tests from ../steps/SPECIFICATION.md (not from implementation)
 2. Run tests — must fail (red phase)
 3. Implement code
@@ -266,7 +267,7 @@ Type safety verification runs as a **pre-commit gate BEFORE implementation begin
 5. Check coverage — 80%+ on new code
 6. Mutation testing — 80%+ mutation score
 
-See [TESTING.md](../TESTING.md) for full test infrastructure documentation.
+See [TESTING.md](TESTING.md) for full test infrastructure documentation.
 
 **When to skip:** Non-software projects.
 

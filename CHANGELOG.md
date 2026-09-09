@@ -11,6 +11,7 @@ All notable changes to the Development Protocol. Follows Keep a Changelog; versi
 - Dissent Log in `SERIOUSNESS.md` (D-IDs, Right/Wrong-call tracking, recalibration every 10 overrides); ratification carries the dissent line in `STRATEGY.md`.
 - Scope ceiling: ratified proposals state proposal + explicit exclusions + less-wins-ties; Exclusion Log in `KILL_LOG.md`; scope-fidelity check in `REVIEW.md` (unlisted scope = FAIL unless new cycle).
 - `docs/standards/README.md` and `docs/adr/README.md` indexes; `docs/archive/` for superseded material.
+- Stance table grounded in literature: per-dimension observable signals + 6-source cite line (novice reliance, sycophancy/assertiveness, forcing/NfC, face-preservation); Attachment + Stopping marked practitioner heuristics.
 
 ### Changed
 
@@ -21,6 +22,10 @@ All notable changes to the Development Protocol. Follows Keep a Changelog; versi
 ### Removed
 
 - `docs/SPEC_SYNC.md` stub (content long merged into `REVIEW.md` fidelity check).
+
+### Fixed
+
+- 20+ broken internal links: new `LICENSE` (MIT, ithmb text); `docs/PHILOSOPHY.md` repoints → `steps/QUICKSTART.md`; new `docs/STANDING_PRINCIPLES.md`; appendix/trace/test-signal/AGENTS/standards/traces path prefixes; removed `ledger-check.py` tree line (file never existed). Sweep-verified; scaffold-target, archive, `.omo`, and cross-repo refs intentionally untouched.
 
 ## [2026-09-09] — Public mirror synced
 

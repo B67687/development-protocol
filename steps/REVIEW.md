@@ -36,7 +36,7 @@
 
 ## EXPLAINER (Folded Step)
 
-The EXPLAINER step (formerly standalone, docs/EXPLAINER.md) now runs as the first action of REVIEW. Before running the fixed checklist, generate the project's EXPLAINER.md from the template in docs/EXPLAINER.md (Macro Architecture, Data Flow Walk, Module Breakdown, Key Decisions, Quality Guarantees — plus the Mandatory Check). Checks 1.5/1.6/3.1-3.4 below then verify it. The pipeline no longer has a separate EXPLAINER step; the artifact is produced here.
+The EXPLAINER step (formerly standalone, ../docs/EXPLAINER.md) now runs as the first action of REVIEW. Before running the fixed checklist, generate the project's EXPLAINER.md from the template in ../docs/EXPLAINER.md (Macro Architecture, Data Flow Walk, Module Breakdown, Key Decisions, Quality Guarantees — plus the Mandatory Check). Checks 1.5/1.6/3.1-3.4 below then verify it. The pipeline no longer has a separate EXPLAINER step; the artifact is produced here.
 
 ---
 
