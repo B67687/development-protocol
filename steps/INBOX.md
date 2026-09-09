@@ -10,13 +10,13 @@
 
 Before running INBOX, check whether the protocol fits the work at hand:
 
-| Question | If No, consider... |
-| --- | --- |
-| Is the problem worth the protocol's overhead (5+ hours)? | Skip protocol. Use a note + direct action. |
-| Is your problem framing clear enough to start? | Think/write freely first. Come back when clearer. |
-| Do you have the energy to follow a structured process? | Come back when you're fresh. A tired run wastes both time. |
-| Is the AI assistant available for this session? | The protocol assumes AI availability. Results degraded without it. |
-| Is this the right time to start a project? | Park in Someday/Maybe. The protocol creates commitment momentum. |
+| Question                                                 | If No, consider...                                                 |
+| -------------------------------------------------------- | ------------------------------------------------------------------ |
+| Is the problem worth the protocol's overhead (5+ hours)? | Skip protocol. Use a note + direct action.                         |
+| Is your problem framing clear enough to start?           | Think/write freely first. Come back when clearer.                  |
+| Do you have the energy to follow a structured process?   | Come back when you're fresh. A tired run wastes both time.         |
+| Is the AI assistant available for this session?          | The protocol assumes AI availability. Results degraded without it. |
+| Is this the right time to start a project?               | Park in Someday/Maybe. The protocol creates commitment momentum.   |
 
 If all 5 pass: proceed with INBOX. If 2+ fail: skip the protocol and do whatever fits the gap.
 
@@ -24,11 +24,11 @@ If all 5 pass: proceed with INBOX. If 2+ fail: skip the protocol and do whatever
 
 If the protocol fits, pick the run shape. Default when unsure: **Standard**.
 
-| Mode | Use when | Run shape |
-| --- | --- | --- |
-| **Light** | Small, well-scoped, reversible work (single fix, small script) | Simplified pass: capture → extraction-lite → implement → verify. Skip heavyweight steps (FUNDAMENTALS/AMBITION/LANDSCAPE/STRATEGY) unless a gate flags risk. **Verification floor never skipped**: review + targeted tests stay. One-way doors (schema/API/data/security) → Standard regardless of size. Escalate/re-triage if the work grows past its bounds.
-| **Standard** (default) | Everything else | The full pipeline as documented. |
-| **Brownfield** | Work in an existing project not built with the protocol | **Bounded reanchor pass first**: AI reads the repo, proposes a compressed goals/philosophy/point statement, user corrects/ratifies it, THEN EXTRACTION proceeds with the reanchored framing. Timeboxed — ends in the ratified statement, never open-ended.
+| Mode                   | Use when                                                       | Run shape                                                                                                                                                                                                                                                                                                                                                      |
+| ---------------------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Light**              | Small, well-scoped, reversible work (single fix, small script) | Simplified pass: capture → extraction-lite → implement → verify. Skip heavyweight steps (FUNDAMENTALS/AMBITION/LANDSCAPE/STRATEGY) unless a gate flags risk. **Verification floor never skipped**: review + targeted tests stay. One-way doors (schema/API/data/security) → Standard regardless of size. Escalate/re-triage if the work grows past its bounds. |
+| **Standard** (default) | Everything else                                                | The full pipeline as documented.                                                                                                                                                                                                                                                                                                                               |
+| **Brownfield**         | Work in an existing project not built with the protocol        | **Bounded reanchor pass first**: AI reads the repo, proposes a compressed goals/philosophy/point statement, user corrects/ratifies it, THEN EXTRACTION proceeds with the reanchored framing. Timeboxed — ends in the ratified statement, never open-ended.                                                                                                     |
 
 Run-Shape (front door) is orthogonal to DECOMPOSITION § Level of Care (per-leaf routing inside Standard runs). Log the chosen mode and any reanchor ratification to the method ledger.
 
@@ -164,6 +164,7 @@ The #1 cluster enters EXTRACTION. Everything else goes to Someday/Maybe.
 > framing — including ones the user did NOT raise.
 
 **The pass:**
+
 1. **Generate freely** — divergent, uncensored, no self-criticism. List every
    perspective on the cluster, every adjacent domain it might touch, every hidden
    connection to other parked clusters, every possible framing of the problem.
@@ -211,10 +212,10 @@ EXTRACTION         [->] IN PROGRESS
 
 > Every idea carries assumptions. Name them now; test them before you commit.
 
-| # | Assumption | Source | Confidence | Test ("How would we know if wrong?") | Status |
-|---|------------|--------|------------|--------------------------------------|--------|
-| A1 | _example: users want CLI over GUI_ | inferred | medium | Ask 3 users to choose: CLI vs GUI vs "neither" | active |
-| A2 | _example: CI time is the bottleneck_ | stated | low | Measure deploy frequency vs build time | active |
+| #   | Assumption                           | Source   | Confidence | Test ("How would we know if wrong?")           | Status |
+| --- | ------------------------------------ | -------- | ---------- | ---------------------------------------------- | ------ |
+| A1  | _example: users want CLI over GUI_   | inferred | medium     | Ask 3 users to choose: CLI vs GUI vs "neither" | active |
+| A2  | _example: CI time is the bottleneck_ | stated   | low        | Measure deploy frequency vs build time         | active |
 
 - **Source:** stated (user said it) / inferred (we concluded it) / assumed (we never checked)
 - **Confidence:** high / medium / low
@@ -222,11 +223,28 @@ EXTRACTION         [->] IN PROGRESS
 - **Status:** active → confirmed / invalidated / deferred
 
 Seed with assumptions surfaced in Phases 1–5. Carry forward:
+
 - **EXTRACTION** reconciles stated vs revealed vs tacit (Preference Layer Analysis) against this ledger.
 - **SERIOUSNESS** scoring is anchored by the ledger's confidence column — low-confidence assumptions lower Know/Matters scores.
 - **FUNDAMENTALS** validates one-way doors (L60–100) using the ledger as its input list.
 
 **Rule:** every assumption gets a Test. No test = not an assumption, it's a blind spot.
+
+## Stance Read (who am I working with?)
+
+> The protocol adapts to the human, not just the project. Read stance from language before choosing depth.
+
+| Dimension                      | Low signal                  | High signal                             | Handling                                                                                                                                        |
+| ------------------------------ | --------------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Knowledge (novice→expert)      | asks basics, vague terms    | precise terms, cites tradeoffs          | expert + well-formed plan → thin verification pass, not full funnel                                                                             |
+| Assertiveness (defers→insists) | "you decide", revises fast  | "just do X", reverts edits              | insistence against evidence → dissent log, owner's risk                                                                                         |
+| Attachment (exploring→locked)  | "what should this be?"      | "I already decided"                     | locked → P2b still runs, framed as validation not choice                                                                                        |
+| Patience (sprint→deliberative) | "quick", "today", "MVP"     | "thorough", "get it right"              | sprint → Light; deliberative → full                                                                                                             |
+| Reflectiveness (guarded→open)  | one-liners, deflects probes | volunteers constraints, admits unknowns | guarded → accept + verify later; open → probe now                                                                                               |
+| Stopping (ships→perfects)      | "good enough"               | "one more thing" loop                   | perfects → explicit done-criteria at STRATEGY, no open loops                                                                                    |
+| Gravity (playful→grave)        | "just messing around"       | "this is my thesis/business"            | playful → vibe mode: no kill-gates, thin everything; ONE tripwire — if the project starts looking serious mid-flight, say so once, user decides |
+
+**Rule:** stance is read, never interrogated. No personality quiz — infer from the dump, note it, move on. Re-read at STRATEGY: people change mid-run.
 
 ## Strategic Alignment Check
 
@@ -240,12 +258,12 @@ or "it directly delivers value toward goal Y" (this is execution).
 
 The answer informs the rest of the protocol:
 
-| Answer | Implication |
-| --- | --- |
-| **Directly delivers** toward long-term goal | Full protocol — this is a priority project |
-| **Builds capability** I'll need later | PRODUCTION QUALITY requirements should match future need, not just current scope |
-| **Exploration** — learning what I need | Use DISCOVER-FIRST route; lighter SPEC; accepting failure as outcome |
-| **Unsure** — I don't know where this fits | This is a signal to spend more time on self-strategy before committing |
+| Answer                                      | Implication                                                                      |
+| ------------------------------------------- | -------------------------------------------------------------------------------- |
+| **Directly delivers** toward long-term goal | Full protocol — this is a priority project                                       |
+| **Builds capability** I'll need later       | PRODUCTION QUALITY requirements should match future need, not just current scope |
+| **Exploration** — learning what I need      | Use DISCOVER-FIRST route; lighter SPEC; accepting failure as outcome             |
+| **Unsure** — I don't know where this fits   | This is a signal to spend more time on self-strategy before committing           |
 
 This step solves a gap identified by the Foundation Audit: the protocol
 previously had no concept of multi-project trajectory or strategic patience.

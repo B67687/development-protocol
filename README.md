@@ -15,10 +15,11 @@
 <a href="./docs/CREDITS.md"><img src="https://cdn.jsdelivr.net/gh/B67687/Development-Protocol@main/docs/badges/deepseek.svg" alt="DeepSeek"></a>
 <a href="./docs/CREDITS.md"><img src="https://cdn.jsdelivr.net/gh/B67687/Development-Protocol@main/docs/badges/opencode.svg" alt="OpenCode"></a>
 <a href="./docs/CREDITS.md"><img src="https://cdn.jsdelivr.net/gh/B67687/Development-Protocol@main/docs/badges/omo.svg" alt="Oh My OpenAgent"></a>
+
 <br>
 
 </div>
-
+<br>
 For builders and coding agents who run AI loops and want fewer reworks. Not for one-off prompts or code generation without review.
 
 **In 15 seconds:** you ask `add dark mode`. The agent runs 4 checks: 1. understand what you actually want, 2. check whether it is worth building, 3. pick the best approach, 4. plan then execute. A full run with real decisions: [colour-blind trace](docs/traces/colour-blind-85-100.md) (mistakes kept in).
@@ -36,16 +37,16 @@ A person approves the strategy once, then the agent builds with checks along the
 
 ## Try it in 5 steps
 
-1. Brain dump into `INBOX.md`, then group similar thoughts and pick one to pursue.
-2. Run `EXTRACTION.md` on it: state the real problem in one sentence, separate from your first solution idea.
-3. Run `SERIOUSNESS.md`: score commitment honestly. Exit is COMMIT, SCHEDULE, or DROP. Only a COMMIT continues.
-4. Run `DECOMPOSITION.md`, `AMBITION.md`, then `LANDSCAPE.md`. End with a written choice of which version to build, then get human approval in `STRATEGY.md`.
-5. Prototype in `VALIDATION.md`, lock the plan in `SPECIFICATION.md`, build via `EXECUTOR.md`, then verify with `REVIEW.md` and `REFLECT.md`.
+1. Brain dump into `steps/INBOX.md`, then group similar thoughts and pick one to pursue.
+2. Run `steps/EXTRACTION.md` on it: state the real problem in one sentence, separate from your first solution idea.
+3. Run `steps/SERIOUSNESS.md`: score commitment honestly. Exit is COMMIT, SCHEDULE, or DROP. Only a COMMIT continues.
+4. Run `steps/DECOMPOSITION.md`, `steps/AMBITION.md`, then `steps/LANDSCAPE.md`. End with a written choice of which version to build, then get human approval in `steps/STRATEGY.md`.
+5. Prototype in `steps/VALIDATION.md`, lock the plan in `steps/SPECIFICATION.md`, build via `steps/EXECUTOR.md`, then verify with `steps/REVIEW.md` and `steps/REFLECT.md`.
 
 Each step file states its entry condition, so you can also run steps standalone without starting from the top.
 
 > [!TIP]
-> Start with `INBOX.md` even if you think you know the problem. The one-sentence extraction in step 2 often changes what you build in step 4.
+> Start with `steps/INBOX.md` even if you think you know the problem. The one-sentence extraction in step 2 often changes what you build in step 4.
 
 ## Proof: two real runs
 
@@ -76,13 +77,13 @@ If the diagram feels detailed, follow the bold line above and open the interacti
 <details>
 <summary><strong>Contents by phase</strong> — which file to open for your current stage</summary>
 
-- **Want:** `INBOX.md`, `PRIORITIZE.md`, `EXTRACTION.md` — capture and clarify.
-- **Should-build:** `SERIOUSNESS.md`, `FUNDAMENTALS.md` — now, later, or never.
-- **Which-version + plan:** `DECOMPOSITION.md`, `AMBITION.md`, `LANDSCAPE.md`, `STRATEGY.md`.
-- **Execute:** `VALIDATION.md`, `SPECIFICATION.md`, `EXECUTOR.md`, `REVIEW.md`, `REFLECT.md`.
-- **Rules:** `RULES.md`, `STANDARDS.md`, `docs/QUALITY_BAR.md`, `docs/SKIP_CATALOG.md`, `docs/METHOD_LEDGER.md`.
+- **Want:** `steps/INBOX.md`, `steps/PRIORITIZE.md`, `steps/EXTRACTION.md` — capture and clarify.
+- **Should-build:** `steps/SERIOUSNESS.md`, `steps/FUNDAMENTALS.md` — now, later, or never.
+- **Which-version + plan:** `steps/DECOMPOSITION.md`, `steps/AMBITION.md`, `steps/LANDSCAPE.md`, `steps/STRATEGY.md`.
+- **Execute:** `steps/VALIDATION.md`, `steps/SPECIFICATION.md`, `steps/EXECUTOR.md`, `steps/REVIEW.md`, `steps/REFLECT.md`.
+- **Rules:** `steps/RULES.md`, `steps/STANDARDS.md`, `docs/QUALITY_BAR.md`, `docs/SKIP_CATALOG.md`, `docs/METHOD_LEDGER.md`.
 
-Step docs are the single source of truth for entry/exit criteria; see also `RULES.md`.
+Step docs are the single source of truth for entry/exit criteria; see also `steps/RULES.md`.
 
 </details>
 ## Composability

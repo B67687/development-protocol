@@ -10,12 +10,12 @@ ok()   { echo "  ok: $1"; }
 
 # 1. Phase compliance — mirrors the phase check in template/ci.yml.tmpl. Accepts both the
 #    template form (`**Current:** \`PHASE\``) and the bootstrapped form (`> **Current: PHASE**`).
-if ! grep -Eq '^>? ?\*\*Current:(\*\*)? ?\`?(DISCOVER|WORK|ITERATE|PERFECT|DISTRIBUTE)\`?(\*\*)?' RULES.md; then
-  fail "RULES.md phase not set (expected '**Current:** \`PHASE\`')."
+if ! grep -Eq '^>? ?\*\*Current:(\*\*)? ?\`?(DISCOVER|WORK|ITERATE|PERFECT|DISTRIBUTE)\`?(\*\*)?' steps/RULES.md; then
+  fail "steps/RULES.md phase not set (expected '**Current:** \`PHASE\`')."
 fi
-ok "RULES.md phase set"
+ok "steps/RULES.md phase set"
 
-# 2. CLI contract — the cli crate greps RULES.md for these headings at runtime
+# 2. CLI contract — the cli crate greps steps/RULES.md for these headings at runtime
 #    (cli/src/main.rs ~601-628). Mirror has_heading: level-2 `## ` heading,
 #    optional "N. " number prefix, substring match.
 headings=(
@@ -28,11 +28,11 @@ headings=(
   'Test Philosophy'
 )
 for h in "${headings[@]}"; do
-  if ! grep -Eq '^## [^#]*('"$h"')' RULES.md; then
-    fail "RULES.md missing heading: $h"
+  if ! grep -Eq '^## [^#]*('"$h"')' steps/RULES.md; then
+    fail "steps/RULES.md missing heading: $h"
   fi
 done
-ok "RULES.md CLI-contract headings present"
+ok "steps/RULES.md CLI-contract headings present"
 
 # 3. cli crate: build + tests.
 (cd cli && cargo check --quiet) || fail "cargo check failed in cli/"

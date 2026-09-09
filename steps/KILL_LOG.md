@@ -44,6 +44,16 @@ After **10+ kill decisions**:
 
 Review at REFLECT Q8 "Kill-Gate Calibration" and update SERIOUSNESS thresholds if needed.
 
+## Dissent Log (human-over-AI overrides)
+
+| ID    | Date      | Gate said | Human said    | Who decided         | 30-day check               | Outcome |
+| ----- | --------- | --------- | ------------- | ------------------- | -------------------------- | ------- |
+| D-001 | _example_ | DROP      | COMMIT anyway | human, owner's risk | did it ship? at what cost? | Pending |
+
+- **Outcome:** `Right-call` (human beat the gate), `Wrong-call` (gate was right), `Pending` (not yet checked).
+- After 10+ overrides: humans beat the gate >50% → gate miscalibrated for this user — loosen thresholds or route thinner. Gate beats humans >80% → show them the score; earned authority beats asserted process.
+- Read at REFLECT Q8 alongside kill calibration.
+
 ## Integration
 
 - Written by: SERIOUSNESS.md (DROP) and VALIDATION.md (spike KILL / Preference Kill)

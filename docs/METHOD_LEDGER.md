@@ -41,7 +41,7 @@ unsafe: the trauma data shows 16% false checks).
 5. **Skips expire** (NASA waiver time-limit) — a skip valid for problem A never propagates silently to problem B. Re-justify or remediate.
 6. **Skipping must be structurally harder than applying** — if justification effort > execution effort, the honest equilibrium favors applying.
 
-7. **Dialogue-gated methods log BOTH halves** — where a method requires a user ratification (What-Matters Check in PRIORITIZE.md, Sufficiency Checkpoint in VALIDATION.md), the AI proposal AND the user's answer are both logged. Missing ratification entry = omitted state = red flag at REVIEW.
+7. **Dialogue-gated methods log BOTH halves** — where a method requires a user ratification (What-Matters Check in ../steps/PRIORITIZE.md, Sufficiency Checkpoint in ../steps/VALIDATION.md), the AI proposal AND the user's answer are both logged. Missing ratification entry = omitted state = red flag at REVIEW.
 
 8. **Insertion discipline** — when editing protocol step files, verify insert anchors by reading the region after EVERY edit batch (hashline anchors drift; an insert can clobber an adjacent block). A `cargo check`/grep pass after each batch is the mechanical guard.
 
@@ -84,7 +84,7 @@ At each REVIEW meta-gate, the ledger is machine-checked:
 ## Integration
 
 The ledger is referenced by:
-- **REVIEW.md** — conformance check at the meta-gate
+- **../steps/REVIEW.md** — conformance check at the meta-gate
 - **README.md** — listed as a standing artifact
 - **Every technique-documenting file** — each gains a compact numbered manifest
   (manifest-first, per AGENTIF: >6000 words is an instruction-following failure)

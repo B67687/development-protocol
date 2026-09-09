@@ -76,6 +76,8 @@ The human **edits the proposal** rather than accepting/rejecting wholesale.
 
 > **Bias check (load `BIAS_CATALOG.md` §IKEA Effect):** Before ratifying, ask — "Would I still choose this if someone else proposed it?" If the answer hesitates, the attachment is to authorship, not strategy.
 
+> **Dissent (log overrides):** Rule 7 gives the human final say — when they exercise it against the proposal, log agent position vs human position + who decided in `KILL_LOG.md` § Dissent Log, with a 30-day check. Overrides are calibration data, not failures.
+
 ### Phase 4 — Execution & Review Gates
 
 Two gates bookend execution:

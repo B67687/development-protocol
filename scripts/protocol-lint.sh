@@ -17,11 +17,11 @@
 # Rules:
 #   1. METHOD_LEDGER  — docs/METHOD_LEDGER.md exists, schema fields documented,
 #                       Light vs Standard mode distinction present
-#   2. KILL_LOG       — KILL_LOG.md table has 8 cols, valid outcome, counterfactual
+#   2. KILL_LOG       — steps/KILL_LOG.md table has 8 cols, valid outcome, counterfactual
 #                       contains 30-day/reminder token
 #   3. SERIOUSNESS    — Decision Journal table with valid fields, scores 0-120,
 #                       classes in valid set
-#   4. SPEC_RTM       — SPECIFICATION.md §1.5 traceability matrix exists with
+#   4. SPEC_RTM       — steps/SPECIFICATION.md §1.5 traceability matrix exists with
 #                       required columns and ≥1 data row
 #   5. BIAS_CATALOG   — 8 biases, each with detection prompt in quoted block
 #   6. QUICKSTART     — ≤200 lines, 6 required sections present
@@ -115,7 +115,7 @@ echo ""
 # ─── Rule 2: KILL_LOG ───────────────────────────────────────────────────────
 echo "Rule 2: KILL_LOG table structure"
 
-KILL_LOG="KILL_LOG.md"
+KILL_LOG="steps/KILL_LOG.md"
 if [[ ! -f "$KILL_LOG" ]]; then
     fail "R2-FILE" "$KILL_LOG does not exist"
 else
@@ -197,7 +197,7 @@ echo ""
 # ─── Rule 3: SERIOUSNESS Decision Journal ───────────────────────────────────
 echo "Rule 3: SERIOUSNESS Decision Journal"
 
-SERIOUSNESS="SERIOUSNESS.md"
+SERIOUSNESS="steps/SERIOUSNESS.md"
 if [[ ! -f "$SERIOUSNESS" ]]; then
     fail "R3-FILE" "$SERIOUSNESS does not exist"
 else
@@ -266,7 +266,7 @@ echo ""
 # ─── Rule 4: SPECIFICATION §1.5 RTM ────────────────────────────────────────
 echo "Rule 4: SPECIFICATION §1.5 Traceability Matrix"
 
-SPEC="SPECIFICATION.md"
+SPEC="steps/SPECIFICATION.md"
 if [[ ! -f "$SPEC" ]]; then
     fail "R4-FILE" "$SPEC does not exist"
 else
@@ -309,7 +309,7 @@ echo ""
 # ─── Rule 5: BIAS_CATALOG ──────────────────────────────────────────────────
 echo "Rule 5: BIAS_CATALOG completeness"
 
-BIAS="BIAS_CATALOG.md"
+BIAS="steps/BIAS_CATALOG.md"
 if [[ ! -f "$BIAS" ]]; then
     fail "R5-FILE" "$BIAS does not exist"
 else
@@ -359,7 +359,7 @@ echo ""
 # ─── Rule 6: QUICKSTART ────────────────────────────────────────────────────
 echo "Rule 6: QUICKSTART structure and length"
 
-QS="QUICKSTART.md"
+QS="steps/QUICKSTART.md"
 if [[ ! -f "$QS" ]]; then
     fail "R6-FILE" "$QS does not exist"
 else
@@ -392,7 +392,7 @@ PHASES=(DECOMPOSITION LANDSCAPE STRATEGY VALIDATION REVIEW)
 r7_missing=()
 
 for phase in "${PHASES[@]}"; do
-    doc="${phase}.md"
+    doc="steps/${phase}.md"
     if [[ ! -f "$doc" ]]; then
         r7_missing+=("$doc — file not found")
     elif ! grep -qi 'skip condition' "$doc"; then

@@ -1,23 +1,34 @@
-# Git-accept: ignore everything by default; only whitelisted paths are trackable.
-# See scripts/check.sh + REVIEW.md 4.5 for the local check contract.
+# Standard gitignore: track everything by default; only build artifacts,
+# See scripts/check.sh + steps/REVIEW.md 4.5 for the local check contract.
+// Anything private lives in the Development-Protocol-Local/ sibling folder
+// (never inside this repo).
 
-*
-!*/
-!.gitignore
-
-# Whitelist the tracked corpus
-!/*.md
-!/.github/**
-!/prototype/**
-!/fixtures/**
-!/cli/**
-!/docs/**
-!/scripts/**
-!/template/**
-
-# But ignore caches inside whitelisted trees
-prototype/**/__pycache__/
-fixtures/__pycache__/
-
-# .omo/ is its own nested git repo — never part of the parent tree
+# Local-only nested state (own git repo, never part of this tree)
 /.omo/
+
+# Rust (cli/)
+cli/target/
+**/*.rs.bk
+
+# Python (prototype/, fixtures/)
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Secrets / environment
+.env
+.env.*
+*.pem
+*.key
+
+# OS / editor droppings
+.DS_Store
+Thumbs.db
+*.swp
+*~

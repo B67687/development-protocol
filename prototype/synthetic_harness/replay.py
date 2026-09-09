@@ -12,7 +12,7 @@ CSV format:
   OldThing,"I want to build Y",failed
   DeadProject,"I want to build Z",killed
 
-RCF base rates (from SERIOUSNESS.md):
+RCF base rates (from ../../steps/SERIOUSNESS.md):
   personal_tool: 0.70
   oss_library: 0.40
   production_service: 0.30

@@ -3,10 +3,10 @@
 **STATUS:** Accepted (July 2026)
 
 ## Context
-The Development Protocol needed to handle the full lifecycle from raw intention to shipped product. The original protocol only covered execution (RULES.md phases). The gap was the upstream phase — clarifying intent, researching, validating assumptions, and specifying before building.
+The Development Protocol needed to handle the full lifecycle from raw intention to shipped product. The original protocol only covered execution (../../steps/RULES.md phases). The gap was the upstream phase — clarifying intent, researching, validating assumptions, and specifying before building.
 
 ## Decision
-We decided for a **two-stage pipeline** with a PREP PHASE (pre-protocol) and an EXECUTION PHASE (RULES.md-governed), connected by a central prototyping gate.
+We decided for a **two-stage pipeline** with a PREP PHASE (pre-protocol) and an EXECUTION PHASE (../../steps/RULES.md-governed), connected by a central prototyping gate.
 
 ## Consequences
 **Positive:** Clear separation of concerns — prep is divergent/human-driven (find the right thing to build), execution is convergent/AI-driven (build it right).
