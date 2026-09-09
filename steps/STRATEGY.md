@@ -78,6 +78,8 @@ The human **edits the proposal** rather than accepting/rejecting wholesale.
 
 > **Dissent (log overrides):** Rule 7 gives the human final say — when they exercise it against the proposal, log agent position vs human position + who decided in `KILL_LOG.md` § Dissent Log, with a 30-day check. Overrides are calibration data, not failures.
 
+> **Scope ceiling (less wins ties):** the ratified proposal must state what it deliberately EXCLUDES — the X-list. Every excluded item goes to `KILL_LOG.md` § Exclusion Log with its why. When two scopes both satisfy intent, ratify the smaller one: over-building compounds into future liability, under-building is cheap to extend later.
+
 ### Phase 4 — Execution & Review Gates
 
 Two gates bookend execution:

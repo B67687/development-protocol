@@ -54,6 +54,15 @@ Review at REFLECT Q8 "Kill-Gate Calibration" and update SERIOUSNESS thresholds i
 - After 10+ overrides: humans beat the gate >50% → gate miscalibrated for this user — loosen thresholds or route thinner. Gate beats humans >80% → show them the score; earned authority beats asserted process.
 - Read at REFLECT Q8 alongside kill calibration.
 
+## Exclusion Log (deliberately-scoped-out items)
+
+| ID    | Date      | Excluded           | Why (one line)                        | Parked where |
+| ----- | --------- | ------------------ | ------------------------------------- | ------------ |
+| X-001 | _example_ | Multi-repo fan-out | Liability exceeds this cycle's intent | Backlog      |
+
+- Lighter than kills/dissents: no 30-day check. Exclusions are reversible by design — the log exists so 'less' never silently becomes 'forgotten'.
+- Written by: STRATEGY.md § Scope ceiling. Revisit an X-item only via a new cycle, never mid-execution.
+
 ## Integration
 
 - Written by: SERIOUSNESS.md (DROP) and VALIDATION.md (spike KILL / Preference Kill)

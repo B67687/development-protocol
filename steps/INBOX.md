@@ -6,6 +6,8 @@
 >
 > **Without this step:** The loudest thought wins by default, or the protocol forces a single Y too early, and other ideas resurface as distractions mid-protocol.
 
+> **Raw pass first.** Before any category below engages, handle the user's words once with no framework: read them raw, respond to what's actually there, note what surfaces. The protocol's categories are strong priors — strong enough to blind. A free pass catches what the rigid path would miss; then run the protocol on what's heard.
+
 ## Protocol Suitability Check (30 sec)
 
 Before running INBOX, check whether the protocol fits the work at hand:
@@ -234,17 +236,19 @@ Seed with assumptions surfaced in Phases 1–5. Carry forward:
 
 > The protocol adapts to the human, not just the project. Read stance from language before choosing depth.
 
-| Dimension                      | Low signal                  | High signal                             | Handling                                                                                                                                        |
-| ------------------------------ | --------------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| Knowledge (novice→expert)      | asks basics, vague terms    | precise terms, cites tradeoffs          | expert + well-formed plan → thin verification pass, not full funnel                                                                             |
-| Assertiveness (defers→insists) | "you decide", revises fast  | "just do X", reverts edits              | insistence against evidence → dissent log, owner's risk                                                                                         |
-| Attachment (exploring→locked)  | "what should this be?"      | "I already decided"                     | locked → P2b still runs, framed as validation not choice                                                                                        |
-| Patience (sprint→deliberative) | "quick", "today", "MVP"     | "thorough", "get it right"              | sprint → Light; deliberative → full                                                                                                             |
-| Reflectiveness (guarded→open)  | one-liners, deflects probes | volunteers constraints, admits unknowns | guarded → accept + verify later; open → probe now                                                                                               |
-| Stopping (ships→perfects)      | "good enough"               | "one more thing" loop                   | perfects → explicit done-criteria at STRATEGY, no open loops                                                                                    |
-| Gravity (playful→grave)        | "just messing around"       | "this is my thesis/business"            | playful → vibe mode: no kill-gates, thin everything; ONE tripwire — if the project starts looking serious mid-flight, say so once, user decides |
+| Dimension                      | Low signal                     | High signal                 | Handling                                                     |
+| ------------------------------ | ------------------------------ | --------------------------- | ------------------------------------------------------------ |
+|                                | Knowledge (novice→expert)      | asks basics, vague terms    | precise terms, cites tradeoffs                               | leads with specifics → thin verification pass; led-by + vague → full funnel + extra verification (novices over-rely and cannot self-verify — arXiv:2505.08063)                                                                                                                                                                        |
+|                                | Assertiveness (defers→insists) | "you decide", revises fast  | "just do X", reverts edits                                   | confident + detailed-but-unverified = highest-risk flag (such rebuttals persuade even when wrong — Kim & Khashabi EMNLP25; authority tone triggers most regressive sycophancy — SycEval); insistence against evidence → dissent log, owner's risk                                                                                     |
+| Attachment (exploring→locked)  | "what should this be?"         | "I already decided"         | locked → P2b still runs, framed as validation not choice     |
+| Patience (sprint→deliberative) | "quick", "today", "MVP"        | "thorough", "get it right"  | sprint → Light; deliberative → full                          |
+|                                | Reflectiveness (guarded→open)  | one-liners, deflects probes | volunteers constraints, admits unknowns                      | guarded → accept + verify later (models avoid challenging users, +45pp face-preservation — ELEPHANT); open → probe now                                                                                                                                                                                                                |
+| Stopping (ships→perfects)      | "good enough"                  | "one more thing" loop       | perfects → explicit done-criteria at STRATEGY, no open loops |
+|                                | Gravity (playful→grave)        | "just messing around"       | "this is my thesis/business"                                 | playful → vibe mode: no kill-gates, thin everything; ONE tripwire — if the project starts looking serious mid-flight, say so once, user decides; calibrate friction to effort-appetite — full forcing only if the user engages (forcing backfires on low-NfC users — Buçinca 2021; partial explanations as middle path — Monash 2025) |
 
 **Rule:** stance is read, never interrogated. No personality quiz — infer from the dump, note it, move on. Re-read at STRATEGY: people change mid-run.
+
+**Stance-table sources:** novice reliance arXiv:2505.08063 · assertiveness/sycophancy Kim & Khashabi EMNLP25, SycEval AAAI26, shared-circuit arXiv:2604.19117 · forcing Buçinca 2021 (reduces over-reliance, needs NfC), Stanford 2023 (forcing also cuts correct reliance — keep dissent cheap), partial explanations Monash 2025 · face-preservation ELEPHANT 2025. Attachment/Stopping rows are practitioner heuristics, no direct literature found.
 
 ## Strategic Alignment Check
 
