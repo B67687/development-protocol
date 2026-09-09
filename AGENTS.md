@@ -4,7 +4,7 @@
 
 ## Overview
 
-Protocol-of-protocols (PoP) — recursive strategist across the full means-ends chain, specialized to accomplishment. Four altitudes (docs/PHILOSOPHY.md): P1 WANT incl. tacit (3-layer extraction) → P2 SHOULD_WANT two-bar [P2a SHOULD-BUILD-X? DROP/COMMIT via SERIOUSNESS → P2b WHICH-X? same/scaled/adjacent/more via LANDSCAPE] → P3 BEST_PLAN (decomposition/strategy/landscape/failure/fundamentals) → P4 EXECUTE (spec/executor/validation/review/reflect/prioritize). Two gates enforce order; appendixes translate PoP decisions to SE artifacts.
+Protocol-of-protocols (PoP) — recursive strategist across the full means-ends chain, specialized to accomplishment. Four altitudes (steps/QUICKSTART.md): P1 WANT incl. tacit (3-layer extraction) → P2 SHOULD_WANT two-bar [P2a SHOULD-BUILD-X? DROP/COMMIT via SERIOUSNESS → P2b WHICH-X? same/scaled/adjacent/more via LANDSCAPE] → P3 BEST_PLAN (decomposition/strategy/landscape/failure/fundamentals) → P4 EXECUTE (spec/executor/validation/review/reflect/prioritize). Two gates enforce order; appendixes translate PoP decisions to SE artifacts.
 
 Part of a trio: this (process), Standards (what good means), Lessons (cross-project knowledge).
 
@@ -63,7 +63,6 @@ Development-Protocol/
 ├── scripts/
 │   ├── check.sh                       # CI gate: steps/RULES.md phases + CLI contract + cargo
 │   ├── check-local.sh                 # Local gates: markdown lint + ADR + registry + .omo leak
-│   └── ledger-check.py                # Ledger validation
 ├── cli/                               # Rust CLI tooling (cargo check/test)
 ├── template/                          # Protocol templates
 └── .omo/                              # Agent workspace (NEVER commit)
@@ -74,7 +73,7 @@ Development-Protocol/
 | Artifact           | File                                     | Purpose                                              | Status                       |
 | ------------------ | ---------------------------------------- | ---------------------------------------------------- | ---------------------------- |
 | FEATURES           | `docs/FEATURES.md`                       | F-### feature registry with lifecycle states         | Active, 8 entries            |
-| SPECIFICATION      | `steps/SPECIFICATION.md`                       | Three-layer model (MACRO/MESO/MICRO)                 | Active, 586L (see TECH_DEBT) |
+| SPECIFICATION      | `steps/SPECIFICATION.md`                 | Three-layer model (MACRO/MESO/MICRO)                 | Active, 586L (see TECH_DEBT) |
 | ARCHITECTURE       | `docs/adr/`                              | Architecture Decision Records (3 ADRs)               | Active                       |
 | TECH_DEBT          | `docs/TECH_DEBT_AUDIT.md`                | Active debt triage, severity × effort                | Active                       |
 | REGISTRY           | `docs/SE_ARTIFACT_REGISTRY.md`           | Cross-repo SE artifact tracking                      | Active, self-tracked         |
@@ -86,7 +85,7 @@ Development-Protocol/
 
 P1 WANT (INBOX → EXTRACTION → AMBITION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE Bar 2: same/scaled/adjacent/more + appendix mapping) → P3 BEST_PLAN (DECOMPOSITION → STRATEGY → FAILURE_CAPTURE → FUNDAMENTALS) → P4 EXECUTE (SPECIFICATION RTM §1.5 + EXECUTOR → VALIDATION → REVIEW 4 loops + Gate 2.6 → REFLECT Q8 → PRIORITIZE → KILL_LOG retro).
 
-Altitudes vary; recursive strategist. `docs/appendix/p2b-mapping-appendix.md` (early SWE) and `p4-late-appendix.md` (late SWE) are opt-in, depth-gated — Light logs skip, Standard+ fills.
+Altitudes vary; recursive strategist. `docs/appendix/p2b-mapping-appendix.md` (early SWE) and `docs/appendix/p4-late-appendix.md` (late SWE) are opt-in, depth-gated — Light logs skip, Standard+ fills.
 
 Each step produces a `.md` artifact. steps/RULES.md governs routing and phase transitions. steps/STANDARDS.md enforces quality tiers (T1 mandatory, T2 recommended, T3 optional).
 

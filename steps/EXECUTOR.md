@@ -238,7 +238,7 @@ Created for the Development Protocol v2.1 PREP PHASE (July 2026). Bridges static
 
 ## Production Quality Requirements
 
-> *Engineering-specific production quality requirements moved to [Engineering Plugin](docs/engineering-plugin.md#3-production-quality-requirements).*
+> *Engineering-specific production quality requirements moved to [Engineering Plugin](../docs/engineering-plugin.md#3-production-quality-requirements).*
 
 For Tier 2+ projects (runtime, CLI, library, or performance-sensitive), consult the Engineering Plugin: fuzz targets, benchmarks, snapshot testing, CI matrix, test ratio, security audit. These gates must pass before a spec is execution-ready for engineering deliverables.
 

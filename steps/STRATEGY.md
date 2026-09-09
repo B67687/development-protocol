@@ -76,6 +76,10 @@ The human **edits the proposal** rather than accepting/rejecting wholesale.
 
 > **Bias check (load `BIAS_CATALOG.md` §IKEA Effect):** Before ratifying, ask — "Would I still choose this if someone else proposed it?" If the answer hesitates, the attachment is to authorship, not strategy.
 
+> **Dissent (log overrides):** Rule 7 gives the human final say — when they exercise it against the proposal, log agent position vs human position + who decided in `KILL_LOG.md` § Dissent Log, with a 30-day check. Overrides are calibration data, not failures.
+
+> **Scope ceiling (less wins ties):** the ratified proposal must state what it deliberately EXCLUDES — the X-list. Every excluded item goes to `KILL_LOG.md` § Exclusion Log with its why. When two scopes both satisfy intent, ratify the smaller one: over-building compounds into future liability, under-building is cheap to extend later.
+
 ### Phase 4 — Execution & Review Gates
 
 Two gates bookend execution:
@@ -154,7 +158,7 @@ STRATEGY           [✓] COMPLETE
 INBOX → PRIORITIZE → EXTRACTION → SERIOUSNESS → FUNDAMENTALS (incl. MULTI) → DECOMPOSITION → AMBITION (incl. PACING) → LANDSCAPE → [STRATEGY] → VALIDATION → SPECIFICATION → EXECUTOR → REVIEW (incl. EXPLAINER + SPEC_SYNC) → REFLECT → ship
 ```
 
-STRATEGY consumes: AMBITION's locked ambition + LANDSCAPE's research map + P2b WHICH-X? decision (same / scaled / adjacent / more-than-X) — the chosen variant's scope is the strategy's subject. Without a logged WHICH-X (or explicit P2b skip rationale), STRATEGY is blocked. Ready means the capability has a signal type per `docs/appendix/p2b-mapping-appendix.md` §3 → `docs/appendix/p4-late-appendix.md` stencil; if Light, log why late P4 skipped.
+STRATEGY consumes: AMBITION's locked ambition + LANDSCAPE's research map + P2b WHICH-X? decision (same / scaled / adjacent / more-than-X) — the chosen variant's scope is the strategy's subject. Without a logged WHICH-X (or explicit P2b skip rationale), STRATEGY is blocked. Ready means the capability has a signal type per `../docs/appendix/p2b-mapping-appendix.md` §3 → `../docs/appendix/p4-late-appendix.md` stencil; if Light, log why late P4 skipped.
 STRATEGY produces: the ratified strategic intent that VALIDATION tests.
 STRATEGY produces: the ratified strategic intent that VALIDATION tests.
 

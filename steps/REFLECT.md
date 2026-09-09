@@ -17,37 +17,37 @@ Answer each question in 1-3 sentences. Record in `.omo/reflect.md`.
 
 This is the protocol's value proposition. Concrete evidence that the gates worked.
 
-> *Example: "EXTRACTION caught that I didn't actually want a flashcard CLI — I wanted knowledge retention. That saved building the wrong thing."*
+> _Example: "EXTRACTION caught that I didn't actually want a flashcard CLI — I wanted knowledge retention. That saved building the wrong thing."_
 
 ### Q2: What did the protocol miss that it should have caught?
 
 This is how the protocol improves. Every gap found here is a fix for the next version.
 
-> *Example: "The AMBITION budget said EXECUTOR gets 30% of appetite, but the AI spent 50% on debugging. The budget didn't account for verification tax."*
+> _Example: "The AMBITION budget said EXECUTOR gets 30% of appetite, but the AI spent 50% on debugging. The budget didn't account for verification tax."_
 
 ### Q3: What changed in the protocol during this project? (Learning Shifts)
 
 List any learning shifts that occurred. These are the protocol's own evolution during the project.
 
-> *Example: "Added SERIOUSNESS gate between EXTRACTION and FUNDAMENTALS. INBOX step created for multi-barrelled thoughts."*
+> _Example: "Added SERIOUSNESS gate between EXTRACTION and FUNDAMENTALS. INBOX step created for multi-barrelled thoughts."_
 
 ### Q4: What should the protocol learn for next time?
 
 This becomes a Lesson entry. Feed it into the Lessons repo.
 
-> *Example: "Don't use sed for shell script edits. Always use the edit tool or write the whole file."*
+> _Example: "Don't use sed for shell script edits. Always use the edit tool or write the whole file."_
 
 ### Q5: What did you learn about yourself during this session?
 
 This captures the human's learning — the Learning ZPD dimension. What thinking pattern did you notice in yourself? What assumption of yours got surfaced by the protocol?
 
-> *Example: "I noticed I immediately jump to solutions when feeling anxious about scope. The protocol's No-Computer Check slowed me down to describe the problem first."*
+> _Example: "I noticed I immediately jump to solutions when feeling anxious about scope. The protocol's No-Computer Check slowed me down to describe the problem first."_
 
 ### Q6: What thinking pattern did you notice that you'd like to watch for next time?
 
 This builds self-awareness across sessions. Over multiple projects, patterns in your cognition emerge — allowing you to anticipate your own biases.
 
-> *Example: "I tend to over-constrain the solution space when I don't fully understand the domain. Next time I'll flag 'I'm doing this because I'm uncertain' earlier."*
+> _Example: "I tend to over-constrain the solution space when I don't fully understand the domain. Next time I'll flag 'I'm doing this because I'm uncertain' earlier."_
 
 ### Q7: Graduation Check — Has the protocol become easier?
 
@@ -75,22 +75,33 @@ should help you outgrow it, not trap you in it.
 ### Q8: Kill-Gate Calibration — Were the right things killed?
 
 Review kill decisions for this cycle:
+
 - Were the right things killed? Were survivors actually worth it?
 - Kill rate vs base rate for this project class (see KILL_LOG.md) — calibrated or drifting?
 - Feed result into KILL_LOG.md counterfactual. If <70% correct → thresholds too aggressive; >90% → too conservative.
+
+### Q9: Next-cycle seed — what should the next INBOX carry?
+
+Ambition grows through contact with shipped reality — no upfront questioning extracts wants that only exist after touching the thing.
+If another cycle is likely, write the seed the next INBOX will open with:
+
+- **Started-WANT → ended-WANT:** one line each. What did this cycle think it wanted at entry vs what it actually served?
+- **Ambition delta:** what new want appeared that this cycle could not serve?
+- **Carry-forward:** assumptions/ledger items still active, dissent IDs unresolved, exclusions that may deserve revisit.
+  No next cycle in sight → write "none" and skip. A seed is a handoff, not a backlog — one paragraph, not a plan.
 
 ### Automated Retrospective Trigger (magic-spec pattern)
 
 REFLECT is not only a manual step — it is ALSO triggered automatically at
 defined checkpoints, so retrospectives never get skipped in the rush to ship:
 
-| Trigger | Action |
-| --- | --- |
-| Project ships | Run full REFLECT (Q1-Q7) — mandatory |
-| Milestone completes | Run condensed REFLECT (Q1, Q2, Q6) |
-| 3+ consecutive failures in one component | Run REFLECT Q2 (what did the protocol miss?) + quarantine review |
-| Method ledger shows noncompliance | Run REFLECT Q4 (what should the protocol learn?) + conformance fix |
-| Protocol itself changes | Run REFLECT Q3 + Q4 (the change's own retrospective) |
+| Trigger                                  | Action                                                             |
+| ---------------------------------------- | ------------------------------------------------------------------ |
+| Project ships                            | Run full REFLECT (Q1-Q7) — mandatory                               |
+| Milestone completes                      | Run condensed REFLECT (Q1, Q2, Q6)                                 |
+| 3+ consecutive failures in one component | Run REFLECT Q2 (what did the protocol miss?) + quarantine review   |
+| Method ledger shows noncompliance        | Run REFLECT Q4 (what should the protocol learn?) + conformance fix |
+| Protocol itself changes                  | Run REFLECT Q3 + Q4 (the change's own retrospective)               |
 
 > Source: magic-spec's automated retrospectives (Level 1 snapshot vs Level 2 full).
 > Ensures learning is captured even when the human forgets to reflect. Confidence:
@@ -109,7 +120,6 @@ After answering, update two places:
 
 Run REFLECT after every project (every REVIEW pass). Do NOT skip even for small projects — small projects surface different gaps than large ones.
 
-
 ---
 
 ## Input from REVIEW
@@ -118,10 +128,10 @@ Before answering REFLECT questions, read the latest REVIEW findings from `.omo/r
 The review may have found protocol-level gaps that inform Q2 (What did the protocol miss?).
 Do not answer REFLECT in isolation - REVIEW findings are the primary input.
 
-
 ## SHIP Exit Checklist
 
 Ship only when all three pass:
+
 1. **State block written** — `.omo/protocol-state.md` records the completed pipeline
 2. **Success criteria closed** — 2-item closure: projected outcome vs actual (the AAR comparison), and what the strategy predicted vs what happened
 3. **Ledger clean** — `.omo/method-ledger.jsonl` passes ledger-check.py (0 invalid / 0 omitted / 0 rule9)

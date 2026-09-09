@@ -8,11 +8,11 @@ When SERIOUSNESS kills an idea (DROP) or VALIDATION kills a path (spike fails), 
 
 ## Template
 
-| ID    | Date       | Phase Killed | Class              | Score       | Kill Reason                                                       | Counterfactual (30-day check)                                                                         | Outcome        |
-| ----- | ---------- | ------------ | ------------------ | ----------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | -------------- |
-| K-001 | 2026-08-29 | SERIOUSNESS  | Personal tool      | 28/120 DROP | Energy low, no revealed demand                                    | Did need persist? Did someone else build it?                                                          | Correct / Miss |
-| K-002 | 2026-08-29 | VALIDATION   | Production service | spike KILL  | Core assumption falsified                                         | Did assumption become true later?                                                                     | —              |
-| K-003 | 2026-09-03 | P2b WHICH-X? | Protocol seam      | Bar 2       | 1 same (narrow 85→100 only) — not chosen; 3 adjacent — not chosen | 30d 2026-10-03: did seam choice hurt transmissibility? Check docs/traces/colour-blind-85-100.md usage | Pending        |
+| ID    | Date       | Phase Killed | Class              | Score       | Kill Reason                                                       | Counterfactual (30-day check)                                                                            | Outcome        |
+| ----- | ---------- | ------------ | ------------------ | ----------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------- |
+| K-001 | 2026-08-29 | SERIOUSNESS  | Personal tool      | 28/120 DROP | Energy low, no revealed demand                                    | Did need persist? Did someone else build it?                                                             | Correct / Miss |
+| K-002 | 2026-08-29 | VALIDATION   | Production service | spike KILL  | Core assumption falsified                                         | Did assumption become true later?                                                                        | —              |
+| K-003 | 2026-09-03 | P2b WHICH-X? | Protocol seam      | Bar 2       | 1 same (narrow 85→100 only) — not chosen; 3 adjacent — not chosen | 30d 2026-10-03: did seam choice hurt transmissibility? Check ../docs/traces/colour-blind-85-100.md usage | Pending        |
 
 **Field notes:**
 
@@ -43,6 +43,26 @@ After **10+ kill decisions**:
 - **>90% correct** → thresholds too conservative (not filtering enough) — tighten
 
 Review at REFLECT Q8 "Kill-Gate Calibration" and update SERIOUSNESS thresholds if needed.
+
+## Dissent Log (human-over-AI overrides)
+
+| ID    | Date      | Gate said | Human said    | Who decided         | 30-day check               | Outcome |
+| ----- | --------- | --------- | ------------- | ------------------- | -------------------------- | ------- |
+| D-001 | _example_ | DROP      | COMMIT anyway | human, owner's risk | did it ship? at what cost? | Pending |
+
+- **Outcome:** `Right-call` (human beat the gate), `Wrong-call` (gate was right), `Pending` (not yet checked).
+- After 10+ overrides: humans beat the gate >50% → gate miscalibrated for this user — loosen thresholds or route thinner. Gate beats humans >80% → show them the score; earned authority beats asserted process.
+- Read at REFLECT Q8 alongside kill calibration.
+
+## Exclusion Log (deliberately-scoped-out items)
+
+| ID    | Date        | Excluded                                          | Why (one line)                                                      | Parked where |
+| ----- | ----------- | ------------------------------------------------- | ------------------------------------------------------------------- | ------------ |
+| X-001 | _example_   | Multi-repo fan-out                                | Liability exceeds this cycle's intent                               | Backlog      |
+| X-002 | cross-cycle | Numbered cycle tracking, ambition ledger artifact | Bureaucracy the scope ceiling kills; Q9 seed + INBOX entry cover it | —            |
+
+- Lighter than kills/dissents: no 30-day check. Exclusions are reversible by design — the log exists so 'less' never silently becomes 'forgotten'.
+- Written by: STRATEGY.md § Scope ceiling. Revisit an X-item only via a new cycle, never mid-execution.
 
 ## Integration
 

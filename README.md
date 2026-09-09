@@ -24,7 +24,7 @@ For builders and coding agents who run AI loops and want fewer reworks. Not for 
 
 **In 15 seconds:** you ask `add dark mode`. The agent runs 4 checks: 1. understand what you actually want, 2. check whether it is worth building, 3. pick the best approach, 4. plan then execute. A full run with real decisions: [colour-blind trace](docs/traces/colour-blind-85-100.md) (mistakes kept in).
 
-Quick links: [Try it](#try-it-in-5-steps) · [Proof](#proof-two-real-runs) · [Pipeline](#the-pipeline-at-a-glance) · [Principles](#core-principles)
+Quick links: [Try it](#try-it-in-5-steps) · [Proof](#proof-a-real-run) · [Pipeline](#the-pipeline-at-a-glance) · [Principles](#core-principles)
 
 ## The 4 checks
 
@@ -33,7 +33,7 @@ Quick links: [Try it](#try-it-in-5-steps) · [Proof](#proof-two-real-runs) · [P
 3. **Which version**: same, scaled, adjacent, or more — picked after looking at the landscape.
 4. **Plan and build**: prototype, lock the plan, execute, verify, learn.
 
-A person approves the strategy once, then the agent builds with checks along the way. (The step codes — P1, P2a, P2b, P3, P4 — live in `docs/PHILOSOPHY.md`; you do not need them to start.)
+A person approves the strategy once, then the agent builds with checks along the way. (The step codes — P1, P2a, P2b, P3, P4 — live in `steps/QUICKSTART.md`; you do not need them to start.)
 
 ## Try it in 5 steps
 
@@ -48,12 +48,11 @@ Each step file states its entry condition, so you can also run steps standalone 
 > [!TIP]
 > Start with `steps/INBOX.md` even if you think you know the problem. The one-sentence extraction in step 2 often changes what you build in step 4.
 
-## Proof: two real runs
+## Proof: a real run
 
 - [colour-blind-85-100](docs/traces/colour-blind-85-100.md): a vague wish to make the chain watertight → picked a broader fix over a narrow patch → shipped the missing wiring plus a one-page illustration.
-- [local-search-review](docs/traces/local-search-review.md): "search feels weak" → kept the same scope → shipped a full Tavily-compatible search surface with better ranking.
 
-Both ran the same steps you will run, with commits and decisions linked. The record is the work — no reconstruction.
+It ran the same steps you will run, with commits and decisions linked. The record is the work — no reconstruction.
 
 ## The pipeline at a glance
 
@@ -86,6 +85,7 @@ If the diagram feels detailed, follow the bold line above and open the interacti
 Step docs are the single source of truth for entry/exit criteria; see also `steps/RULES.md`.
 
 </details>
+
 ## Composability
 
 - **Module mode:** `EXTRACTION` + `SERIOUSNESS` evaluates an idea fast. `VALIDATION` → `EXECUTOR` builds without re-extracting. `LANDSCAPE` + `REVIEW` audits existing research.
