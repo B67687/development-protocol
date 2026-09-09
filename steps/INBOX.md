@@ -57,6 +57,8 @@ Every time someone has multiple thoughts, not one clear Y:
 - "I have a lot of ideas, not sure where to start" (paralysis)
 - Even a single Y: run a quick check — "Anything else on your mind?"
 
+> **Prior-cycle seed.** If a previous cycle's REFLECT wrote a next-cycle seed (Q9), it enters here as the first capture item — not as a decision, as raw material. The seed tells you where the last cycle's ambition ended; this cycle re-extracts from there. Consecutive cycles remember each other as one evolving ambition, not as separate projects.
+
 ## Phase 1: Capture — Raw Dump (10 min)
 
 No filtering, no judging. Externalize everything before any processing begins.

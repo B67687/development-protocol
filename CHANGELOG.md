@@ -12,6 +12,8 @@ All notable changes to the Development Protocol. Follows Keep a Changelog; versi
 - Scope ceiling: ratified proposals state proposal + explicit exclusions + less-wins-ties; Exclusion Log in `KILL_LOG.md`; scope-fidelity check in `REVIEW.md` (unlisted scope = FAIL unless new cycle).
 - `docs/standards/README.md` and `docs/adr/README.md` indexes; `docs/archive/` for superseded material.
 - Stance table grounded in literature: per-dimension observable signals + 6-source cite line (novice reliance, sycophancy/assertiveness, forcing/NfC, face-preservation); Attachment + Stopping marked practitioner heuristics.
+- Truth-elicitation in `EXTRACTION.md` bouncing: narrative-before-checking, contradiction-as-curiosity with explanation-request (SUE-C/E), face-saving framing, concrete-over-abstract, open verification (Bond & DePaulo 54%; SUE meta-analysis; 2026 SDB review; Brenner & DeLamater; Luke et al.). Trigger (e) for guarded answers.
+- Cross-cycle layer: REFLECT Q9 next-cycle seed (ambition delta + carry-forward) feeds the next INBOX as first capture item; upfront-extraction-default doctrine in `EXTRACTION.md` (extract early by default, seeding covers the rest); X-002 excludes numbered cycle tracking.
 
 ### Changed
 
