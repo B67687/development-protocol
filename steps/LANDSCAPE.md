@@ -24,7 +24,7 @@ AMBITION.md produced a hypothesis that needs testing against reality. Before val
 > **Risk of skipping:** competitor solved it better, or a known failure mode repeats; you ship what already exists.
 > **Light mode:** skipped — acceptable only when you're the domain expert on this exact shape.
 
-> **P2b entry gate — Bar 1 must have cleared:** Do not enter LANDSCAPE unless `SERIOUSNESS` = COMMIT (P2a). LANDSCAPE must emit a `WHICH-X?` decision — same / scaled / adjacent / more-than-X — logged before STRATEGY. If SKIP applies, log which variant was implicitly chosen and why P2b was not needed. If `docs/appendix/p2b-mapping-appendix.md` applies (capability has tables), STRATEGY must cite WHICH-X trace id; G7 keep/drop is logged there.
+> **P2b entry gate — Bar 1 must have cleared:** Do not enter LANDSCAPE unless `SERIOUSNESS` = COMMIT (P2a). LANDSCAPE must emit a `WHICH-X?` decision — same / scaled / adjacent / more-than-X — logged before STRATEGY. If SKIP applies, log which variant was implicitly chosen and why P2b was not needed. If `../docs/appendix/p2b-mapping-appendix.md` applies (capability has tables), STRATEGY must cite WHICH-X trace id; G7 keep/drop is logged there.
 
 ## Governing Modes — Intuition-First Route
 

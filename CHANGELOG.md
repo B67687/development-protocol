@@ -23,6 +23,10 @@ All notable changes to the Development Protocol. Follows Keep a Changelog; versi
 
 - `docs/SPEC_SYNC.md` stub (content long merged into `REVIEW.md` fidelity check).
 
+### Fixed
+
+- 20+ broken internal links: new `LICENSE` (MIT, ithmb text); `docs/PHILOSOPHY.md` repoints → `steps/QUICKSTART.md`; new `docs/STANDING_PRINCIPLES.md`; appendix/trace/test-signal/AGENTS/standards/traces path prefixes; removed `ledger-check.py` tree line (file never existed). Sweep-verified; scaffold-target, archive, `.omo`, and cross-repo refs intentionally untouched.
+
 ## [2026-09-09] — Public mirror synced
 
 - Thematic squash to public: SWE appendixes (P2b early + P4 late), agnostic search backend, PoP altitude gates, lived traces, README overhaul. Origin and public trees identical.

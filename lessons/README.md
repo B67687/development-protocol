@@ -4,7 +4,7 @@ Cross-project failure captures that feed back into the Development Protocol.
 
 ## Purpose
 
-This directory stores structured failure captures — documented lessons from real projects that improve the protocol over time. Each capture follows the template in [../steps/FAILURE_CAPTURE.md](../FAILURE_CAPTURE.md).
+This directory stores structured failure captures — documented lessons from real projects that improve the protocol over time. Each capture follows the template in [FAILURE_CAPTURE.md](../steps/FAILURE_CAPTURE.md).
 
 ## How It Works
 
@@ -24,6 +24,7 @@ FC-[YYYY]-[###]-[short-name].md
 - **short-name** — Brief descriptive slug (e.g., `scope-creep-notifications`, `tautological-tests`)
 
 Examples:
+
 - `FC-2026-001-scope-creep-notifications.md`
 - `FC-2026-002-tautological-tests.md`
 - `FC-2026-003-phase-drift-distribute.md`
@@ -44,6 +45,7 @@ Examples:
 ## Session Kickoff Integration
 
 At session start (§12), the AI loads recent failure captures to check:
+
 - "Have we seen this pattern before?"
 - "What happened last time?"
 - "Should we apply the prevention strategy?"
@@ -52,11 +54,11 @@ This closes the learning loop: failures are not forgotten but reused as pattern 
 
 ## Relationship to Other Artifacts
 
-| Artifact | Tracks | Location |
-|----------|--------|----------|
-| Method Ledger | What methods were applied | `.omo/method-ledger.jsonl` |
-| Failure Captures | What went wrong and what we learned | `lessons/FC-*.md` |
-| Shift Log | Goalpost shifts and learning | `.omo/shift-log.md` |
-| Outcome Verdicts | Cluster completion verdicts | `.omo/outcome-verdicts.jsonl` |
+| Artifact         | Tracks                              | Location                      |
+| ---------------- | ----------------------------------- | ----------------------------- |
+| Method Ledger    | What methods were applied           | `.omo/method-ledger.jsonl`    |
+| Failure Captures | What went wrong and what we learned | `lessons/FC-*.md`             |
+| Shift Log        | Goalpost shifts and learning        | `.omo/shift-log.md`           |
+| Outcome Verdicts | Cluster completion verdicts         | `.omo/outcome-verdicts.jsonl` |
 
 Together, these form the protocol's memory — successes, failures, shifts, and verdicts that make each project cycle stronger than the last.

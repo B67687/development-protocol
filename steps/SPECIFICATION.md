@@ -119,7 +119,7 @@ OUT OF SCOPE (V1):
 | §6 UX               | EXTRACTION X #2             | AMBITION Round 3 steering                                                                          | STRATEGY kernel, action #3     |
 | §5 Dependencies     | LANDSCAPE finding #4        | VALIDATION spike learnings                                                                         | —                              |
 | §7 Timeline         | AMBITION PACING             | —                                                                                                  | SERIOUSNESS appetite           |
-| §2-§7 via P2b trace | LANDSCAPE WHICH-X? trace id | `docs/appendix/p2b-mapping-appendix.md` + `p4-late-appendix.md` + `prototype/tests/test_signal.py` | KILL_LOG retro (G7/G8 version) |
+| §2-§7 via P2b trace | LANDSCAPE WHICH-X? trace id | `../docs/appendix/p2b-mapping-appendix.md` + `../docs/appendix/p4-late-appendix.md` + `../prototype/tests/test_signal.py` | KILL_LOG retro (G7/G8 version) |
 
 **Purpose:** trace WHY each spec section exists. Forward: INBOX/EXTRACTION idea → which § affected. Backward: § → source idea/decision.
 **Maintenance:** filled at SPECIFICATION creation (once) and checked at REVIEW for drift.
@@ -240,7 +240,7 @@ Every project MUST document its whole-project state machine at `docs/PROJECT_MOD
 
 ## 4. Quality Gates & Verification
 
-> _Engineering-specific CI/Tooling details moved to [Engineering Plugin](docs/engineering-plugin.md#1-ci-tooling--quality-gates)._
+> _Engineering-specific CI/Tooling details moved to [Engineering Plugin](../docs/engineering-plugin.md#1-ci-tooling--quality-gates)._
 
 ### MACRO — Quality Gates
 
@@ -410,7 +410,7 @@ Framework: {{test framework}}
 
 ## 9. Operational Resilience (Tier 2)
 
-> _Engineering-specific operations details moved to [Engineering Plugin](docs/engineering-plugin.md#2-operational--error-handling)._
+> _Engineering-specific operations details moved to [Engineering Plugin](../docs/engineering-plugin.md#2-operational--error-handling)._
 
 ### MACRO — Resilience Strategy
 
@@ -585,7 +585,7 @@ Rationale: {{why this level was chosen}}
 - [ ] **FEATURES.md** exists (docs/FEATURES.md template): every IN SCOPE item is an `approved` entry; no `applied` feature lacks linked tests; statuses are valid (proposed/approved/applied/archived)
 - [ ] **Test anchoring** — every test references a feature ID (F-###); a test proving no feature contract is flagged, not silently carried
 
-For engineering deliverables, also verify from the [Engineering Plugin](docs/engineering-plugin.md):
+For engineering deliverables, also verify from the [Engineering Plugin](../docs/engineering-plugin.md):
 
 - [ ] Quality gates (plugin §1) have concrete commands
 - [ ] Fuzz targets exist in `fuzz/` directory (Tier 2+)

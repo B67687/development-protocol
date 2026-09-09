@@ -271,5 +271,5 @@ The techniques in this document are synthesized from:
 The protocol's steps operationalize a set of converged cross-domain fundamentals
 (iteration, variation-selection, decomposition, uncertainty management,
 simplicity-as-removal, wu-wei, beginner's mind, the useful void). Full evidence-graded
-map in [docs/UNIVERSAL_FUNDAMENTALS.md](docs/UNIVERSAL_FUNDAMENTALS.md).
+map in [../docs/UNIVERSAL_FUNDAMENTALS.md](../docs/UNIVERSAL_FUNDAMENTALS.md).
 Before designing a new step, check which universal fundamental it implements.
