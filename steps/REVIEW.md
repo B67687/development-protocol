@@ -17,14 +17,14 @@
 
 ## When to Run This
 
-| Trigger           | Condition                                                                                         |
-| ----------------- | ------------------------------------------------------------------------------------------------- |
-| Before phase exit | Every phase transition calls for a review (DISCOVER → WORK, WORK → PERFECT, PERFECT → DISTRIBUTE) |
-| Before DISTRIBUTE | **Mandatory.** No project ships without a clean review.                                           |
-| After EXPLAINER generation (folded into REVIEW) | Verify the explainer matches the code, not the spec.                                             |
-| After SPEC SYNC   | Double-check the sync gate's own work.                                                            |
-| On any ambiguity  | If you feel uncertain about quality, run a review.                                                |
-| After REVIEW passes | Adversarial review agent runs on spec only |
+| Trigger                                         | Condition                                                                                         |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Before phase exit                               | Every phase transition calls for a review (DISCOVER → WORK, WORK → PERFECT, PERFECT → DISTRIBUTE) |
+| Before DISTRIBUTE                               | **Mandatory.** No project ships without a clean review.                                           |
+| After EXPLAINER generation (folded into REVIEW) | Verify the explainer matches the code, not the spec.                                              |
+| After SPEC SYNC                                 | Double-check the sync gate's own work.                                                            |
+| On any ambiguity                                | If you feel uncertain about quality, run a review.                                                |
+| After REVIEW passes                             | Adversarial review agent runs on spec only                                                        |
 
 **Exception**: PROTOTYPING phase (VALIDATION.md) — prototypes are throwaway by design. Review is not needed. But the KILL/PIVOT/COMMIT decision itself should be reviewed if you're unsure.
 
@@ -37,7 +37,6 @@
 ## EXPLAINER (Folded Step)
 
 The EXPLAINER step (formerly standalone, docs/EXPLAINER.md) now runs as the first action of REVIEW. Before running the fixed checklist, generate the project's EXPLAINER.md from the template in docs/EXPLAINER.md (Macro Architecture, Data Flow Walk, Module Breakdown, Key Decisions, Quality Guarantees — plus the Mandatory Check). Checks 1.5/1.6/3.1-3.4 below then verify it. The pipeline no longer has a separate EXPLAINER step; the artifact is produced here.
-
 
 ---
 
@@ -163,50 +162,52 @@ Each item is binary: **PASS** or **FAIL**. No partial credit. Each FAIL becomes 
 
 ### Phase 1: Document Completeness
 
-| #   | Check                                                  | How to Verify (without reading code)                                                                  |
-| --- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
-| 1.1 | SPECIFICATION.md exists and has all 16 sections (§0-15) filled | Read the file. Count sections.                                                                        |
-| 1.2 | Every section has content (not placeholder/stub)       | Read each section. No "TBD", "TODO", or blank.                                                        |
-| 1.3 | Non-goals are explicitly stated                        | Read SPECIFICATION.md section 1 (Scope Boundaries per Component). Non-goals must be explicitly stated there. |
-| 1.4 | Success metrics are falsifiable                        | Read section 1 (Overview & Derived Ambition). Metrics must be measurable (<3s launch, >99% uptime), not vague ("fast", "reliable"). |
-| 1.5 | EXPLAINER.md exists and matches project scope          | Read EXPLAINER.md. Does it describe the same project as SPECIFICATION.md?                             |
-| 1.6 | EXPLAINER.md has all 5 required sections               | Macro Architecture, Data Flow Walk, Module Breakdown, Key Decisions, Quality Guarantees.              |
-| 1.7 | Spec-to-Code Fidelity Check was executed and findings recorded | Read REVIEW.md § Spec-to-Code Fidelity Check output. Are there discrepancy records?              |
-| 1.8 | PROJECT_MODEL.md exists and is current                    | Read docs/PROJECT_MODEL.md. Does it document states, valid/invalid transitions, invariants? Does the addition under review appear as a transition?   |
-| 1.9 | Claims verified per Research on Demand tiers              | For each decision-relevant claim in the spec/research: was it verified at its tier? Do cited sources EXIST and support the claims they're attached to? (CJR lesson: AI citations mislead >60% of the time) |
+| #   | Check                                                          | How to Verify (without reading code)                                                                                                                                                                       |
+| --- | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1.1 | SPECIFICATION.md exists and has all 16 sections (§0-15) filled | Read the file. Count sections.                                                                                                                                                                             |
+| 1.2 | Every section has content (not placeholder/stub)               | Read each section. No "TBD", "TODO", or blank.                                                                                                                                                             |
+| 1.3 | Non-goals are explicitly stated                                | Read SPECIFICATION.md section 1 (Scope Boundaries per Component). Non-goals must be explicitly stated there.                                                                                               |
+| 1.4 | Success metrics are falsifiable                                | Read section 1 (Overview & Derived Ambition). Metrics must be measurable (<3s launch, >99% uptime), not vague ("fast", "reliable").                                                                        |
+| 1.5 | EXPLAINER.md exists and matches project scope                  | Read EXPLAINER.md. Does it describe the same project as SPECIFICATION.md?                                                                                                                                  |
+| 1.6 | EXPLAINER.md has all 5 required sections                       | Macro Architecture, Data Flow Walk, Module Breakdown, Key Decisions, Quality Guarantees.                                                                                                                   |
+| 1.7 | Spec-to-Code Fidelity Check was executed and findings recorded | Read REVIEW.md § Spec-to-Code Fidelity Check output. Are there discrepancy records?                                                                                                                        |
+| 1.8 | PROJECT_MODEL.md exists and is current                         | Read docs/PROJECT_MODEL.md. Does it document states, valid/invalid transitions, invariants? Does the addition under review appear as a transition?                                                         |
+| 1.9 | Claims verified per Research on Demand tiers                   | For each decision-relevant claim in the spec/research: was it verified at its tier? Do cited sources EXIST and support the claims they're attached to? (CJR lesson: AI citations mislead >60% of the time) |
 
 ### Phase 2: Protocol Compliance
 
 | #   | Check                                        | How to Verify (without reading code)                                                                                         |
 | --- | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | 2.1 | RULES.md phase matches current project state | Read RULES.md line 9. Does the phase label match reality?                                                                    |
-| 2.2 | Learning shifts are documented (if any)      | Read RULES.md section 5. Check `.omo/shift-log.md` (learning shifts sink). Max 5 shifts per project.       |
+| 2.2 | Learning shifts are documented (if any)      | Read RULES.md section 5. Check `.omo/shift-log.md` (learning shifts sink). Max 5 shifts per project.                         |
 | 2.3 | Test philosophy is being followed            | Read RULES.md section 8. Check if test files exist (Glob for _\_test._).                                                     |
 | 2.4 | No prohibited patterns used                  | Read RULES.md section 5 (or STANDARDS.md). Check codebase for `as any`, `@ts-ignore`, empty catch blocks, unwrap(), panic(). |
 | 2.5 | Project type routing matches actual project  | Read RULES.md section 1. Does the selected route fit? (A "DISCOVER-FIRST" route on a well-understood domain is a mismatch.)  |
 
 | 2.6 | Iteration viability | Before DISTRIBUTE: (a) anything changed since AMBITION? (b) still the right problem? (c) would you start today knowing what you know? If any 'no' → trigger feedback loop (§ Feedback Loops), not just fix ticket. |
+| 2.7 | Scope fidelity — built only the ceiling | Read the STRATEGY X-list. Does the build contain anything the ceiling excluded? Any unlisted scope added mid-execution? Each extra is a FAIL unless ratified via a new cycle (Rule 6: no scope creep). |
+
 ### Phase 3: Spec-vs-Explainer Cross-Reference
 
 This is the most important check. Non-coder verification depends on it.
 
-| #   | Check                                                     | How to Verify (without reading code)                                                                                                 |
-| --- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| #   | Check                                                     | How to Verify (without reading code)                                                                                                               |
+| --- | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 3.1 | SPECIFICATION.md intent matches EXPLAINER.md architecture | Compare section 1 (Overview & Derived Ambition / intent) of spec vs section 1 (Macro Architecture) of explainer. Do they describe the same system? |
-| 3.2 | EXPLAINER.md modules match what actually exists           | Read Module Breakdown. Then run `ls src/` or `ls cmd/` or the project's source tree. Do the modules in the explainer actually exist? |
-| 3.3 | Data flow in explainer is plausible                       | Read Data Flow Walk. Is the flow complete? Does it have a start and end?                                                             |
-| 3.4 | Key Decisions section identifies real tradeoffs           | Read Key Decisions. Are these real constraints OR generic platitudes? ("We chose X because it's good" is a FAIL.)                    |
+| 3.2 | EXPLAINER.md modules match what actually exists           | Read Module Breakdown. Then run `ls src/` or `ls cmd/` or the project's source tree. Do the modules in the explainer actually exist?               |
+| 3.3 | Data flow in explainer is plausible                       | Read Data Flow Walk. Is the flow complete? Does it have a start and end?                                                                           |
+| 3.4 | Key Decisions section identifies real tradeoffs           | Read Key Decisions. Are these real constraints OR generic platitudes? ("We chose X because it's good" is a FAIL.)                                  |
 
 ### Phase 4: Observable Quality (Code-Independent Signals)
 
-| #   | Check                                   | How to Verify (without reading code)                                                         |
-| --- | --------------------------------------- | -------------------------------------------------------------------------------------------- |
-| 4.1 | Test files exist and are non-trivial    | Count test files. Non-trivial = at least 3 test cases per module, or >50% of modules tested. |
-| 4.2 | Build/compilation succeeds              | Run the build command. Exit code 0 is PASS.                                                  |
-| 4.3 | No leaked secrets or credentials        | Grep for `-----BEGIN`, `api_key`, `password`, `token`, `secret`. Any hit is FAIL.            |
-| 4.4 | README has install/running instructions | Can a new user get the project running from README alone?                                    |
+| #   | Check                                                   | How to Verify (without reading code)                                                                                   |
+| --- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| 4.1 | Test files exist and are non-trivial                    | Count test files. Non-trivial = at least 3 test cases per module, or >50% of modules tested.                           |
+| 4.2 | Build/compilation succeeds                              | Run the build command. Exit code 0 is PASS.                                                                            |
+| 4.3 | No leaked secrets or credentials                        | Grep for `-----BEGIN`, `api_key`, `password`, `token`, `secret`. Any hit is FAIL.                                      |
+| 4.4 | README has install/running instructions                 | Can a new user get the project running from README alone?                                                              |
 | 4.5 | CI config or local check script exists (if applicable)* | Check for .github/workflows/, .gitlab-ci.yml, Jenkinsfile, etc., or run ./scripts/check.sh. *See Engineering Plugin §4 |
-| 4.6 | Standards audit passes*                    | Run ./scripts/audit.sh from the Standards repo. *See Engineering Plugin §4                  |
+| 4.6 | Standards audit passes*                                 | Run ./scripts/audit.sh from the Standards repo. *See Engineering Plugin §4                                             |
 
 ### Phase 5: Regression Defenses
 
@@ -262,7 +263,8 @@ After the REVIEW.md checklist passes, before DISTRIBUTE. The adversarial review 
 - **FAIL**: Contradictions, missing requirements, or ambiguities found. List each as a fix ticket.
 ```
 
-> **Why this works:** The same agent that built the system cannot unsee the implementation. A fresh agent evaluating the spec alone discovers whether the spec *as written* is sufficient — or whether it silently depends on knowledge that only exists in the code. If the spec cannot stand alone, future maintainers (human or AI) will drift.
+> **Why this works:** The same agent that built the system cannot unsee the implementation. A fresh agent evaluating the spec alone discovers whether the spec _as written_ is sufficient — or whether it silently depends on knowledge that only exists in the code. If the spec cannot stand alone, future maintainers (human or AI) will drift.
+
 ---
 
 ## Output Format
@@ -398,4 +400,3 @@ That's it. The protocol does the rest.
 - **Loop 2: REVIEW → SPECIFICATION** — Trigger: CRITICAL/MAJOR spec-code drift. Action: fix the spec, not just the code. Recorded in `.omo/reviews/latest.md`.
 - **Loop 3: 3+ Failures → DECOMPOSITION** — Trigger: 3+ failures in same component. Action: decomposition was wrong; re-classify Cynefin. Recorded in `lessons/FC-*.md`.
 - **Loop 4: Mid-Pipeline Shape Re-selection** — Trigger: Cynefin class changed at any phase transition. Action: re-run DECOMPOSITION Step 1. Recorded in METHOD_LEDGER.
-

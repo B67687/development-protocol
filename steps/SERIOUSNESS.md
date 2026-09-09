@@ -222,6 +222,16 @@ After the kill/commit decision, log:
 
 Feeds into `KILL_LOG.md` calibration loop. Reviewed at REFLECT Q8.
 
+### Dissent Log (override tracking)
+
+> When the human overrides the gate's recommendation, log the disagreement — not to block, but to calibrate.
+
+| Date      | Gate said     | Human said    | Who decided         | 30-day check               |
+| --------- | ------------- | ------------- | ------------------- | -------------------------- |
+| _example_ | DROP (28/120) | COMMIT anyway | human, owner's risk | did it ship? at what cost? |
+
+**Rule:** the AI states its position once, plainly, then executes the human's call. Overrides feed `KILL_LOG.md` calibration: every override is a scored prediction about who was right.
+
 ---
 
 ## Risk Register
