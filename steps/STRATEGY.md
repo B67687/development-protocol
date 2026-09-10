@@ -70,9 +70,11 @@ The human **edits the proposal** rather than accepting/rejecting wholesale.
 
 - Why: bounded editing reduces algorithm aversion AND improves outcomes (Dietvorst
   et al. 2018: modifiable algorithms are trusted more and perform better).
-- Mechanism: amendments are logged and visible. The human must write a ratification
-  reason in their own words (no rubber-stamping).
+  |- Mechanism: amendments are logged and visible. The human must write a ratification
+  reason in their own words (no rubber-stamping) — and the agent checks it against the ledger before sign-off counts. Verbatim echo of the agent's own proposal fails the check: retrieval (self-explanation effect, Chi 1989; testing effect, Roediger & Karpicke 2006) is what makes a decision stick; recognition is not learning. Copy-paste of agent wording is ceremony — flagged, not logged.
 - The amended proposal is final only after the human's explicit sign-off.
+
+> **Standing decisions (displayed every output):** the ratified proposal carries a Standing Decisions list — every settled decision so far, one line each. Every subsequent phase output restates it at the top. The human agreed to these but cannot be expected to remember them mid-run; invisible settled decisions get re-litigated or silently dropped. Restatement is agent-side, zero user ceremony.
 
 > **Bias check (load `BIAS_CATALOG.md` §IKEA Effect):** Before ratifying, ask — "Would I still choose this if someone else proposed it?" If the answer hesitates, the attachment is to authorship, not strategy.
 
