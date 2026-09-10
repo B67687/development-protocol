@@ -165,6 +165,8 @@ Record:
 
 > **Asymmetric routing (Invariant 11):** COMMIT and SCHEDULE are applied by the AI and ledger-logged by default. DROP always re-engages the user — an idea is never silently killed. Borderline scores (within ±5 of a threshold) also re-engage the user gate.
 > **P2a gate — Bar 1 must clear before Bar 2:** COMMIT → enter LANDSCAPE/STRATEGY/AMBITION (P2b: same/scaled/adjacent/more). SCHEDULE/DROP → stop, log to `KILL_LOG.md` (Bar 1) + `.omo/decisions/`, do NOT enter P2b. Revisit only on scheduled date or new evidence.
+>
+> **Abdication tripwire (learned-helplessness guard):** rubber-stamp pattern — instant COMMITs with zero dissent, zero questions, zero amendments across 3+ consecutive cycles — means the judge went passive and every downstream gate is unreviewed. On trip: slow down, ask one pointed question that forces retrieval rather than recognition, and do not record COMMIT until the human answers it in their own words. Agent-internal monitoring (no new default gate — Invariant 11 holds); the trip only fires on detected passivity. (LLM use measurably degrades metacognitive accuracy while improving output — arXiv:2603.29681 — so the trip fires on behavior, never on self-reported understanding.)
 
 ## Heuristics (When the User is Unsure)
 

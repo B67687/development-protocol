@@ -70,15 +70,21 @@ The human **edits the proposal** rather than accepting/rejecting wholesale.
 
 - Why: bounded editing reduces algorithm aversion AND improves outcomes (Dietvorst
   et al. 2018: modifiable algorithms are trusted more and perform better).
-- Mechanism: amendments are logged and visible. The human must write a ratification
-  reason in their own words (no rubber-stamping).
+  |- Mechanism: amendments are logged and visible. The human must write a ratification
+  reason in their own words (no rubber-stamping) — and the agent checks it against the ledger before sign-off counts. Verbatim echo of the agent's own proposal fails the check: retrieval (self-explanation effect, Chi 1989; testing effect, Roediger & Karpicke 2006) is what makes a decision stick; recognition is not learning. Copy-paste of agent wording is ceremony — flagged, not logged.
 - The amended proposal is final only after the human's explicit sign-off.
+
+> **Standing decisions (displayed every output):** the ratified proposal carries a Standing Decisions list — every settled decision so far, one line each. Every subsequent phase output restates it at the top. The human agreed to these but cannot be expected to remember them mid-run; invisible settled decisions get re-litigated or silently dropped. Restatement is agent-side, zero user ceremony.
 
 > **Bias check (load `BIAS_CATALOG.md` §IKEA Effect):** Before ratifying, ask — "Would I still choose this if someone else proposed it?" If the answer hesitates, the attachment is to authorship, not strategy.
 
 > **Dissent (log overrides):** Rule 7 gives the human final say — when they exercise it against the proposal, log agent position vs human position + who decided in `KILL_LOG.md` § Dissent Log, with a 30-day check. Overrides are calibration data, not failures.
 
-> **Scope ceiling (less wins ties):** the ratified proposal must state what it deliberately EXCLUDES — the X-list. Every excluded item goes to `KILL_LOG.md` § Exclusion Log with its why. When two scopes both satisfy intent, ratify the smaller one: over-building compounds into future liability, under-building is cheap to extend later.
+> **Scope ceiling (less wins ties):** the ratified proposal must state what it deliberately EXCLUDES — the X-list. Every excluded item goes to `KILL_LOG.md` § Exclusion Log with its why. When two scopes both satisfy intent, ratify the smaller one.
+>
+> Why the tie-break points down, not up: feature creep is the most common source of cost and schedule overruns, and scope creep has at least some presence in every project (Wikipedia: Feature creep; Scope creep). Maintenance dominates lifecycle cost (Lientz & Swanson), late changes cost orders of magnitude more than early ones (Boehm), and working complex systems evolve from working simple ones (Gall's law) — so over-building compounds into future liability while under-building stays cheap to extend. Escalation has a second engine: hard-to-evaluate attributes inflate a troubled project's appeal, and launch-tied rewards warp judgment (evaluability bias + fairness effect, two experiments — Lee, Keil & Park 2019, JAIS 20(12)) — counter both by making alternatives evaluable (spike/prototype in VALIDATION) and flagging reward-coupled advocacy in the Dissent Log.
+>
+> Honesty note on the famous number: the often-cited '64% of features are rarely or never used' (Standish, XP 2002) was a study of four internal applications, confirmed with the Standish Group by Cohn — real, but not universal. Cite it with its scope, never as every-product fact. The ceiling holds on the mechanics above, not on that number.
 
 ### Phase 4 — Execution & Review Gates
 

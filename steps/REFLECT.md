@@ -88,6 +88,8 @@ If another cycle is likely, write the seed the next INBOX will open with:
 - **Started-WANT → ended-WANT:** one line each. What did this cycle think it wanted at entry vs what it actually served?
 - **Ambition delta:** what new want appeared that this cycle could not serve?
 - **Carry-forward:** assumptions/ledger items still active, dissent IDs unresolved, exclusions that may deserve revisit.
+- **Learned-this-cycle:** 2-3 things the human should now be able to explain unaided — retrieval targets for the next cycle's explain-back. Gates are learning reps only if the learning is named.
+- **Second-system caution (Brooks):** the cycle after a success is the most dangerous — confidence is high and every deferred idea demands entry en masse. Triage: at most 3 deferred items carry forward; the rest stay dead unless a new cycle re-extracts them. Cap ambition at one scale-step up (same→scaled, never same→more in one jump).
   No next cycle in sight → write "none" and skip. A seed is a handoff, not a backlog — one paragraph, not a plan.
 
 ### Automated Retrospective Trigger (magic-spec pattern)
