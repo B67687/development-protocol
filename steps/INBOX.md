@@ -6,7 +6,7 @@
 >
 > **Without this step:** The loudest thought wins by default, or the protocol forces a single Y too early, and other ideas resurface as distractions mid-protocol.
 
-> **Raw pass first.** Before any category below engages, handle the user's words once with no framework: read them raw, respond to what's actually there, note what surfaces. The protocol's categories are strong priors — strong enough to blind. A free pass catches what the rigid path would miss; then run the protocol on what's heard.
+> **Raw pass first.** Before any category below engages, handle the user's words once with no framework: read them raw, respond to what's actually there, note what surfaces. The protocol's categories are strong priors — strong enough to blind. A free pass catches what the rigid path would miss; then run the protocol on what's heard. This is diverge-before-converge (Guilford): generation first, structuring second. Early frameworks mechanize the mind (Luchins Einstellung) and fixate on the first shown example (Jansson & Smith design fixation) — and the protocol's own template is exactly such an example. Our trajectory study agrees: imposed plans lose to native strategy (ArXiv anchor).
 
 ## Protocol Suitability Check (30 sec)
 

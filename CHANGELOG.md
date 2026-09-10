@@ -12,8 +12,8 @@ All notable changes to the Development Protocol. Follows Keep a Changelog; versi
 - Scope ceiling: ratified proposals state proposal + explicit exclusions + less-wins-ties; Exclusion Log in `KILL_LOG.md`; scope-fidelity check in `REVIEW.md` (unlisted scope = FAIL unless new cycle).
 - `docs/standards/README.md` and `docs/adr/README.md` indexes; `docs/archive/` for superseded material.
 - Stance table grounded in literature: per-dimension observable signals + 6-source cite line (novice reliance, sycophancy/assertiveness, forcing/NfC, face-preservation); Attachment + Stopping marked practitioner heuristics.
-- Truth-elicitation in `EXTRACTION.md` bouncing: narrative-before-checking, contradiction-as-curiosity with explanation-request (SUE-C/E), face-saving framing, concrete-over-abstract, open verification (Bond & DePaulo 54%; SUE meta-analysis; 2026 SDB review; Brenner & DeLamater; Luke et al.). Trigger (e) for guarded answers.
-- Cross-cycle layer: REFLECT Q9 next-cycle seed (ambition delta + carry-forward) feeds the next INBOX as first capture item; upfront-extraction-default doctrine in `EXTRACTION.md` (extract early by default, seeding covers the rest); X-002 excludes numbered cycle tracking.
+- Truth-elicitation in `EXTRACTION.md` bouncing: narrative-before-checking, contradiction-as-curiosity with explanation-request (SUE-C/E), face-saving framing, concrete-over-abstract, open verification (Bond & DePaulo 54%; SUE meta-analysis; 2026 SDB review; Brenner & DeLamater; Luke et al.). Serious pass adds: open narration first (cognitive interview: Fisher & Geiselman), checkable-details probe (verifiability approach: Nahari, Vrij & Fisher), one unanticipated angle (cognitive-load tradition), no-pressure boundary (false-confession literature). Trigger (e) for guarded answers.
+- Cross-cycle layer: REFLECT Q9 next-cycle seed (ambition delta + carry-forward + second-system caution per Brooks — max 3 deferred items forward, one scale-step up per cycle) feeds the next INBOX as first capture item; upfront-extraction-default doctrine in `EXTRACTION.md`; X-002 excludes numbered cycle tracking.
 
 ### Changed
 
@@ -21,6 +21,7 @@ All notable changes to the Development Protocol. Follows Keep a Changelog; versi
 - `.gitignore` back to standard track-by-default; private material lives in the `-Local` sibling folder.
 - README: plain-language hero, 4-checks intro, Archify pipeline diagram (SVG + interactive HTML), ithmb-style header with badges, `CREDITS.md` aligned to ithmb format.
 - Scope ceiling grounded in evidence: feature/scope-creep overrun mechanics (Wikipedia), maintenance-share + cost-of-change + Gall's law; the '64% unused features' figure cited with its true scope (4 internal apps, XP 2002) instead of as universal fact.
+- Raw-pass grounded: diverge-before-converge (Guilford), Einstellung mechanized-set (Luchins), design fixation on first-shown examples (Jansson & Smith) — the protocol's own template is such an example; in-house trajectory anchor agrees.
 
 ### Removed
 
