@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# protocol-lint.sh — 7-rule CI lint for Development-Protocol ceremony
+# protocol-lint.sh — 8-rule CI lint for Development-Protocol ceremony
 # ==============================================================================
 # Checks that the protocol's structural invariants hold. Fails PRs when
 # ceremony collapses (missing files, broken schemas, stale artifacts).
@@ -26,6 +26,7 @@
 #   5. BIAS_CATALOG   — 8 biases, each with detection prompt in quoted block
 #   6. QUICKSTART     — ≤200 lines, 6 required sections present
 #   7. SKIP_CONDITIONS — 5 phase docs each have "## Skip Conditions" box
+#   8. FEATURES        — every F-### entry has valid State + File lines
 # ==============================================================================
 
 set -uo pipefail
@@ -41,7 +42,7 @@ fail() { echo "  ❌ $1 — $2"; FAIL=$((FAIL + 1)); }
 
 echo ""
 echo "═══════════════════════════════════════════════════════════════════"
-echo " Protocol Lint — 7-Rule Ceremony Check"
+echo " Protocol Lint — 8-Rule Ceremony Check"
 echo " Repo: $REPO"
 echo "═══════════════════════════════════════════════════════════════════"
 echo ""
@@ -404,6 +405,31 @@ if [[ ${#r7_missing[@]} -gt 0 ]]; then
     fail "R7-SKIP" "${r7_missing[*]}"
 else
     pass "R7 — All 5 phase docs (DECOMPOSITION, LANDSCAPE, STRATEGY, VALIDATION, REVIEW) have Skip Conditions"
+fi
+
+# ─── Rule 8: FEATURES Registry Hygiene ───────────────────────────────────────
+echo "Rule 8: FEATURES registry hygiene"
+
+FEAT="docs/FEATURES.md"
+r8_issues=()
+
+if [[ ! -f "$FEAT" ]]; then
+    r8_issues+=("$FEAT — file not found")
+else
+    n_ids=$(grep -c '^### F-' "$FEAT")
+    n_state=$(grep -cF -- '- **State:**' "$FEAT")
+    n_file=$(grep -cF -- '- **File:**' "$FEAT")
+    n_valid=$(grep -cE '^- \*\*State:\*\* (proposed|approved|applied|archived)$' "$FEAT")
+    [[ "$n_ids" -gt 0 ]] || r8_issues+=("no F-### entries found")
+    [[ "$n_state" -eq "$n_ids" ]] || r8_issues+=("State lines ($n_state) != entries ($n_ids)")
+    [[ "$n_file" -eq "$n_ids" ]] || r8_issues+=("File lines ($n_file) != entries ($n_ids)")
+    [[ "$n_valid" -eq "$n_ids" ]] || r8_issues+=("invalid State value present")
+fi
+
+if [[ ${#r8_issues[@]} -gt 0 ]]; then
+    fail "R8-FEATURES" "${r8_issues[*]}"
+else
+    pass "R8 — FEATURES registry: $n_ids entries, all with valid State + File"
 fi
 
 # ─── Summary ────────────────────────────────────────────────────────────────
