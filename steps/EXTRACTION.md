@@ -39,7 +39,7 @@ Every time someone says "I want Y" or "We need Y":
 
 **If Y contains a solution word** (app, tool, system, dashboard, CLI, framework, API, platform) — you need EXTRACTION.
 
-> **Extract early by default.** Upfront WANT extraction stays the default even though ambition evolves across cycles: it forces the want-question early, and non-serious wants self-select out — dropped, or delegated to agent discretion without protocol overhead. Either the user realizes they need the protocol, or they're satisfied with whatever the agent produces. Cross-cycle seeding (REFLECT Q9 → INBOX) covers what early extraction cannot reach; it never replaces it.
+> **Extract early by default.** Upfront WANT extraction stays the default even though ambition evolves across cycles: it forces the want-question early, and non-serious wants self-select out — dropped, or delegated to agent discretion without protocol overhead. Either the user realizes they need the protocol, or they're satisfied with whatever the agent produces. Cross-cycle seeding (REFLECT Q9 → INBOX) covers what early extraction cannot reach; it never replaces it. Attempt-before-structure also beats structure-first for transfer (productive failure — Kapur: generation before instruction); the early extraction attempt is itself the learning rep.
 
 ## Step 2: The Protocol — 4 Steps
 

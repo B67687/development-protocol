@@ -130,6 +130,17 @@ Feature registry for the Development Protocol itself. Each feature has a lifecyc
 - **Test Anchoring:** decision trace in .omo/traces/ (quarantined, local-only); no protocol files changed yet.
 - **File:** _(none yet — trace only)_
 - **Origin:** user query — open-source search decision funnel (benefit others vs privacy/fatigue; usefulness-gate first). Research: cold-start stranger audit (commit 201b9cd).
+  |
+
+### F-017: Learning Anti-Abdication
+
+|
+
+- **State:** applied
+- **Contract:** (a) abdication tripwire in SERIOUSNESS (3+ passive cycles → pointed retrieval question before COMMIT); (b) standing-decisions display in STRATEGY ratification + every EXECUTOR output; learned-this-cycle in REFLECT Q9; (c) explain-back anti-gaming at STRATEGY ratification (echo fails, ledger-checked).
+- **Test Anchoring:** tripwire text in steps/SERIOUSNESS.md; standing-decisions rule in steps/STRATEGY.md + steps/EXECUTOR.md; Q9 line in steps/REFLECT.md.
+- **File:** `steps/SERIOUSNESS.md`, `steps/STRATEGY.md`, `steps/EXECUTOR.md`, `steps/REFLECT.md`
+- **Origin:** user query — _need to learn the science of learning... Primeagen learned-helplessness worry_ + live confession of yes-without-reading + standing-decisions refinement. Research: testing effect (Roediger & Karpicke 2006), self-explanation effect (Chi 1989), generation effect (verified via Wikipedia). Sweep: metacognitive decoupling under LLM use (arXiv:2603.29681); expertise-reversal guidance calibration (CLT); productive failure — generation before instruction (Kapur); guidance meta-analysis d=0.50-0.71; interleaving/deliberate-practice already covered, no change.
 
 ## Trace Tags
 
@@ -142,21 +153,22 @@ Feature registry for the Development Protocol itself. Each feature has a lifecyc
 
 ## Relationships
 
-| Feature                  | Depends On   | Referenced By                                 |
-| ------------------------ | ------------ | --------------------------------------------- |
-| F-001 INBOX              | —            | ../steps/RULES.md routing, README.md pipeline |
-| F-002 Engineering Plugin | —            | F-003, F-004, F-008                           |
-| F-003 SE Registry        | F-002        | AGENTS.md, check-local.sh                     |
-| F-004 Check Gates        | F-002, F-003 | AGENTS.md, push workflow                      |
-| F-005 HANDOVER           | —            | AGENTS.md, session workflow                   |
-| F-006 ADR                | —            | AGENTS.md, ../steps/RULES.md governance       |
-| F-007 Specification      | F-006        | ../steps/SPECIFICATION.md §15                 |
-| F-008 Standards          | —            | ../steps/RULES.md, ../steps/STANDARDS.md      |
-| F-009 Stance Read        | —            | ../steps/INBOX.md, F-010                      |
-| F-010 Dissent Log        | F-009        | ../steps/SERIOUSNESS.md, ../steps/KILL_LOG.md |
-| F-011 Scope Ceiling      | —            | ../steps/STRATEGY.md, ../steps/REVIEW.md §2.7 |
-| F-012 Truth-Elicitation  | F-009        | ../steps/EXTRACTION.md                        |
-| F-013 Cross-Cycle        | —            | ../steps/REFLECT.md Q9, F-011                 |
-| F-014 Raw-First          | —            | ../steps/INBOX.md, agent stack                |
-| F-015 SWE Appendixes     | F-007        | docs/appendix/, P2b/P4 gates                  |
-| F-016 OSS Metric         | —            | proposed; trace only                          |
+| Feature                  | Depends On   | Referenced By                                                      |
+| ------------------------ | ------------ | ------------------------------------------------------------------ |
+| F-001 INBOX              | —            | ../steps/RULES.md routing, README.md pipeline                      |
+| F-002 Engineering Plugin | —            | F-003, F-004, F-008                                                |
+| F-003 SE Registry        | F-002        | AGENTS.md, check-local.sh                                          |
+| F-004 Check Gates        | F-002, F-003 | AGENTS.md, push workflow                                           |
+| F-005 HANDOVER           | —            | AGENTS.md, session workflow                                        |
+| F-006 ADR                | —            | AGENTS.md, ../steps/RULES.md governance                            |
+| F-007 Specification      | F-006        | ../steps/SPECIFICATION.md §15                                      |
+| F-008 Standards          | —            | ../steps/RULES.md, ../steps/STANDARDS.md                           |
+| F-009 Stance Read        | —            | ../steps/INBOX.md, F-010                                           |
+| F-010 Dissent Log        | F-009        | ../steps/SERIOUSNESS.md, ../steps/KILL_LOG.md                      |
+| F-011 Scope Ceiling      | —            | ../steps/STRATEGY.md, ../steps/REVIEW.md §2.7                      |
+| F-012 Truth-Elicitation  | F-009        | ../steps/EXTRACTION.md                                             |
+| F-013 Cross-Cycle        | —            | ../steps/REFLECT.md Q9, F-011                                      |
+| F-014 Raw-First          | —            | ../steps/INBOX.md, agent stack                                     |
+| F-015 SWE Appendixes     | F-007        | docs/appendix/, P2b/P4 gates                                       |
+| F-016 OSS Metric         | —            | proposed; trace only                                               |
+| F-017 Learning           | F-009, F-010 | ../steps/SERIOUSNESS.md, ../steps/STRATEGY.md, ../steps/REFLECT.md |
