@@ -78,7 +78,11 @@ The human **edits the proposal** rather than accepting/rejecting wholesale.
 
 > **Dissent (log overrides):** Rule 7 gives the human final say — when they exercise it against the proposal, log agent position vs human position + who decided in `KILL_LOG.md` § Dissent Log, with a 30-day check. Overrides are calibration data, not failures.
 
-> **Scope ceiling (less wins ties):** the ratified proposal must state what it deliberately EXCLUDES — the X-list. Every excluded item goes to `KILL_LOG.md` § Exclusion Log with its why. When two scopes both satisfy intent, ratify the smaller one: over-building compounds into future liability, under-building is cheap to extend later.
+> **Scope ceiling (less wins ties):** the ratified proposal must state what it deliberately EXCLUDES — the X-list. Every excluded item goes to `KILL_LOG.md` § Exclusion Log with its why. When two scopes both satisfy intent, ratify the smaller one.
+>
+> Why the tie-break points down, not up: feature creep is the most common source of cost and schedule overruns, and scope creep has at least some presence in every project (Wikipedia: Feature creep; Scope creep). Maintenance dominates lifecycle cost (Lientz & Swanson), late changes cost orders of magnitude more than early ones (Boehm), and working complex systems evolve from working simple ones (Gall's law) — so over-building compounds into future liability while under-building stays cheap to extend.
+>
+> Honesty note on the famous number: the often-cited '64% of features are rarely or never used' (Standish, XP 2002) was a study of four internal applications, confirmed with the Standish Group by Cohn — real, but not universal. Cite it with its scope, never as every-product fact. The ceiling holds on the mechanics above, not on that number.
 
 ### Phase 4 — Execution & Review Gates
 
