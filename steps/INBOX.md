@@ -234,6 +234,17 @@ Seed with assumptions surfaced in Phases 1–5. Carry forward:
 
 **Rule:** every assumption gets a Test. No test = not an assumption, it's a blind spot.
 
+### Flagged terms (ambiguous wording)
+
+> Readings gate feed: terms with 2+ live readings, pinned domain, user-confirmed pick.
+
+| Term            | Live readings     | Domain pin | Status      |
+| --------------- | ----------------- | ---------- | ----------- |
+| _example: ship_ | _release vs boat_ | _software_ | _confirmed_ |
+
+- **Status:** pending → confirmed / retired (reading settled or term dropped)
+- Logged by EXTRACTION's readings gate; the ledger's assumptions must use the confirmed reading.
+
 ## Stance Read (who am I working with?)
 
 > The protocol adapts to the human, not just the project. Read stance from language before choosing depth.
