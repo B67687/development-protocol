@@ -6,6 +6,8 @@
 
 Protocol-of-protocols (PoP) — recursive strategist across the full means-ends chain, specialized to accomplishment. Four altitudes (steps/QUICKSTART.md): P1 WANT incl. tacit (3-layer extraction) → P2 SHOULD_WANT two-bar [P2a SHOULD-BUILD-X? DROP/COMMIT via SERIOUSNESS → P2b WHICH-X? same/scaled/adjacent/more via LANDSCAPE] → P3 BEST_PLAN (decomposition/strategy/landscape/failure/fundamentals) → P4 EXECUTE (spec/executor/validation/review/reflect/prioritize). Two gates enforce order; appendixes translate PoP decisions to SE artifacts.
 
+Goal, stated at constitution level (docs/CONSTITUTION.md): every run leaves three things better — the project, the human, the method. The strategist is the engine; the scoreboard is the point.
+
 Part of a trio: this (process), Standards (what good means), Lessons (cross-project knowledge).
 
 ## Layout
