@@ -35,6 +35,10 @@ All notable changes to the Development Protocol. Follows Keep a Changelog; versi
 
 - `docs/SPEC_SYNC.md` stub (content long merged into `REVIEW.md` fidelity check).
 
+### Changed
+
+- Raw-first made unconditional — full and quick both handle the request raw before any protocol category; progress header required every turn while in-protocol (both modes). Wiring: dev-defaults.mdc Understand-First Gate + EXTRACTION.md Layer 1.
+
 ### Fixed
 
 - 20+ broken internal links: new `LICENSE` (MIT, ithmb text); `docs/PHILOSOPHY.md` repoints → `steps/QUICKSTART.md`; new `docs/STANDING_PRINCIPLES.md`; appendix/trace/test-signal/AGENTS/standards/traces path prefixes; removed `ledger-check.py` tree line (file never existed). Sweep-verified; scaffold-target, archive, `.omo`, and cross-repo refs intentionally untouched.

@@ -170,9 +170,9 @@ Set-based candidates proceed through SERIOUSNESS/DECOMPOSITION normally; downsel
 
 Every AI response during protocol execution follows this structure:
 
-### Layer 1: Overview (Sub-checkmarks in active phase)
+### Layer 1: Overview (progress header — every turn while in-protocol)
 
-Shows granular progress inside the current phase. Phases with sub-checkmarks
+Shows granular progress inside the current phase. **Show this header every single turn while in-protocol — full and quick alike; no mode omits it.** Phases with sub-checkmarks
 get a blank line separator. Phases without are packed together.
 
 | ```
