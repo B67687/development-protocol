@@ -5,10 +5,20 @@
 > **Purpose:** Determine whether an extracted X is worth the first 5 steps of the protocol.
 > In ~30 minutes, the gate routes every idea to COMMIT, SCHEDULE, or DROP.
 >
+> **Seriousness is felt, not declared.** The protocol does not ask "how serious are you? 1–10." It runs 2–3 feeling-probes, shows the implied route (light vs full), and double-checks before routing. Responsibility stays with you; calibration is the protocol's job. One entry point — the gate decides how much of the rest unfolds.
+>
+>
 > **Without this gate,** every extracted X proceeds to FUNDAMENTALS by default — even
 > casual thoughts and idle curiosities. The gate is the protocol's first "no."
 
-## The Gate — 3 Phases
+## The Gate — 3 Phases + feeling check
+
+> **Phase 0 — Feeling probes (2 min, before scoring).** Seriousness is not self-declared.
+> 1. Sacrifice probe: "Would you give up one full weekend to make X real?" Yes/Maybe/No.
+> 2. Continuity probe: "If you had to touch X 30 min daily for 30 days, would you still want it?" Yes/No.
+> 3. Opportunity-cost probe: "If you COMMIT X, what will you explicitly NOT do this month?" Name it.
+> Implied route: 3×Yes + named cost → full; any No/Maybe or unnamed cost → light. The gate shows you the implied route, then double-checks: "Does this feel right — full or light?" Your check overrides the probe; probes calibrate, they do not decide.
+
 
 ### Phase 1: Commitment Probe (5 min)
 
