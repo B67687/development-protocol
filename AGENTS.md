@@ -4,9 +4,12 @@
 
 ## Overview
 
-Protocol-of-protocols (PoP) — recursive strategist across the full means-ends chain, specialized to accomplishment. Four altitudes (steps/QUICKSTART.md): P1 WANT incl. tacit (3-layer extraction) → P2 SHOULD_WANT two-bar [P2a SHOULD-BUILD-X? DROP/COMMIT via SERIOUSNESS → P2b WHICH-X? same/scaled/adjacent/more via LANDSCAPE] → P3 BEST_PLAN (decomposition/strategy/landscape/failure/fundamentals) → P4 EXECUTE (spec/executor/validation/review/reflect/prioritize). Two gates enforce order; appendixes translate PoP decisions to SE artifacts.
+Protocol-of-protocols (PoP) — recursive strategist across the full means-ends chain, specialized to accomplishment. Four altitudes, authoritative in steps/QUICKSTART.md: P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2: same/scaled/adjacent/more) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE). Bar 1 must clear before Bar 2.
 
 Goal, stated at constitution level (docs/CONSTITUTION.md): every run leaves three things better — the project, the human, the method. The strategist is the engine; the scoreboard is the point.
+
+> **Wiring — standing principles, raw-first, progress header.** Principles (docs/STANDING_PRINCIPLES.md): approve strategy once; check consequential claims; keep it light. Raw-first unconditional on full and quick (INBOX) — diverge-before-converge. Progress header mandatory every turn while in-protocol (EXTRACTION Layer 1).
+> **CLI phases vs protocol phases.** Scaffold phases DISCOVER/WORK/ITERATE/PERFECT/DISTRIBUTE (steps/RULES.md) are project lifecycle phases, distinct from P1→P4 INBOX/SERIOUSNESS/LANDSCAPE.
 
 Part of a trio: this (process), Standards (what good means), Lessons (cross-project knowledge).
 
@@ -65,6 +68,8 @@ Development-Protocol/
 ├── scripts/
 │   ├── check.sh                       # CI gate: steps/RULES.md phases + CLI contract + cargo
 │   ├── check-local.sh                 # Local gates: markdown lint + ADR + registry + .omo leak
+│   ├── protocol-lint.sh               # 9-rule lint: FEATURES + ledger + steps hygiene
+│   ├── ledger-check.py                # Rule 9: case/method/status/evidence resolver
 ├── cli/                               # Rust CLI tooling (cargo check/test)
 ├── template/                          # Protocol templates
 └── .omo/                              # Agent workspace (NEVER commit)
@@ -74,7 +79,7 @@ Development-Protocol/
 
 | Artifact           | File                                     | Purpose                                              | Status                       |
 | ------------------ | ---------------------------------------- | ---------------------------------------------------- | ---------------------------- |
-| FEATURES           | `docs/FEATURES.md`                       | F-### feature registry with lifecycle states         | Active, 8 entries            |
+| FEATURES           | `docs/FEATURES.md`                       | F-### feature registry with lifecycle states         | Active, 17 entries           |
 | SPECIFICATION      | `steps/SPECIFICATION.md`                 | Three-layer model (MACRO/MESO/MICRO)                 | Active, 586L (see TECH_DEBT) |
 | ARCHITECTURE       | `docs/adr/`                              | Architecture Decision Records (3 ADRs)               | Active                       |
 | TECH_DEBT          | `docs/TECH_DEBT_AUDIT.md`                | Active debt triage, severity × effort                | Active                       |
@@ -85,7 +90,7 @@ Development-Protocol/
 
 ## Pipeline Flow
 
-P1 WANT (INBOX → EXTRACTION → AMBITION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE Bar 2: same/scaled/adjacent/more + appendix mapping) → P3 BEST_PLAN (DECOMPOSITION → STRATEGY → FAILURE_CAPTURE → FUNDAMENTALS) → P4 EXECUTE (SPECIFICATION RTM §1.5 + EXECUTOR → VALIDATION → REVIEW 4 loops + Gate 2.6 → REFLECT Q8 → PRIORITIZE → KILL_LOG retro).
+P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE → KILL_LOG retro).
 
 Altitudes vary; recursive strategist. `docs/appendix/p2b-mapping-appendix.md` (early SWE) and `docs/appendix/p4-late-appendix.md` (late SWE) are opt-in, depth-gated — Light logs skip, Standard+ fills.
 
@@ -93,7 +98,7 @@ Each step produces a `.md` artifact. steps/RULES.md governs routing and phase tr
 
 ## Local-First CI
 
-No GitHub Actions — all verification is local via `scripts/check-local.sh` and `scripts/check.sh`. This is by design: the protocol is docs-only, and local gates catch issues before push.
+Primary verification is local via `scripts/check-local.sh`, `scripts/check.sh`, and `scripts/protocol-lint.sh` (9-Rule). CI workflow `.github/workflows/protocol-lint.yml` mirrors the same 9-rule gate on push — not “no Actions”.
 
 ```bash
 # Run local verification

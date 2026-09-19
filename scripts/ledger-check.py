@@ -10,6 +10,9 @@ a slow decision = omitted = red flag.
 import json, os, re, sys
 
 path = sys.argv[1] if len(sys.argv) > 1 else ".omo/method-ledger.jsonl"
+if not os.path.exists(path):
+    print(f"No ledger at {path} — skipping Rule 9 (no entries yet)")
+    sys.exit(0)
 bad = 0
 omitted = 0
 rule9 = 0

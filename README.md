@@ -33,7 +33,7 @@ Quick links: [Try it](#try-it-in-5-steps) · [Proof](#proof-a-real-run) · [Pipe
 3. **Which version**: same, scaled, adjacent, or more — picked after looking at the landscape.
 4. **Plan and build**: prototype, lock the plan, execute, verify, learn.
 
-A person approves the strategy once, then the agent builds with checks along the way. (The step codes — P1, P2a, P2b, P3, P4 — live in `steps/QUICKSTART.md`; you do not need them to start.)
+A person approves the strategy once, then the agent builds with checks along the way. (The step codes — P1, P2a, P2b, P3, P4 — live in `steps/QUICKSTART.md`; you do not need them to start. The Light happy path is `INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICATION → EXECUTOR` — see `steps/QUICKSTART.md` as the single canonical source.)
 
 ## Try it in 5 steps
 

@@ -11,6 +11,8 @@
 
 > **THE single ratification gate (Invariant 11):** AMBITION's locked scope + the strategic kernel + the phase budget are ratified here together, in one interaction. No other step asks for user ratification by default.
 >
+> **Two-tier depth (route-scaled, still one gate):** **One-way doors / high-stakes →** full kernel + human pre-commitment + own-words reason + premortem. **Reversible + appetite <1 week + verified prior equivalent shipment →** lazy consent: the AI posts a ≤5-line proposal with a stated objection window; the human's one-line "proceed" is the ratification, logged to `KILL_LOG.md` § Dissent Log as `lazy-consent`. Never zero approval — just a lighter one. Any one-way door found mid-run → re-ratify at full tier immediately.
+>
 > **The posture (protocol-wide, see README):** the AI leads strategy as a world-class
 > strategist. It proposes; the human ratifies; the human owns execution. This is the
 > commander's intent model (ADP 6-0) — the AI sets the strategic direction, the human
@@ -47,6 +49,8 @@ own words, BEFORE the AI proposes.
 - Format: the human writes 1-3 sentences: _What is the challenge? What outcome
   matters? What would I do if I had to decide now?_
 
+> **Competence-gated bypass (expert path):** if LANDSCAPE records a prior equivalent shipment by this human (same domain, same shape, shipped and reviewed), Phase 1 pre-commitment is waived for that run — the track record IS the pre-commitment. Phase 2 kernel + falsification signals stay mandatory. Phase 3 echo-check degrades to one line naming the prior shipment. Log as `skipped: pre-commitment (prior equivalent: <ref>)`. Never bypass for a new domain or a first-time one-way door.
+
 ### Phase 2 — Proposal (AI, kernel format)
 
 The AI drafts the strategy as a Rumelt kernel with intent and falsification blocks:
@@ -74,7 +78,9 @@ The human **edits the proposal** rather than accepting/rejecting wholesale.
   reason in their own words (no rubber-stamping) — and the agent checks it against the ledger before sign-off counts. Verbatim echo of the agent's own proposal fails the check: retrieval (self-explanation effect, Chi 1989; testing effect, Roediger & Karpicke 2006) is what makes a decision stick; recognition is not learning. Copy-paste of agent wording is ceremony — flagged, not logged.
 - The amended proposal is final only after the human's explicit sign-off.
 
-> **Standing decisions (displayed every output):** the ratified proposal carries a Standing Decisions list — every settled decision so far, one line each. Every subsequent phase output restates it at the top. The human agreed to these but cannot be expected to remember them mid-run; invisible settled decisions get re-litigated or silently dropped. Restatement is agent-side, zero user ceremony.
+> **Standing decisions (displayed every output; faded as competence grows):** the ratified proposal carries a Standing Decisions list — every settled decision so far, one line each. Every subsequent phase output restates it at the top. The human agreed to these but cannot be expected to remember them mid-run; invisible settled decisions get re-litigated or silently dropped. Restatement is agent-side, zero user ceremony.
+>
+> **Fading rule:** once the human has passed Q7 ≥3 times (or the REFLECT Q9 signal shows 2 clean cycles), restatement fades from full display to **cued recall** — the agent names the list by heading and asks the human to supply the one that matters now. Recognition does not build retention; recall does. If recall fails twice in a run, restore full display for that run and reset the fade counter.
 
 > **Bias check (load `BIAS_CATALOG.md` §IKEA Effect):** Before ratifying, ask — "Would I still choose this if someone else proposed it?" If the answer hesitates, the attachment is to authorship, not strategy.
 
@@ -141,6 +147,11 @@ Countermeasures (mandatory):
 3. **Scaffolding ladder with fading** — start with modeling + coaching; fade AI
    support as the human demonstrates competence; end with the human drafting first
    and the AI critiquing. Fading is conditional on demonstrated competence, not time.
+   *Demonstrated competence (fading trigger):* the human produces, unprompted, the
+   phase's decision in their own words and it passes without the agent supplying the
+   frame — tracked by Q7 graduation and REFLECT Q9 counts (explain-backs + unprompted
+   questions). Fading is per-domain, not global: competence in backlog grooming does
+   not fade support in capacity planning.
 4. **Cold-start no-AI drills** — for a new domain, the human produces a complete
    unaided strategy before the first AI proposal, then compares.
 5. **Full "AI decides and acts" (Sheridan-Verplank level 8+) is contraindicated**

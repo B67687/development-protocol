@@ -39,6 +39,7 @@ All notable changes to the Development Protocol. Follows Keep a Changelog; versi
 ### Changed
 
 - Raw-first made unconditional — full and quick both handle the request raw before any protocol category; progress header required every turn while in-protocol (both modes). Wiring: dev-defaults.mdc Understand-First Gate + EXTRACTION.md Layer 1.
+- Fidelity triangle audit (docs↔docs, docs↔code, code↔code) + 10-lens external audit → 7 deltas shipped: (1) canonical Light happy path as single spine source (QUICKSTART blockquote + README pointer); (2) "How to run a step" with copy-paste agent prompt + done-criterion (Output filled + one ledger line); (3) glossary moved above the P-codes; (4) competence-gated bypass (prior equivalent shipment waives pre-commitment, kernel + falsifiers stay); (5) route-scaled stop thresholds — 3→10 files, 200→800 lines, batched delete-confirms on PORT/MAINTENANCE/expert routes, judgment rules untouched, logged as `skipped: stop-threshold`; (6) two-tier ratification — one-way doors full tier, reversible + <1-week appetite → lazy consent with objection window, never zero approval; (7) progressive abdication tripwire (L1 nudge after 1 passive cycle, L2 block after 2), standing-decision fading bound to Q9 two-clean-cycle trigger, 2-sentence explain-back rubric. Spine/wiring/ledger/CLI drifts also closed.
 
 ### Fixed
 

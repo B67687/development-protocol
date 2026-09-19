@@ -2,6 +2,43 @@
 
 > Last verified: 2026-08-29. This is **Light mode** — a subset of the full protocol. If it diverges, the full phase docs are authoritative.
 
+> **Canonical Light happy path (referenced everywhere):** `INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICATION → EXECUTOR` — 6 phases, <2h. All other docs point here; do not duplicate the list.
+
+## How to run a step (read first)
+
+Every phase doc has one shape: **Input → Do → Output**. Running it means producing the Output — not reading the file. Paste this to your agent:
+
+```
+Run Development Protocol step <NAME> on: <your task>.
+Follow steps/<NAME>.md exactly. When done, show the Output artifact
+and log the method to .omo/method-ledger.jsonl (applied/skipped + reason).
+```
+
+**Done looks like:** the step's Output section is filled with your task's details, and the ledger has one new line. If you have nothing to fill, you read the doc — you did not run it.
+
+## Glossary (read this before the P-codes do damage)
+
+| Term | Means |
+| --- | --- |
+| **X** | Real problem (extracted from Y) |
+| **Y** | Stated solution ("I want a dashboard") |
+| **P1 / P2a / P2b / P3 / P4** | Altitudes: WANT → SHOULD-BUILD? → WHICH-X? → BEST_PLAN → EXECUTE |
+| **Bar 1 / Bar 2** | Bar 1 = should we build X at all (P2a). Bar 2 = which X, now that we are (P2b) |
+| **Appetite** | Timebox you're willing to spend — fixed, not estimated |
+| **Run-shape** | Depth mode: Light / Standard / Deep (chosen by the SERIOUSNESS probes) |
+| **One-way door** | Irreversible decision (schema, API, data, security) |
+| **Cynefin** | Complexity frame: Clear / Complicated / Complex / Chaotic |
+| **MECE** | Mutually Exclusive, Collectively Exhaustive (decomposition test) |
+| **PACING** | Phase budgets as % of appetite |
+| **Ratification** | Single-gate approval — human signs off, AI argued the case |
+| **Standing decisions** | Choices already ratified this cycle — restated each turn so nobody re-litigates them |
+| **Tripwire** | Behavioral safety trigger (e.g. abdication guard) — fires on patterns, not self-reports |
+| **Spike** | Throwaway prototype to test the riskiest assumption (VALIDATION) |
+| **RTM** | Traceability Matrix — which spec section came from which idea |
+| **Method Ledger** | `.omo/method-ledger.jsonl` — audit trail of applied/skipped methods |
+| **BIAS_CATALOG** | 8-bias detection catalog — which bias where |
+| **KILL_LOG** | Log of DROP/KILL decisions + 30-day counterfactual |
+
 ## The 5-Minute Version (10 sentences)
 
 1. **INBOX** captures every idea — don't judge, just dump. (P1 WANT)
@@ -91,28 +128,6 @@ Light mode runs: INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICA
 | 2-hour bug fix, reversible                              | Light mode — INBOX-lite → direct fix → review |
 | 3-month product                                         | Standard/Deep — full pipeline                 |
 | Existing codebase, no protocol                          | INBOX Brownfield row → reanchor → EXTRACTION  |
-
-## Glossary (15 terms that appear everywhere)
-
-| Term                        | Means                                                               |
-| --------------------------- | ------------------------------------------------------------------- |
-| **X**                       | Real problem (extracted from Y)                                     |
-| **Y**                       | Stated solution ("I want a dashboard")                              |
-| **Appetite**                | Timebox you're willing to spend — fixed, not estimated              |
-| **One-way door**            | Irreversible decision (schema, API, data, security)                 |
-| **Cynefin**                 | Complexity frame: Clear / Complicated / Complex / Chaotic           |
-| **MECE**                    | Mutually Exclusive, Collectively Exhaustive (decomposition test)    |
-| **PACING**                  | Phase budgets as % of appetite                                      |
-| **Light / Standard / Deep** | Adaptive depth modes (SERIOUSNESS-gated)                            |
-| **BIAS_CATALOG**            | 8-bias detection catalog — which bias where                         |
-| **KILL_LOG**                | Log of DROP/KILL decisions + 30-day counterfactual                  |
-| **RTM**                     | Traceability Matrix — which spec section came from which idea       |
-| **Thick frame**             | Connection map + alternative framings from Raw-Thinking Pass        |
-| **Ratification**            | Single-gate approval — human signs off, AI argued the case          |
-| **Spike**                   | Throwaway prototype to test riskiest assumption                     |
-| **Method Ledger**           | `.omo/method-ledger.jsonl` — audit trail of applied/skipped methods |
-
----
 
 ## Light Mode: What You Skip (and the Risk)
 
