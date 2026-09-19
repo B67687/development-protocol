@@ -342,6 +342,24 @@ Run through each category systematically. Do not skip categories — AI systemat
 | **Documentation**            | README, API docs, setup guide, troubleshooting, changelog                      | Tier 1+        |
 | **Performance**              | Load time, render time, memory profile, bundle size                            | Tier 2+        |
 | **Cross-system integration** | API contract compliance, data format compatibility, error propagation          | Mandatory      |
+| **Deliverable voice**        | User-facing artifact narrates the work not the assignment; human rhythm; conciseness kept (see Deliverable Voice below) | Tier 1+        |
+
+### Deliverable Voice (user-facing artifacts)
+
+Applies to anything a third party will read or grade — notebooks, reports, READMEs, slides, write-ups. Two rules, both mandatory. Specs, plans, review reports and machine-parsed artifacts are exempt (scope note under each rule).
+
+**1. Narrate the work, never the assignment.** A delivered artifact must not mention the brief, task, rubric, grader, marker, or "what is required". It has to read as a person doing work and talking about it, not an AI satisfying a checklist.
+- *Stays:* part labels that map to the assignment (`(a)`, `(b)`, `(c)(i)`) — they orient the reader.
+- *Scope:* applies to any deliverable read or graded by a third party. Does NOT apply to internal specs, plans, review reports or compliance artifacts, where naming the requirement is the job.
+- *Counterexample:* a compliance report whose purpose is to show which requirement each section satisfies must cite the requirement.
+- *Check:* grep the deliverable for `brief`, `assignment`, `rubric`, `grader`, `marker`, `marking`, `the task (asks|requires)`. Any hit in prose = FAIL; part labels in headings are allowed.
+
+**2. Human fingerprint and objective conciseness are both required, not a trade-off.** Keep every fact and all conciseness; change only rhythm. The AI tell is rhythm, not vocabulary.
+- *Symptoms:* a trailing justification clause on most paragraphs ("... so the only thing that changes is the threshold"); stock openers ("The honest answer is that", "The interesting part is that"); uniform sentence length and a repeated three-beat section shape.
+- *Fix:* use contractions; vary sentence length hard (short next to long); delete one restating sentence per paragraph. Preserve all technical facts.
+- *Scope:* prose written for humans in any project — notebooks, READMEs, slides, report bodies. Does NOT apply to specs, contracts or anything a checker parses, where a stiff register is correct.
+- *Counterexample:* do not loosen wording in a contract or spec — voice rules and precision rules apply to different surfaces.
+- *Check:* grep the stock openers; confirm contractions are present and sentence lengths vary; confirm at least one restating sentence was cut per paragraph.
 
 ### Named Techniques (edge-case & UX evaluation)
 

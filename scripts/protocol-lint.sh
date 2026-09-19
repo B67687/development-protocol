@@ -431,7 +431,19 @@ if [[ ${#r8_issues[@]} -gt 0 ]]; then
 else
     pass "R8 — FEATURES registry: $n_ids entries, all with valid State + File"
 fi
+# ─── Rule 9: Method Ledger (ledger-check.py) ────────────────────────────────
+echo "Rule 9: Method ledger check (ledger-check.py)"
+if [[ -x "scripts/ledger-check.py" ]] || [[ -f "scripts/ledger-check.py" ]]; then
+    if python3 scripts/ledger-check.py; then
+        pass "R9 — ledger-check.py passed"
+    else
+        fail "R9-LEDGER" "ledger-check.py reported failures (see above)"
+    fi
+else
+    fail "R9-LEDGER" "scripts/ledger-check.py not found or not executable"
+fi
 
+# ─── Summary ────────────────────────────────────────────────────────────────
 # ─── Summary ────────────────────────────────────────────────────────────────
 echo ""
 echo "═══════════════════════════════════════════════════════════════════"

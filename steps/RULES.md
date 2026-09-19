@@ -44,6 +44,12 @@
 > **Single-source-of-truth:** RULES.md always wins on conflicts between protocol documents.
 > **Recursion meta-rule:** Every step is recursive — if a step's output is still ambiguous after one pass, apply it again deeper. Most problems resolve in 2-3 recursions. If 3 still don't converge, the problem needs a different framing (not deeper iteration of the same framing).
 
+> **Standing Principles (authoritative: `docs/STANDING_PRINCIPLES.md`).** 1) You approve strategy once — agent proposes, you ratify, then agent owns execution. 2) Check consequential claims — graded verification, evidence over memory. 3) Keep it light — additions must earn their place. Standing probe: run protocol on new flagship without changing method. Shipping rule: build → grounding → re-verify.
+>
+> **Raw-first (unconditional).** Before any protocol category engages — full or quick — handle the user's words once with no framework: read raw, respond, note what surfaces. The protocol's template is itself a fixation example; diverge-before-converge mitigates Einstellung and design-fixation.
+>
+> **Progress header (every turn while in-protocol).** While any protocol run is active — full or quick — every assistant turn opens with a progress header (current P-altitude and step, or equivalent). Defined in `EXTRACTION.md` Layer 1; enforced here as the invariant.
+
 ## 1. Project Type Routing
 
 The protocol is NOT a fixed pipeline — it's a routing system that selects the right phases for your project type. At bootstrap, run this decision tree:
@@ -145,6 +151,8 @@ The sub-cycle is NOT a full EXTRACTION — the parent already validated the prob
 ## 4. Phase Definitions
 
 Each phase is a modular building block. Use only the ones your project needs.
+
+> **Note — two phase vocabularies.** The project lifecycle phases below (DISCOVER/WORK/ITERATE/PERFECT/DISTRIBUTE) apply to *scaffolded projects* created by the CLI. They are distinct from the Development Protocol's own meta-phases (P1 WANT INBOX→EXTRACTION → P2a SERIOUSNESS → P2b LANDSCAPE+STRATEGY+AMBITION → P3 FUNDAMENTALS→DECOMPOSITION→VALIDATION → P4 SPEC→EXEC→REVIEW→REFLECT, see QUICKSTART/AGENTS). DISCOVER roughly maps to P1–P2 exploration; WORK maps to P4 execution.
 
 ### DISCOVER
 
@@ -276,6 +284,16 @@ The AI MUST stop and ask before proceeding if ANY of these are true:
 - [ ] Task exceeds **200 lines** of new code → propose plan first
 - [ ] Task has **no test written first** (in WORK phase) → pause, write test first
 
+> **Route-scaled thresholds (PORT / MAINTENANCE / verified-expert routes).** The numeric stop rules above assume greenfield feature work. On a port or maintenance route, or when the human has demonstrated prior equivalent shipments in this domain (see STRATEGY → Competence-gated bypass), scale the numbers and batch the confirmations. The rule exists to prevent surprise, not to cap throughput:
+>
+> | Rule | Default | PORT / MAINTENANCE / expert |
+> | --- | --- | --- |
+> | Files touched before plan approval | 3+ | **10+** |
+> | New lines before plan approval | 200 | **800** |
+> | Delete/overwrite confirmations | per change | **batched** (one confirm per session, listing all) |
+>
+> Non-numeric rules (new dependency, outside phase, out of scope, V1 scope, Constitution, ambiguity, no-test-first) are **not** relaxed — they are judgment rules, not throughput rules. Log every scaling in the Method Ledger: `skipped: stop-threshold (route: PORT, ref: <evidence>)`.
+
 ---
 
 ## 8. Verification Gates
@@ -381,6 +399,8 @@ Phase Exit: [phase name]
 | FP-012 | Security Blindness | AI generates functional code that skips auth, validation, or sanitization |
 | FP-013 | Dependency Bloat | Adding a library instead of writing 5 lines of code |
 | FP-014 | Context Decay | Later AI sessions contradict earlier decisions because context was lost |
+| FP-015 | Assignment Narration | A delivered artifact talks about the brief, rubric, grader or "what is required" instead of the work — reads as an AI satisfying a checklist |
+| FP-016 | Uniform-Rhythm Voice | Human-facing prose that is accurate yet machine-composed: a trailing justification clause on most paragraphs, stock openers, uniform sentence length |
 
 ### FP-CAT-3: Process
 

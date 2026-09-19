@@ -12,6 +12,8 @@ The protocol's states are its pipeline steps:
 INBOX → PRIORITIZE(opt) → EXTRACTION → SERIOUSNESS → FUNDAMENTALS (incl. MULTI) → DECOMPOSITION → AMBITION (incl. PACING) → LANDSCAPE → STRATEGY → VALIDATION → SPECIFICATION → EXECUTOR → REVIEW (incl. EXPLAINER) → REFLECT → SHIP
 ```
 
+> **Altitude spine (authoritative: steps/QUICKSTART.md):** P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD? (SERIOUSNESS Bar 1) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE). Bar 1 must clear before Bar 2.
+
 | State | Meaning |
 |---|---|
 | `INBOX` | Raw-Thinking Pass first (Phase 5, Cluster AN): pure generation — intuitions, perspectives, connections, alternative framings (raw GENERATES, protocol VERIFIES). Then Run-Shape Selector triage (Light/Standard/Brownfield — see ../steps/INBOX.md); raw thoughts captured, clustered, one cluster selected; mode + any reanchor ratification logged to method ledger |

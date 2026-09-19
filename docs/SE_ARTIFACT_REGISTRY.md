@@ -27,7 +27,7 @@ Status transitions are logged. CI enforces staleness checks. Applied features **
 | **Ithmb-Codec-Web** | `docs/FEATURES.md` (F-001..F-029) | `../steps/SPECIFICATION.md` | `ARCHITECTURE.md` (115 lines) | `TECH_DEBT_AUDIT.md` | `docs/adr/` (2 ADRs) | `scripts/check-local.sh` (11 checks) | `.github/workflows/ci.yml` (3 browsers) |
 | **Imageglass-Ithmb-Plugin** | `docs/FEATURES.md` (F-001..F-010) | `../steps/SPECIFICATION.md` | `docs/ARCHITECTURE.md` | `TECH_DEBT_AUDIT.md` | `docs/adr/` (2 ADRs) | `scripts/check-local.sh` (7 checks) | `.github/workflows/ci.yml` (3 OS) |
 | **Bus-Hop** | `docs/FEATURES.md` (F-001..F-010 archived) | `../steps/SPECIFICATION.md` (20 FR + 7 NFR) | `docs/ARCHITECTURE.md` (164 lines) | `TECH_DEBT_AUDIT.md` | `docs/adr/ADR-004` | `scripts/check-local.sh` (graceful) | Intentionally removed per ADR-004 (no workflows) |
-| **Development-Protocol** | `docs/FEATURES.md` (F-001..F-008) | `../steps/SPECIFICATION.md` (MACRO/MESO/MICRO) | `docs/adr/` (3 ADRs) | `docs/TECH_DEBT_AUDIT.md` | `docs/adr/` (3 ADRs) | `scripts/check-local.sh` (4 gates) | Local-only (no GitHub Actions, by design) |
+| **Development-Protocol** | `docs/FEATURES.md` (F-001..F-017) | `../steps/SPECIFICATION.md` (MACRO/MESO/MICRO) | `docs/adr/` (3 ADRs) | `docs/TECH_DEBT_AUDIT.md` | `docs/adr/` (3 ADRs) | `scripts/check-local.sh` + `scripts/protocol-lint.sh` (9 rules) + `scripts/ledger-check.py` | `.github/workflows/protocol-lint.yml` (lint + ledger gate) |
 
 ---
 

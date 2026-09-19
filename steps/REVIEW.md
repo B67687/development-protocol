@@ -208,6 +208,7 @@ This is the most important check. Non-coder verification depends on it.
 | 4.4 | README has install/running instructions                 | Can a new user get the project running from README alone?                                                              |
 | 4.5 | CI config or local check script exists (if applicable)* | Check for .github/workflows/, .gitlab-ci.yml, Jenkinsfile, etc., or run ./scripts/check.sh. *See Engineering Plugin §4 |
 | 4.6 | Standards audit passes*                                 | Run ./scripts/audit.sh from the Standards repo. *See Engineering Plugin §4                                             |
+| 4.7 | Deliverable voice (submitted artifacts)*               | For each user-facing artifact: grep for `brief`, `assignment`, `rubric`, `grader`, `marking` in prose (any hit = FAIL); check for stock openers and uniform rhythm. *See EXECUTOR § Deliverable Voice |
 
 ### Phase 5: Regression Defenses
 
