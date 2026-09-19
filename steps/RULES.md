@@ -399,6 +399,8 @@ Phase Exit: [phase name]
 | FP-012 | Security Blindness | AI generates functional code that skips auth, validation, or sanitization |
 | FP-013 | Dependency Bloat | Adding a library instead of writing 5 lines of code |
 | FP-014 | Context Decay | Later AI sessions contradict earlier decisions because context was lost |
+| FP-015 | Assignment Narration | A delivered artifact talks about the brief, rubric, grader or "what is required" instead of the work — reads as an AI satisfying a checklist |
+| FP-016 | Uniform-Rhythm Voice | Human-facing prose that is accurate yet machine-composed: a trailing justification clause on most paragraphs, stock openers, uniform sentence length |
 
 ### FP-CAT-3: Process
 
