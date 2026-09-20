@@ -10,6 +10,8 @@ The agent proposes a written plan, you accept or amend it, then the agent builds
 
 Any step can call for verification, graded by cost of being wrong and grounded in retrieved evidence rather than model memory. Cheap claims pass; expensive ones carry proof.
 
+> **The scope ceiling limits features, never the defensibility of a claim.** You may build fewer things. You may not assert a number you cannot defend under a repeat. Cutting a feature is a legitimate answer; an undefended number is not.
+
 ## 3. Keep it light
 
 Ceremony costs effort, so additions must earn their place. Default is ship at roughly 80 percent, except one-way doors. The protocol stays minimal by design — see `SKIP_CATALOG.md` for what was deliberately left out.

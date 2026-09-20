@@ -401,6 +401,7 @@ Phase Exit: [phase name]
 | FP-014 | Context Decay | Later AI sessions contradict earlier decisions because context was lost |
 | FP-015 | Assignment Narration | A delivered artifact talks about the brief, rubric, grader or "what is required" instead of the work — reads as an AI satisfying a checklist |
 | FP-016 | Uniform-Rhythm Voice | Human-facing prose that is accurate yet machine-composed: a trailing justification clause on most paragraphs, stock openers, uniform sentence length |
+| FP-017 | Undefended Measurement | A reported number rests on a method that does not survive a repeat (single timed run, no repetition or interval) — the artifact asserts more than its evidence supports |
 
 ### FP-CAT-3: Process
 
@@ -439,6 +440,10 @@ When a failure is detected, capture it systematically to feed back into the prot
 5. **Session kickoff reference** — At session start (§12), load recent failure captures from `lessons/` for pattern recognition. The AI checks: "Have we seen this pattern before? What happened last time?"
 
 The capture template extends the method ledger pattern for failures specifically. The method ledger tracks what methods were applied; the failure capture tracks what went wrong and what we learned. Together, they close the learning loop: successes feed the ledger, failures feed the capture, both feed the protocol.
+
+### Workspace vs repo — what must outlive the run
+
+`.omo/` is ephemera: workspace state, deliberately untracked. A later agent opening the project does not see it. Curated outputs that a LATER agent needs — the decision record / KEEP-DROP inventory, standing decisions, ADRs, the method ledger when it carries durable reasoning — belong in the PROJECT REPO, pointed at from the project's agent-instructions file (AGENTS.md / CLAUDE.md), so an agent that opens the project months later reads the decisions before touching code. If the project has no agent-instructions file, FINISH creates a minimal one-screen pointer (what the project is, where the record lives, the standing decisions) — a pointer, not a second protocol. Without this, the protocol only benefits while it runs, and the next session walks in as a newcomer and re-derives — or quietly reverses — decisions that were already settled.
 
 ---
 
