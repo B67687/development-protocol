@@ -125,6 +125,22 @@ OUT OF SCOPE (V1):
 **Maintenance:** filled at SPECIFICATION creation (once) and checked at REVIEW for drift.
 **Bidirectional:** also add forward refs from INBOX/EXTRACTION artifacts: `This idea → §X`.
 
+## 1.6 Source Documents (read these, not my paraphrase)
+
+| Source | Where | Load-bearing lines (verbatim) | Governs |
+|--------|-------|-------------------------------|---------|
+| {{file, URL, or the INBOX raw dump}} | {{path or location}} | {{the lines that state the requirement, quoted word for word}} | {{sections}} |
+
+**Purpose:** an agent acting on this spec must be able to reach the requirement the spec came from. The spec is a compression of its sources and never records what it dropped, so a downstream reader cannot tell an omission from a deliberate simplification.
+
+**The quote is the point.** Quote the load-bearing lines verbatim rather than summarising them. A quote lets a later agent check an assertion against the requirement instead of against this document, and the row still works when the source cannot be shipped (course material, a page behind a login, a file that stayed in the workspace).
+
+**Scope:** every source that carries a requirement, a constraint, or a number the deliverable reports. Not background reading, not prior art (LANDSCAPE covers that).
+
+**Counterexample:** a spec derived only from the user's own words names the INBOX raw dump as its source and quotes the requirement lines out of it.
+
+**Check:** each `Where` resolves, or the verbatim quote makes its absence harmless; every section that depends on a source names it.
+
 ---
 
 ## 2. Architecture & Design Decisions
@@ -584,6 +600,7 @@ Rationale: {{why this level was chosen}}
 - [ ] **Spec self-consistency grep** — run `grep -n "Step " SPEC.md` and confirm step/phase numbering is monotonic with no duplicates before EXECUTOR starts
 - [ ] **FEATURES.md** exists (docs/FEATURES.md template): every IN SCOPE item is an `approved` entry; no `applied` feature lacks linked tests; statuses are valid (proposed/approved/applied/archived)
 - [ ] **Test anchoring** — every test references a feature ID (F-###); a test proving no feature contract is flagged, not silently carried
+- [ ] **Source documents** — every §1.6 row has a `Where` that resolves or a verbatim quote that stands alone, and no section relies on a source it does not name
 
 For engineering deliverables, also verify from the [Engineering Plugin](../docs/engineering-plugin.md):
 

@@ -442,8 +442,16 @@ When a failure is detected, capture it systematically to feed back into the prot
 The capture template extends the method ledger pattern for failures specifically. The method ledger tracks what methods were applied; the failure capture tracks what went wrong and what we learned. Together, they close the learning loop: successes feed the ledger, failures feed the capture, both feed the protocol.
 
 ### Workspace vs repo — what must outlive the run
-
 `.omo/` is ephemera: workspace state, deliberately untracked. A later agent opening the project does not see it. Curated outputs that a LATER agent needs — the decision record / KEEP-DROP inventory, standing decisions, ADRs, the method ledger when it carries durable reasoning — belong in the PROJECT REPO, pointed at from the project's agent-instructions file (AGENTS.md / CLAUDE.md), so an agent that opens the project months later reads the decisions before touching code. If the project has no agent-instructions file, FINISH creates a minimal one-screen pointer (what the project is, where the record lives, the standing decisions) — a pointer, not a second protocol. Without this, the protocol only benefits while it runs, and the next session walks in as a newcomer and re-derives — or quietly reverses — decisions that were already settled.
+The source manifest in the spec (§1.6) is part of that durable record: it names each requirement file the run was based on, quotes the load-bearing lines verbatim, and says which sections each source governs.
+
+### Thought log — the user's words outlive the session
+
+The raw thoughts that drive a run are appended verbatim to `development-protocol-local/THOUGHT_LOG.md` at the moment they are processed, before any build. Append-only: never rewrite an entry, corrections go in new entries. Nothing else keeps them — the CHANGELOG paraphrases only what was built, traces cover only the thoughts that earned one, and sessions get deleted.
+
+The log lives in the `-Local` sibling on purpose. Raw thinking is not a public artifact, so it never enters the repo and cannot reach a remote. Each entry carries an id, date, session, the verbatim text, and a disposition: built (with refs), parked (with where), or dropped (with why).
+
+**Scope:** the user's own words. Not agent summaries, not decisions (those are ADRs, FEATURES origins, KILL_LOG). **Counterexample:** a thought that arrives as a forwarded brief keeps the brief's own text as the entry and notes the forwarding session. **Check:** at session close every thought processed this session appears exactly once, and the log's line count only ever grew.
 
 ---
 
