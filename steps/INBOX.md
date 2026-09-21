@@ -7,6 +7,8 @@
 > **Without this step:** The loudest thought wins by default, or the protocol forces a single Y too early, and other ideas resurface as distractions mid-protocol.
 
 > **Raw pass first.** Before any category below engages, handle the user's words once with no framework: read them raw, respond to what's actually there, note what surfaces. The protocol's categories are strong priors — strong enough to blind. A free pass catches what the rigid path would miss; then run the protocol on what's heard. This is diverge-before-converge (Guilford): generation first, structuring second. Early frameworks mechanize the mind (Luchins Einstellung) and fixate on the first shown example (Jansson & Smith design fixation) — and the protocol's own template is exactly such an example. Our trajectory study agrees: imposed plans lose to native strategy (ArXiv anchor).
+> **And log it.** The user's words go into `development-protocol-local/THOUGHT_LOG.md` verbatim, append-only, before the protocol runs on them. The log keeps what was asked; the CHANGELOG keeps only what got built (see RULES § Thought log).
+> **And list the materials.** Anything the request arrived with — brief, slides, an existing spec, a dataset, a page, the user's own notes — gets named now, while it is in front of you, and lands in the spec's §1.6 manifest later. Record the file or URL plus the lines that carry the requirement.
 
 ## Protocol Suitability Check (30 sec)
 
@@ -199,6 +201,8 @@ INBOX              [✓] COMPLETE
   [✓] Clusters: 5 identified
   [✓] Triage: Cluster C selected
   [✓] Raw-Thinking Pass: thick frame produced (connection map + alternative framings)
+[✓] Thought logged verbatim to the `-Local` THOUGHT_LOG.md with its disposition (built / parked / dropped)
+[✓] Materials listed (file or URL + the lines that carry the requirement) for the spec's §1.6 manifest
   [✓] Others parked at .omo/inbox/parked/
 
 SOMEDAY/MAYBE      [ ] PENDING (next review: 2026-08-03)
