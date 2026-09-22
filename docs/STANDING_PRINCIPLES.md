@@ -31,3 +31,5 @@ Harness survey: [docs/research/harness-survey-2026-07.md](research/harness-surve
 ## Shipping rule (3-pass)
 
 Every shipped thought gets three passes before it is considered done: (1) **build** — the first implementation; (2) **grounding** — check it against literature or evidence, not just reasoning; (3) **re-verify** — adversarially test it against cases designed to break it (slang, edge inputs, hostile readings). Single-pass diffs are suspect by default — small diffs earn extra scrutiny, not less, because thin work hides inside them. A thought with three passes and a short diff is finished; a thought with one pass is a draft regardless of length.
+
+At artifact scale the same shape is the EXECUTOR internal loop: descend structure, then behavior, then craft, then surface, and stop when two descents surface no new class of problem (`../steps/EXECUTOR.md` § The internal loop).

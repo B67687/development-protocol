@@ -143,6 +143,7 @@ Surface what you already know before searching for novelty: 64-81% of expert des
 3. **Adjacent search** — "What tools do [adjacent field] use?" or "How does [similar problem] work in [different domain]?"
 4. **Expert search** — Who's writing or talking about this? (blog posts, talks, interviews)
 5. **Negative results search** — Actively search for "why X failed" or "X doesn't work" — not just "X best practices."
+6. **Craft-norm search** — when the domain is unfamiliar (Step 1's "Familiar ground" does not apply), search "what does this domain consider good?" — the norms practitioners hold, not the features they ship. These become the run's domain norms (`docs/HOUSE_STANDARD.md` § Domain instantiation), and the transfer-check gate applies before borrowing one from another domain (`docs/UNIVERSAL_FUNDAMENTALS.md`).
 
 **Search backend (agnostic — no hard dependency):** any web search satisfies this protocol: public SearXNG, Tavily/Exa/Serper, even raw web + fetch. Requirements are the 5 strategies above + per-claim URLs + Verification Tiers below. Nothing in this file requires a specific engine.
 
