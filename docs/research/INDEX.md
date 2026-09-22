@@ -9,6 +9,7 @@ Raw session texts that back these documents live outside the repo, in the local 
 | [`prompt-engineering-science.md`](prompt-engineering-science.md) | 2026-09-20 | Instruction-following evidence base for our own text: position effects, constraint-count decay, composition difficulty, negation insensitivity, point-of-use repetition, over-constraint harms, context rot, within-session drift, the McMillan rules-file factorial (affirmative nulls for size and position), IFEval calibration, eight actionable rules, nine open gaps. Companion to `PROMPT_STANDARDS.md`. |
 | [`ai-autonomous-execution.md`](ai-autonomous-execution.md) | 2026-07-11 | Autonomous execution research: what agents can be trusted to run unattended, where human gates still earn their keep. |
 | [`harness-survey-2026-07.md`](harness-survey-2026-07.md) | 2026-08-01 | Harness survey: how much of measured agent performance is scaffold rather than model, and which harness mechanisms carry the effect. |
+| [`ai-taste-judgment.md`](ai-taste-judgment.md) | 2026-09 | What the taste sweep licenses and rules out: taste as a capability limit, scaffolding gains that plateau, persistent homogenisation, untested world-model transfer, no claimed one-year fix. Companion to `HOUSE_STANDARD.md`. |
 
 ## Adding a row
 

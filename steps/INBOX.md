@@ -250,6 +250,7 @@ Seed with assumptions surfaced in Phases 1–5. Carry forward:
 
 - **Status:** pending → confirmed / retired (reading settled or term dropped)
 - Logged by EXTRACTION's readings gate; the ledger's assumptions must use the confirmed reading.
+- First use of a load-bearing term also carries its **context declaration** (term · domain · one-line definition · prerequisites · contrast · why here) — see `steps/EXTRACTION.md` § Context declaration.
 
 ## Stance Read (who am I working with?)
 

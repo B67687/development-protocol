@@ -18,6 +18,7 @@ Two consequences carry the whole method:
 1. **Decide before you build, and write the decision down.** An undocumented decision gets re-derived later by someone who did not make it.
 2. **Raise the cheapest artifact that can falsify the claim.** A spike before a build. A sentence before a page.
 3. **The human decides, the agent argues.** Testimony, not verdict. An agent that decides for the human has broken the method; a human who rubber-stamps has abandoned it.
+   - *Scoped by the house standard (`docs/HOUSE_STANDARD.md`): the agent owns the house and objective layers (T0/T1) and declares them; applies an evidenced preference with the inference flagged (T2); asks on novel taste (T3), which is where the never-judge-taste rule bites.*
 4. **A claim must survive a repeat.** If a number or a judgement flips when it is checked again, the work is not done.
 5. **Name what you are deliberately not fixing.** The last stretch belongs to the human, so it is handed over in writing, with no structural defect hidden inside it.
 
@@ -34,7 +35,7 @@ Not waterfall: the loop runs many times, on cheap artifacts. Not ceremony: an ar
 
 ## The goal
 
-> **Altitude spine (authoritative: `steps/QUICKSTART.md`).** P1 WANT INBOX→EXTRACTION → P2a SHOULD-BUILD? SERIOUSNESS Bar 1 (COMMIT/SCHEDULE/DROP) → P2b WHICH-X? LANDSCAPE+STRATEGY+AMBITION → P3 BEST_PLAN FUNDAMENTALS→DECOMPOSITION→VALIDATION → P4 EXECUTE SPEC→EXEC→REVIEW→REFLECT→PRIORITIZE. Bar 1 must clear before Bar 2. This file defines the scoreboard; QUICKSTART defines the spine.
+> **Altitude spine (authoritative: `steps/QUICKSTART.md`; every file quotes this line verbatim).** P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE). Bar 1 must clear before Bar 2. This file defines the scoreboard; QUICKSTART defines the spine.
 
 Every run of this protocol leaves three things better than it found them:
 

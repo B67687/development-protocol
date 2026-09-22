@@ -200,6 +200,8 @@ This is the most important check. Non-coder verification depends on it.
 
 ### Phase 4: Observable Quality (Code-Independent Signals)
 
+> **Order:** the craft read comes first — Phase 3 and the human read judge whether the thing is good; the rows below judge whether the deterministic level holds. Passing every row is the floor, never a claim of quality. See `docs/HOUSE_STANDARD.md` § Craft before gates.
+
 | #   | Check                                                   | How to Verify (without reading code)                                                                                   |
 | --- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | 4.1 | Test files exist and are non-trivial                    | Count test files. Non-trivial = at least 3 test cases per module, or >50% of modules tested.                           |
@@ -211,6 +213,10 @@ This is the most important check. Non-coder verification depends on it.
 | 4.7 | Deliverable voice (submitted artifacts)*               | For each user-facing artifact: grep for `brief`, `assignment`, `rubric`, `grader`, `marking` in prose (any hit = FAIL); check for stock openers and uniform rhythm. *See EXECUTOR § Deliverable Voice |
 | 4.8 | Measured assertability (reported numbers)*             | For every measured number the artifact asserts: is the method stated inline, and does a repeat give the same CONCLUSION (not the same digits)? A measured optimum that flips between runs = FAIL. Numbers explicitly labelled exploratory/spike are out of scope. *See VALIDATION § Learnings Capture |
 | 4.9 | Requirement fidelity (sources) | Read §1.6 of the spec. For every source that governs an assertion in the artifact, open the source or read the quoted lines and check the assertion against the requirement, not against the spec's paraphrase. A row whose `Where` does not resolve and whose quote is a summary = FAIL. *See SPECIFICATION §1.6 |
+| 4.10 | House standard applied and declared* | The artifact names the house standard it was built to, flags every choice that came from an inference (T2) rather than from a requirement or a past artifact, and lists what was asked (T3). A hidden default = FAIL. *See docs/HOUSE_STANDARD.md |
+| 4.11 | Domain norms met | Read the declared domain and its norms (AMBITION round 5). For each norm tagged `known` or `researched`, find the evidence in the artifact; a norm tagged `asked` must carry the user's answer. A norm with no evidence and no answer = FAIL. *See docs/HOUSE_STANDARD.md § Domain instantiation |
+| 4.12 | Internal loop closed and residue honest | The residue list exists; every item is unknowable-from-evidence AND cheap for the human, each with a proposed default; no L1 (structure) or L2 (behavior) item on it; the stop rule was respected (two descents with no new class, within budget). A structural item handed over = FAIL. *See EXECUTOR § The internal loop |
+| 4.13 | Declaration completeness | For each load-bearing term, number, decision, or reference in the artifact: is its context declared at first use or earlier in the run? An overloaded pronoun, or a term whose prerequisites are absent, = FAIL. *See EXTRACTION § Context declaration |
 
 ### Phase 5: Regression Defenses
 
@@ -227,6 +233,8 @@ A second independent agent reviews with **only the spec**, not the implementatio
 ### When to Run
 
 After the REVIEW.md checklist passes, before DISTRIBUTE. The adversarial review is a **gate on the spec**, not the code.
+
+> **Where it sits.** The EXECUTOR internal loop (`EXECUTOR.md` § The internal loop) runs the author-side descents; this agent is the **outside** pass on their result — a different mind with no stake in the loop. It also checks the **handover residue** (EXECUTOR § Exit artifact): every listed item passes the two-part test, each carries a proposed default, and no structural or behavioral item appears. A structural item on the residue list is a FAIL; fix it before DISTRIBUTE.
 
 ### How It Works
 

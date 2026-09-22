@@ -254,6 +254,8 @@ Created for the Development Protocol v2.1 PREP PHASE (July 2026). Bridges static
 
 For Tier 2+ projects (runtime, CLI, library, or performance-sensitive), consult the Engineering Plugin: fuzz targets, benchmarks, snapshot testing, CI matrix, test ratio, security audit. These gates must pass before a spec is execution-ready for engineering deliverables.
 
+The house standard applies to every tier and runs before these gates: consistency, fitness for the stated purpose, legibility to the declared reader, defensible claims. See [`docs/HOUSE_STANDARD.md`](../docs/HOUSE_STANDARD.md) for the T0–T3 split and the one-line declaration every finished artifact carries.
+
 ---
 
 ## Project Health Discipline
@@ -328,9 +330,38 @@ A protected sub-phase of EXECUTOR with its own budget and checklist. Catches wha
 
 The FINISH gate gets **20-30% of EXECUTOR's total budget** (roughly 6-9% of total project appetite). Do NOT let it drop below 15% of EXECUTOR budget under substance-phase overruns.
 
+### The internal loop (descend the layers before handover)
+
+The FINISH gate is not a checklist you pass once. It is a bounded loop that descends layers, and it stops when the next descent stops teaching you anything.
+
+**Descent order — fix the top before polishing the bottom.** Each layer has its own adversary and its own source of truth.
+
+| Layer | Question | The adversary sees |
+| ----- | -------- | ------------------ |
+| **L1 Structure** | Does the shape serve the intent? (seams, decomposition, data flow, spec fidelity) | the intent and the artifact structure, never the code |
+| **L2 Behavior** | Does it do the right thing on the hard cases? (edge inputs, error paths, contracts, every measured number and its method) | the spec and the requirement files, plus how to run it |
+| **L3 Craft** | Would a practitioner of this domain call it good? (names, seams, prose voice, the domain norms declared at AMBITION) | the domain norms and the artifact |
+| **L4 Surface** | What does a careful reader trip on? (formatting, wording, spacing, leftover debris) | the artifact alone |
+
+**Fresh eyes per layer.** The adversary reads the layer artifact and its source of truth, never your reasoning or your defense. With a subagent that is a new session. Without one, delete the intent from view and read as a stranger: state what the artifact appears to be and what it appears to claim, then check the claims against the source.
+
+**Gate between layers.** Do not descend while the current layer has an open finding you can fix. A finding you cannot fix here goes to the residue list with its reason — it does not silently pass.
+
+**Stop rule.** The loop ends when two consecutive full descents surface no new *class* of problem. A new instance of a known class is not a reason to keep going. Budget: **3 descents** (5 for Deep); a further descent needs a written reason. Overrun is a Pace Alert, not a virtue — *iterate until it is perfect* is how a one-week project becomes a three-month one.
+
+**Exit artifact — the handover residue.** The loop ends with a short list of what is deliberately unfinished. An item may appear only if it is BOTH (a) not knowable from the evidence available (T3 novel taste — no demonstration anywhere) and (b) cheap for the human to finish. Each item carries a proposed default and one line on what changes if the human chooses differently. A structural or behavioral item may never appear: if one is on the list, the loop is not done.
+
+- *Scope:* the shipped artifact at the FINISH gate. On a multi-milestone build, one full descent per milestone and the complete loop at the end.
+- *Counterexample:* an exploratory spike or throwaway script is exempt — iteration there is the point and nothing is handed over.
+- *Check:* the residue list exists, every item passes the two-part test, each carries a proposed default, and no L1 or L2 finding appears on it. REVIEW row 4.12 fails the run if a structural item was handed over.
+
+> **Shape note:** this is the 3-pass shipping rule (`docs/STANDING_PRINCIPLES.md`) at artifact scale — build, ground, adversarially re-verify — with the descent order making the re-verify pass concrete.
+
 ### The Polish Checklist
 
 Run through each category systematically. Do not skip categories — AI systematically overrates polish because it doesn't encounter real-world friction points.
+
+**Order:** run the craft pass first — how the code reads (names, structure, seams), how the artifact reads, whether each measured number states its method — then the checklist below as the floor. A complete checklist is a floor, not a claim of quality. See `docs/HOUSE_STANDARD.md` § Craft before gates.
 
 | Category                     | What to check                                                                  | Evidence level |
 | ---------------------------- | ------------------------------------------------------------------------------ | -------------- |

@@ -142,6 +142,39 @@ Feature registry for the Development Protocol itself. Each feature has a lifecyc
 - **File:** `steps/SERIOUSNESS.md`, `steps/STRATEGY.md`, `steps/EXECUTOR.md`, `steps/REFLECT.md`
 - **Origin:** user query — _need to learn the science of learning... Primeagen learned-helplessness worry_ + live confession of yes-without-reading + standing-decisions refinement. Research: testing effect (Roediger & Karpicke 2006), self-explanation effect (Chi 1989), generation effect (verified via Wikipedia). Sweep: metacognitive decoupling under LLM use (arXiv:2603.29681); expertise-reversal guidance calibration (CLT); productive failure — generation before instruction (Kapur); guidance meta-analysis d=0.50-0.71; interleaving/deliberate-practice already covered, no change.
 
+### F-018: House Standard (T0) and the Taste Boundary
+
+- **State:** applied
+- **Contract:** T0 house standard (consistency, fitness for the stated purpose, legibility to the declared reader, defensibility of claims, freedom from self-serving embellishment) applied by default and declared in one line; T1 objective layer owned by the agent; T2 evidenced taste applied with each inference flagged; T3 novel taste asked with a proposed default. Enforced by `REVIEW.md` row 4.10; pointers from CONSTITUTION "What follows" item 3, the `RULES.md` objectivity duty, `STANDARDS.md` §14, and `EXECUTOR.md` § Production Quality Requirements.
+- **Test Anchoring:** `docs/HOUSE_STANDARD.md` exists; `REVIEW.md` carries row 4.10; the declaration rule appears in the three governing files.
+- **File:** `docs/HOUSE_STANDARD.md`
+- **Origin:** user query — _at least you should have your own objective taste. as long as the foundation you set is good it can work with anyone's tastes._ Research: `docs/research/ai-taste-judgment.md`.
+
+### F-019: Craft-Primary Ordering (tools are a floor)
+
+- **State:** applied
+- **Contract:** the craft level (how the code reads — names, structure, seams; how prose reads; whether a measurement states its method) runs first and the deterministic gates follow as the floor; instrumentation is a floor, never a ceiling, and a green checklist is not a claim of quality. No gate is removed or relaxed. Stated in `docs/HOUSE_STANDARD.md` § Craft before gates, with the order named at `EXECUTOR.md` § FINISH Gate and `REVIEW.md` Phase 4.
+- **Test Anchoring:** `docs/HOUSE_STANDARD.md` carries § Craft before gates; `EXECUTOR.md` Polish section and `REVIEW.md` Phase 4 each carry the ordering line.
+- **File:** `docs/HOUSE_STANDARD.md`
+- **Origin:** user query — _guardrails are important, but what's more important is that we do the thing right in the first place... the tools are assistance on top of foundationally how someone codes, not the other way round nor is it equal in significance._ Grounded in the expert-lens audit (compliance is not quality; the machinery was denser at the mechanical level than at the craft level).
+
+### F-020: Domain Norms (the specialist layer)
+
+- **State:** applied
+- **Contract:** every run declares its domain and 2-5 domain craft norms, each checkable and tagged `known` / `researched` / `asked`; LANDSCAPE searches for the norms when the domain is unfamiliar; `REVIEW.md` row 4.11 verifies the artifact against them. Declared at AMBITION round 5, ratified at STRATEGY with the quality bar, detailed in `docs/HOUSE_STANDARD.md` § Domain instantiation.
+- **Test Anchoring:** `docs/HOUSE_STANDARD.md` carries § Domain instantiation; the declaration line is in `steps/AMBITION.md`; the search target is in `steps/LANDSCAPE.md`; row 4.11 is in `steps/REVIEW.md`.
+- **File:** `docs/HOUSE_STANDARD.md`
+- **Origin:** user query — _any project can be made by a generalist but to make it good we need a specialist... a project can have general structure but it also requires tailoring to make it good._ Grounded in SC2001: the structure held, and the missing thing was a domain norm (a reported optimum must survive a repeat) — `lessons/FC-2026-007-measurement-robustness.md`.
+
+
+### F-021: Iterate-to-Handover Loop (layered adversarial descent)
+
+- **State:** applied
+- **Contract:** the FINISH gate runs a bounded loop over four layers — L1 structure, L2 behavior, L3 craft, L4 surface — each with a fresh-eyed adversary and its own source of truth, gated so a layer must be clean before the next descent. It ends when two consecutive descents surface no new class of problem (budget 3, or 5 for Deep) and emits the handover residue: only items that are unknowable-from-evidence AND cheap for the human, each with a proposed default, and never a structural item. REVIEW row 4.12 fails a run that hands over a structural item. The adversarial review agent is the outside pass on the loop result.
+- **Test Anchoring:** REVIEW 4.12 checks the residue list and the stop rule; EXECUTOR records each descent (and any skipped layer) in the method ledger.
+- **File:** `../steps/EXECUTOR.md` § The internal loop; `../steps/REVIEW.md` (Adversarial Review Agent, row 4.12)
+- **Origin:** user thought (verbatim, `THOUGHT_LOG.md` T-026) — iterate multiple times with the AI reviewing every new iteration, big-picture problems first and then down to the technical details, assuming the human is the strictest reviewer to possibly exist; and T-032 — many agent adversarial checks and reviews, going down layer by layer. Bounded by the ithmb overrun evidence (unbounded *until satisfied* turns one week into three months) and by the T0–T3 bar (the residue is where T3 lives).
+
 ## Trace Tags
 
 - `engineering-plugin:§1.1` — F-### lifecycle definition
@@ -172,3 +205,7 @@ Feature registry for the Development Protocol itself. Each feature has a lifecyc
 | F-015 SWE Appendixes     | F-007        | docs/appendix/, P2b/P4 gates                                       |
 | F-016 OSS Metric         | —            | proposed; trace only                                               |
 | F-017 Learning           | F-009, F-010 | ../steps/SERIOUSNESS.md, ../steps/STRATEGY.md, ../steps/REFLECT.md |
+| F-018 House Standard      | F-008        | ../steps/REVIEW.md, ../steps/RULES.md, ../steps/EXECUTOR.md |
+| F-019 Craft Ordering | F-007, F-018 | HOUSE_STANDARD.md, ../steps/EXECUTOR.md, ../steps/REVIEW.md |
+| F-020 Domain Norms | F-018 | HOUSE_STANDARD.md, ../steps/AMBITION.md, ../steps/LANDSCAPE.md, ../steps/REVIEW.md |
+| F-021 Iterate Loop | F-018 | ../steps/EXECUTOR.md, ../steps/REVIEW.md, STANDING_PRINCIPLES.md |

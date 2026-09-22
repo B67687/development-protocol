@@ -490,6 +490,52 @@ else
     fail "R10c-INDEX" "docs/research/INDEX.md is missing"
 fi
 
+# ─── Rule 11: Manifest, drift, and research basis ───────────────────────────
+echo "Rule 11: Manifest + drift + research basis"
+MANIFEST="docs/PROTOCOL_MODEL.md"
+RB="docs/RESEARCH_BASIS.md"
+SPINE=$(grep -A1 'Altitude spine' steps/QUICKSTART.md | tail -1 | sed 's/^> //')
+
+MISSING=""
+for f in steps/*.md; do
+    b=$(basename "$f")
+    grep -qF -- "\`${b%.md}\`" "$MANIFEST" || grep -qF -- "\`$b\`" "$MANIFEST" || MISSING="$MISSING $b"
+done
+if [[ -z "$MISSING" ]]; then
+    pass "R11a — every step file appears in the manifest"
+else
+    fail "R11a-MANIFEST" "step files absent from $MANIFEST:$MISSING"
+fi
+
+DRIFT=""
+for f in README.md AGENTS.md docs/PROTOCOL_MODEL.md docs/CONSTITUTION.md; do
+    grep -qF "$SPINE" "$f" || DRIFT="$DRIFT ${f}"
+done
+TREE=""
+for f in steps/*.md; do
+    b=$(basename "$f")
+    grep -qF -- "$b" AGENTS.md || TREE="$TREE $b"
+done
+if [[ -z "$DRIFT" && -z "$TREE" ]]; then
+    pass "R11b — spine agrees across README/AGENTS/MODEL/CONSTITUTION; AGENTS tree lists every step"
+else
+    fail "R11b-DRIFT" "spine disagreement:$DRIFT; absent from AGENTS tree:$TREE"
+fi
+
+if [[ -f "$RB" ]]; then
+    RB_ROWS=$(grep -c '^|' "$RB" || true)
+    RB_DATA=$((RB_ROWS - 2))
+    BAD_ROWS=$(awk -F'|' '/^\|/ && $0 !~ /^\| *-+/ && $0 !~ /^\| *Mechanism/ {n=0; for(i=2;i<=NF-1;i++){gsub(/^[ \t]+|[ \t]+$/,"",$i); if($i!="") n++} if(n<5) bad++} END{printf "%d", bad+0}' "$RB")
+    RB_LINKED=$(grep -cF 'RESEARCH_BASIS.md' "$MANIFEST" || true)
+    if [[ "$RB_DATA" -ge 8 && "$BAD_ROWS" -eq 0 && "$RB_LINKED" -ge 1 ]]; then
+        pass "R11c — research basis: $RB_DATA mechanism rows, every row complete, linked from the manifest"
+    else
+        fail "R11c-BASIS" "rows=$RB_DATA (need >=8), incomplete rows=$BAD_ROWS, manifest links=$RB_LINKED"
+    fi
+else
+    fail "R11c-BASIS" "$RB is missing"
+fi
+
 # ─── Summary ────────────────────────────────────────────────────────────────
 echo ""
 echo "═══════════════════════════════════════════════════════════════════"

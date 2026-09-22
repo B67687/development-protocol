@@ -4,7 +4,7 @@
 
 ## Overview
 
-Protocol-of-protocols (PoP) — recursive strategist across the full means-ends chain, specialized to accomplishment. Four altitudes, authoritative in steps/QUICKSTART.md: P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2: same/scaled/adjacent/more) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE). Bar 1 must clear before Bar 2.
+Protocol-of-protocols (PoP) — recursive strategist across the full means-ends chain, specialized to accomplishment. Four altitudes, authoritative in steps/QUICKSTART.md: P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE). Bar 1 must clear before Bar 2.
 
 **Philosophy, stated at constitution level** (docs/CONSTITUTION.md § The philosophy): fix in planning what can be fixed in planning. Prototypes, spikes and prose are planning artifacts, and every gate exists to make the next commitment smaller. **Goal:** every run leaves three things better — the project, the human, the method. The strategist is the engine; the scoreboard is the point.
 
@@ -52,6 +52,7 @@ Development-Protocol/
 │   ├── engineering-plugin.md          # §1.1 F-### lifecycle, §3 traceability, §4 checks
 │   ├── TESTING.md                     # Test strategy & philosophy
 │   ├── QUALITY_BAR.md                 # Quality thresholds & gates
+│   ├── HOUSE_STANDARD.md               # T0 house standard + T1–T3 taste layers (what the agent owns vs asks)
 │   ├── MEASUREMENT.md                 # Metrics & measurement approach
 │   ├── METHOD_LEDGER.md               # Method tracking ledger
 │   ├── PROTOCOL_MODEL.md              # Protocol model documentation

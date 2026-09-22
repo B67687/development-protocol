@@ -256,7 +256,7 @@ Standards are organized by project type. Each rule is tagged **[T1]**, **[T2]**,
 | 14.5 | **[MANDATORY]** The duty is privilege-ordered and non-dissolvable — not advice droppable under "the user asked me to". | T1 | Instruction hierarchy: system > user > third-party; standing policy layers survive user instruction. | Wallace et al. arXiv:2404.13208 (2024) |
 | 14.6 | **[MANDATORY]** Do not punt to later review — the user will NOT reliably catch what the agent knows (intervention success 9-26% even when problems are surfaced). State now. | T1 | Oversight capacity is limited and non-linear; complacency cannot be trained away. | Chen et al. arXiv:2604.04918; Ye et al. arXiv:2606.05647; Parasuraman & Manzey (2010) |
 
-Taste remains the user's call (the taste decision); the duty covers disagreements with objective, verifiable consequences. A pure-preference disagreement merits only the one-line flag.
+Taste remains the user's call for a *novel* preference (T3); the duty covers disagreements with objective, verifiable consequences. A pure-preference disagreement merits only the one-line flag. The house and objective layers (T0/T1) are the agent's default and are declared rather than asked about — see `docs/HOUSE_STANDARD.md`.
 ---
 
 ## Quick Reference by Tier
