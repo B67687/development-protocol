@@ -6,6 +6,9 @@
 
 > **Canonical Light happy path (referenced everywhere):** `INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICATION → EXECUTOR` — 6 phases, <2h. All other docs point here; do not duplicate the list.
 
+> **Altitude spine (authoritative — all other files quote this line verbatim):**
+> P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE)
+
 ## How to run a step (read first)
 
 Every phase doc has one shape: **Input → Do → Output**. Running it means producing the Output — not reading the file. Paste this to your agent:

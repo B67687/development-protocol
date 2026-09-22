@@ -216,6 +216,7 @@ This is the most important check. Non-coder verification depends on it.
 | 4.10 | House standard applied and declared* | The artifact names the house standard it was built to, flags every choice that came from an inference (T2) rather than from a requirement or a past artifact, and lists what was asked (T3). A hidden default = FAIL. *See docs/HOUSE_STANDARD.md |
 | 4.11 | Domain norms met | Read the declared domain and its norms (AMBITION round 5). For each norm tagged `known` or `researched`, find the evidence in the artifact; a norm tagged `asked` must carry the user's answer. A norm with no evidence and no answer = FAIL. *See docs/HOUSE_STANDARD.md § Domain instantiation |
 | 4.12 | Internal loop closed and residue honest | The residue list exists; every item is unknowable-from-evidence AND cheap for the human, each with a proposed default; no L1 (structure) or L2 (behavior) item on it; the stop rule was respected (two descents with no new class, within budget). A structural item handed over = FAIL. *See EXECUTOR § The internal loop |
+| 4.13 | Declaration completeness | For each load-bearing term, number, decision, or reference in the artifact: is its context declared at first use or earlier in the run? An overloaded pronoun, or a term whose prerequisites are absent, = FAIL. *See EXTRACTION § Context declaration |
 
 ### Phase 5: Regression Defenses
 

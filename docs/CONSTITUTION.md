@@ -35,7 +35,7 @@ Not waterfall: the loop runs many times, on cheap artifacts. Not ceremony: an ar
 
 ## The goal
 
-> **Altitude spine (authoritative: `steps/QUICKSTART.md`).** P1 WANT INBOX→EXTRACTION → P2a SHOULD-BUILD? SERIOUSNESS Bar 1 (COMMIT/SCHEDULE/DROP) → P2b WHICH-X? LANDSCAPE+STRATEGY+AMBITION → P3 BEST_PLAN FUNDAMENTALS→DECOMPOSITION→VALIDATION → P4 EXECUTE SPEC→EXEC→REVIEW→REFLECT→PRIORITIZE. Bar 1 must clear before Bar 2. This file defines the scoreboard; QUICKSTART defines the spine.
+> **Altitude spine (authoritative: `steps/QUICKSTART.md`; every file quotes this line verbatim).** P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE). Bar 1 must clear before Bar 2. This file defines the scoreboard; QUICKSTART defines the spine.
 
 Every run of this protocol leaves three things better than it found them:
 

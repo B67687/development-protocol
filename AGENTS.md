@@ -4,7 +4,7 @@
 
 ## Overview
 
-Protocol-of-protocols (PoP) — recursive strategist across the full means-ends chain, specialized to accomplishment. Four altitudes, authoritative in steps/QUICKSTART.md: P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2: same/scaled/adjacent/more) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE). Bar 1 must clear before Bar 2.
+Protocol-of-protocols (PoP) — recursive strategist across the full means-ends chain, specialized to accomplishment. Four altitudes, authoritative in steps/QUICKSTART.md: P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE). Bar 1 must clear before Bar 2.
 
 **Philosophy, stated at constitution level** (docs/CONSTITUTION.md § The philosophy): fix in planning what can be fixed in planning. Prototypes, spikes and prose are planning artifacts, and every gate exists to make the next commitment smaller. **Goal:** every run leaves three things better — the project, the human, the method. The strategist is the engine; the scoreboard is the point.
 
