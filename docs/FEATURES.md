@@ -142,6 +142,15 @@ Feature registry for the Development Protocol itself. Each feature has a lifecyc
 - **File:** `steps/SERIOUSNESS.md`, `steps/STRATEGY.md`, `steps/EXECUTOR.md`, `steps/REFLECT.md`
 - **Origin:** user query — _need to learn the science of learning... Primeagen learned-helplessness worry_ + live confession of yes-without-reading + standing-decisions refinement. Research: testing effect (Roediger & Karpicke 2006), self-explanation effect (Chi 1989), generation effect (verified via Wikipedia). Sweep: metacognitive decoupling under LLM use (arXiv:2603.29681); expertise-reversal guidance calibration (CLT); productive failure — generation before instruction (Kapur); guidance meta-analysis d=0.50-0.71; interleaving/deliberate-practice already covered, no change.
 
+### F-018: House Standard (T0) and the Taste Boundary
+
+- **State:** applied
+- **Contract:** T0 house standard (consistency, fitness for the stated purpose, legibility to the declared reader, defensibility of claims, freedom from self-serving embellishment) applied by default and declared in one line; T1 objective layer owned by the agent; T2 evidenced taste applied with each inference flagged; T3 novel taste asked with a proposed default. Enforced by `REVIEW.md` row 4.10; pointers from CONSTITUTION "What follows" item 3, the `RULES.md` objectivity duty, `STANDARDS.md` §14, and `EXECUTOR.md` § Production Quality Requirements.
+- **Test Anchoring:** `docs/HOUSE_STANDARD.md` exists; `REVIEW.md` carries row 4.10; the declaration rule appears in the three governing files.
+- **File:** `docs/HOUSE_STANDARD.md`
+- **Origin:** user query — _at least you should have your own objective taste. as long as the foundation you set is good it can work with anyone's tastes._ Research: `docs/research/ai-taste-judgment.md`.
+
+
 ## Trace Tags
 
 - `engineering-plugin:§1.1` — F-### lifecycle definition
@@ -172,3 +181,4 @@ Feature registry for the Development Protocol itself. Each feature has a lifecyc
 | F-015 SWE Appendixes     | F-007        | docs/appendix/, P2b/P4 gates                                       |
 | F-016 OSS Metric         | —            | proposed; trace only                                               |
 | F-017 Learning           | F-009, F-010 | ../steps/SERIOUSNESS.md, ../steps/STRATEGY.md, ../steps/REFLECT.md |
+| F-018 House Standard      | F-008        | ../steps/REVIEW.md, ../steps/RULES.md, ../steps/EXECUTOR.md |

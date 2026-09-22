@@ -2,6 +2,8 @@
 
 > Last verified: 2026-08-29. This is **Light mode** — a subset of the full protocol. If it diverges, the full phase docs are authoritative.
 
+> **Why this exists.** Fix in planning what can be fixed in planning. Prototypes, spikes and prose are planning artifacts, so the loop runs on the cheapest thing that can carry a reaction before anything real gets built (docs/CONSTITUTION.md § The philosophy).
+
 > **Canonical Light happy path (referenced everywhere):** `INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICATION → EXECUTOR` — 6 phases, <2h. All other docs point here; do not duplicate the list.
 
 ## How to run a step (read first)

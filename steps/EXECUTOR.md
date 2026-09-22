@@ -41,8 +41,8 @@ Once the route is chosen:
 1. **Bootstrap RULES.md** — create/update with the chosen route. Copy the Constitution from SPEC.md:1.
 2. **Enter WORK phase** — read SPEC.md section by section and implement each.
 3. **Implementation order** — SPEC.md order: 1 → 2 → 3 → 4 → 5 → 6 → 7. Later sections reference earlier ones.
-4. **No deviations** — ambiguous spec → flag and ask, never guess.
-5. **Spec-as-final-bytes** — implement exactly what SPEC.md states; if reality diverges, STOP and flag (Midpoint Protocol Check), never silently improvise.
+4. **Flag deviations before acting** — on an ambiguous spec, stop and ask, and name the interpretation you would have taken so the human can confirm or correct it.
+5. **Spec-as-final-bytes** — implement exactly what SPEC.md states; if reality diverges, STOP and flag (Midpoint Protocol Check), showing the improvisation you were about to make so the human decides.
 
 ---
 
@@ -82,7 +82,7 @@ If execution is interrupted (session ends, context expires, error occurs):
 
 When a SPEC.md assumption fails during execution:
 
-1. **Pause** — stop all implementation. Do not "work around" the failure.
+1. **Pause** — stop all implementation and write down the workaround you were tempted by. It becomes option 3 below.
 2. **Flag** — document what failed, where in the spec it lives, what evidence disproves it.
 3. **Human decision** — options: revise spec (minor), pause project (major), work around (risky).
 4. **Resume** — update SPEC.md, commit `revision: [reason]`, resume checkpointing from section 1.
@@ -133,7 +133,7 @@ If 3 consecutive sections fail at the 3rd retry, or a dropped section creates a 
 
 1. Pause all execution immediately
 2. Write a structured failure report to `.omo/failure-report.md`
-3. **Do not continue without human decision** — stop at the last stable checkpoint and wait
+3. **Halt at the human decision** — stop at the last stable checkpoint, present the options, and resume on their word
 
 ### Quarantine Cascade (magic-spec pattern)
 
@@ -253,6 +253,8 @@ Created for the Development Protocol v2.1 PREP PHASE (July 2026). Bridges static
 > _Engineering-specific production quality requirements moved to [Engineering Plugin](../docs/engineering-plugin.md#3-production-quality-requirements)._
 
 For Tier 2+ projects (runtime, CLI, library, or performance-sensitive), consult the Engineering Plugin: fuzz targets, benchmarks, snapshot testing, CI matrix, test ratio, security audit. These gates must pass before a spec is execution-ready for engineering deliverables.
+
+The house standard applies to every tier and runs before these gates: consistency, fitness for the stated purpose, legibility to the declared reader, defensible claims. See [`docs/HOUSE_STANDARD.md`](../docs/HOUSE_STANDARD.md) for the T0–T3 split and the one-line declaration every finished artifact carries.
 
 ---
 
