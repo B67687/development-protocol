@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# protocol-lint.sh — 8-rule CI lint for Development-Protocol ceremony
+# protocol-lint.sh — 10-rule CI lint (ceremony + prompt standards)
 # ==============================================================================
 # Checks that the protocol's structural invariants hold. Fails PRs when
 # ceremony collapses (missing files, broken schemas, stale artifacts).
@@ -27,6 +27,9 @@
 #   6. QUICKSTART     — ≤200 lines, 6 required sections present
 #   7. SKIP_CONDITIONS — 5 phase docs each have "## Skip Conditions" box
 #   8. FEATURES        — every F-### entry has valid State + File lines
+#   9. LEDGER          — ledger-check.py: every ledger entry has case/method/status/evidence
+#  10. PROMPT_STANDARDS — (a) prohibition density ≤10% per step file, (b) no section over the
+#                       21-checkbox ratchet, (c) every docs/research/*.md basename is in INDEX.md
 # ==============================================================================
 
 set -uo pipefail
@@ -42,7 +45,7 @@ fail() { echo "  ❌ $1 — $2"; FAIL=$((FAIL + 1)); }
 
 echo ""
 echo "═══════════════════════════════════════════════════════════════════"
-echo " Protocol Lint — 8-Rule Ceremony Check"
+echo " Protocol Lint — ceremony + prompt standards check"
 echo " Repo: $REPO"
 echo "═══════════════════════════════════════════════════════════════════"
 echo ""
@@ -443,7 +446,50 @@ else
     fail "R9-LEDGER" "scripts/ledger-check.py not found or not executable"
 fi
 
-# ─── Summary ────────────────────────────────────────────────────────────────
+# ─── Rule 10: Prompt standards (density, checkbox ratchet, research index) ──
+echo "Rule 10: Prompt standards (docs/PROMPT_STANDARDS.md)"
+NEG_BAD=""
+for f in steps/*.md; do
+    t=$(wc -l < "$f")
+    n=$(grep -cEi '\b(must not|do not|don.t|never|avoid|refus|forbid|not allowed)\b' "$f" || true)
+    if [[ $t -gt 0 ]]; then
+        pct=$(( n * 100 / t ))
+        if [[ $pct -gt 10 ]]; then NEG_BAD="$NEG_BAD ${f#steps/}:${pct}%"; fi
+    fi
+done
+if [[ -z "$NEG_BAD" ]]; then
+    pass "R10a — prohibition density within the 10% ceiling"
+else
+    fail "R10a-NEGATION" "above ceiling:$NEG_BAD — rewrite positively (PROMPT_STANDARDS rule 4)"
+fi
+
+CB_BAD=""
+for f in steps/*.md; do
+    hit=$(awk '/^#{2,3} /{if(n>max){max=n;ml=sec}; sec=$0; n=0} /- \[ \]/{n++} END{if(n>max){max=n;ml=sec}; if(max>21) printf "%d:%s", max, ml}' "$f")
+    if [[ -n "$hit" ]]; then CB_BAD="$CB_BAD ${f#steps/}[${hit}]"; fi
+done
+if [[ -z "$CB_BAD" ]]; then
+    pass "R10b — no section exceeds the 21-checkbox ratchet"
+else
+    fail "R10b-CHECKBOX" "sections above the ratchet:$CB_BAD"
+fi
+
+if [[ -f docs/research/INDEX.md ]]; then
+    MISSING=""
+    for f in docs/research/*.md; do
+        b=$(basename "$f")
+        [[ "$b" == "INDEX.md" ]] && continue
+        grep -qF "$b" docs/research/INDEX.md || MISSING="$MISSING $b"
+    done
+    if [[ -z "$MISSING" ]]; then
+        pass "R10c — research index complete"
+    else
+        fail "R10c-INDEX" "unindexed research files:$MISSING"
+    fi
+else
+    fail "R10c-INDEX" "docs/research/INDEX.md is missing"
+fi
+
 # ─── Summary ────────────────────────────────────────────────────────────────
 echo ""
 echo "═══════════════════════════════════════════════════════════════════"

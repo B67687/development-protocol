@@ -6,7 +6,7 @@
 
 Protocol-of-protocols (PoP) — recursive strategist across the full means-ends chain, specialized to accomplishment. Four altitudes, authoritative in steps/QUICKSTART.md: P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2: same/scaled/adjacent/more) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE). Bar 1 must clear before Bar 2.
 
-Goal, stated at constitution level (docs/CONSTITUTION.md): every run leaves three things better — the project, the human, the method. The strategist is the engine; the scoreboard is the point.
+**Philosophy, stated at constitution level** (docs/CONSTITUTION.md § The philosophy): fix in planning what can be fixed in planning. Prototypes, spikes and prose are planning artifacts, and every gate exists to make the next commitment smaller. **Goal:** every run leaves three things better — the project, the human, the method. The strategist is the engine; the scoreboard is the point.
 
 > **Wiring — standing principles, raw-first, progress header.** Principles (docs/STANDING_PRINCIPLES.md): approve strategy once; check consequential claims; keep it light. Raw-first unconditional on full and quick (INBOX) — diverge-before-converge. Progress header mandatory every turn while in-protocol (EXTRACTION Layer 1).
 > **CLI phases vs protocol phases.** Scaffold phases DISCOVER/WORK/ITERATE/PERFECT/DISTRIBUTE (steps/RULES.md) are project lifecycle phases, distinct from P1→P4 INBOX/SERIOUSNESS/LANDSCAPE.

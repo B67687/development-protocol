@@ -1,6 +1,36 @@
 # Constitution
 
-**Status:** Ratified. This is the goal everything below serves.
+**Status:** Ratified. This is the philosophy and the goal everything below serves.
+
+## The philosophy
+
+**Fix in planning what can be fixed in planning. Prototyping is planning.**
+
+A defect costs more the later it is caught. While the intent is still words it costs a sentence. After the first real build it costs a rebuild. After something depends on the artifact it costs trust. So this protocol spends its effort where the cost is lowest: before the first real build, on cheap artifacts — a probe, a spike, a paragraph, a written decision.
+
+Two consequences carry the whole method:
+
+- **You cannot specify what you have not seen.** People learn what they want by reacting to something concrete, so the loop has to run, on the cheapest thing that can carry the reaction. Prototypes, spikes and prose are planning artifacts, not building.
+- **Cheap iterations before expensive commitments.** Every gate exists to make the next commitment smaller, or to make it clearly wrong before anything depends on it.
+
+### What follows
+
+1. **Decide before you build, and write the decision down.** An undocumented decision gets re-derived later by someone who did not make it.
+2. **Raise the cheapest artifact that can falsify the claim.** A spike before a build. A sentence before a page.
+3. **The human decides, the agent argues.** Testimony, not verdict. An agent that decides for the human has broken the method; a human who rubber-stamps has abandoned it.
+4. **A claim must survive a repeat.** If a number or a judgement flips when it is checked again, the work is not done.
+5. **Name what you are deliberately not fixing.** The last stretch belongs to the human, so it is handed over in writing, with no structural defect hidden inside it.
+
+### What it is not
+
+Not waterfall: the loop runs many times, on cheap artifacts. Not ceremony: an artifact nobody reads costs without benefit, and skipping it with a logged reason is legitimate. Not everything up front: the aim is not a perfect plan but the cheapest artifact that can falsify the expensive decision.
+
+### How to tell you are following it
+
+- No build started before a ratified plan or spec.
+- Every skipped gate logged with its reason.
+- Every measured number reproducible, with its method stated.
+- The residue handed to the human is small, named, and free of structural defects.
 
 ## The goal
 
