@@ -5,6 +5,7 @@
 > **Why this exists.** Fix in planning what can be fixed in planning. Prototypes, spikes and prose are planning artifacts, so the loop runs on the cheapest thing that can carry a reaction before anything real gets built (docs/CONSTITUTION.md § The philosophy).
 
 > **Canonical Light happy path (referenced everywhere):** `INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICATION → EXECUTOR` — 6 phases, <2h. All other docs point here; do not duplicate the list.
+> **The default route is Light, and the run says so up front.** SERIOUSNESS routes up only when the feeling probes justify it. Before Phase 1 the run states two numbers: the route (Light / Standard / Deep) and how many decisions it will ask you for (Light is about three). You may accept, opt down, or opt up. If you would rather not decide at all, delegate it — see **Delegation** in the glossary and `steps/SERIOUSNESS.md` § Phase 0.
 
 > **Altitude spine (authoritative — all other files quote this line verbatim):**
 > P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE)
@@ -38,6 +39,7 @@ and log the method to .omo/method-ledger.jsonl (applied/skipped + reason).
 | **Ratification** | Single-gate approval — human signs off, AI argued the case |
 | **Standing decisions** | Choices already ratified this cycle — restated each turn so nobody re-litigates them |
 | **Tripwire** | Behavioral safety trigger (e.g. abdication guard) — fires on patterns, not self-reports |
+| **Delegation** | You name a decision in writing and hand it to the agent, once per run, logged and revocable. Never covers a one-way door. Not the same as drift |
 | **Spike** | Throwaway prototype to test the riskiest assumption (VALIDATION) |
 | **RTM** | Traceability Matrix — which spec section came from which idea |
 | **Method Ledger** | `.omo/method-ledger.jsonl` — audit trail of applied/skipped methods |

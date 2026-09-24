@@ -175,6 +175,23 @@ Feature registry for the Development Protocol itself. Each feature has a lifecyc
 - **File:** `../steps/EXECUTOR.md` § The internal loop; `../steps/REVIEW.md` (Adversarial Review Agent, row 4.12)
 - **Origin:** user thought (verbatim, `THOUGHT_LOG.md` T-026) — iterate multiple times with the AI reviewing every new iteration, big-picture problems first and then down to the technical details, assuming the human is the strictest reviewer to possibly exist; and T-032 — many agent adversarial checks and reviews, going down layer by layer. Bounded by the ithmb overrun evidence (unbounded *until satisfied* turns one week into three months) and by the T0–T3 bar (the residue is where T3 lives).
 
+### F-022: Declared Delegation & Route Announcement (T-039)
+
+- **State:** applied
+- **Contract:** the run states its route and its decision count before Phase 1; the human may delegate a named decision in writing, once per run, logged as `delegated`; delegation never covers a one-way door and never counts toward the abdication tripwire.
+- **Test Anchoring:** SERIOUSNESS Phase 0 states the route and the count; a delegated decision appears in the `KILL_LOG.md` Dissent Log with the default taken and the counterfactual; the tripwire does not fire on a cycle whose passivity was declared delegation.
+- **File:** `steps/SERIOUSNESS.md`, `steps/STRATEGY.md`, `steps/KILL_LOG.md`, `docs/CONSTITUTION.md`, `steps/QUICKSTART.md`
+- **Origin:** the user’s harshness thought (T-039 verbatim: “I made this for strategists, but most people are not strategists they just want work done”). The protocol demanded judgment as the price of entry, defaulted every run to Standard, and called honest handover abdication.
+
+
+### F-023: Graded Surfaces Are Planned, Generated Numbers Come From Data
+
+- **State:** applied
+- **Contract:** the specification names every surface a third party reads or grades, presentations included; a generated artifact that carries numbers is built from the data file, never from the prose of another document, and asserts its expected shape before drawing.
+- **Test Anchoring:** SPECIFICATION section 2 names the graded surfaces; the generator fails loudly when the data file lacks a row it expects; REVIEW 4.8 catches a comparative measurement instrumented on one side only.
+- **File:** `steps/SPECIFICATION.md`, `steps/EXECUTOR.md`, `steps/REVIEW.md`, `steps/VALIDATION.md`
+- **Origin:** SC2001 Project 2 (2026-09-24). The deck carried 20 percent of the grade but was never in the artifact list, so its first draft took numbers from the notebook prose. The fresh-eyes descent found a typed ratio disagreeing with a computed one and a graph that was never built. In the same run the spike showed that the measurement method, not the repetition count, was the fault.
+
 ## Trace Tags
 
 - `engineering-plugin:§1.1` — F-### lifecycle definition
@@ -209,3 +226,5 @@ Feature registry for the Development Protocol itself. Each feature has a lifecyc
 | F-019 Craft Ordering | F-007, F-018 | HOUSE_STANDARD.md, ../steps/EXECUTOR.md, ../steps/REVIEW.md |
 | F-020 Domain Norms | F-018 | HOUSE_STANDARD.md, ../steps/AMBITION.md, ../steps/LANDSCAPE.md, ../steps/REVIEW.md |
 | F-021 Iterate Loop | F-018 | ../steps/EXECUTOR.md, ../steps/REVIEW.md, STANDING_PRINCIPLES.md |
+| F-022 Delegation | F-017, F-021 | ../steps/SERIOUSNESS.md, ../steps/STRATEGY.md, ../steps/KILL_LOG.md, CONSTITUTION.md |
+| F-023 Graded Surfaces | F-018, F-021 | SPECIFICATION.md, EXECUTOR.md, REVIEW.md, VALIDATION.md |

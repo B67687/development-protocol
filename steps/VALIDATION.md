@@ -185,7 +185,7 @@ Carry-forward rule: LEARNINGS ONLY, NOT CODE. The spike code is throwaway.
 ```
 
 
-> **Instability is a requirement, not a footnote.** If a spike observes that a number the deliverable will assert is unstable — it flips between repeats, or the candidates sit inside each other's noise — that observation is promoted to a REQUIREMENT: fix the measurement (repeat and take the median or report an interval) or re-scope the claim. It may not ship as a prose caveat. A caveat says "we know this is fragile" and still asserts the number; the deliverable's method then fails under a repeat, which is the one thing a reader will do.
+> **Instability is a requirement, not a footnote.** If a spike observes that a number the deliverable will assert is unstable — it flips between repeats, or the candidates sit inside each other's noise — that observation is promoted to a REQUIREMENT: fix the measurement (repeat and take the median or report an interval) or re-scope the claim. It may not ship as a prose caveat. A caveat says "we know this is fragile" and still asserts the number; the deliverable's method then fails under a repeat, which is the one thing a reader will do. The fix is often the method rather than the count: in the SC2001 Project 2 spike the fault was an asymmetric counter and a C-backed heap measured against a Python scan, and more repetitions would have found neither. Examine what is being measured before adding repeats.
 
 ### Handoff to SPECIFICATION
 

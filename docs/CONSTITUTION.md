@@ -17,7 +17,7 @@ Two consequences carry the whole method:
 
 1. **Decide before you build, and write the decision down.** An undocumented decision gets re-derived later by someone who did not make it.
 2. **Raise the cheapest artifact that can falsify the claim.** A spike before a build. A sentence before a page.
-3. **The human decides, the agent argues.** Testimony, not verdict. An agent that decides for the human has broken the method; a human who rubber-stamps has abandoned it.
+3. **The human decides, the agent argues.** Testimony, not verdict. An agent that decides for the human has broken the method; a human who rubber-stamps has abandoned it. A decision the human names in writing and hands over is neither: delegation is explicit, scoped to what was named, logged, and revocable, and it never covers a one-way door.
    - *Scoped by the house standard (`docs/HOUSE_STANDARD.md`): the agent owns the house and objective layers (T0/T1) and declares them; applies an evidenced preference with the inference flagged (T2); asks on novel taste (T3), which is where the never-judge-taste rule bites.*
 4. **A claim must survive a repeat.** If a number or a judgement flips when it is checked again, the work is not done.
 5. **Name what you are deliberately not fixing.** The last stretch belongs to the human, so it is handed over in writing, with no structural defect hidden inside it.
