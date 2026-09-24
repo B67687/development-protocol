@@ -29,7 +29,7 @@
 #   8. FEATURES        — every F-### entry has valid State + File lines
 #   9. LEDGER          — ledger-check.py: every ledger entry has case/method/status/evidence
 #  10. PROMPT_STANDARDS — (a) prohibition density ≤10% per step file, (b) no section over the
-#                       21-checkbox ratchet, (c) every docs/research/*.md basename is in INDEX.md
+#                       12-checkbox ratchet, (c) every docs/research/*.md basename is in INDEX.md
 # ==============================================================================
 
 set -uo pipefail
@@ -465,11 +465,11 @@ fi
 
 CB_BAD=""
 for f in steps/*.md; do
-    hit=$(awk '/^#{2,3} /{if(n>max){max=n;ml=sec}; sec=$0; n=0} /- \[ \]/{n++} END{if(n>max){max=n;ml=sec}; if(max>21) printf "%d:%s", max, ml}' "$f")
+    hit=$(awk '/^#{2,3} /{if(n>max){max=n;ml=sec}; sec=$0; n=0} /- \[ \]/{n++} END{if(n>max){max=n;ml=sec}; if(max>12) printf "%d:%s", max, ml}' "$f")
     if [[ -n "$hit" ]]; then CB_BAD="$CB_BAD ${f#steps/}[${hit}]"; fi
 done
 if [[ -z "$CB_BAD" ]]; then
-    pass "R10b — no section exceeds the 21-checkbox ratchet"
+    pass "R10b — no section exceeds the 12-checkbox ratchet"
 else
     fail "R10b-CHECKBOX" "sections above the ratchet:$CB_BAD"
 fi
@@ -536,6 +536,27 @@ else
     fail "R11c-BASIS" "$RB is missing"
 fi
 
+
+# ─── Rule 12: gate cards and carried state ───
+echo "Rule 12: gate cards and carried state"
+R12A=''
+for n in INBOX PRIORITIZE EXTRACTION SERIOUSNESS FUNDAMENTALS DECOMPOSITION AMBITION LANDSCAPE STRATEGY VALIDATION SPECIFICATION EXECUTOR REVIEW REFLECT; do
+  grep -q '^> \*\*Gate card\.\*\*' "steps/$n.md" || R12A="$R12A $n.md"
+done
+if [[ -z "$R12A" ]]; then
+  pass "R12a — every gate file opens with a gate card"
+else
+  fail "R12a-GATECARD" "no gate card in:$R12A"
+fi
+R12B=''
+for n in INBOX EXTRACTION STRATEGY VALIDATION SPECIFICATION; do
+  grep -q 'Carried state' "steps/$n.md" || R12B="$R12B $n.md"
+done
+if [[ -z "$R12B" ]]; then
+  pass "R12b — the five artifact gates carry the carried-state pointer"
+else
+  fail "R12b-CARRIED" "no carried-state pointer in:$R12B"
+fi
 # ─── Summary ────────────────────────────────────────────────────────────────
 echo ""
 echo "═══════════════════════════════════════════════════════════════════"

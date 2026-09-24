@@ -1,5 +1,9 @@
 # REVIEW.md — The Gödel Gate (Meta-Protocol Audit)
 
+> **Gate card.** Goal: find what the author could not see.
+> Your part: read the craft read.
+> Closes with: the review rows, the descent findings and the residue list. Next: REFLECT.
+
 > A protocol that audits the protocol itself. Run by a **separate, independent agent**
 > against a fixed checklist. The reviewer has no memory of prior work, no stake in
 > the decisions made, and no incentive to agree.
@@ -87,68 +91,35 @@ to the project's specific risk profile:
 
 The ledger is machine-checked at the meta-gate:
 
-- [ ] Fitness: prescribed methods invoked with resolvable evidence?
-- [ ] Skip-rate per reason code: no code trending up as a lazy-out?
-- [ ] Omitted entries: any uncatalogued omission present? (RED FLAG → fix ticket)
-- [ ] What-Matters (PRIORITIZE): the AI proposal logged; user ratification folded
-      into the single gate (Invariant 11) — flag if the proposal is missing or the
-      single-gate entry is absent (closes the S22 asymmetry)
-
-- [ ] Divergence metric: invocation rate vs outcome quality — no reward for
-      checklist completion alone (specification-gaming guard)
-- [ ] Net-effort justification: every method or rule added or changed in this
-      cycle carries a durability-weighted net-effort justification (what user
-      effort does it reduce? what does it cost?) recorded in the ledger or
-      change record. Absent justification = FAIL.
-- [ ] Trust-boundary conformance (Invariant 10 / Emission Rule 9): autonomous-learning
-      decisions logged with velocity classification; slow-velocity decisions have a
-      ratification entry. Missing classification or missing slow-ratification = RED
-      FLAG → fix ticket (machine-checked by ledger-check.py).
-
-- [ ] One-Gate conformance (Invariant 11): exactly one user ratification per run
-      (STRATEGY: scope + kernel + budget), logged. Any auto-escalated one-way-door
-      gate logged; an unlogged extra user gate or a missing single-gate entry = RED
-      FLAG → fix ticket.
-
-- [ ] FEATURES.md conformance (Cluster AE): statuses valid (proposed/approved/applied/
-      archived); every IN SCOPE item is an `approved` entry; no `applied` feature lacks
-      linked tests; every test references a known F-###; `Reviewed:` dates within cadence.
-      Orphan feature, unanchored test, or stale review = RED FLAG → fix ticket.
-
-- [ ] Architecture fitness audit (Cluster AE): the MACRO paradigm-fit gate ran and is
-      logged (a falsification criterion on MACRO decisions); escalation signal (recurring
-      co-change / change-amplification at one boundary) checked — no unexamined meta-
-      level constraint on a feature flagged in REVIEW.
-
-- [ ] Regression-Lock conformance (Cluster AM): any `applied` feature's golden
-      baseline (golden file / visual snapshot) changed in this run carries a ledger
-      entry recording the REGRESSION DECISION plus reviewer attestation — a silent
-      baseline update (laundered regression) = RED FLAG → fix ticket.
-- [ ] Mutation disposition conformance (Cluster AM): surviving mutants were TRIAGED
-      (equivalent / killed / real-gap); a real-gap mutant's disposition is ledger-
-      recorded; an UNRESOLVED real-gap mutant on an `applied` feature's contract
-      = RED FLAG → fix ticket.
-- [ ] Cross-cluster interference check (Cluster AQ): this run's changes touch no
-      concurrent cluster's territory (shared docs, overlapping files, .omo/ state)
-      — overlapping edits to another active cluster's files = RED FLAG → fix ticket.
-- [ ] Migration conformance (Cluster AO): if the seam registry was re-keyed or an
-      ADR records an up-level move, the ledger holds the migration contract, pre-move
-      characterization pins, per-baseline REGRESSION DECISION entries, and separate-
-      evaluator sign-off; PROJECT_MODEL transitions valid. Absent contract or sign-off
-      = RED FLAG → fix ticket.
-- [ ] Outcome-verdict conformance (Cluster AT): every completed cluster has a rule-11
-      verdict record with a disposition (tracked practice change (owner) | consciously
-      deferred); deferred lessons carry a re-review trigger. Absent verdict or
-      disposition-less lesson = RED FLAG → fix ticket. Verdicts are required only
-      for clusters completed after this rule's adoption — no retroactive verdicts for
-      pre-adoption runs.
-- [ ] Quality-bar conformance (Cluster AT): the project's QUALITY_BAR profile was
-      chosen at AMBITION with a one-paragraph risk rationale, and this run was verified
-      against it (diff-size cap, no self-approve, named reviewer for Profile B).
-      Evidence: profile + rationale in the AMBITION read-back; diff-size computed from
-      this run's git diff vs the last review; no-self-approve and named-reviewer
-      attested in the ledger. A rationale consisting solely of the QUALITY_BAR.md
-      template phrases = RED FLAG → fix ticket.
+- [ ] **Ledger fitness** — every prescribed method was invoked with resolvable
+      evidence; no skip code is trending up as a lazy-out; no uncatalogued omission
+      (RED FLAG → fix ticket).
+- [ ] **One gate** — exactly one user ratification is logged (STRATEGY: scope,
+      kernel, budget, including the What-Matters proposal); any auto-escalated
+      one-way door is logged; an unlogged extra gate or a missing single-gate entry
+      = RED FLAG (Invariant 11).
+- [ ] **Velocity and trust boundary** — autonomous-learning decisions carry a
+      velocity classification and slow-velocity ones carry a ratification entry;
+      missing = RED FLAG. Machine-checked by `ledger-check.py`.
+- [ ] **FEATURES and architecture fitness** — statuses valid, every IN SCOPE item an
+      `approved` entry, no `applied` feature without linked tests, every test naming
+      a known F-###, `Reviewed:` dates in cadence; the MACRO paradigm-fit gate ran
+      and the escalation signal was checked.
+- [ ] **Baselines, mutants and migration** — a changed golden baseline carries a
+      REGRESSION DECISION plus reviewer attestation (a silent update = RED FLAG);
+      surviving mutants are triaged (equivalent / killed / real-gap) and an
+      unresolved real-gap mutant on an `applied` contract = RED FLAG; a re-keyed
+      seam registry or an up-level move carries the migration contract, pre-move
+      characterization pins and separate-evaluator sign-off.
+- [ ] **No checklist-gaming** — invocation rate is never rewarded on its own; every
+      method or rule added or changed this cycle carries a durability-weighted
+      net-effort justification in the ledger or change record (absent = FAIL).
+- [ ] **Run hygiene and records** — overlapping edits to another active cluster's
+      files (shared docs, `.omo/` state) = RED FLAG; every completed cluster has an
+      outcome verdict with a disposition and deferred lessons carry a re-review
+      trigger; the QUALITY_BAR profile was chosen at AMBITION with a one-paragraph
+      risk rationale and this run was verified against it (a rationale made only of
+      the template phrases = RED FLAG).
 
 > Sources: process-mining conformance checking (van der Aalst), NASA SWE-072
 > traceability, OpenAI process supervision, Krakovna specification gaming.

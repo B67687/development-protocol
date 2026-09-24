@@ -1,5 +1,9 @@
 # REFLECT.md — Protocol Retrospection (v4)
 
+> **Gate card.** Goal: find out how well the protocol guided this run.
+> Your part: the counts and the next-cycle seed.
+> Closes with: the nine answers and the seed for the next run. Next: ship, or the next INBOX.
+
 > This is a **mandatory gate** between REVIEW and ship. Every project must pass through REFLECT before shipping.
 >
 > **Purpose:** Reflect on how well the protocol itself performed during this project.

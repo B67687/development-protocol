@@ -1,5 +1,9 @@
 # SERIOUSNESS.md — Idea Evaluation Gate (v4.1)
 
+> **Gate card.** Goal: decide whether X deserves the protocol at all.
+> Your part: answer the three feeling probes.
+> Closes with: a route, and COMMIT, SCHEDULE or DROP. Next: FUNDAMENTALS on a COMMIT.
+
 > This runs between EXTRACTION (X found) and FUNDAMENTALS (one-way doors).
 >
 > **Purpose:** Determine whether an extracted X is worth the first 5 steps of the protocol.

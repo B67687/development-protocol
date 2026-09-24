@@ -1,5 +1,9 @@
 # DECOMPOSITION.md — Intent Decomposition (v3)
 
+> **Gate card.** Goal: split the validated problem into dimensions you can attack separately.
+> Your part: nothing. The agent runs it.
+> Closes with: MECE dimensions marked known, research or prototype. Next: AMBITION.
+
 > This runs in the prep sequence between FUNDAMENTALS (one-way doors validated) and AMBITION (appetite set): `INBOX → PRIORITIZE → EXTRACTION → SERIOUSNESS → FUNDAMENTALS (incl. MULTI) → DECOMPOSITION → AMBITION (incl. PACING) → LANDSCAPE → STRATEGY → VALIDATION → SPECIFICATION → EXECUTOR → REVIEW (incl. EXPLAINER + SPEC_SYNC) → REFLECT → ship`.
 >
 > **Purpose:** Take the validated problem (X from EXTRACTION) and break it systematically

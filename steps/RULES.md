@@ -462,7 +462,7 @@ A sweep, a landscape round, or a literature check that informs a change lands as
 
 ---
 
-## 12. Session Kickoff
+### Carried state - what the next gate must not re-askEvery artifact-producing gate ends its artifact with a `## Carried state` block: the handful of facts the run has already settled, in the shortest form that still carries them. Later gates reference that block by name instead of restating the facts in their own words.- **Carries:** run shape and route; appetite and deadline; the ratified decisions with their ids; the scope ceiling; the source manifest pointer (spec section 1.6); the assumption-ledger pointer; anything a later gate would otherwise ask a second time.- **Does not carry:** reasoning, rationale, or anything a later gate still has to decide. If it is not settled, it does not belong here.- **Scope:** the planning artifacts later gates read - INBOX, EXTRACTION, STRATEGY, VALIDATION, SPECIFICATION. A project deliverable is not part of this convention.- **Counterexample:** a gate that changes a carried fact (a re-cut scope, a moved deadline) records the change in its own artifact and updates the block, rather than letting the two disagree.- **Check:** at REVIEW, a fact that appears in two artifacts must agree, and the later one points at the carried block rather than re-deriving it.## 12. Session Kickoff
 
 Every AI session starts with:
 

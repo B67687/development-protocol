@@ -1,5 +1,9 @@
 # AMBITION.md — Intent Clarification Dialogue (Research-Interleaved)
 
+> **Gate card.** Goal: turn what you want into a falsifiable hypothesis with an appetite.
+> Your part: the dialogue rounds.
+> Closes with: the hypothesis, the appetite and the pacing. Next: LANDSCAPE.
+
 > This is a **research-interleaved conversation protocol** between you and the AI.
 > The AI does NOT just ask questions from its training knowledge. Between each round,
 > it researches (web search, codebase exploration, tool analysis) based on what you

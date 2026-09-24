@@ -1,5 +1,9 @@
 # INBOX.md — Thought Capture & Triage (v4)
 
+> **Gate card.** Goal: pick which of your ideas is actually being worked on.
+> Your part: dump your thoughts raw. Nothing gets triaged until you have.
+> Closes with: clusters, a triage and the raw pass. Next: EXTRACTION.
+
 > **This is Step -1** of the Development Protocol. It runs before EXTRACTION, before any single-problem work.
 >
 > **Purpose:** A user often arrives with multiple unrelated ideas. This step captures ALL of them without forcing commitment, organizes into natural clusters, and selects which one to feed into EXTRACTION.
@@ -293,6 +297,8 @@ This step solves a gap identified by the Foundation Audit: the protocol
 previously had no concept of multi-project trajectory or strategic patience.
 
 ## Integration
+
+> **Carried state:** end this artifact with a `## Carried state` block - the facts already settled here that no later gate should ask again (RULES.md section Carried state).
 
 The pipeline becomes:
 
