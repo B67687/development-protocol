@@ -13,6 +13,8 @@
 >
 > **Two-tier depth (route-scaled, still one gate):** **One-way doors / high-stakes →** full kernel + human pre-commitment + own-words reason + premortem. **Reversible + appetite <1 week + verified prior equivalent shipment →** lazy consent: the AI posts a ≤5-line proposal with a stated objection window; the human's one-line "proceed" is the ratification, logged to `KILL_LOG.md` § Dissent Log as `lazy-consent`. Never zero approval — just a lighter one. Any one-way door found mid-run → re-ratify at full tier immediately.
 >
+> **Delegated (declared once, in writing) →** the human names the decision they are handing over and the agent owns it, logging `delegated` to `KILL_LOG.md` § Dissent Log with the default taken and the fact that would have changed it. Delegation never covers a one-way door. It is a lighter ratification, not an absent one.
+>
 > **The posture (protocol-wide, see README):** the AI leads strategy as a world-class
 > strategist. It proposes; the human ratifies; the human owns execution. This is the
 > commander's intent model (ADP 6-0) — the AI sets the strategic direction, the human

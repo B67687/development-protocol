@@ -145,6 +145,8 @@ OUT OF SCOPE (V1):
 
 ## 2. Architecture & Design Decisions
 
+> **Every surface a third party reads or grades is a planned artifact.** Name the presentations, decks, reports and write-ups in this section, not only the code and the data files. A graded surface with no plan gets built from whatever text is nearest, which is usually the prose of another artifact rather than its data.
+
 ### MACRO — System Architecture
 
 Each architecture-level decision uses the Y-Statement format:

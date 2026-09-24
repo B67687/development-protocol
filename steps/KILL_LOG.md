@@ -53,6 +53,7 @@ Review at REFLECT Q8 "Kill-Gate Calibration" and update SERIOUSNESS thresholds i
 - **Outcome:** `Right-call` (human beat the gate), `Wrong-call` (gate was right), `Pending` (not yet checked).
 - After 10+ overrides: humans beat the gate >50% → gate miscalibrated for this user — loosen thresholds or route thinner. Gate beats humans >80% → show them the score; earned authority beats asserted process.
 - Read at REFLECT Q8 alongside kill calibration.
+- **Delegated entries** (SERIOUSNESS § Phase 0) use the same table: `Gate said` = the decision handed over, `Human said` = `delegated`, `Who decided` = `agent (delegated)`, and the check cell carries the default taken plus the one fact that would have changed it. A delegated entry is not an override. It is logged so the handover is visible and revocable.
 
 ## Exclusion Log (deliberately-scoped-out items)
 
@@ -66,7 +67,7 @@ Review at REFLECT Q8 "Kill-Gate Calibration" and update SERIOUSNESS thresholds i
 
 ## Integration
 
-- Written by: SERIOUSNESS.md (DROP) and VALIDATION.md (spike KILL / Preference Kill)
+- Written by: SERIOUSNESS.md (DROP, plus delegated decisions from § Phase 0) and VALIDATION.md (spike KILL / Preference Kill)
 - Read by: REFLECT.md Q8 — "Review the kill decisions made this cycle. Were the right things killed?"
 - Decision Journal entry in SERIOUSNESS.md § Calibration & Evidence feeds INTO this log.
 

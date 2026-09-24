@@ -393,6 +393,11 @@ Applies to anything a third party will read or grade — notebooks, reports, REA
 - *Counterexample:* do not loosen wording in a contract or spec — voice rules and precision rules apply to different surfaces.
 - *Check:* grep the stock openers; confirm contractions are present and sentence lengths vary; confirm at least one restating sentence was cut per paragraph.
 
+**3. A generated artifact reads the data file, never the prose.** If a deck, report or dashboard carries numbers, build it from the data (the results file, the ledger, the test output) and check that the expected rows are present before drawing anything. A number typed from another document is how a delivered artifact ends up disagreeing with its own evidence.
+- *Scope:* any generated artifact that carries measured numbers. Hand-written prose that quotes a number once is covered by Rule 1 and REVIEW 4.8.
+- *Counterexample:* a title or story slide that carries no numbers is out of scope.
+- *Check:* the generator reads the data file and exits non-zero when an expected row is missing, and every number in the artifact traces back to that file.
+
 ### Named Techniques (edge-case & UX evaluation)
 
 | Technique                                                      | When                                                                      | Source                                                             |

@@ -10,6 +10,7 @@ Raw session texts that back these documents live outside the repo, in the local 
 | [`ai-autonomous-execution.md`](ai-autonomous-execution.md) | 2026-07-11 | Autonomous execution research: what agents can be trusted to run unattended, where human gates still earn their keep. |
 | [`harness-survey-2026-07.md`](harness-survey-2026-07.md) | 2026-08-01 | Harness survey: how much of measured agent performance is scaffold rather than model, and which harness mechanisms carry the effect. |
 | [`ai-taste-judgment.md`](ai-taste-judgment.md) | 2026-09 | What the taste sweep licenses and rules out: taste as a capability limit, scaffolding gains that plateau, persistent homogenisation, untested world-model transfer, no claimed one-year fix. Companion to `HOUSE_STANDARD.md`. |
+| [`human-thinking-preferences-2026-09-24.md`](human-thinking-preferences-2026-09-24.md) | 2026-09-24 | What makes thinking feel like progress and play rather than a chore: flow conditions, goal gradients and small wins, SDT, productive failure and desirable difficulty, ludic-vs-agonistic play, the anti-gamification case, documentation-burden transfer, licenses/rules-out, six open gaps. |
 
 ## Adding a row
 
