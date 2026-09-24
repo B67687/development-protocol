@@ -1,5 +1,9 @@
 # PRIORITIZE.md — Idea Comparison & Betting (v1)
 
+> **Gate card.** Goal: break a near-tie between two ideas you care about equally.
+> Your part: pick the winner from the comparison.
+> Closes with: the comparison table and the chosen cluster. Next: EXTRACTION.
+
 > **This is Step 0.5** of the Development Protocol. It runs between INBOX (clustered ideas) and EXTRACTION (deep-dive on one problem).
 >
 > **Purpose:** When INBOX's shallow triage (Energy/Timing/Tractability) produces a near-tie — 2+ clusters with similar scores, or the user isn't sure which to pursue — this step adds structured comparison on three universal dimensions to break the tie.

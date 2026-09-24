@@ -1,5 +1,9 @@
 # SPECIFICATION.md — The Plan IS the Spec
 
+> **Gate card.** Goal: write the exact contract the build will follow.
+> Your part: nothing. The agent writes it from the ratified kernel.
+> Closes with: the spec and its verification checklist. Next: EXECUTOR.
+
 > **v3 note:** Before filling this template, run the Intent Decomposition protocol (RULES.md Section 2) — each MECE dimension maps to a section here.
 > Everything in one document: constitution, overview, architecture, file tree, quality gates, dependencies, UX, timeline, testing, operations, release, design for change, documentation, ecosystem, AI attribution.
 > Three layers: MACRO (system), MESO (component), MICRO (implementation). An AI executor reads this and knows exactly what to build — no guessing required.
@@ -588,31 +592,17 @@ Rationale: {{why this level was chosen}}
 ---
 
 ## 15. Verification Checklist (Executor Reads Before Starting)
+> **Carried state:** end this artifact with a `## Carried state` block — the facts already settled here that no later gate should ask again (RULES.md § Carried state).
 
-- [ ] All `{{placeholders}}` across all sections are filled
-- [ ] No "TODO" or "TBD" remains
-- [ ] Constitution (section 0) has at least 3 principles
-- [ ] Out-of-scope list (section 1) is non-empty
-- [ ] Each architecture decision (section 2) includes a Y-Statement
-- [ ] Each dependency (section 5) has a version constraint
-- [ ] Timeline (section 7) has a circuit breaker condition
-- [ ] Tier 1 sections 0-7 are fully filled
-- [ ] Tier 2 sections 8-11 are filled for production projects
-- [ ] Tier 3 sections 12-14 are filled for open-source projects
-- [ ] **Spec self-consistency grep** — run `grep -n "Step " SPEC.md` and confirm step/phase numbering is monotonic with no duplicates before EXECUTOR starts
-- [ ] **FEATURES.md** exists (docs/FEATURES.md template): every IN SCOPE item is an `approved` entry; no `applied` feature lacks linked tests; statuses are valid (proposed/approved/applied/archived)
+- [ ] All `{{placeholders}}` across all sections are filled, and no "TODO" or "TBD" remains
+- [ ] Constitution (section 0) has at least 3 principles, and the out-of-scope list (section 1) is non-empty
+- [ ] Tier 1 sections 0-7 are fully filled, with Tier 2 (8-11) filled for production projects and Tier 3 (12-14) for open-source projects
+- [ ] Each architecture decision (section 2) includes a Y-Statement, each dependency (section 5) has a version constraint, and the timeline (section 7) has a circuit breaker condition
+- [ ] **Spec self-consistency** — `grep -n "Step " SPEC.md` shows step and phase numbering monotonic with no duplicates before EXECUTOR starts
+- [ ] **FEATURES.md** — every IN SCOPE item is an `approved` entry, no `applied` feature lacks linked tests, statuses are valid (proposed/approved/applied/archived)
 - [ ] **Test anchoring** — every test references a feature ID (F-###); a test proving no feature contract is flagged, not silently carried
 - [ ] **Source documents** — every §1.6 row has a `Where` that resolves or a verbatim quote that stands alone, and no section relies on a source it does not name
-
-For engineering deliverables, also verify from the [Engineering Plugin](../docs/engineering-plugin.md):
-
-- [ ] Quality gates (plugin §1) have concrete commands
-- [ ] Fuzz targets exist in `fuzz/` directory (Tier 2+)
-- [ ] Benchmark suite exists in `benches/` (performance-sensitive)
-- [ ] Snapshot testing configured (plugin §3)
-- [ ] cargo-deny / deny.toml exists (Tier 2+)
-- [ ] Multi-platform CI matrix configured (plugin §3)
-- [ ] Test-to-source ratio meets 0.5× minimum
+- [ ] **Engineering-plugin gates** (engineering deliverables, see the [Engineering Plugin](../docs/engineering-plugin.md)): quality gates have concrete commands, fuzz targets exist in `fuzz/` (Tier 2+), a benchmark suite exists in `benches/` (performance-sensitive), snapshot testing is configured, `cargo-deny` / `deny.toml` exists (Tier 2+), a multi-platform CI matrix is configured, and the test-to-source ratio meets 0.5×
 
 ---
 

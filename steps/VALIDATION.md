@@ -1,5 +1,9 @@
 # VALIDATION.md — The Prototyping Gate
 
+> **Gate card.** Goal: kill or commit on the strength of evidence.
+> Your part: nothing. The spike decides.
+> Closes with: KILL, PIVOT or COMMIT, and what the spike taught. Next: SPECIFICATION.
+
 > This is a **decision gate**, not a development phase. The goal is not to build something
 > that ships — it's to learn enough to make a KILL/PIVOT/COMMIT decision with confidence.
 >
@@ -170,6 +174,8 @@ These fire BEFORE the weighted matrix (below). Technical criteria (feasibility, 
 ---
 
 ## Learnings Capture
+
+> **Carried state:** end this artifact with a `## Carried state` block - the facts already settled here that no later gate should ask again (RULES.md section Carried state).
 
 After each spike (regardless of outcome):
 

@@ -1,5 +1,9 @@
 # STRATEGY.md — Strategic Ratification Gate (v1)
 
+> **Gate card.** Goal: turn the landscape into one plan you ratify.
+> Your part: amend or accept the kernel.
+> Closes with: the ratified kernel, the scope ceiling and the standing decisions. Next: VALIDATION.
+
 > **This is a pipeline step** between LANDSCAPE and VALIDATION. It runs after research
 > (LANDSCAPE) has mapped the landscape and before prototyping
 > (VALIDATION) commit resources.
@@ -162,6 +166,8 @@ Countermeasures (mandatory):
    and even then the AAR gate applies.
 
 ## Output Format
+
+> **Carried state:** end this artifact with a `## Carried state` block - the facts already settled here that no later gate should ask again (RULES.md section Carried state).
 
 ```
 STRATEGY           [✓] COMPLETE

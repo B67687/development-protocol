@@ -90,25 +90,27 @@ Light mode = 6 phases, <2 hours. Gated by SERIOUSNESS score 35–50.
 
 ---
 
-## Full Map: All 15 Phases (1 line each)
+## Full Map: All 15 Phases (what each one decides, and what it wants from you)
 
-| #   | Phase         | File               | When to use                                  | Time            |
-| --- | ------------- | ------------------ | -------------------------------------------- | --------------- |
-| -1  | INBOX         | `INBOX.md`         | Multiple ideas, unclear which to pursue      | 10 min          |
-| 0   | EXTRACTION    | `EXTRACTION.md`    | Y contains a solution word (app/tool/system) | 15 min          |
-| 1   | SERIOUSNESS   | `SERIOUSNESS.md`   | Unsure if X is worth pursuing                | 5 min           |
-| 2   | FUNDAMENTALS  | `FUNDAMENTALS.md`  | One-way doors might exist                    | 10 min          |
-| 3   | DECOMPOSITION | `DECOMPOSITION.md` | Problem has 3+ sub-dimensions                | 15 min          |
-| 4   | AMBITION      | `AMBITION.md`      | Need direction + timebox before research     | 15 min          |
-| 5   | LANDSCAPE     | `LANDSCAPE.md`     | Domain unfamiliar or competitive             | 20 min          |
-| 6   | STRATEGY      | `STRATEGY.md`      | Multiple valid approaches exist              | 10 min          |
-| 7   | VALIDATION    | `VALIDATION.md`    | Core assumption is unproven                  | 20 min          |
-| 8   | SPECIFICATION | `SPECIFICATION.md` | Ready to write the build contract            | 20 min          |
-| 9   | EXECUTOR      | `EXECUTOR.md`      | Spec is ratified, time to build              | 30% of appetite |
-| 10  | REVIEW        | `REVIEW.md`        | Build done, need verification                | 10 min          |
-| 11  | REFLECT       | `REFLECT.md`       | After ship or kill — what did we learn?      | 10 min          |
-| —   | BIAS_CATALOG  | `BIAS_CATALOG.md`  | At any decision — which bias is active?      | 2 min           |
-| —   | KILL_LOG      | `KILL_LOG.md`      | After any DROP/KILL — log + 30-day check     | 2 min           |
+| # | Phase | What it decides | Your part | Closes with | Time |
+| --- | --- | --- | --- | --- | --- |
+| -1 | INBOX | which idea is actually being worked on | dump your thoughts raw | clusters, a triage, the raw pass | 10 min |
+| 0 | EXTRACTION | what X is, in your own words | confirm the readings and the defaults | X, the want layers, the assumption ledger | 15 min |
+| 1 | SERIOUSNESS | whether X deserves the protocol | answer the three feeling probes | a route: COMMIT, SCHEDULE or DROP | 5 min |
+| 2 | FUNDAMENTALS | which decisions are one-way doors | nothing, the agent runs it | the door list and the MULTI verdict | 10 min |
+| 3 | DECOMPOSITION | how X splits into workable dimensions | nothing, the agent runs it | MECE dimensions marked known, research or prototype | 15 min |
+| 4 | AMBITION | what you actually want, and the appetite | the dialogue rounds | a falsifiable hypothesis and a timebox | 15 min |
+| 5 | LANDSCAPE | what already exists, and what it costs | nothing, or a nudge on where to look | the landscape map and its verification tiers | 20 min |
+| 6 | STRATEGY | the plan you ratify | amend or accept the kernel | the ratified kernel, scope ceiling and standing decisions | 10 min |
+| 7 | VALIDATION | build it or kill it | nothing, the spike decides | KILL, PIVOT or COMMIT, and the learnings | 20 min |
+| 8 | SPECIFICATION | the exact contract to build | nothing, the agent writes it | the spec and its verification checklist | 20 min |
+| 9 | EXECUTOR | nothing, this is where it gets built | nothing | the built artifact and the FINISH gate | 30% of appetite |
+| 10 | REVIEW | whether it holds up | read the craft read | the review rows, the descent, the residue | 10 min |
+| 11 | REFLECT | what the method learned | the counts and the next-cycle seed | the nine answers and the seed | 10 min |
+| - | BIAS_CATALOG | which bias is active at this decision | nothing, the agent loads it | a named bias in the decision record | 2 min |
+| - | KILL_LOG | what a kill predicted, and whether it was right | nothing | a logged entry with a 30-day check | 2 min |
+
+**Reading the map.** The middle three columns are the whole of what a gate asks of you. Where Your part says nothing, the gate runs on its own and you see the result. Every gate closes visibly before the next one starts, so you are never holding two half-finished decisions at once.
 
 Light mode runs: INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICATION → EXECUTOR (6 phases). Everything else is skipped with a logged rationale.
 

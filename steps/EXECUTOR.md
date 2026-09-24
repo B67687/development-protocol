@@ -1,5 +1,9 @@
 # EXECUTOR.md — Spec-to-Execution Handoff
 
+> **Gate card.** Goal: build exactly what the spec says.
+> Your part: nothing. This is where the agent works.
+> Closes with: the built artifact and the FINISH gate. Next: REVIEW.
+
 > Use this after SPECIFICATION.md is complete. The spec IS the plan; this document tells the executor how to follow it. Bridges "I have a complete spec" and "I'm autonomously executing it via RULES.md." Updated for v3 — adds Design for Change Rules.
 
 ---

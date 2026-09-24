@@ -1,5 +1,9 @@
 # FUNDAMENTALS.md — Architecture Foundation Validation (v3)
 
+> **Gate card.** Goal: find the one-way doors before anything is built on them.
+> Your part: nothing. The agent runs it and shows you the doors.
+> Closes with: the door list and the MULTI verdict. Next: DECOMPOSITION.
+
 > This runs between EXTRACTION (found the right problem) and DECOMPOSITION (broke it into dimensions).
 >
 > **Purpose:** Before you decompose the problem, identify which decisions are ONE-WAY DOORS.

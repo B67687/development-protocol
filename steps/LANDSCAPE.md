@@ -1,5 +1,9 @@
 # LANDSCAPE.md — Research Protocol
 
+> **Gate card.** Goal: find out what already exists before anything is invented.
+> Your part: nothing, or a nudge on where to look.
+> Closes with: the landscape map and its verification tiers. Next: STRATEGY.
+
 > Use this after AMBITION.md has produced a falsifiable hypothesis. Turns "I don't
 > know what exists" into a structured landscape map. Timebox the whole phase —
 > unbounded research is research theater.
