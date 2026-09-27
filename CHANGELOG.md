@@ -45,6 +45,8 @@ All notable changes to the Development Protocol. Follows Keep a Changelog; versi
 
 - **The readings gate reads for the chain and the connector (T-041).** Rule 1 now enumerates the links between the load-bearing terms, not only the terms: a term can be clear while the chain that connects it to the conclusion is missing, and the answer lands in the context declaration's *prerequisites* field. New rule 7 covers the dropped relation — thinking outruns typing, so *because* / *so that* / *unless* go missing and the sentence's shape changes underneath it, which reads downstream as a wrong requirement. The assumed relation is logged in the INBOX flagged-terms table. Lint 17/17 PASS.
 
+- **Control applies to commitments, not to the search (T-044).** `docs/CONSTITUTION.md` gains a sixth consequence: an irreversible decision gets the gate, while exploration inside a gate stays open (raw thoughts first, cheap spikes, the bounded internal loop), because control applied to the search is what turns a one-week project into a three-month one. `docs/STANDING_PRINCIPLES.md` gains `## What we do not know`: every rule rests on research we could reach, our reach is open-access only, and a confident protocol answer is the best available to us and not the best possible. Lint 17/17 PASS.
+
 ### Changed
 
 - 20 protocol docs moved root → `steps/` (history preserved via `git mv`); all cross-refs re-pointed. `AGENTS.md` stays at root (tool auto-loading).

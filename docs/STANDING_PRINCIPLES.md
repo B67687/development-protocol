@@ -24,6 +24,10 @@ Most AI coding loops fail in the same two places: building the wrong thing (no s
 
 > When a new flagship model arrives, run the protocol once on a live task without changing any method. Keep the method unless the run exposes a genuinely new failure class. Model gains so far land in execution, not in the want and should-build gates, so adopt the model and keep the gates.
 
+## What we do not know
+
+Every rule here rests on research we could reach, and our reach is open-access only. Treat a confident answer from this protocol as the best available to us, not the best possible. When a cheaper explanation of the same evidence exists, or a tradition we have not read, the rule is still a candidate.
+
 ## Research basis
 
 Harness survey: [docs/research/harness-survey-2026-07.md](research/harness-survey-2026-07.md).
