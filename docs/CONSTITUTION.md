@@ -22,6 +22,8 @@ Two consequences carry the whole method:
 4. **A claim must survive a repeat.** If a number or a judgement flips when it is checked again, the work is not done.
 5. **Name what you are deliberately not fixing.** The last stretch belongs to the human, so it is handed over in writing, with no structural defect hidden inside it.
 
+6. **Gates bound commitments, never the search.** An irreversible decision gets the gate. Exploration inside a gate stays open: raw thoughts first, cheap spikes, the bounded internal loop. Control applied to the search itself is anxiety wearing a process, and it is what turns a one-week project into a three-month one.
+
 ### What it is not
 
 Not waterfall: the loop runs many times, on cheap artifacts. Not ceremony: an artifact nobody reads costs without benefit, and skipping it with a logged reason is legitimate. Not everything up front: the aim is not a perfect plan but the cheapest artifact that can falsify the expensive decision.
