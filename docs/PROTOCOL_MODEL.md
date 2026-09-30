@@ -38,6 +38,9 @@ INBOX → PRIORITIZE(opt) → EXTRACTION → SERIOUSNESS → FUNDAMENTALS (incl.
 
 ## Valid Transitions
 
+> **Publish:** `project-kit publish` squashes to an orphan branch and force-pushes origin/main — see `project-kit --help`.
+
+
 ### Standard path (forward, step-to-next-step)
 ```
 INBOX → PRIORITIZE → EXTRACTION → SERIOUSNESS → FUNDAMENTALS (incl. MULTI) → DECOMPOSITION → AMBITION (incl. PACING) → LANDSCAPE → STRATEGY → VALIDATION → SPECIFICATION → EXECUTOR → REVIEW (incl. EXPLAINER) → REFLECT → SHIP

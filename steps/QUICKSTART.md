@@ -22,6 +22,8 @@ and log the method to .omo/method-ledger.jsonl (applied/skipped + reason).
 
 **Done looks like:** the step's Output section is filled with your task's details, and the ledger has one new line. If you have nothing to fill, you read the doc — you did not run it.
 
+> **Survival set (read now):** X, Y, Bar 1/Bar 2, Appetite — the only terms the Full Map and Light path need. The other 13 terms are just-in-time at first use (see gate cards).
+
 ## Glossary (read this before the P-codes do damage)
 
 | Term | Means |

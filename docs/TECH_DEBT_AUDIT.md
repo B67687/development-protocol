@@ -7,7 +7,7 @@
 
 | # | Item | Severity | Effort | Status | File/Location |
 |---|------|----------|--------|--------|---------------|
-| D-001 | Root sprawl: 18 .md files at root | medium | high | active | `/` (root) |
+| D-001 | Root sprawl: 18 .md files at root → moved to `steps/` | medium | high | **resolved 2026-09-29** | `/steps/` (was root) |
 | D-002 | ../steps/SPECIFICATION.md oversized: 586 lines | medium | medium | active | `../steps/SPECIFICATION.md` |
 | D-003 | FEATURES.md was template-only (no F-### entries) | high | low | **resolved** | `docs/FEATURES.md` |
 | D-004 | No TECH_DEBT_AUDIT.md existed | high | low | **resolved** | `docs/TECH_DEBT_AUDIT.md` |
@@ -15,7 +15,7 @@
 | D-006 | HANDOVER stale (claimed fff81bf, actual d85d173) | high | low | **resolved** | `Development-Protocol-Local/HANDOVER.md` |
 | D-007 | No check-local.sh (only basic check.sh) | high | low | **resolved** | `scripts/check-local.sh` |
 | D-008 | No AGENTS.md at root | high | low | **resolved** | `AGENTS.md` |
-| D-009 | No .github/workflows (by design) | info | — | accepted | N/A |
+| D-009 | No .github/workflows — local-first CI (superseded: workflow now exists) | info | — | **resolved 2026-09-29** | `.github/workflows/protocol-lint.yml` |
 | D-010 | ../steps/RULES.md placeholder content | low | high | deferred | `../steps/RULES.md` |
 
 ## Severity × Effort Matrix
