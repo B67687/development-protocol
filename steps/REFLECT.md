@@ -87,7 +87,7 @@ Review kill decisions for this cycle:
 ### Q9: Next-cycle seed — what should the next INBOX carry?
 
 Ambition grows through contact with shipped reality — no upfront questioning extracts wants that only exist after touching the thing.
-If another cycle is likely, write the seed the next INBOX will open with:
+If another cycle is likely, write the seed to `.omo/plans/continuation-seed.md` — the file INBOX ingests next — with:
 
 - **Started-WANT → ended-WANT:** one line each. What did this cycle think it wanted at entry vs what it actually served?
 - **Ambition delta:** what new want appeared that this cycle could not serve?
