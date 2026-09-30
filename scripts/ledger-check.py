@@ -30,9 +30,11 @@ for i, line in enumerate(lines, 1):
         continue
     missing = [
         k
-        for k in ["case", "method", "status", "evidence", "reason", "ts"]
+        for k in ["case", "method", "status", "evidence", "ts"]
         if k not in r
     ]
+    if r.get("status") in ("skipped", "omitted") and "reason" not in r:
+        missing.append("reason")
     if missing:
         print(f"LINE {i}: missing fields {missing}")
         bad += 1

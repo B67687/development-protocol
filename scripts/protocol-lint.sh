@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# protocol-lint.sh — 10-rule CI lint (ceremony + prompt standards)
+# protocol-lint.sh — 12-rule CI lint (ceremony + prompt standards)
 # ==============================================================================
 # Checks that the protocol's structural invariants hold. Fails PRs when
 # ceremony collapses (missing files, broken schemas, stale artifacts).

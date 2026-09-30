@@ -151,6 +151,8 @@ Light mode skips 6 phases. Each skip is logged — not invisible.
 | VALIDATION    | Core assumption is proven or low-stakes               | Build something that shouldn't exist | Risky assumption → spike first                       |
 | REVIEW (full) | CC lights + build fix is enough for <4h work          | No independent verification          | High-stakes / shared code → full REVIEW              |
 
+**Light tripwire:** Light skips FUNDAMENTALS; if X touches a one-way door (irreversible, money, reputation, others' data), route up to Standard regardless of score.
+
 **Overrun rule:** If any Light phase exceeds 1.5× its time budget, STOP and re-classify to Standard.
 
 ---

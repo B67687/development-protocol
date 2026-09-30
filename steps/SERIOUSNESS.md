@@ -3,6 +3,7 @@
 > **Gate card.** Goal: decide whether X deserves the protocol at all.
 > Your part: answer the three feeling probes.
 > Closes with: a route, and COMMIT, SCHEDULE or DROP. Next: FUNDAMENTALS on a COMMIT.
+> Commitment, not commercial seriousness, is the bar — a fun project you will touch 30 min/day for 30 days clears it; a painful one you won't does not.
 
 > This runs between EXTRACTION (X found) and FUNDAMENTALS (one-way doors).
 >
