@@ -5,7 +5,7 @@
 > **Why this exists.** Fix in planning what can be fixed in planning. Prototypes, spikes and prose are planning artifacts, so the loop runs on the cheapest thing that can carry a reaction before anything real gets built (docs/CONSTITUTION.md § The philosophy).
 
 > **Canonical Light happy path (referenced everywhere):** `INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICATION → EXECUTOR` — 6 phases, <2h. All other docs point here; do not duplicate the list.
-> **The default route is Light, and the run says so up front.** SERIOUSNESS routes up only when the feeling probes justify it. Before Phase 1 the run states two numbers: the route (Light / Standard / Deep) and how many decisions it will ask you for (Light is about three). You may accept, opt down, or opt up. If you would rather not decide at all, delegate it — see **Delegation** in the glossary and `steps/SERIOUSNESS.md` § Phase 0.
+> **The default is the engaging protocol — Light, fast and uplifting — and the run says so up front:** `[x] engaging [ ] serious`. SERIOUSNESS routes up only when the feeling probes justify it or when you ask for the serious one. Before Phase 1 the run states the route and how many decisions it will ask for (Light is about three). You may accept, stay engaging, opt up to serious, or delegate the choice — see **Delegation** in the glossary and `steps/SERIOUSNESS.md` § Phase 0. The protocol should elevate and invigorate on the first go, not bog you down.
 
 > **Altitude spine (authoritative — all other files quote this line verbatim):**
 > P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE)
@@ -150,6 +150,8 @@ Light mode skips 6 phases. Each skip is logged — not invisible.
 | STRATEGY      | Approach is obvious (<2 options)                      | Chose wrong path                     | 2+ valid approaches → Standard                       |
 | VALIDATION    | Core assumption is proven or low-stakes               | Build something that shouldn't exist | Risky assumption → spike first                       |
 | REVIEW (full) | CC lights + build fix is enough for <4h work          | No independent verification          | High-stakes / shared code → full REVIEW              |
+
+**Light tripwire:** Light skips FUNDAMENTALS; if X touches a one-way door (irreversible, money, reputation, others' data), route up to Standard regardless of score.
 
 **Overrun rule:** If any Light phase exceeds 1.5× its time budget, STOP and re-classify to Standard.
 
