@@ -59,6 +59,8 @@ Every time someone says "I want Y" or "We need Y":
 
 Write down exactly what the person said, verbatim. Do NOT paraphrase.
 
+> **Intake by recognition (A1a):** recognition beats recall — do not open with a blank "what do you want?". Offer 3–5 plausible X's or two concrete framings at first contact and let the human recognise/correct rather than generate from scratch. Extract criteria by triadic comparison (which two are alike, how is the third different) rather than asking "why?" — reason-analysis degrades hard-to-verbalise choices.
+
 > "I want a flashcard CLI with spaced repetition."
 
 ### Step 2.2: Apply the Applicable Techniques
@@ -123,6 +125,8 @@ If all 10 techniques gave different answers, you haven't extracted enough — th
 | 4–5 (if needed) | Zooms into gap areas from Round 3                        | Resolves remaining gaps             |
 
 **Exit (required):** User signs off with explicit "This is what I actually want" statement. This feeds AMBITION's exit criterion ("AI challenged 3 assumptions") — bouncing provides the challenges.
+
+> **Change-as-data (A1b):** log the want delta between rounds (Y stated at round 1 vs X signed at exit). A shifting want is not noise — it is data that the elicitation is constructing the preference. Record the delta in the Assumption Ledger and carry it to REVIEW 4.14.
 
 - Max 5 rounds. No sign-off = not ready for SERIOUSNESS.
 
