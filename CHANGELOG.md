@@ -59,6 +59,9 @@ All notable changes to the Development Protocol. Follows Keep a Changelog; versi
 - Fix(drift): C10 verified — `project-kit check` already exits 1 on FAIL (`cli/src/main.rs:639`); KILL_LOG K-001/K-002 30-day retros closed Correct (2026-10-02). Lint 17/17 PASS.
 - Measurable extraction fidelity (A6): REVIEW 4.14 asks the human to state the want unaided at REVIEW and compare with P1 X; divergence = extraction failed, delta logged as data for A1/A2. Lint 17/17 PASS.
 - Intake by recognition + change-as-data (A1a/b): EXTRACTION now offers 3–5 plausible X's at first contact (recognition > recall, triadic comparison) and logs the want delta between rounds as data. Lint 17/17 PASS.
+- Calibrations for stated wants (A1c): SERIOUSNESS discounts stated intensity 2× (hypothetical bias 1.3–3×; Buehler 33.9→55.5d); AMBITION multiplies appetite by observed overrun before Pacing lock — both record raw vs calibrated. Lint 17/17 PASS.
+- Passivity-as-controllability (A1d): SERIOUSNESS tripwire now offers the smallest reversible choice before flagging — non-engagement read as strategic avoidance (reset counter on engagement). Closes A1 self-knowledge spectrum. Lint 17/17 PASS.
+- Human philosophy (A2a/b): SERIOUSNESS now names what the run will NOT ask the human to control (residue named) + AMBITION declares learning-goal vs outcome-goal kind. Gate cards already satisfy visible contingency (A2c). Lint 17/17 PASS.
 ### Changed
 
 - 20 protocol docs moved root → `steps/` (history preserved via `git mv`); all cross-refs re-pointed. `AGENTS.md` stays at root (tool auto-loading).
