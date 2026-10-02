@@ -57,6 +57,8 @@ All notable changes to the Development Protocol. Follows Keep a Changelog; versi
 - **Two research sweeps landed (the evidence for T-043 and T-045).** `docs/research/self-knowledge-spectrum-2026-09-24.md` (200 lines) gathers the evidence on how well people know their own wants: introspective reports are confabulated theories rather than observations, stated intention explains only about 20% of behaviour variance, stated intensity overstates real willingness by 1.3–3×, and the planning fallacy is quantified (theses estimated 33.9 days, took 55.5). `docs/research/philosophy-of-success-2026-09-24.md` (271 lines, sections 1–9) covers the traditions and the empirical correlates, then convergence, the genuine conflicts, testable versus poetry, three candidate principles and an explicit not-to-encode list. Both are indexed; neither is folded into the protocol yet. Lint 17/17 PASS.
 
 - Fix(drift): C10 verified — `project-kit check` already exits 1 on FAIL (`cli/src/main.rs:639`); KILL_LOG K-001/K-002 30-day retros closed Correct (2026-10-02). Lint 17/17 PASS.
+- Measurable extraction fidelity (A6): REVIEW 4.14 asks the human to state the want unaided at REVIEW and compare with P1 X; divergence = extraction failed, delta logged as data for A1/A2. Lint 17/17 PASS.
+- Intake by recognition + change-as-data (A1a/b): EXTRACTION now offers 3–5 plausible X's at first contact (recognition > recall, triadic comparison) and logs the want delta between rounds as data. Lint 17/17 PASS.
 ### Changed
 
 - 20 protocol docs moved root → `steps/` (history preserved via `git mv`); all cross-refs re-pointed. `AGENTS.md` stays at root (tool auto-loading).
