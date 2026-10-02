@@ -103,6 +103,7 @@ Prototype cheaply, learn what only building can teach, then decide. This matches
 
 **Quality bar (proposed):** [Profile A | Profile B] — one-paragraph risk rationale (cross-ref docs/QUALITY_BAR.md). Ratified at STRATEGY as part of scope.
 **Domain & craft norms (proposed):** <domain> — 2-5 norms for what good looks like here, each checkable and tagged known / researched / asked (cross-ref `docs/HOUSE_STANDARD.md` § Domain instantiation). Ratified at STRATEGY with the quality bar.
+**Goal kind (A2b):** state whether this lock sets a *learning goal* (for the search) and an *outcome goal* (for the commitment) — learning for search, outcome for commit. Record kind in the lock.
 
 **Confirmed:** YES — this is the goal.
 
@@ -138,6 +139,8 @@ Budget is allocated and locked here, alongside the scope. Track actuals after ea
 **Macro pacing (>2 weeks):** Cycle (4-6 weeks, one milestone, shipped artifact) → Cool-down (1 week: bug fixes, deps, POLISH/REVIEW for prior cycle) → Betting (cycle start; items compete fresh; no auto-extension). Circuit breaker: late cycle → drop and re-shape unless all remaining work is downhill, scope is hammered, and human override is recorded.
 
 **Effort estimation:** T-shirt S/M/L/XL (<1h / 1-4h / 4-8h / >8h) for early milestones; decomposition (sum sub-tasks) for locked specs; reference-class for repetitive work. Calibrate after 3 milestones by average error. Estimates are ranges, not promises.
+
+> **Appetite calibration (A1c):** multiply stated appetite by observed overrun ratio before locking. Self-knowledge spectrum: planning fallacy 33.9d→55.5d (~1.6×), ithmb 1wk→3mo (~4–6×). **Record raw appetite vs calibrated appetite; use calibrated for Pacing & Budget.**
 
 **Cost tracking:** human time + AI compute (session, model, tokens) + felt effort (low/med/high) logged per phase; combined cost >150% of phase budget = Pace Alert. A durable mismatch between process effort and work value is a Pace Alert + REVIEW input — Effortlessness applies to the protocol's own execution.
 

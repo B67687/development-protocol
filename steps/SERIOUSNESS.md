@@ -26,6 +26,8 @@
 >
 > **Say the route out loud, and the price of it.** Before Phase 1, state two numbers to the user: the route (Light / Standard / Deep) and how many decisions this run will ask them for. Light is about three decisions. Standard is one ratification plus every one-way door. Deep adds the premortem and the internal-loop budget. If the count is more than the user wants, they may opt down or delegate — the protocol’s job is to make the cheapest honest path available, not to maximise ceremony.
 >
+> **Aim effort, name residue (A2a):** before Phase 1, state what the run controls and what it will NOT ask the human to control (tool choice, wording, retrieval depth, etc.) — residue is named, not hidden. Contingency stays visible.
+
 > **Delegation is not abdication.** Once per run, in writing, the human may hand over a named decision (“decide P2b for me”). Record it in `.omo/decisions/decision-journal.md` and in `KILL_LOG.md` § Dissent Log as `delegated`, naming what was handed over and what still returns to the human — every one-way door, always. A delegated decision does not count toward the abdication tripwire: drift is not consent, and consent is not drift. On each delegated decision the agent states the default it took and the one fact that would have changed it, so the human can override cheaply.
 
 
@@ -185,7 +187,7 @@ Record:
 > **Asymmetric routing (Invariant 11):** COMMIT and SCHEDULE are applied by the AI and ledger-logged by default. DROP always re-engages the user — an idea is never silently killed. Borderline scores (within ±5 of a threshold) also re-engage the user gate.
 > **P2a gate — Bar 1 must clear before Bar 2:** COMMIT → enter LANDSCAPE/STRATEGY/AMBITION (P2b: same/scaled/adjacent/more). SCHEDULE/DROP → stop, log to `KILL_LOG.md` (Bar 1) + `.omo/decisions/`, do NOT enter P2b. Revisit only on scheduled date or new evidence.
 >
-> **Abdication tripwire (learned-helplessness guard, progressive):** rubber-stamp pattern — instant COMMITs with zero dissent, zero questions, zero amendments across consecutive cycles — means the judge went passive and every downstream gate is unreviewed. **L1 — after 1 passive cycle:** nudge. Ask one pointed question that forces retrieval rather than recognition. **L2 — after 2 consecutive passive cycles:** block. Do not record COMMIT until the human answers in their own words, and note the block in the Dissent Log. (The earlier single 3-cycle threshold let two unreviewed passes through before anything happened.) Agent-internal monitoring (no new default gate — Invariant 11 holds); the trip only fires on detected passivity. (LLM use measurably degrades metacognitive accuracy while improving output — arXiv:2603.29681 — so the trip fires on behavior, never on self-reported understanding.) A decision the human delegated in writing is not passivity and does not count toward these cycles: drift is not consent, and consent is not drift.
+> **Abdication tripwire (learned-helplessness guard, progressive):** rubber-stamp pattern — instant COMMITs with zero dissent, zero questions, zero amendments across consecutive cycles — means the judge went passive and every downstream gate is unreviewed. **L1 — after 1 passive cycle:** nudge. Ask one pointed question that forces retrieval rather than recognition. **L2 — after 2 consecutive passive cycles:** block. Do not record COMMIT until the human answers in their own words, and note the block in the Dissent Log. (The earlier single 3-cycle threshold let two unreviewed passes through before anything happened.) Agent-internal monitoring (no new default gate — Invariant 11 holds); the trip only fires on detected passivity. (LLM use measurably degrades metacognitive accuracy while improving output — arXiv:2603.29681 — so the trip fires on behavior, never on self-reported understanding.) A decision the human delegated in writing is not passivity and does not count toward these cycles: drift is not consent, and consent is not drift. **Passivity-as-controllability (A1d):** non-engagement may be strategic avoidance, not indifference — before L1, offer the smallest reversible choice (e.g., pick between two framings or a 30-sec check) and reset the passive counter if the human engages.
 
 ## Heuristics (When the User is Unsure)
 
@@ -197,7 +199,9 @@ Record:
 | Recent behavior: did nothing                 | Apply −5 penalty. If total >= 65, auto-schedule 1-week delay before COMMIT                               |
 | Maybe on the $100 bet                        | Treat as No (−5)                                                                                         |
 | First-time idea (just extracted)             | Apply −10 skepticism bonus                                                                               |
-| Recurring idea (keeps surfacing)             | Apply +10 persistence bonus                                                                              |
+| Recurring idea (keeps surfacing)             | Apply +10 persistence bonus
+
+> **Stated-intensity calibration (A1c):** stated willingness and intensity overstate real by 1.3–3× (hypothetical bias; planning fallacy 33.9d estimated vs 55.5d actual, Buehler 1994). **Divide stated intensity/willingness by 2 before scoring; record raw vs discounted in Decision Journal.** Treat the discounted score as the scoring input.                                                                              |
 | Kill criterion untested but Confidence >= 15 | Auto-cap Confidence at 8                                                                                 |
 
 ## Anti-Sunk-Cost Mechanisms
