@@ -64,6 +64,7 @@ All notable changes to the Development Protocol. Follows Keep a Changelog; versi
 - Human philosophy (A2a/b): SERIOUSNESS now names what the run will NOT ask the human to control (residue named) + AMBITION declares learning-goal vs outcome-goal kind. Gate cards already satisfy visible contingency (A2c). Lint 17/17 PASS.
 - CONSTITUTION philosophy: the share planning can fix is the share already known to someone else — function of novelty, not a constant half (T-046). Lint 17/17 PASS.
 - Interruption handler (A4): RULES now defines park-verbally, state paused gate + resume, continue — gate exit criteria unchanged. Lint 17/17 PASS.
+- Flagship-adoption probe 2026-10-02: Light run on trivial decision exercises gate cards + carried state + A1-A4; no new failure class, method kept (B4). Lint 17/17 PASS.
 ### Changed
 
 - 20 protocol docs moved root → `steps/` (history preserved via `git mv`); all cross-refs re-pointed. `AGENTS.md` stays at root (tool auto-loading).
