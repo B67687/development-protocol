@@ -6,7 +6,7 @@
 
 **Fix in planning what can be fixed in planning. Prototyping is planning.**
 
-A defect costs more the later it is caught. While the intent is still words it costs a sentence. After the first real build it costs a rebuild. After something depends on the artifact it costs trust. So this protocol spends its effort where the cost is lowest: before the first real build, on cheap artifacts — a probe, a spike, a paragraph, a written decision.
+A defect costs more the later it is caught. While the intent is still words it costs a sentence. After the first real build it costs a rebuild. After something depends on the artifact it costs trust. So this protocol spends its effort where the cost is lowest: before the first real build, on cheap artifacts — a probe, a spike, a paragraph, a written decision. The share planning can fix is the share already known to someone else — large when the problem class is familiar, small when it is novel — so first find out how much is already solved (T-046).
 
 Two consequences carry the whole method:
 

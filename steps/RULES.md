@@ -455,6 +455,9 @@ The log lives in the `-Local` sibling on purpose. Raw thinking is not a public a
 
 **Scope:** the user's own words. Not agent summaries, not decisions (those are ADRs, FEATURES origins, KILL_LOG). **Counterexample:** a thought that arrives as a forwarded brief keeps the brief's own text as the entry and notes the forwarding session. **Check:** at session close every thought processed this session appears exactly once, and the log's line count only ever grew.
 
+### Interruption — a new thought mid-run (A4)
+When the user interrupts with a new thought while a gate is active: park the new thought verbatim (append to `development-protocol-local/THOUGHT_LOG.md` with disposition parked and where it will be handled), state which gate is paused and what it will resume with, then continue the run. The interruption does not replace the active gate's exit criteria; the gate resumes after logging. **Scope:** any mid-gate interruption. **Counterexample:** a correction to the active gate's own artifact is not an interruption — handle it in place. **Check:** every interruption appears in THOUGHT_LOG and the paused gate's artifact notes “paused for T-###, resumes at …”.
+
 ### Research is saved when it is produced
 A sweep, a landscape round, or a literature check that informs a change lands as `docs/research/<topic>-<date>.md` and gets a row in `docs/research/INDEX.md` in the same commit (lint Rule 10c enforces the row). Raw session texts behind those documents live outside the repo in the gitignored local archive (`Agentic-Workflows/.omo/archive/sweeps/`). Rebuilding a sweep from a deleted session is possible but wasteful. The point is that a later run reads the evidence instead of re-deriving it.
 
