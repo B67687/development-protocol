@@ -70,6 +70,7 @@ All notable changes to the Development Protocol. Follows Keep a Changelog; versi
 - Research ceiling (A7): STANDING_PRINCIPLES now notes paywalled access via school library + Self-Hosted-Search backend when available; otherwise mark open-access-only. Lint 17/17 PASS.
 - Conflict register (A10): 8 qualm conflicts + self-costs + evidence tiers in `qualm-conflicts-2026-10-02.md`. Lint 17/17 PASS.
 - Attribution (B6): CREDITS.md lists Sisyphus + openCode alongside DeepSeek. Lint 17/17 PASS.
+- Opportunity Engine revived (A8/A9): SERIOUSNESS COMMIT on high×3 probes (assumed per user); principle folds as creativity gate (play-as-spikes). Trace `opportunity-engine-revival-2026-10-02.md`. Lint 17/17 PASS.
 ### Changed
 
 - 20 protocol docs moved root → `steps/` (history preserved via `git mv`); all cross-refs re-pointed. `AGENTS.md` stays at root (tool auto-loading).
