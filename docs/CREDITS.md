@@ -9,4 +9,4 @@ outcome in ways neither of us predicted alone.
 
 | Phase            | Model                    | Harness         | Role                                                                  |
 | ---------------- | ------------------------ | --------------- | --------------------------------------------------------------------- |
-| Full development | DeepSeek V4 Flash (high) | Oh My OpenAgent | AI: implementation, research, & discussion · Human: oversight & goals |
+| Full development | DeepSeek V4 Flash (high) + Sisyphus (Muse Spark) | openCode + Oh My OpenAgent | AI: implementation, research, & discussion · Human: vision, architecture, strategic direction |

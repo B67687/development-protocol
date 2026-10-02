@@ -66,6 +66,10 @@ All notable changes to the Development Protocol. Follows Keep a Changelog; versi
 - Interruption handler (A4): RULES now defines park-verbally, state paused gate + resume, continue — gate exit criteria unchanged. Lint 17/17 PASS.
 - Flagship-adoption probe 2026-10-02: Light run on trivial decision exercises gate cards + carried state + A1-A4; no new failure class, method kept (B4). Lint 17/17 PASS.
 - K-003 (2026-09-03 P2b seam) 30-day: Correct — more-than-X transmissibility intact, seam still wired. (B3, closes date-gated queue) Lint 17/17 PASS.
+- T-038 option C DROPPED (A5): LANDSCAPE light finds generator not worth one-way door; manifest+checker (B) retained. Record `t038-option-C-decision-2026-10-02.md`. Lint 17/17 PASS.
+- Research ceiling (A7): STANDING_PRINCIPLES now notes paywalled access via school library + Self-Hosted-Search backend when available; otherwise mark open-access-only. Lint 17/17 PASS.
+- Conflict register (A10): 8 qualm conflicts + self-costs + evidence tiers in `qualm-conflicts-2026-10-02.md`. Lint 17/17 PASS.
+- Attribution (B6): CREDITS.md lists Sisyphus + openCode alongside DeepSeek. Lint 17/17 PASS.
 ### Changed
 
 - 20 protocol docs moved root → `steps/` (history preserved via `git mv`); all cross-refs re-pointed. `AGENTS.md` stays at root (tool auto-loading).

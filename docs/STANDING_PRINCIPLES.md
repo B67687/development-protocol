@@ -30,7 +30,7 @@ Understanding builds on prior experience and study. The protocol grows the user 
 
 ## What we do not know
 
-Every rule here rests on research we could reach, and our reach is open-access only. Treat a confident answer from this protocol as the best available to us, not the best possible. When a cheaper explanation of the same evidence exists, or a tradition we have not read, the rule is still a candidate.
+Every rule here rests on research we could reach, and our reach is open-access only. Treat a confident answer from this protocol as the best available to us, not the best possible. When a cheaper explanation of the same evidence exists, or a tradition we have not read, the rule is still a candidate. When paywalled evidence is needed, use school-library access via the Self-Hosted-Search backend when available and record the access method; otherwise mark the claim as open-access-only and do not fabricate the paywalled source.
 
 ## Form friction is the enemy, not thought
 
