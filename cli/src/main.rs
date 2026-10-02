@@ -636,6 +636,7 @@ fn cmd_check() -> io::Result<()> {
         for issue in &issues {
             println!("  - {}", issue);
         }
+        std::process::exit(1);
     }
 
     Ok(())

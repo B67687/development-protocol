@@ -114,7 +114,7 @@ Light mode = 6 phases, <2 hours. Gated by SERIOUSNESS score 35–50.
 
 **Reading the map.** The middle three columns are the whole of what a gate asks of you. Where Your part says nothing, the gate runs on its own and you see the result. Every gate closes visibly before the next one starts, so you are never holding two half-finished decisions at once.
 
-Light mode runs: INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICATION → EXECUTOR (6 phases). Everything else is skipped with a logged rationale.
+Light mode runs: INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICATION → EXECUTOR → REVIEW (minimal) → REFLECT (minimal) (8 phases, last two minimal). Everything else is skipped with a logged rationale.
 
 ---
 

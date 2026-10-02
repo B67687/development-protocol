@@ -24,10 +24,22 @@ Most AI coding loops fail in the same two places: building the wrong thing (no s
 
 > When a new flagship model arrives, run the protocol once on a live task without changing any method. Keep the method unless the run exposes a genuinely new failure class. Model gains so far land in execution, not in the want and should-build gates, so adopt the model and keep the gates.
 
+## Guidance law — teach slightly above what the user already knows
+
+Understanding builds on prior experience and study. The protocol grows the user by staying slightly above current ability (zone of proximal development), contingent and faded by demonstration rather than front-loaded. It teaches by building alongside: knowledge links are declared in simple words at first use, prerequisites named, and progress made visible. Learning comes from building and executing; the gates stay dynamic and engaging.
+
 ## What we do not know
 
 Every rule here rests on research we could reach, and our reach is open-access only. Treat a confident answer from this protocol as the best available to us, not the best possible. When a cheaper explanation of the same evidence exists, or a tradition we have not read, the rule is still a candidate.
 
+## Form friction is the enemy, not thought
+
+Engagement lives or dies on form, not on ideas. Cut form-friction (re-asking, lost context, blank prompts) before touching standards. Dynamicism — adapting pace and scaffolding to the user's demonstrated ability — is how the protocol stays engaging.
+
+
+## Verification scope
+
+Verification belongs at claims, not everywhere — specs and numbers every time, prose via the symmetric-instrument check. Everywhere drowns; nowhere leaks.
 ## Research basis
 
 Harness survey: [docs/research/harness-survey-2026-07.md](research/harness-survey-2026-07.md).
