@@ -65,6 +65,7 @@ All notable changes to the Development Protocol. Follows Keep a Changelog; versi
 - CONSTITUTION philosophy: the share planning can fix is the share already known to someone else — function of novelty, not a constant half (T-046). Lint 17/17 PASS.
 - Interruption handler (A4): RULES now defines park-verbally, state paused gate + resume, continue — gate exit criteria unchanged. Lint 17/17 PASS.
 - Flagship-adoption probe 2026-10-02: Light run on trivial decision exercises gate cards + carried state + A1-A4; no new failure class, method kept (B4). Lint 17/17 PASS.
+- K-003 (2026-09-03 P2b seam) 30-day: Correct — more-than-X transmissibility intact, seam still wired. (B3, closes date-gated queue) Lint 17/17 PASS.
 ### Changed
 
 - 20 protocol docs moved root → `steps/` (history preserved via `git mv`); all cross-refs re-pointed. `AGENTS.md` stays at root (tool auto-loading).
