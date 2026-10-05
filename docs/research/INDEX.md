@@ -16,6 +16,15 @@ Raw session texts that back these documents live outside the repo, in the local 
 | [guidance-dynamic-2026-09-30.md](guidance-dynamic-2026-09-30.md) | 2026-09-30 | ZPD, scaffolding/fading, expertise reversal, desirable difficulties, progressive disclosure → pacing law for T-051..T-054 (contingent step-up, fade by demonstration, desirable difficulty inside reach). |
 | [power-verification-2026-09-30.md](power-verification-2026-09-30.md) | 2026-09-30 | Power-safety evidence for T-055..T-057: expertise-reversal meta-analysis (d=0.505/-0.428), scaffolding fading triad, POSIX exemplar effect, 75:25 review mix, spec-defect propagation, three candidate principles. |
 
+| [`proxy-xy-2026-10-03.md`](proxy-xy-2026-10-03.md) | 2026-10-03 | T-059 controllable-proxy X-Y: stigma→help-seeking small-moderate, compensatory control, strategy-situation fit, reframing SMD anxiety −0.21; P1 honor X before Y, match strategy to controllability. |
+| [`just-right-perfection-2026-10-03.md`](just-right-perfection-2026-10-03.md) | 2026-10-03 | T-062/064 just-right over perfection + balancing: satisficing under intractability CONFIRMED, maximizing maladaptive LIKELY, moderators difficulty×complexity×uncertainty×effort, threshold-first principle. |
+| [`max-plan-min-exec-2026-10-03.md`](max-plan-min-exec-2026-10-03.md) | 2026-10-03 | T-063 max-plan/min-exec: Boehm curve canon UNVERIFIED numbers, front-load knowledge not decisions, set-based > point-based, last responsible moment = most responsible moment. |
+| [`sane-defaults-2026-10-03.md`](sane-defaults-2026-10-03.md) | 2026-10-03 | T-065 sane defaults: choice architecture d=0.45 [0.39,0.52], defaults d=0.68 [0.53,0.83], auto-enrollment +50%, CoC thesis; default the common case + separate participation/intensity. |
+| [`scales-analysis-2026-10-03.md`](scales-analysis-2026-10-03.md) | 2026-10-03 | T-066/067 scales: Meadows 12-point ladder canonical, shallow clustering, downward causation, scale mismatch ⇒ mitigation≠restoration, 4-row leverage analysis. |
+| [`improve-judgement-2026-10-03.md`](improve-judgement-2026-10-03.md) | 2026-10-03 | T-068 judgement: CHAMPS KNOW Brier +6-11% CONFIRMED, bias cut 30%/20% LIKELY, WHO checklist OR 0.60 LIKELY, scored-prediction ledger + performance gates. |
+| [`project-bench-taxonomy-2026-10-03.md`](project-bench-taxonomy-2026-10-03.md) | 2026-10-03 | T-061 bench taxonomy: 10 gate-stress dimensions, 24 archetypes A1-A24, bench oracles + rubric calibration evidence (SWE-bench/PaperBench), instance contract principle. |
+| [`protocol-transcript-2026-10-03.md`](protocol-transcript-2026-10-03.md) | 2026-10-03 | T-060 transcript: store-verbatim/serve-minimal, handoff tax <50%, tamper 5/6 harnesses, rate-distortion, debate diversity, retention 78%/97%; 3 principles + anti-patterns. |
+
 ## Adding a row
 
 When a sweep finishes, write the artifact here and add a row in the same commit: file, date, and what it holds in one or two lines. The lint check (Rule 10c) fails when a file in this directory has no row.
