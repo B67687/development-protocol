@@ -19,3 +19,4 @@ Raw session texts that back these documents live outside the repo, in the local 
 ## Adding a row
 
 When a sweep finishes, write the artifact here and add a row in the same commit: file, date, and what it holds in one or two lines. The lint check (Rule 10c) fails when a file in this directory has no row.
+| Thought-log handling (capture → disposition → fold) | thought-log-handling-2026-10-03.md | 2026-10-03 | If-then disposition g ≈ 0.3 CONFIRMED; verbatim-capture/conditional-paraphrase; traceability +86% LIKELY; single-search synthesis insufficient CONFIRMED |
