@@ -158,6 +158,8 @@ Each item is binary: **PASS** or **FAIL**. No partial credit. Each FAIL becomes 
 | 2.6 | Iteration viability | Before DISTRIBUTE: (a) anything changed since AMBITION? (b) still the right problem? (c) would you start today knowing what you know? If any 'no' → trigger feedback loop (§ Feedback Loops), not just fix ticket. |
 | 2.7 | Scope fidelity — built only the ceiling | Read the STRATEGY X-list. Does the build contain anything the ceiling excluded? Any unlisted scope added mid-execution? Each extra is a FAIL unless ratified via a new cycle (Rule 6: no scope creep). |
 
+> **Learning standalone (T-015):** learning is a layer (RULES), no new REVIEW gate — tested via the SERIOUSNESS abdication tripwire plus REFLECT Q9 offloading counts (sweep docs/research/retro-t015-2026-10-04.md).
+
 ### Phase 3: Spec-vs-Explainer Cross-Reference
 
 This is the most important check. Non-coder verification depends on it.

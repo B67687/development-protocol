@@ -1,0 +1,15 @@
+{
+  "name": "a14-retry-policy",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A14 bench scaffold — rebuild retry-policy in idiomatic TypeScript",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.strict.json"
+  },
+  "devDependencies": {
+    "typescript": "5.4.5",
+    "vitest": "1.6.0"
+  }
+}

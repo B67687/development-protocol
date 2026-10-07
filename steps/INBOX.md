@@ -300,6 +300,36 @@ The answer informs the rest of the protocol:
 This step solves a gap identified by the Foundation Audit: the protocol
 previously had no concept of multi-project trajectory or strategic patience.
 
+## Bench Taxonomy (T-061 gate-collision sampling)
+
+> Pilot bench hypothesis (sweep docs/research/project-bench-taxonomy-2026-10-03.md): sample gate-collisions, thin uniform coverage. Each archetype names its collision, its oracle type, and its predicted protocol failure mode.
+
+### Stress dimensions D1–D10
+
+| # | Dimension | Gates pressured |
+| --- | --------- | --------------- |
+| D1 | 0→1 greenfield ↔ brownfield repair | EXTRACTION want-articulation, AMBITION scoping |
+| D2 | Spec-heavy ↔ taste-heavy | SPECIFICATION checkability, judgment scaffolding |
+| D3 | Fun/toy ↔ high-stakes | SERIOUSNESS routing, verification depth |
+| D4 | Direct build ↔ proxy X→Y translation | EXTRACTION fidelity, LANDSCAPE coverage |
+| D5 | Uninterrupted ↔ interruption-prone | Thought-log / interruption handling |
+| D6 | Oracle-verifiable ↔ judgment-verified | Verification design, REFLECT honesty |
+| D7 | Well-posed ↔ tacit-laden | EXTRACTION clarification, SHOULD-BUILD |
+| D8 | Single-session ↔ multi-session | BACKLOG/HANDOVER, session-close discipline |
+| D9 | Hermetic ↔ dependency-risky | LANDSCAPE risk surfacing, DECOMPOSITION ordering |
+| D10 | Reversible ↔ one-way-door | STRATEGY reversibility analysis, consent gates |
+
+### Archetype families (24 total, A1–A24)
+
+- Greenfield 0→1 (A1–A7): spec-built utility, taste-built landing page, API-spec library (Commit0-style), toy weekend project, regulated-flow prototype, tacit-want build, paper-to-prototype.
+- Brownfield (A8–A13): unfamiliar-repo issue fix (SWE-bench-style), leak-contaminated issue, weak-test refactor, dependency migration, legacy rescue, performance fix with budget.
+- Translation proxy X→Y (A14–A16): language port, UI-clone with taste upgrade, spec-from-behaviour.
+- Adversarial environment (A17–A20): interruption mid-build, hostile-dependency build, one-way-door migration, multi-session epic.
+- Verification weight (A21–A24): unverifiable-by-construction, overconfident-baseline, budget-capped build, protocol-violation honeypot.
+
+Coverage rule: every D1–D10 appears in 2+ archetypes; every gate named above appears in 2+ archetypes. Generator pipeline carries coverage; the list stays at 24 by design. Full catalogue with oracles and predicted failures lives in the sweep file §4; instance contract (task material, frozen env, pre-registered oracle, predicted failure, trace requirements, refresh policy) in sweep §6.
+
+
 ## Integration
 
 > **Carried state:** end this artifact with a `## Carried state` block - the facts already settled here that no later gate should ask again (RULES.md section Carried state).

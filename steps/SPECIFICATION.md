@@ -7,6 +7,7 @@
 > **v3 note:** Before filling this template, run the Intent Decomposition protocol (RULES.md Section 2) — each MECE dimension maps to a section here.
 > Everything in one document: constitution, overview, architecture, file tree, quality gates, dependencies, UX, timeline, testing, operations, release, design for change, documentation, ecosystem, AI attribution.
 > Three layers: MACRO (system), MESO (component), MICRO (implementation). An AI executor reads this and knows exactly what to build — no guessing required.
+> **Light-SPEC (minimal SPEC, <5 files, care L1 only).** Applies when the change touches fewer than 5 files at Level-of-Care 1 (trivially reversible, CAT-SKIP-03): file list with 1-line why per file; architecture (§2) and dependencies (§5) inline as 1-2 lines each; §1.5 RTM waived with ledger line `skipped: RTM waived under Light-SPEC care L1`; Tier 1 sections §0, §1, §3, §4, §6, §7 stay required but terse. Rule on the existing SPEC gate; gate numbering unchanged.
 
 ---
 
