@@ -86,6 +86,8 @@ The human **edits the proposal** rather than accepting/rejecting wholesale.
 
 > **Attempt before answer (retrieval-preserving sequencing):** every agent explanation, structure, or solution follows a learner attempt (recall, self-explanation, generation). No new concept arrives explained-first.
 
+> **Growth gate (support-fade, G4 dynamicism):** a phase advances on demonstrated reduced-support performance — same-class task succeeds at support level S < previously required S (worked-example → hints → confirmation-only → independent), not on output quality alone. Log (task class, support given, support previously required, delta) as the run's support ledger; step-ups stay inside demonstrated capability-with-support (flow ceiling); motivation frames tone, never gates (sweep docs/research/g4-dynamicism-2026-10-04.md).
+
 > **Standing decisions (displayed every output; faded as competence grows):** the ratified proposal carries a Standing Decisions list — every settled decision so far, one line each. Every subsequent phase output restates it at the top. The human agreed to these but cannot be expected to remember them mid-run; invisible settled decisions get re-litigated or silently dropped. Restatement is agent-side, zero user ceremony.
 >
 > **Fading rule:** once the human has passed Q7 ≥3 times (or the REFLECT Q9 signal shows 2 clean cycles), restatement fades from full display to **cued recall** — the agent names the list by heading and asks the human to supply the one that matters now. Recognition does not build retention; recall does. If recall fails twice in a run, restore full display for that run and reset the fade counter.
