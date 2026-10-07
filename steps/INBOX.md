@@ -247,6 +247,8 @@ Seed with assumptions surfaced in Phases 1–5. Carry forward:
 ### Flagged terms (ambiguous wording)
 
 > Readings gate feed: terms with 2+ live readings, pinned domain, user-confirmed pick.
+>
+> **Intent sanitizer (retro-t009):** triage conflated intents — SPLIT (two rows) / PROBE (one question naming the suspected X) / ABSORB (proceed, log the assumption); selective and stakes-gated, tuned for task/goal splits not pronoun splits (sweep docs/research/retro-t009-2026-10-04.md).
 
 | Term            | Live readings     | Domain pin | Status      |
 | --------------- | ----------------- | ---------- | ----------- |
@@ -255,6 +257,8 @@ Seed with assumptions surfaced in Phases 1–5. Carry forward:
 - **Status:** pending → confirmed / retired (reading settled or term dropped)
 - Logged by EXTRACTION's readings gate; the ledger's assumptions must use the confirmed reading.
 - First use of a load-bearing term also carries its **context declaration** (term · domain · one-line definition · prerequisites · contrast · why here) — see `steps/EXTRACTION.md` § Context declaration.
+
+> **Non-lexical flags ride the same table (T-007 standalone):** zero-antecedent definites ("the X" with no introduction), quantifier scope (same-X or each-own-X), and vagueness thresholds ("what concrete case fails?") each get a ledger row with the same Status lifecycle; the EXTRACTION readings gate owns the triggers (sweep docs/research/retro-t007-2026-10-04.md).
 
 ## Stance Read (who am I working with?)
 
@@ -309,6 +313,8 @@ RAW INTENT → [INBOX] → [PRIORITIZE (optional)] → EXTRACTION → SERIOUSNES
 The `.omo/inbox/parked/` directory accumulates over sessions — enabling pattern detection of recurring concerns.
 
 > **Thin probe early, AMBITION stays late (G9 question fatigue):** INBOX exit carries a thin-slice provisional want — enough arousal to bound what follows, never a gate (no COMMIT/SCHEDULE/DROP here, no re-ask of settled facts); the AMBITION commitment stays post-evidence, SERIOUSNESS stays early. Bound the interrogation: bounded questioning with a question budget per gate, confirmations over cold questions, never the same question twice — declining later-gate answer quality is diagnosed as action-gap vs fatigue before any reorder. No reorder executed here: the reorder proposal cites the sweep, the reorder commits alone. Boundary conditions: front-loading the hardest gate risks pre-survey fatigue and assumption hardening; burden effect-size before reorder A/B (sweep docs/research/g9-question-fatigue-2026-10-04.md).
+
+> **Master holds why, derivatives hold views (T-003):** structure + relations + decision rationale live in the master; QUICKSTART/CONSTITUTION/human renderings are views (generated or checker-verified), never rival models; provenance logs, transcripts, per-run state stay out (sweep docs/research/retro-t003-2026-10-04.md).
 
 ## Provenance
 

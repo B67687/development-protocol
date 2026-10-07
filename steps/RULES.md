@@ -261,6 +261,8 @@ Shifts are recorded in `.omo/shift-log.md`. Up to 5 shifts per project (up from 
 - **Taste decision, scoped (`docs/HOUSE_STANDARD.md`)** — the agent withholds judgment on *novel* taste (T3) and asks with a proposed default. The house and objective layers (T0/T1) are the agent's own default, and the run declares which layer each choice came from so a default stays visible as a default.
 - **Context declaration duty** — a load-bearing term, number, decision, or reference is declared on first use (term · domain · one-line definition · prerequisites · contrasts · why here); an overloaded pronoun is a declaration failure. Scope: load-bearing only. See `steps/EXTRACTION.md` § Context declaration.
 
+> **Intent sanitizer (retro-t009):** three heuristics, one triage — H1 split check (two deliverables presented as one), H2 XY-probe (stated Y masks unstated X), H3 clarify-vs-absorb (stakes-gated; low-stakes absorbs with a logged assumption, high-stakes clarifies with a missing-slot question); selective by construction — always-on is the measured-harm configuration — and never blocks on style flags (sweep docs/research/retro-t009-2026-10-04.md).
+
 ### Decision Framework (inviolable priority order)
 
 1. **Correctness** over speed — wrong output at any speed is useless
@@ -467,6 +469,11 @@ A sweep, a landscape round, or a literature check that informs a change lands as
 > in `.omo/transcript.md`; serve minimal slices (+ recoverable sidecars), hash-chained,
 > harness-governed (append-only, outside agent control); heterogeneous locator-grounded
 > review — every item carries a locator back to verbatim (sweep docs/research/protocol-transcript-2026-10-03.md).
+
+> **Confirmation rides on altered form (T-007 standalone):** grounding paraphrase restates the requirement in changed syntactic shape (with-phrase confirmed via relative clause), so shared misparsing cannot survive mutual read-back; clarify selectively per the stakes test — load-bearing ambiguity gets a question, trivia passes (sweep docs/research/retro-t007-2026-10-04.md).
+
+>
+> **Single master, copy-then-promote (T-003):** structure-descriptions are mastered once — derivatives are references or generated read-copies, never second writers; change via Proposed copy → checked → Accepted-or-Rejected with timestamp/owner, post-acceptance edits forbidden (supersede only), every promotion runs the fitness function (manifest + rendering check). No master migration until G3/G4 closed — master + checker ship together or neither (sweep docs/research/retro-t003-2026-10-04.md).
 
 ---
 

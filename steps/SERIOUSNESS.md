@@ -26,6 +26,8 @@
 >
 > **Say the route out loud, and the price of it.** Before Phase 1, state two numbers to the user: the route (Light / Standard / Deep) and how many decisions this run will ask them for. Light is about three decisions. Standard is one ratification plus every one-way door. Deep adds the premortem and the internal-loop budget. If the count is more than the user wants, they may opt down or delegate — the protocol’s job is to make the cheapest honest path available, not to maximise ceremony.
 >
+> **Gauge is provisional:** take the user's stated seriousness at face value for this run's route; log it; re-read stance next INBOX from behavior (sustained/tolerated/delegated), not from re-asking. Never override a stated Serious with an inferred one within the same run.
+
 > **Aim effort, name residue (A2a):** before Phase 1, state what the run controls and what it will NOT ask the human to control (tool choice, wording, retrieval depth, etc.) — residue is named, not hidden. Contingency stays visible.
 
 > **Delegation is not abdication.** Once per run, in writing, the human may hand over a named decision (“decide P2b for me”). Record it in `.omo/decisions/decision-journal.md` and in `KILL_LOG.md` § Dissent Log as `delegated`, naming what was handed over and what still returns to the human — every one-way door, always. A delegated decision does not count toward the abdication tripwire: drift is not consent, and consent is not drift. On each delegated decision the agent states the default it took and the one fact that would have changed it, so the human can override cheaply.
