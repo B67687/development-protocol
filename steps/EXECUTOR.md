@@ -66,6 +66,8 @@ The executor operates at one of three autonomy levels — what the AI can do wit
 
 **After each SPEC.md section, verify:** (1) Section implemented — codebase reflects the requirements? (2) Gates pass — compile + test + lint per §4. (3) Spec still accurate? — implementation revealed a flaw → pause and flag. (4) State saved — commit `checkpoint: section N — [section_name]`. Checkpoints are resume points: on interruption, restart from the last checkpoint, not scratch.
 
+> **Build in every loop (G3 learning-by-doing):** no section closes on reading alone — each loop ends with a runnable artifact the run made, ran, and checked (code runs, gates pass, asserts hold). Attempt before exposition inside the loop (predict before run — STRATEGY's attempt-before-answer rule applies here too), and close with a written contrast line: predicted vs actual, and why. No contrast, no credit. Boundary conditions: STEM-concept terrain only (productive failure shows nulls outside it); failure must be productive (attempt → contrast → instruction), not merely experienced; generation, not transcription — a copied artifact inherits no warrant (Kapur PS-I; Freeman et al. PNAS 2014; Roediger & Karpicke 2006; Kolb reflect-after; sweep docs/research/g3-learning-by-doing-2026-10-04.md).
+
 ---
 
 ## Resume Protocol

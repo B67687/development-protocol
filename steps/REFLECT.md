@@ -144,3 +144,5 @@ Ship only when all three pass:
 3. **Ledger clean** — `.omo/method-ledger.jsonl` passes ledger-check.py (0 invalid / 0 omitted / 0 rule9)
 
 Also declare maintenance status (active / maintained / archived) in the state block.
+
+> **Spaced reps (G2/P2) + subtraction (G2/P5):** see above.

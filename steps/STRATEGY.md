@@ -84,6 +84,8 @@ The human **edits the proposal** rather than accepting/rejecting wholesale.
   reason in their own words (no rubber-stamping) — and the agent checks it against the ledger before sign-off counts. Verbatim echo of the agent's own proposal fails the check: retrieval (self-explanation effect, Chi 1989; testing effect, Roediger & Karpicke 2006) is what makes a decision stick; recognition is not learning. Copy-paste of agent wording is ceremony — flagged, not logged.
 - The amended proposal is final only after the human's explicit sign-off.
 
+> **Attempt before answer (retrieval-preserving sequencing):** every agent explanation, structure, or solution follows a learner attempt (recall, self-explanation, generation). No new concept arrives explained-first.
+
 > **Standing decisions (displayed every output; faded as competence grows):** the ratified proposal carries a Standing Decisions list — every settled decision so far, one line each. Every subsequent phase output restates it at the top. The human agreed to these but cannot be expected to remember them mid-run; invisible settled decisions get re-litigated or silently dropped. Restatement is agent-side, zero user ceremony.
 >
 > **Fading rule:** once the human has passed Q7 ≥3 times (or the REFLECT Q9 signal shows 2 clean cycles), restatement fades from full display to **cued recall** — the agent names the list by heading and asks the human to supply the one that matters now. Recognition does not build retention; recall does. If recall fails twice in a run, restore full display for that run and reset the fade counter.
