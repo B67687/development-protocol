@@ -43,3 +43,12 @@ Raw session texts that back these documents live outside the repo, in the local 
 
 When a sweep finishes, write the artifact here and add a row in the same commit: file, date, and what it holds in one or two lines. The lint check (Rule 10c) fails when a file in this directory has no row.
 | Thought-log handling (capture → disposition → fold) | thought-log-handling-2026-10-03.md | 2026-10-03 | If-then disposition g ≈ 0.3 CONFIRMED; verbatim-capture/conditional-paraphrase; traceability +86% LIKELY; single-search synthesis insufficient CONFIRMED |
+| [retro-t002-2026-10-04.md](retro-t002-2026-10-04.md) | 2026-10-04 | T-002 remainder: interruption cost, attention residue, notification deferral, mixed-initiative dialogue — triage/dose/resumption fidelity. |
+| [retro-t003-2026-10-04.md](retro-t003-2026-10-04.md) | 2026-10-04 | T-003 design file: single source of truth, master-once copy-then-promote, drift detection, conformance gates. |
+| [retro-t007-2026-10-04.md](retro-t007-2026-10-04.md) | 2026-10-04 | T-007 ambiguity standalone re-verification: AmbigQA 14k, CLAM selective clarification, scope/presupposition/vagueness. |
+| [retro-t009-2026-10-04.md](retro-t009-2026-10-04.md) | 2026-10-04 | T-009 conflation sanitizer: split signals, XY hidden intent, clarify vs auto-understand, Paska shape. |
+| [retro-t015-2026-10-04.md](retro-t015-2026-10-04.md) | 2026-10-04 | T-015 learning standalone: retrieval/spacing/deliberate practice, numbered sizes, P1-P5/N1-N5. |
+| [retro-t018-2026-10-04.md](retro-t018-2026-10-04.md) | 2026-10-04 | T-018 learning standalone retro: human learning beyond F-017/g2 — theories, load, transfer, metacognition, tutoring. |
+| [retro-t058-2026-10-04.md](retro-t058-2026-10-04.md) | 2026-10-04 | T-058 arch evolution retro re-verification: g7 P1-P4 + ATD lifecycle, regression formalization verified. |
+| [retro-t069-2026-10-04.md](retro-t069-2026-10-04.md) | 2026-10-04 | T-069 data governance retro: method/engine cut, FAIR + PROV-AGENT re-verification. |
+| [retro-t070-2026-10-04.md](retro-t070-2026-10-04.md) | 2026-10-04 | T-070 communication burden retro: 4 complaints, attrition, aspiration-arousal re-verification. |

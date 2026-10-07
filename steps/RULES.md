@@ -456,12 +456,17 @@ The log lives in the `-Local` sibling on purpose. Raw thinking is not a public a
 **Scope:** the user's own words. Not agent summaries, not decisions (those are ADRs, FEATURES origins, KILL_LOG). **Counterexample:** a thought that arrives as a forwarded brief keeps the brief's own text as the entry and notes the forwarding session. **Check:** at session close every thought processed this session appears exactly once and line count only grew; every FOLDED entry has a research file + backlink, every PARKED has home+trigger. Unfulfilled intentions intrude until a plan with a next step exists (Masicampo & Baumeister 2011) — LOGGED alone does not quiet the loop.
 
 ### Interruption — a new thought mid-run (A4)
-When the user interrupts with a new thought while a gate is active: park the new thought verbatim (append to `development-protocol-local/THOUGHT_LOG.md` with disposition parked and where it will be handled), state which gate is paused and what it will resume with, then continue the run. The interruption does not replace the active gate's exit criteria; the gate resumes after logging. **Scope:** any mid-gate interruption. **Counterexample:** a correction to the active gate's own artifact is not an interruption — handle it in place. **Check:** every interruption appears in THOUGHT_LOG and the paused gate's artifact notes “paused for T-###, resumes at …”.
+When the user interrupts with a new thought while a gate is active: park the new thought verbatim (append to `development-protocol-local/THOUGHT_LOG.md` with disposition parked and where it will be handled), state which gate is paused and what it will resume with, then continue the run. The interruption does not replace the active gate's exit criteria; the gate resumes after logging. Parked thoughts resume at the paused gate with state restored — continue never skips (retro-t002-2026-10-04). **Scope:** any mid-gate interruption. **Counterexample:** a correction to the active gate's own artifact is not an interruption — handle it in place. **Check:** every interruption appears in THOUGHT_LOG and the paused gate's artifact notes “paused for T-###, resumes at …”. 
 
 ### Research is saved when it is produced
 A sweep, a landscape round, or a literature check that informs a change lands as `docs/research/<topic>-<date>.md` and gets a row in `docs/research/INDEX.md` in the same commit (lint Rule 10c enforces the row). Raw session texts behind those documents live outside the repo in the gitignored local archive (`Agentic-Workflows/.omo/archive/sweeps/`). Rebuilding a sweep from a deleted session is possible but wasteful. The point is that a later run reads the evidence instead of re-deriving it.
 
 **Scope:** research that informs a decision or a document in this repo. A one-line lookup needs no file. **Counterexample:** an in-house measurement is not a sweep, it belongs in the artifact it changes (a KILL_LOG row, a trace, a lint threshold) unless it is load-bearing enough to argue against. **Check:** every `docs/research/*.md` basename appears in INDEX.md (Rule 10c).
+
+> **Protocol transcript (T-060):** store verbatim protocol:/user: turns at gate boundaries
+> in `.omo/transcript.md`; serve minimal slices (+ recoverable sidecars), hash-chained,
+> harness-governed (append-only, outside agent control); heterogeneous locator-grounded
+> review — every item carries a locator back to verbatim (sweep docs/research/protocol-transcript-2026-10-03.md).
 
 ---
 

@@ -308,6 +308,8 @@ RAW INTENT → [INBOX] → [PRIORITIZE (optional)] → EXTRACTION → SERIOUSNES
 
 The `.omo/inbox/parked/` directory accumulates over sessions — enabling pattern detection of recurring concerns.
 
+> **Thin probe early, AMBITION stays late (G9 question fatigue):** INBOX exit carries a thin-slice provisional want — enough arousal to bound what follows, never a gate (no COMMIT/SCHEDULE/DROP here, no re-ask of settled facts); the AMBITION commitment stays post-evidence, SERIOUSNESS stays early. Bound the interrogation: bounded questioning with a question budget per gate, confirmations over cold questions, never the same question twice — declining later-gate answer quality is diagnosed as action-gap vs fatigue before any reorder. No reorder executed here: the reorder proposal cites the sweep, the reorder commits alone. Boundary conditions: front-loading the hardest gate risks pre-survey fatigue and assumption hardening; burden effect-size before reorder A/B (sweep docs/research/g9-question-fatigue-2026-10-04.md).
+
 ## Provenance
 
 | Phase                | Source                                           | Evidence                                                  |
