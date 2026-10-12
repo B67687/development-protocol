@@ -73,6 +73,9 @@ The AI drafts the strategy as a Rumelt kernel with intent and falsification bloc
 The AI leads here — it decides the strategy from the LANDSCAPE map and its
 cross-domain knowledge, not from the user's prior. The user is not expected to
 know the domain.
+> **Reframing doctrine (T-087):** reframe on four triggers — T1 repetition-signature (trying the same move again with the same result), T2 constraint-feeling ("we must" language narrowing the field), T3 single-analogue (one comparison carrying the whole case), T4 time-pressure (urgency crowding out frame checks). T1–T4 here are trigger indices local to this doctrine, not the STANDARDS rigor tiers nor the HOUSE_STANDARD taste layers.
+> **Three techniques:** restate plus constraint audit (say it plainly, then list which constraints are real vs assumed) · second-analogue rule (a frame stands with two analogues from different domains; one analogue is a hint) · contradiction formulation plus Ideal Final Result (state the improving parameter against the worsening one, then picture the result with the contradiction resolved).
+> **Brute-force-is-correct boundary:** keep brute force iff the state space is well-defined ∧ plus no improving-parameter contradiction found ∧ plus failures read as coverage (each try rules out ground) rather than repetition (same ground re-tried). Otherwise reframe first. The belief scan rides the REFLECT layered cadence: re-check the ledger signposts before locking the kernel.
 
 ### Phase 3 — Ratification (human, bounded editing)
 

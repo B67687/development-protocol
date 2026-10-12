@@ -12,7 +12,7 @@ The protocol's states are its pipeline steps:
 INBOX → PRIORITIZE(opt) → EXTRACTION → SERIOUSNESS → FUNDAMENTALS (incl. MULTI) → DECOMPOSITION → AMBITION (incl. PACING) → LANDSCAPE → STRATEGY → VALIDATION → SPECIFICATION → EXECUTOR → REVIEW (incl. EXPLAINER) → REFLECT → SHIP
 ```
 
-> **Altitude spine (authoritative: steps/QUICKSTART.md):** P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE). Bar 1 must clear before Bar 2.
+> **Altitude spine (authoritative: steps/QUICKSTART.md):** P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (FUNDAMENTALS → DECOMPOSITION → AMBITION Bar 2) → P3 BEST_PLAN (LANDSCAPE + STRATEGY → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → SHIP). Bar 1 must clear before Bar 2.
 
 | State | Meaning | Altitude | Entry artifact | Exit artifact |
 |---|---|---|---|---|
@@ -20,16 +20,16 @@ INBOX → PRIORITIZE(opt) → EXTRACTION → SERIOUSNESS → FUNDAMENTALS (incl.
 | `PRIORITIZE` (optional) | 2-10 ideas compared on Want/Know/Work/Matters (4-dimension), What-Matters Check picks one bet — AI proposal + user ratification both logged | P1 / P4 | candidate ideas (or cycle-end candidates) | one bet, What-Matters ratification logged |
 | `EXTRACTION` | X (real problem) extracted from Y (stated request) | P1 | selected cluster | X statement + assumption-ledger entries |
 | `SERIOUSNESS` | Commitment gate — is X worth pursuing? (D2b proven-earner benchmark fires when the money-tier decision is live) | P2a | X statement | DROP / COMMIT / SCHEDULE (logged to KILL_LOG) |
-| `FUNDAMENTALS` | One-way doors, LLM bias, capability audit, chain analysis + multidisciplinary probes (MULTI folded) | P3 | X statement | one-way-door list + capability audit |
-| `DECOMPOSITION` | MECE tree, Cynefin, Level of Care | P3 | one-way doors | MECE tree + Cynefin class + Level of Care |
+| `FUNDAMENTALS` | One-way doors, LLM bias, capability audit, chain analysis + multidisciplinary probes (MULTI folded) | P2b | X statement | one-way-door list + capability audit |
+| `DECOMPOSITION` | MECE tree, Cynefin, Level of Care | P2b | one-way doors | MECE tree + Cynefin class + Level of Care |
 | `AMBITION` | 5-round research-interleaved goal tightening + phase budget allocation (PACING folded) | P2b | MECE tree | locked scope + budget (pacing-track baseline) |
-| `LANDSCAPE` | Structured research — Declared Coverage declared up front; Intuition-First Route standing mode | P2b | locked scope | Declared Coverage + evidence table |
-| `STRATEGY` | Strategic ratification gate — AI kernel proposal, human ratify, premortem | P2b | landscape evidence | ratified kernel + scope ceiling + premortem |
+| `LANDSCAPE` | Structured research — Declared Coverage declared up front; Intuition-First Route standing mode | P3 | locked scope | Declared Coverage + evidence table |
+| `STRATEGY` | Strategic ratification gate — AI kernel proposal, human ratify, premortem | P3 | landscape evidence | ratified kernel + scope ceiling + premortem |
 | `VALIDATION` | Prototyping gate — KILL/PIVOT/COMMIT; Sufficiency Checkpoint ratifies ship/defer before COMMIT | P3 | ratified kernel | KILL/PIVOT/COMMIT + spike results |
 | `SPECIFICATION` | 16-section spec template (§0-15) | P4 | ratified plan | spec + §1.6 source manifest |
 | `EXECUTOR` | Implementation (incl. FINISH gate) | P4 | spec | implementation + FINISH polish + durable decision record |
 | `REVIEW` | Independent meta-review (incl. EXPLAINER generation + Spec-to-Code Fidelity Check + Method Conformance Check) | P4 | implementation | conformance + findings (blocks SHIP) |
-| `REFLECT` | Protocol retrospective (7 questions) | P4 | review findings | retrospective + next-cycle seed |
+| `REFLECT` | Protocol retrospective (9 questions) | P4 | review findings | retrospective + next-cycle seed |
 | `SHIP` | Delivery | P4 | review pass | delivered artifact + EXPLAINER |
 
 **Supporting files (not states):** `RULES.md`, `STANDARDS.md`, `QUICKSTART.md`, `BIAS_CATALOG.md`, `KILL_LOG.md`, `FAILURE_CAPTURE.md` — they govern states rather than being ones.
@@ -63,6 +63,7 @@ INBOX → PRIORITIZE → EXTRACTION → SERIOUSNESS → FUNDAMENTALS (incl. MULT
 | `REFLECT → EXTRACTION` | Learning shifts — protocol itself changed, new cycle |
 | Any step → `INBOX` | Protocol improvement cycle (recursion) or new intent |
 | `EXTRACTION → FUNDAMENTALS` (skip SERIOUSNESS) | Protocol improvement cycle ONLY (per Invariant 4); FUNDAMENTALS (incl. MULTI) still required (per Invariant 5) |
+| `SERIOUSNESS → AMBITION` (Light route) | Light run-shape COMMIT: SERIOUSNESS routes straight to AMBITION under the front-door triage (Invariants 6/9, SKIP_CATALOG-logged) — not the Invariant 4 recursion exemption |
 | **Any step → any EARLIER step (Gate Restart)** | Deliberate divergence restart: the user may always jump back to any previous gate and restart from there — no failure trigger required. Divergence is a valid reason to restart from an earlier gate when continuing would compound the divergence. |
 
 ### Invalid transitions

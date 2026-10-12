@@ -27,7 +27,7 @@ This file names the layer rather than listing opinions. The content already live
 
 - prose that narrates the work (FP-015) and reads like a person wrote it (FP-016) — `EXECUTOR.md` § Deliverable Voice, `REVIEW.md` 4.7;
 - claims that survive a repeat with their method stated — `REVIEW.md` 4.8, the `VALIDATION.md` instability rule;
-- the scope ceiling, which limits features and leaves claim defensibility untouched — `STANDING_PRINCIPLES.md` § 2;
+- the scope ceiling, which limits features and leaves claim defensibility untouched — `STANDING_PRINCIPLES.md` § Check consequential claims;
 - code shape — modularity, explicit over implicit, fail-fast, parse-don't-validate, layered dependencies (`docs/standards/DESIGN_STANDARDS_HIERARCHY.md`), applied by default rather than on request;
 - comparison-count discipline and the median-of-three measurement norm — `lessons/FC-2026-007-measurement-robustness.md`.
 
@@ -72,5 +72,5 @@ It stays a layer inside the existing hierarchy (Constitution says why, standards
 | One-question quality test — "does this definitely improve overall code health?" | Google engineering practice |
 | Declared defaults beat smuggled ones | `QUALITY_BAR.md`: a rationale made only of template phrases is a RED FLAG |
 | Taste is a capability limit rather than a prompt to be tuned | in-house sweep 2026-09 — `docs/research/ai-taste-judgment.md` |
-| Tools assist a foundation rather than substitute for it | user's craft-first thought, 2026-09 — T-028 (`THOUGHT_LOG.md`) |
+| Tools assist a foundation rather than substitute for it | user's craft-first thought, 2026-09 — T-028 (`development-protocol-local/THOUGHT_LOG.md`) |
 | A domain's craft norms are how a general standard becomes good work | in-house: the SC2001 unstable-optimum failure (`lessons/FC-2026-007-measurement-robustness.md`); mature-domain precedent — published tiers in `QUALITY_BAR.md` (ASVS, NIST, FedRAMP) |

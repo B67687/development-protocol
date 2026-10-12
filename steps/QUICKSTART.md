@@ -4,11 +4,11 @@
 
 > **Why this exists.** Fix in planning what can be fixed in planning. Prototypes, spikes and prose are planning artifacts, so the loop runs on the cheapest thing that can carry a reaction before anything real gets built (docs/CONSTITUTION.md § The philosophy).
 
-> **Canonical Light happy path (referenced everywhere):** `INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICATION → EXECUTOR` — 6 phases, <2h. All other docs point here; do not duplicate the list.
+> **Canonical Light happy path (referenced everywhere):** `INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICATION → EXECUTOR → REVIEW (minimal) → REFLECT (minimal)` — 8 phases, <2h. All other docs point here; do not duplicate the list.
 > **The default is the engaging protocol — Light, fast and uplifting — and the run says so up front:** `[x] engaging [ ] serious`. SERIOUSNESS routes up only when the feeling probes justify it or when you ask for the serious one. Before Phase 1 the run states the route and how many decisions it will ask for (Light is about three). You may accept, stay engaging, opt up to serious, or delegate the choice — see **Delegation** in the glossary and `steps/SERIOUSNESS.md` § Phase 0. The protocol should elevate and invigorate on the first go, not bog you down.
 
 > **Altitude spine (authoritative — all other files quote this line verbatim):**
-> P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE)
+> P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (FUNDAMENTALS → DECOMPOSITION → AMBITION Bar 2) → P3 BEST_PLAN (LANDSCAPE + STRATEGY → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → SHIP)
 
 ## How to run a step (read first)
 
@@ -53,9 +53,9 @@ and log the method to .omo/method-ledger.jsonl (applied/skipped + reason).
 1. **INBOX** captures every idea — don't judge, just dump. (P1 WANT)
 2. **EXTRACTION** finds the real problem X hidden inside your stated solution Y. (P1 WANT)
 3. **SERIOUSNESS** Bar 1 — should we build X at all? (P2a: COMMIT / SCHEDULE / DROP). If DROP, stop — no variants.
-4. **LANDSCAPE + STRATEGY + AMBITION** Bar 2 — if COMMIT, which X? same / scaled / adjacent / more-than-X? Then set appetite. (P2b) Fall-through: `../docs/appendix/p2b-mapping-appendix.md` templates + `../docs/appendix/p4-late-appendix.md` stencil — fill if it sharpens WHICH-X?; else log skip.
-5. **FUNDAMENTALS** checks for one-way doors — things you can't undo. (P3 BEST_PLAN gate)
-6. **DECOMPOSITION** splits the chosen variant by Cynefin complexity. (P3)
+4. **FUNDAMENTALS + DECOMPOSITION + AMBITION** Bar 2 — if COMMIT, which X? one-way doors, MECE split, then same / scaled / adjacent / more-than-X? Then set appetite. (P2b) Fall-through: `../docs/appendix/p2b-mapping-appendix.md` templates + `../docs/appendix/p4-late-appendix.md` stencil — fill if it sharpens WHICH-X?; else log skip.
+5. **LANDSCAPE** surveys what already exists and what it costs. (P3 BEST_PLAN gate)
+6. **STRATEGY** picks the plan you ratify. (P3)
 7. **VALIDATION** spikes the riskiest assumption (KILL / PIVOT / COMMIT). (P3)
 8. **SPECIFICATION → EXECUTOR → REVIEW → REFLECT** — spec the chosen variant, build, verify, learn. (P3 → P4)
 
@@ -65,7 +65,7 @@ and log the method to .omo/method-ledger.jsonl (applied/skipped + reason).
 
 ## The 30-Minute Version: Run Light Mode on a Real Decision
 
-Light mode = 6 phases, <2 hours. Gated by SERIOUSNESS score 35–50.
+Light mode = 8 phases, <2 hours. Gated by SERIOUSNESS score 35–64.
 
 ### Worked example: "Should I upgrade the CI pipeline?"
 
@@ -92,11 +92,12 @@ Light mode = 6 phases, <2 hours. Gated by SERIOUSNESS score 35–50.
 
 ---
 
-## Full Map: All 15 Phases (what each one decides, and what it wants from you)
+## Full Map: All 16 Phases (what each one decides, and what it wants from you)
 
 | # | Phase | What it decides | Your part | Closes with | Time |
 | --- | --- | --- | --- | --- | --- |
 | -1 | INBOX | which idea is actually being worked on | dump your thoughts raw | clusters, a triage, the raw pass | 10 min |
+| opt | PRIORITIZE | which bet to place | compare 2–10 ideas, ratify one | one bet, What-Matters ratification | 10 min |
 | 0 | EXTRACTION | what X is, in your own words | confirm the readings and the defaults | X, the want layers, the assumption ledger | 15 min |
 | 1 | SERIOUSNESS | whether X deserves the protocol | answer the three feeling probes | a route: COMMIT, SCHEDULE or DROP | 5 min |
 | 2 | FUNDAMENTALS | which decisions are one-way doors | nothing, the agent runs it | the door list and the MULTI verdict | 10 min |
@@ -142,7 +143,7 @@ Light mode runs: INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICA
 
 ## Light Mode: What You Skip (and the Risk)
 
-Light mode skips 6 phases. Each skip is logged — not invisible.
+Light mode skips 6 phases outright (PRIORITIZE-opt unused + FUNDAMENTALS/DECOMPOSITION/LANDSCAPE/STRATEGY/VALIDATION). Each skip is logged — not invisible. REVIEW and REFLECT run minimal, not skipped.
 
 | Skipped Phase | Why it's ok in Light                                  | Risk of Skipping                     | When to upgrade to Standard                          |
 | ------------- | ----------------------------------------------------- | ------------------------------------ | ---------------------------------------------------- |
@@ -150,8 +151,9 @@ Light mode skips 6 phases. Each skip is logged — not invisible.
 | DECOMPOSITION | <3 sub-dimensions, no cross-cutting risk              | Miss hidden complexity               | Problem feels bigger mid-work → re-run DECOMPOSITION |
 | LANDSCAPE     | You've built this exact thing before                  | Competitor solved it better          | Domain unfamiliar → Standard                         |
 | STRATEGY      | Approach is obvious (<2 options)                      | Chose wrong path                     | 2+ valid approaches → Standard                       |
+| PRIORITIZE (opt) | Optional in every mode; single clear winner | No comparison recorded | Tied candidates → run PRIORITIZE |
 | VALIDATION    | Core assumption is proven or low-stakes               | Build something that shouldn't exist | Risky assumption → spike first                       |
-| REVIEW (full) | CC lights + build fix is enough for <4h work          | No independent verification          | High-stakes / shared code → full REVIEW              |
+| REVIEW (full → minimal) | CC lights + build fix is enough for <4h work; minimal runs, not skipped          | No independent verification          | High-stakes / shared code → full REVIEW              |
 
 **Light tripwire:** Light skips FUNDAMENTALS; if X touches a one-way door (irreversible, money, reputation, others' data), route up to Standard regardless of score.
 

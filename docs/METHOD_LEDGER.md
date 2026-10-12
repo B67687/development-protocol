@@ -20,8 +20,8 @@ unsafe: the trauma data shows 16% false checks).
 
 ```jsonl
 {"case":"EXTRACTION/2026-08-01/project-a","method":"Laddering","status":"applied","evidence":".omo/plans/extraction-output.md","ts":"2026-08-01T10:30:00Z"}
-{"case":"EXTRACTION/2026-08-01/project-a","method":"Cognitive Interview","status":"skipped","reason":"CAT-EC-10:no-specific-incident","ts":"2026-08-01T10:31:00Z"}
-{"case":"EXTRACTION/2026-08-01/project-a","method":"No-Computer-Check","status":"omitted","reason":null,"ts":"2026-08-01T10:32:00Z"}
+{"case":"EXTRACTION/2026-08-01/project-a","method":"Cognitive Interview","status":"skipped","evidence":null,"reason":"CAT-EC-10:no-specific-incident","ts":"2026-08-01T10:31:00Z"}
+{"case":"EXTRACTION/2026-08-01/project-a","method":"No-Computer-Check","status":"omitted","evidence":null,"reason":null,"ts":"2026-08-01T10:32:00Z"}
 ```
 
 ## The Three States
@@ -46,6 +46,7 @@ unsafe: the trauma data shows 16% false checks).
 8. **Insertion discipline** — when editing protocol step files, verify insert anchors by reading the region after EVERY edit batch (hashline anchors drift; an insert can clobber an adjacent block). A `cargo check`/grep pass after each batch is the mechanical guard.
 
 9. **Trust-boundary conformance (feedback-velocity gate)** — every autonomous-learning decision (field `learning: true`) logs a velocity classification (`fast`/`slow`/`medium`, per PROTOCOL_MODEL Invariant 10). A `slow`-velocity decision requires a ratification entry (`ratified` field). Missing velocity classification, or missing ratification on a slow decision, = omitted state = red flag at REVIEW. Machine-checked by `ledger-check.py`.
+Not to be confused with lint Rule 9 (`scripts/protocol-lint.sh` R9), the CI gate that runs `ledger-check.py`; this Emission Rule 9 is the ledger's own trust-boundary rule.
 
 10. **Resolution gate** — every run's lessons get a disposition: `tracked practice change (owner)` | `consciously deferred`. Recording without a resolution gate decays into recurring opinions (Loeffler ESEM 2017) — a lesson with no disposition is `omitted` state. Applying a tracked practice change is an autonomous-learning decision — rule 9 velocity classification and slow-velocity ratification apply at apply time.
 

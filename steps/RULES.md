@@ -44,11 +44,13 @@
 > **Single-source-of-truth:** RULES.md always wins on conflicts between protocol documents.
 > **Recursion meta-rule:** Every step is recursive — if a step's output is still ambiguous after one pass, apply it again deeper. Most problems resolve in 2-3 recursions. If 3 still don't converge, the problem needs a different framing (not deeper iteration of the same framing).
 
-> **Standing Principles (authoritative: `docs/STANDING_PRINCIPLES.md`).** 1) You approve strategy once — agent proposes, you ratify, then agent owns execution. 2) Check consequential claims — graded verification, evidence over memory. 3) Keep it light — additions must earn their place. Standing probe: run protocol on new flagship without changing method. Shipping rule: build → grounding → re-verify.
+> **Standing Principles (authoritative: `docs/STANDING_PRINCIPLES.md`).** 1) You approve strategy once — agent proposes, you ratify, then agent owns execution. 2) Check consequential claims — graded verification, evidence over memory. 3) Keep it light — additions must earn their place. See also STANDING_PRINCIPLES: the flagship probe (run protocol on new flagship without changing method) and the shipping procedure (build → grounding → re-verify).
 >
 > **Raw-first (unconditional).** Before any protocol category engages — full or quick — handle the user's words once with no framework: read raw, respond, note what surfaces. The protocol's template is itself a fixation example; diverge-before-converge mitigates Einstellung and design-fixation.
 >
 > **Progress header (every turn while in-protocol).** While any protocol run is active — full or quick — every assistant turn opens with a progress header (current P-altitude and step, or equivalent). Defined in `EXTRACTION.md` Layer 1; enforced here as the invariant.
+> **Protocol-own-voice floor (T-080).** The header defined in `EXTRACTION.md` Layer 1 is the single source of truth: plain verdict first, then the exact term in parentheses, always paired. One plain line above the code, code stays exact.
+> **Counter-search rule (T-090).** For every load-bearing claim a run relies on, search against it and record a `counter-search` row (what you searched against it, what you found); a claim with no counter-search counts as not yet load-bearing-verified. Worked example: `docs/research/ulw-synthesis-2026-10-09.md` §4 claim graph (claim · confidence · counter-search).
 
 ## 1. Project Type Routing
 
@@ -152,7 +154,7 @@ The sub-cycle is NOT a full EXTRACTION — the parent already validated the prob
 
 Each phase is a modular building block. Use only the ones your project needs.
 
-> **Note — two phase vocabularies.** The project lifecycle phases below (DISCOVER/WORK/ITERATE/PERFECT/DISTRIBUTE) apply to *scaffolded projects* created by the CLI. They are distinct from the Development Protocol's own meta-phases (P1 WANT INBOX→EXTRACTION → P2a SERIOUSNESS → P2b LANDSCAPE+STRATEGY+AMBITION → P3 FUNDAMENTALS→DECOMPOSITION→VALIDATION → P4 SPEC→EXEC→REVIEW→REFLECT, see QUICKSTART/AGENTS). DISCOVER roughly maps to P1–P2 exploration; WORK maps to P4 execution.
+> **Note — two phase vocabularies.** The project lifecycle phases below (DISCOVER/WORK/ITERATE/PERFECT/DISTRIBUTE) apply to *scaffolded projects* created by the CLI. They are distinct from the Development Protocol's own meta-phases (P1 WANT INBOX→EXTRACTION → P2a SERIOUSNESS → P2b FUNDAMENTALS→DECOMPOSITION→AMBITION → P3 LANDSCAPE+STRATEGY→VALIDATION → P4 SPEC→EXEC→REVIEW→REFLECT, see QUICKSTART/AGENTS). DISCOVER roughly maps to P1–P2 exploration; WORK maps to P4 execution.
 
 ### DISCOVER
 
@@ -477,7 +479,7 @@ A sweep, a landscape round, or a literature check that informs a change lands as
 
 ---
 
-### Carried state - what the next gate must not re-askEvery artifact-producing gate ends its artifact with a `## Carried state` block: the handful of facts the run has already settled, in the shortest form that still carries them. Later gates reference that block by name instead of restating the facts in their own words.- **Carries:** run shape and route; appetite and deadline; the ratified decisions with their ids; the scope ceiling; the source manifest pointer (spec section 1.6); the assumption-ledger pointer; anything a later gate would otherwise ask a second time.- **Does not carry:** reasoning, rationale, or anything a later gate still has to decide. If it is not settled, it does not belong here.- **Scope:** the planning artifacts later gates read - INBOX, EXTRACTION, STRATEGY, VALIDATION, SPECIFICATION. A project deliverable is not part of this convention.- **Counterexample:** a gate that changes a carried fact (a re-cut scope, a moved deadline) records the change in its own artifact and updates the block, rather than letting the two disagree.- **Check:** at REVIEW, a fact that appears in two artifacts must agree, and the later one points at the carried block rather than re-deriving it.## 12. Session Kickoff
+### Carried state - what the next gate must not re-askEvery artifact-producing gate ends its artifact with a `## Carried state` block: the handful of facts the run has already settled, in the shortest form that still carries them. Later gates reference that block by name instead of restating the facts in their own words.- **Carries:** run shape and route; appetite and deadline; the ratified decisions with their ids; the scope ceiling; the source manifest pointer (spec section 1.6); the assumption-ledger pointer; anything a later gate would otherwise ask a second time.- **Does not carry:** reasoning, rationale, or anything a later gate still has to decide. If it is not settled, it does not belong here.- **Scope:** the planning artifacts later gates read - INBOX, EXTRACTION, AMBITION, STRATEGY, VALIDATION, SPECIFICATION. A project deliverable is not part of this convention.- **Counterexample:** a gate that changes a carried fact (a re-cut scope, a moved deadline) records the change in its own artifact and updates the block, rather than letting the two disagree.- **Check:** at REVIEW, a fact that appears in two artifacts must agree, and the later one points at the carried block rather than re-deriving it.## 12. Session Kickoff
 
 Every AI session starts with:
 

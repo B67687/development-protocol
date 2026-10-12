@@ -30,6 +30,10 @@
 **Priority tiers:** Tier 1 (sections 0-7) required for ANY project; Tier 2 (8-11) production; Tier 3 (12-14) open-source/long-lived.
 
 **How to write:** MACRO filled for every section used; MESO/MICRO optional but recommended. Lock sections after execution starts — changes go through RULES.md learning shift rules.
+> **Spec-recursion stopping rule, CHECKER TEST (T-085).** Every spec level names its enforcement: a test, a lint rule, a review row, or an explicit "human-only" marker. A spec level with no checker is a wish, not a spec.
+> **YAGNI cost-of-carry brake.** Spec only what something enforces or uses; each extra level carries review and sync cost, so an unenforced level stays out.
+> **Style-as-spec.** Stylistic choices belong in a tool-checkable rule plus a lightweight review norm, kept out of heavyweight gates; prompt-style depth only for CONFIRMED structural choices.
+> **Brownfield note (T-081/T-084).** Continuation runs use delta specs (ADDED / MODIFIED / REMOVED / RENAMED) merged forward rather than rewriting the whole spec.
 
 ---
 
@@ -175,7 +179,7 @@ Alternatives considered:
 
 ### PROJECT_MODEL — Whole-Project State Machine (MANDATORY)
 
-Every project MUST document its whole-project state machine at `docs/PROJECT_MODEL.md`. Not optional polish — the project's health contract.
+Every scaffolded/built project MUST document its whole-project state machine at `docs/PROJECT_MODEL.md` (this repo's own state machine is `docs/PROTOCOL_MODEL.md`). Not optional polish — the project's health contract.
 
 | Element                 | What it is                                                       | Example                                                                                             |
 | ----------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
@@ -187,7 +191,7 @@ Every project MUST document its whole-project state machine at `docs/PROJECT_MOD
 
 **Why it prevents regressions:** Every feature addition is a state transition; a documented transition table catches invariant violations at spec time, not as production regressions (research: state-machine transition-table tests caught 26 real field faults — Torkar; co-change analysis predicts defects at p=0.01 — D'Ambros; see EXECUTOR.md § Project Health Discipline).
 
-**Gate check:** SPECIFICATION is incomplete without PROJECT_MODEL.md. REVIEW checks that every addition's transition is in the table.
+**Gate check:** SPECIFICATION is incomplete without PROJECT_MODEL.md (required for scaffolded/built projects). REVIEW checks that every addition's transition is in the table.
 
 > **Bus-Hop Example:**
 >

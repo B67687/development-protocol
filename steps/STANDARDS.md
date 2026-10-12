@@ -10,6 +10,8 @@ it to the production path.
 
 Standards are organized by project type. Each rule is tagged **[T1]**, **[T2]**, or **[T3]**.
 
+> **T-label namespace:** T1/T2/T3 here are rigor/project tiers, distinct from the T0–T3 taste layers in docs/HOUSE_STANDARD.md.
+
 | Tier | Applies to | What it means |
 |------|-----------|---------------|
 | **T1** | **Personal/independent projects** (Ithmb-Codec level) | You return in a year, understand it completely, trust its correctness, extend it safely. No external contributors. |

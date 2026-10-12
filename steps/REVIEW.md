@@ -34,7 +34,7 @@
 
 ## Skip Conditions
 
-> **Skip when:** Light mode AND project <4 hours AND no one-way doors.
+> **Minimal when:** Light mode AND project <4 hours AND no one-way doors.
 > **Risk of skipping:** no independent verification — you ship what you wrote. Acceptable only when blast radius is trivial.
 > **Light mode:** self-review only (2.1 + 2.4) — full checklist deferred to Standard.
 
@@ -135,14 +135,14 @@ Each item is binary: **PASS** or **FAIL**. No partial credit. Each FAIL becomes 
 
 | #   | Check                                                          | How to Verify (without reading code)                                                                                                                                                                       |
 | --- | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.1 | SPECIFICATION.md exists and has all 16 sections (§0-15) filled | Read the file. Count sections.                                                                                                                                                                             |
+| 1.1 | SPECIFICATION.md exists and has all 16 sections (§0-15) filled | Read the file. Count top-level sections §0-15 only; 1.5/1.6 are sub-sections of §1, not double-counted.                                                                                                                                                                             |
 | 1.2 | Every section has content (not placeholder/stub)               | Read each section. No "TBD", "TODO", or blank.                                                                                                                                                             |
 | 1.3 | Non-goals are explicitly stated                                | Read SPECIFICATION.md section 1 (Scope Boundaries per Component). Non-goals must be explicitly stated there.                                                                                               |
 | 1.4 | Success metrics are falsifiable                                | Read section 1 (Overview & Derived Ambition). Metrics must be measurable (<3s launch, >99% uptime), not vague ("fast", "reliable").                                                                        |
 | 1.5 | EXPLAINER.md exists and matches project scope                  | Read EXPLAINER.md. Does it describe the same project as SPECIFICATION.md?                                                                                                                                  |
 | 1.6 | EXPLAINER.md has all 5 required sections                       | Macro Architecture, Data Flow Walk, Module Breakdown, Key Decisions, Quality Guarantees.                                                                                                                   |
 | 1.7 | Spec-to-Code Fidelity Check was executed and findings recorded | Read REVIEW.md § Spec-to-Code Fidelity Check output. Are there discrepancy records?                                                                                                                        |
-| 1.8 | PROJECT_MODEL.md exists and is current                         | Read docs/PROJECT_MODEL.md. Does it document states, valid/invalid transitions, invariants? Does the addition under review appear as a transition?                                                         |
+| 1.8 | PROJECT_MODEL.md exists and is current                         | Read docs/PROJECT_MODEL.md (scaffolded/built projects; this repo's own state machine is docs/PROTOCOL_MODEL.md). Does it document states, valid/invalid transitions, invariants? Does the addition under review appear as a transition?                                                         |
 | 1.9 | Claims verified per Research on Demand tiers                   | For each decision-relevant claim in the spec/research: was it verified at its tier? Do cited sources EXIST and support the claims they're attached to? (CJR lesson: AI citations mislead >60% of the time) |
 
 ### Phase 2: Protocol Compliance
@@ -182,7 +182,7 @@ This is the most important check. Non-coder verification depends on it.
 | 4.3 | No leaked secrets or credentials                        | Grep for `-----BEGIN`, `api_key`, `password`, `token`, `secret`. Any hit is FAIL.                                      |
 | 4.4 | README has install/running instructions                 | Can a new user get the project running from README alone?                                                              |
 | 4.5 | CI config or local check script exists (if applicable)* | Check for .github/workflows/, .gitlab-ci.yml, Jenkinsfile, etc., or run ./scripts/check.sh. *See Engineering Plugin §4 |
-| 4.6 | Standards audit passes*                                 | Run ./scripts/audit.sh from the Standards repo. *See Engineering Plugin §4                                             |
+| 4.6 | Standards audit passes*                                 | Run audit.sh from the Standards repo (not this repo's ./scripts/). *See Engineering Plugin §4                                             |
 | 4.7 | Deliverable voice (submitted artifacts)*               | For each user-facing artifact: grep for `brief`, `assignment`, `rubric`, `grader`, `marking` in prose (any hit = FAIL); check for stock openers and uniform rhythm. *See EXECUTOR § Deliverable Voice |
 | 4.8 | Measured assertability (reported numbers)*             | For every measured number the artifact asserts: is the method stated inline, and does a repeat give the same CONCLUSION (not the same digits)? A measured optimum that flips between runs = FAIL. Numbers explicitly labelled exploratory/spike are out of scope. A comparative measurement must instrument both sides the same way, or say that it does not: a counter or a probe added to one implementation and not the other measures the instrument, not the algorithms. Repetition alone does not make a claim defensible, the method is what a repeat tests. *See VALIDATION § Learnings Capture |
 | 4.9 | Requirement fidelity (sources) | Read §1.6 of the spec. For every source that governs an assertion in the artifact, open the source or read the quoted lines and check the assertion against the requirement, not against the spec's paraphrase. A row whose `Where` does not resolve and whose quote is a summary = FAIL. *See SPECIFICATION §1.6 |

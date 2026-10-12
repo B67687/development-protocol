@@ -8,6 +8,7 @@
 `steps/REVIEW.md` § Method Conformance Check carried 16 co-active checkboxes and
 `steps/SPECIFICATION.md` § 15 carried 21. Both sat exactly on the lint's
 21-checkbox ratchet, which is the worst case allowed and not a target.
+(Superseded: the ratchet was later tightened to 12 — lint R10b — so this 21 worst case no longer applies.)
 
 The prompt-engineering sweep is what makes that a defect rather than a taste
 call. A constraint that scores 99% compliance alone scores 20% among five others

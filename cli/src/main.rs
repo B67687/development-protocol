@@ -547,7 +547,7 @@ fn cmd_phase(set: Option<String>, status: bool) -> io::Result<()> {
 
         if !valid.contains(&phase_upper.as_str()) {
             eprintln!(
-                "Invalid phase: {}. Valid: discover, work, iterate, perfect, distribute (project lifecycle phases — distinct from protocol P1→P4 INBOX/SERIOUSNESS/LANDSCAPE). See steps/RULES.md",
+                "Invalid phase: {}. Valid: discover, work, iterate, perfect, distribute (project lifecycle phases — not the protocol P1-P4 spine; this repo: steps/QUICKSTART.md, scaffolded projects: ./RULES.md ## Phase).",
                 new_phase
             );
             return Ok(());

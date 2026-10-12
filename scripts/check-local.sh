@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # check-local.sh — Local verification gates for Development-Protocol
-# 4 gates: markdown lint, ADR existence, registry check, .omo leak
+# 5 gates: markdown lint, ADR existence, registry check, .omo leak, protocol lint + ledger
 # Run before every push to origin (Dev)
 
 set -euo pipefail
@@ -52,6 +52,20 @@ if [[ "$OMO_TRACKED" -eq 0 ]]; then
   pass "No .omo/ files tracked by git"
 else
   fail "$OMO_TRACKED .omo/ files tracked by git (should be 0)"
+fi
+echo ""
+
+# Gate 5: Protocol lint + ledger conformance (single ledger owner = lint Rule 9)
+echo "--- Gate 5: Protocol lint + ledger conformance ---"
+if (cd "$REPO_ROOT" && bash scripts/protocol-lint.sh); then
+  pass "protocol-lint.sh passed (12 rules)"
+else
+  fail "protocol-lint.sh failed"
+fi
+if (cd "$REPO_ROOT" && python3 scripts/ledger-check.py); then
+  pass "ledger-check.py passed"
+else
+  fail "ledger-check.py failed"
 fi
 echo ""
 

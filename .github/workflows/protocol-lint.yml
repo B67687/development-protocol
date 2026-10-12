@@ -12,8 +12,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run protocol lint (includes Rule 8-12 hygiene and ledger wiring)
+      - name: Run protocol lint (all 12 rules, incl. ledger wiring)
         run: bash scripts/protocol-lint.sh
-
-      - name: Wire ledger-check evidence gate
-        run: python3 scripts/ledger-check.py

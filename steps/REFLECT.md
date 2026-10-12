@@ -11,9 +11,9 @@
 
 ## Step 0: After-Action Review (AAR)
 
-Before the 7 questions, run the AAR gate (STRATEGY.md, FM 7-0): the human explains expected vs actual outcome first, then the AI contributes. Compare the outcome to the strategy's prediction (Phase-2 falsification signals). This closes the outcome feedback loop — the AAR gate was defined but never wired into the pipeline.
+Before the 9 questions, run the AAR gate (STRATEGY.md, FM 7-0): the human explains expected vs actual outcome first, then the AI contributes. Compare the outcome to the strategy's prediction (Phase-2 falsification signals). This closes the outcome feedback loop — the AAR gate was defined but never wired into the pipeline.
 
-## Method — 7 Questions, 35 Minutes
+## Method — 9 Questions, 35 Minutes
 
 Answer each question in 1-3 sentences. Record in `.omo/reflect.md`.
 
@@ -96,6 +96,9 @@ If another cycle is likely, write the seed to `.omo/plans/continuation-seed.md` 
   **Explain-back rubric (a pass is 2 sentences):** (1) names the decision in the human's own words — not the agent's verbatim phrasing; (2) states why it was chosen over at least one rejected alternative. Verbatim echo, or no reason given, is a fail. **Fading is bound to these counts:** two clean cycles (a–c rising, d at zero) → fade one level of the standing-decisions display (STRATEGY → scaffolding ladder).
 - **Second-system caution (Brooks):** the cycle after a success is the most dangerous — confidence is high and every deferred idea demands entry en masse. Triage: at most 3 deferred items carry forward; the rest stay dead unless a new cycle re-extracts them. Cap ambition at one scale-step up (same→scaled, never same→more in one jump).
   No next cycle in sight → write "none" and skip. A seed is a handoff, not a backlog — one paragraph, not a plan.
+> **Belief-triage ledger (T-083, Assumption-Based Planning):** dated, at most 7 load-bearing rows: assumption · signpost (what shows it failing) · shaping action · hedge · disposition · price · retired-date. Disposition mirrors the G7 triage vocab (keep / degrade-honestly / deprecate-with-date / remove). Retirement carries a date, each row carries its price.
+> **Layered cadence:** cheap signpost scan each cycle, deep belief revision on trigger (a signpost fired, a STRATEGY falsification signal fired, or a paradigm review opened), in addition to event-driven review.
+> **Agency signal (T-086):** one item in the seed, rated 1-5, of how much the human felt they decided this cycle vs delegated it. Trend it across seeds; falling agency beside flat learning counts marks abdication deepening.
 
 ### Automated Retrospective Trigger (magic-spec pattern)
 
@@ -122,6 +125,8 @@ After answering, update two places:
 2. **`~/.config/opencode/LESSONS.md`** — append any new lessons (if Q4 produced something new)
 3. **Artifact hygiene (retention):** prune the `.omo/` corpus per the use-based criterion — keep what's cited/live/resume-required, archive stale files to `.omo/archive/`, delete nothing irreversibly. Bounded; rides this step (no new pipeline stage).
 4. **One-line "what this run learned"** — every run ends with a single user-facing line: the distilled lesson of this run (a felt-progress signal the user sees; motivation guard, Cluster AT). This line is the user's felt-progress signal, not the evaluation — verdicts remain REVIEW-authored and time-separated (METHOD_LEDGER rule 11).
+5. **HANDOVER rides the seed** — continuation handover is a re-fuzz of the Q9 next-cycle seed, not a new state file: carry-forward plus learned-this-cycle, one paragraph.
+> Continuation state: the handover rides the Q9 seed and names `.omo/protocol-state.md` as the single resume-state artifact; the seed plus that file carry the resume, plus nothing else.
 
 ## Frequency
 

@@ -10,13 +10,14 @@ ok()   { echo "  ok: $1"; }
 
 # 1. Phase compliance — mirrors the phase check in template/ci.yml.tmpl. Accepts both the
 #    template form (`**Current:** \`PHASE\``) and the bootstrapped form (`> **Current: PHASE**`).
+#    INTENTIONAL: this regex is tolerant (both forms) while template/ci.yml.tmpl is strict (template form only) — the repo holds history, a scaffold starts clean.
 if ! grep -Eq '^>? ?\*\*Current:(\*\*)? ?\`?(DISCOVER|WORK|ITERATE|PERFECT|DISTRIBUTE)\`?(\*\*)?' steps/RULES.md; then
   fail "steps/RULES.md phase not set (expected '**Current:** \`PHASE\`')."
 fi
 ok "steps/RULES.md phase set"
 
 # 2. CLI contract — the cli crate greps steps/RULES.md for these headings at runtime
-#    (cli/src/main.rs ~601-628). Mirror has_heading: level-2 `## ` heading,
+#    (cli/src/main.rs ~588-643). Mirror has_heading: level-2 `## ` heading,
 #    optional "N. " number prefix, substring match.
 headings=(
   'Phase'

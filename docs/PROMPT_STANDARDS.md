@@ -39,8 +39,8 @@ A line that does both is read as operational for its obligation and free for its
 
 Three of the eight are mechanically checkable, and they are the three the lint enforces:
 
-- **Negation density per file** — rule 4's coarse proxy. A file whose prohibition share climbs past the ceiling gets flagged for a rewrite pass.
-- **Co-active checkbox ceiling per phase section** — rule 2's proxy. A section may not ask for more obligations at once than the ceiling allows.
+- **Negation density per file** — rule 4's coarse proxy. A file whose prohibition share climbs past the 10% ceiling (lint R10a) gets flagged for a rewrite pass.
+- **Co-active checkbox ceiling per phase section** — rule 2's proxy. A section may not ask for more obligations at once than the 12-checkbox ceiling allows (lint R10b).
 - **Research index completeness** — every file in `docs/research/` appears in `docs/research/INDEX.md`.
 
 The other five are manual. A manual rule with no check is a wish, so state it plainly rather than pretending otherwise.
@@ -50,6 +50,7 @@ The other five are manual. A manual rule with no check is a wish, so state it pl
 - A prohibition quoted from the literature stays quoted. Rewriting a quotation falsifies it.
 - Scope exclusion lists keep their negative form: a spec's "out of scope", a phase's "Not allowed", a NO-GO list. These define boundaries rather than direct behaviour, and the positive rewrite changes their meaning.
 - A counterexample inside an explanatory paragraph is free text, even when it contains "never".
+- **Human-review-only.** These exemptions are not lint-enforced: Rules 10a/10b have no exemption logic, so an exempted file that the lint flags is cleared by a human reviewer, not by the check itself.
 
 ## Self-application
 

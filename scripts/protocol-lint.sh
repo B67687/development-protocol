@@ -26,10 +26,12 @@
 #   5. BIAS_CATALOG   — 8 biases, each with detection prompt in quoted block
 #   6. QUICKSTART     — ≤200 lines, 6 required sections present
 #   7. SKIP_CONDITIONS — 5 phase docs each have "## Skip Conditions" box
-#   8. FEATURES        — every F-### entry has valid State + File lines
-#   9. LEDGER          — ledger-check.py: every ledger entry has case/method/status/evidence
+#   8. FEATURES        — every F-### entry has valid State + File lines, no placeholder File on applied entries
+#   9. LEDGER          — ledger-check.py: every ledger entry has case/method/status/evidence/ts (+ reason when skipped) — lint Rule 9, not METHOD_LEDGER Emission Rule 9
 #  10. PROMPT_STANDARDS — (a) prohibition density ≤10% per step file, (b) no section over the
 #                       12-checkbox ratchet, (c) every docs/research/*.md basename is in INDEX.md
+#  11. MANIFEST — every step file appears in the manifest, spine agreement, research-basis rows
+#  12. GATES — gate cards on every gate file, carried-state pointers on artifact gates
 # ==============================================================================
 
 set -uo pipefail
@@ -427,12 +429,14 @@ else
     [[ "$n_state" -eq "$n_ids" ]] || r8_issues+=("State lines ($n_state) != entries ($n_ids)")
     [[ "$n_file" -eq "$n_ids" ]] || r8_issues+=("File lines ($n_file) != entries ($n_ids)")
     [[ "$n_valid" -eq "$n_ids" ]] || r8_issues+=("invalid State value present")
+    n_placeholder=$(awk '/^- \*\*State:\*\*/{applied=($0 ~ /applied$/) } /^- \*\*File:\*\*/ && applied && /_\(none/{c++} END{print c+0}' "$FEAT")
+    [[ "$n_placeholder" -eq 0 ]] || r8_issues+=("$n_placeholder applied entr(y/ies) with placeholder File value")
 fi
 
 if [[ ${#r8_issues[@]} -gt 0 ]]; then
     fail "R8-FEATURES" "${r8_issues[*]}"
 else
-    pass "R8 — FEATURES registry: $n_ids entries, all with valid State + File"
+    pass "R8 — FEATURES registry: $n_ids entries, all with valid State + File, no placeholder File on applied"
 fi
 # ─── Rule 9: Method Ledger (ledger-check.py) ────────────────────────────────
 echo "Rule 9: Method ledger check (ledger-check.py)"
@@ -549,11 +553,11 @@ else
   fail "R12a-GATECARD" "no gate card in:$R12A"
 fi
 R12B=''
-for n in INBOX EXTRACTION STRATEGY VALIDATION SPECIFICATION; do
+for n in INBOX EXTRACTION AMBITION STRATEGY VALIDATION SPECIFICATION; do
   grep -q 'Carried state' "steps/$n.md" || R12B="$R12B $n.md"
 done
 if [[ -z "$R12B" ]]; then
-  pass "R12b — the five artifact gates carry the carried-state pointer"
+  pass "R12b — the six artifact gates carry the carried-state pointer"
 else
   fail "R12b-CARRIED" "no carried-state pointer in:$R12B"
 fi

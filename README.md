@@ -6,7 +6,7 @@
   <p>
     <img src="https://img.shields.io/badge/license-MIT-d8b800" alt="MIT License">
     <img src="https://img.shields.io/badge/docs--only-no%20build-0d1117" alt="Docs only">
-    <img src="https://img.shields.io/badge/steps-13-4285F4" alt="13 steps">
+    <img src="https://img.shields.io/badge/steps-14-4285F4" alt="14 steps">
   </p>
   <a href="docs/showcase.svg"><img src="docs/showcase.svg" alt="Without gates: straight to code, then rework. With gates: 4 checks, scoped plan, code." width="100%"></a>
   <hr style="max-width: 360px;">
@@ -33,14 +33,14 @@ Quick links: [Try it](#try-it-in-5-steps) · [Proof](#proof-a-real-run) · [Pipe
 3. **Which version**: same, scaled, adjacent, or more — picked after looking at the landscape.
 4. **Plan and build**: prototype, lock the plan, execute, verify, learn.
 
-A person approves the strategy once, then the agent builds with checks along the way. (The step codes — P1, P2a, P2b, P3, P4 — live in `steps/QUICKSTART.md`; you do not need them to start. The Light happy path is `INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICATION → EXECUTOR` — see `steps/QUICKSTART.md` as the single canonical source.)
+A person approves the strategy once, then the agent builds with checks along the way. (The step codes — P1, P2a, P2b, P3, P4 — live in `steps/QUICKSTART.md`; you do not need them to start. The Light happy path is `INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICATION → EXECUTOR → REVIEW (minimal) → REFLECT (minimal)` — see `steps/QUICKSTART.md` as the single canonical source.)
 
 ## Try it in 5 steps
 
 1. Brain dump into `steps/INBOX.md`, then group similar thoughts and pick one to pursue.
 2. Run `steps/EXTRACTION.md` on it: state the real problem in one sentence, separate from your first solution idea.
 3. Run `steps/SERIOUSNESS.md`: score commitment honestly. Exit is COMMIT, SCHEDULE, or DROP. Only a COMMIT continues.
-4. Run `steps/DECOMPOSITION.md`, `steps/AMBITION.md`, then `steps/LANDSCAPE.md`. End with a written choice of which version to build, then get human approval in `steps/STRATEGY.md`.
+4. Run `steps/DECOMPOSITION.md`, `steps/AMBITION.md`, then `steps/LANDSCAPE.md`. End with a written choice of which version to build, then get human approval in `steps/STRATEGY.md`. *(Standard-only; Light runs AMBITION → SPECIFICATION — see `steps/QUICKSTART.md`.)*
 5. Prototype in `steps/VALIDATION.md`, lock the plan in `steps/SPECIFICATION.md`, build via `steps/EXECUTOR.md`, then verify with `steps/REVIEW.md` and `steps/REFLECT.md`.
 
 Each step file states its entry condition, so you can also run steps standalone without starting from the top.
@@ -54,18 +54,44 @@ Each step file states its entry condition, so you can also run steps standalone 
 
 It ran the same steps you will run, with commits and decisions linked. The record is the work — no reconstruction.
 
+## Philosophy
+
+### Why it started
+
+Reviews of AI-assisted builds kept showing the same failure: the agent built the wrong thing quickly. The expensive mistakes were made before any code existed, in the choice of what to build.
+
+### What it sought
+
+A way to spend effort where it is cheapest — on words, spikes, and written decisions — before spending it where it is dearest, on builds and rebuilds.
+
+### What the research found
+
+Across planning, design, and engineering literature, the same trajectory recurs: decide early on cheap artifacts, verify before committing, and keep the remainder explicit. The protocol treats that trajectory as the natural way work converges.
+
+### What it now holds
+
+Follow that way deliberately: run the loop on the cheapest falsifying artifact, gate each commitment, and hand over the remainder in writing.
+
+### What the protocol is
+
+A guide for following that way — a sequence of gates that turns a vague idea into a scoped, verified plan, and leaves the project, the human, and the method better than found.
+
+### How it works
+
+Gates bound commitments, not the search. Fifteen phases run from raw thought to shipped artifact; Light mode runs a minimal eight for small decisions and the full sequence for the rest. Each gate closes visibly before the next opens.
+
 ## The pipeline at a glance
 
 WANT (what do you really want, including what you have not said yet) -> SHOULD-BUILD (commit or drop) -> WHICH-VERSION (same, scaled, adjacent, or more) -> BEST PLAN -> BUILD AND VERIFY.
 
-> **Altitude spine (authoritative: steps/QUICKSTART.md):** P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE)
+> **Altitude spine (authoritative: steps/QUICKSTART.md):** P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (FUNDAMENTALS → DECOMPOSITION → AMBITION Bar 2) → P3 BEST_PLAN (LANDSCAPE + STRATEGY → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → SHIP)
 
 The two gates in the middle are deliberate. The first asks if you should build at all. The second asks which version is worth building, after you have looked at the landscape. You do not research alternatives until you have committed to the problem.
 
 <details>
-<summary>Full step order (13 steps)</summary>
+<summary>Full step order (14 steps)</summary>
 
-INBOX → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → DECOMPOSITION → AMBITION → LANDSCAPE → STRATEGY → VALIDATION → SPECIFICATION → EXECUTOR → REVIEW → REFLECT
+INBOX → PRIORITIZE(opt) → EXTRACTION → SERIOUSNESS → FUNDAMENTALS → DECOMPOSITION → AMBITION → LANDSCAPE → STRATEGY → VALIDATION → SPECIFICATION → EXECUTOR → REVIEW → REFLECT
 
 </details>
 

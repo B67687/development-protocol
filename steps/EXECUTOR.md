@@ -253,6 +253,7 @@ Metz (2016) — wrong abstractions compound. Therefore, AI code needs the same q
 4. **Flag ambiguity immediately** — guessing is the #1 cause of wasted output. Stop and ask.
 5. **Respect the lock** — once execution starts, SPEC.md changes go through RULES.md learning shift rules.
 6. **Restate standing decisions** — every execution output opens with the STRATEGY Standing Decisions list. Settled stays visible; no re-litigation, no silent drops.
+> **Problem-work vs logistics-work (T-082):** problem-work is the specific thing the spec asks for; logistics-work is the general scaffolding around it (scripts, fixtures, workflow glue). Amortization rule: a one-off logistics fix turns into a reusable artifact (script / workflow / skill) the moment it recurs, logged beside the checkpoint so the division of labour stays visible.
 
 ---
 
@@ -276,7 +277,7 @@ The house standard applies to every tier and runs before these gates: consistenc
 
 > **MANDATORY for every project with lifecycle-bearing state.** Makes "adding a feature" a safe, documented transition instead of a regression gamble — the answer to _every addition breaks something_ because the project has no model of itself.
 
-**Core requirement:** `docs/PROJECT_MODEL.md` exists and is current (mandated by SPECIFICATION.md § PROJECT_MODEL) — whole-project state machine, valid/invalid transitions, invariants, blast radius map.
+**Core requirement:** `docs/PROJECT_MODEL.md` exists and is current (mandated by SPECIFICATION.md § PROJECT_MODEL; required for scaffolded/built projects — this repo's own state machine is docs/PROTOCOL_MODEL.md) — whole-project state machine, valid/invalid transitions, invariants, blast radius map.
 
 **Seam registry (extends the blast-radius map):** record every known coupling seam — the cross-level boundaries where silent behavior change has happened (e.g. i18n activation races, re-render vs in-flight state, shared mutable arrays). Schema: seam ID, boundaries, co-change cluster, regression history (one line per incident). Update: whenever a regression traces to a seam or co-change analysis reveals a new sibling group. Check: the regression-per-seam rate is the metric that tells which architecture level to descend to (Escalation rule step 1).
 
@@ -369,7 +370,7 @@ The FINISH gate is not a checklist you pass once. It is a bounded loop that desc
 - *Counterexample:* an exploratory spike or throwaway script is exempt — iteration there is the point and nothing is handed over.
 - *Check:* the residue list exists, every item passes the two-part test, each carries a proposed default, and no L1 or L2 finding appears on it. REVIEW row 4.12 fails the run if a structural item was handed over.
 
-> **Shape note:** this is the 3-pass shipping rule (`docs/STANDING_PRINCIPLES.md`) at artifact scale — build, ground, adversarially re-verify — with the descent order making the re-verify pass concrete.
+> **Shape note:** this follows the shipping procedure (`docs/STANDING_PRINCIPLES.md`) at artifact scale — build, ground, adversarially re-verify — with the descent order making the re-verify pass concrete.
 
 ### The Polish Checklist
 
@@ -453,7 +454,7 @@ Before human review, check the 8 AI failure patterns (AI failure-pattern researc
 
 Add to the Polish Checklist:
 
-- [ ] PROJECT_MODEL.md exists, is current, and the addition's transition is in the table
+- [ ] PROJECT_MODEL.md exists, is current (scaffolded/built projects), and the addition's transition is in the table
 - [ ] Transition-table test passes (all states × events)
 - [ ] No co-change sibling of a modified file was missed (checked via git log analysis)
 - [ ] Layer rules pass (domain imports only domain)

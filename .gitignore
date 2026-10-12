@@ -21,6 +21,11 @@ venv/
 .ruff_cache/
 .mypy_cache/
 
+# Node (bench scaffolds: install locally, commit lockfile only)
+node_modules/
+.vite/
+dist/
+
 # Secrets / environment
 .env
 .env.*

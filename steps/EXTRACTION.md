@@ -188,6 +188,9 @@ Every AI response during protocol execution follows this structure:
 
 Shows granular progress inside the current phase. **Show this header every single turn while in-protocol — full and quick alike; no mode omits it.** Phases with sub-checkmarks
 get a blank line separator. Phases without are packed together.
+> **Protocol-own-voice floor (T-080; evidence: `docs/research/plain-language-2026-10-09.md`):** this header reads as a plain verdict first, then the exact term in parentheses, always paired (e.g. "We can't yet say what you want (EXTRACTION: want-extraction not converged)"). Voice rules, compact: **R1** define-then-use inline, exact term paired in the same breath; **R2** second person, active, short, read the draft aloud as the register test; **R3** layered precision, plain verdict → everyday words → exact term → pointer, and dropping a downstream-needed distinction is an INCORRECT output, not a simplification; **R4** a because-clause on every demand this protocol makes of you, so the reason rides with the request; **R6** anchor-first, connect the new thing to what you already know before naming it.
+>
+> Voiced header example for the block below: "We found your real problem and locked the want layers (EXTRACTION: COMPLETE)" sits above the code, so the code stays exact and the human reads plain speech first.
 
 | ```
 | EXTRACTION [✓] COMPLETE

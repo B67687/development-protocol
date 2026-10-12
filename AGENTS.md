@@ -4,7 +4,7 @@
 
 ## Overview
 
-Protocol-of-protocols (PoP) — recursive strategist across the full means-ends chain, specialized to accomplishment. Four altitudes, authoritative in steps/QUICKSTART.md: P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE). Bar 1 must clear before Bar 2.
+Protocol-of-protocols (PoP) — recursive strategist across the full means-ends chain, specialized to accomplishment. Four altitudes, authoritative in steps/QUICKSTART.md: P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (FUNDAMENTALS → DECOMPOSITION → AMBITION Bar 2) → P3 BEST_PLAN (LANDSCAPE + STRATEGY → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → SHIP). Bar 1 must clear before Bar 2.
 
 **Philosophy, stated at constitution level** (docs/CONSTITUTION.md § The philosophy): fix in planning what can be fixed in planning. Prototypes, spikes and prose are planning artifacts, and every gate exists to make the next commitment smaller. **Goal:** every run leaves three things better — the project, the human, the method. The strategist is the engine; the scoreboard is the point.
 
@@ -76,6 +76,8 @@ Development-Protocol/
 └── .omo/                              # Agent workspace (NEVER commit)
 ```
 
+> **T-label namespace:** T1/T2/T3 on the steps/STANDARDS.md row are rigor/project tiers; T0–T3 on the docs/HOUSE_STANDARD.md row are taste layers. Same letters, different scales.
+
 ## SE Lifecycle Artifacts
 
 | Artifact           | File                                     | Purpose                                              | Status                       |
@@ -87,11 +89,11 @@ Development-Protocol/
 | REGISTRY           | `docs/SE_ARTIFACT_REGISTRY.md`           | Cross-repo SE artifact tracking                      | Active, self-tracked         |
 | CHECK-GATES        | `scripts/check-local.sh`                 | Local verification: markdown + ADR + registry + .omo | Active                       |
 | ENGINEERING-PLUGIN | `docs/engineering-plugin.md`             | §1.1 lifecycle, §3 traceability, §4 checks           | Active                       |
-| HANDOVER           | `Development-Protocol-Local/HANDOVER.md` | Session continuity across agents                     | Active, verified             |
+| HANDOVER           | `development-protocol-local/HANDOVER.md` | Session continuity across agents                     | Active, verified             |
 
 ## Pipeline Flow
 
-P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE → KILL_LOG retro).
+P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (FUNDAMENTALS → DECOMPOSITION → AMBITION Bar 2) → P3 BEST_PLAN (LANDSCAPE + STRATEGY → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → SHIP). KILL_LOG retro rides REFLECT/SHIP.
 
 Altitudes vary; recursive strategist. `docs/appendix/p2b-mapping-appendix.md` (early SWE) and `docs/appendix/p4-late-appendix.md` (late SWE) are opt-in, depth-gated — Light logs skip, Standard+ fills.
 
@@ -110,7 +112,7 @@ bash scripts/check.sh
 ## Do Not Touch
 
 - `.omo/` — agent workspace, never commit, own nested git repo
-- `Development-Protocol-Local/` — local-only session data, no remote
+- `development-protocol-local/` — local-only session data, no remote
 - `cli/` — Rust tooling, only modify via cargo workflow
 - `docs/adr/` — ADRs are append-only once accepted
 - Root `steps/RULES.md`, `steps/STANDARDS.md` — governance files, changes require ADR

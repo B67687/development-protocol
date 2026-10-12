@@ -2,7 +2,7 @@
 
 **Level 1: Semi-automated testing with mock LLM**
 
-This harness generates synthetic trials to test whether the Development-Protocol's EXTRACTION bouncing extracts tacit knowledge (hidden X) that freeform conversation misses. It uses deterministic mock LLMs to prove the harness logic without requiring API keys.
+This harness generates synthetic trials to test whether the Development-Protocol's EXTRACTION bouncing extracts tacit knowledge (hidden X) that freeform conversation misses. It uses deterministic mock LLMs to suggest the harness logic holds without requiring API keys.
 
 ## Quick Start
 
@@ -35,7 +35,7 @@ The mock LLM is deterministic:
 - If the prompt contains a **Preference Layer probe** (e.g., "what would you miss most", "what did you actually spend time on"), it reveals the persona's `hidden_tacit_X`
 - Otherwise, it returns the `stated_Y` (surface-level answer)
 
-This proves that **bouncing probes are necessary** to extract tacit knowledge.
+This suggests the mock behaviour is consistent with **bouncing probes** extracting tacit knowledge.
 
 ### Judge Scoring
 
@@ -44,7 +44,7 @@ Each output spec is scored on 3 dimensions (0-5 each, max 15):
 | Dimension | What it measures | Keywords |
 |-----------|-----------------|----------|
 | **Falsifiability** | Can the spec be proven wrong? | must, shall, measurable, threshold |
-| **One-way door coverage** | Does it identify irreversible decisions? | irreversble, commit, contract, migration |
+| **One-way door coverage** | Does it identify irreversible decisions? | irreversible, commit, contract, migration |
 | **Assumption explicitness** | Are assumptions stated vs hidden? | assumption, assuming, hypothesis, risk |
 
 ### Replay (Retrospective)
@@ -82,9 +82,10 @@ Each persona in `personas.json` has:
 ```
 
 **10 personas** covering:
-- 4 personal tool / research prototype
-- 4 OSS library / learning project
-- 6 production service
+- 2 personal_tool
+- 2 oss_library
+- 1 research_prototype
+- 5 production_service
 
 ## Files
 

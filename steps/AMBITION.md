@@ -175,7 +175,7 @@ Human confirms or adjusts; baseline recorded in `.omo/pacing-track.md`.
 
 | Mode | SERIOUSNESS Score | Phases Run | Time Budget |
 |------|------------------|------------|-------------|
-| **Light** | 35–50 (SCHEDULE-low) | INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICATION → EXECUTOR | <2 hours |
+| **Light** | 35–64 (SCHEDULE) | INBOX → EXTRACTION → SERIOUSNESS → AMBITION → SPECIFICATION → EXECUTOR | <2 hours |
 | **Standard** | 51–80 | All 12 phases | 2–40 hours |
 | **Deep** | 81–120 | All 12 + EXTRACTION bouncing + LANDSCAPE deep research + STRATEGY premortem | 40+ hours |
 
@@ -195,6 +195,8 @@ All checks pass:
 - [x] 5 constraints are defined
 - [x] The AI challenged 3 assumptions (and they survived or were reframed)
 - [x] The intent has been explicitly locked — no more changes after this document
+
+> **Carried state:** end this artifact with a `## Carried state` block - the facts already settled here that no later gate should ask again (see RULES.md § Carried state).
 
 **Schon's 5 frame criteria:**
 

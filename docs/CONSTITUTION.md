@@ -23,6 +23,15 @@ Two consequences carry the whole method:
 5. **Name what you are deliberately not fixing.** The last stretch belongs to the human, so it is handed over in writing, with no structural defect hidden inside it.
 
 6. **Gates bound commitments, never the search.** An irreversible decision gets the gate. Exploration inside a gate stays open: raw thoughts first, cheap spikes, the bounded internal loop. Control applied to the search itself is anxiety wearing a process, and it is what turns a one-week project into a three-month one.
+7. **Fun is protected, creativity is scaffolded — neither is governed.** Gates bind commitments and the search stays open, so fun lives inside the gates; following the natural way (dao), the protocol scaffolds candidate generation and selection while authorship stays with the human.
+
+8. **Knowledge is not implanted unasked — Light defaults preserve carefree ignorance; gates resist only where irreversibility demands it.**
+
+9. **Reversible falls are scaffolding; irreversible falls are gated — protocol leads on structure, human leads on substance, cheap falls are how the dao is learned.**
+
+10. **Productive friction is kept, form-friction is removed.** Confusing gates and lost state go; asking the human to form a judgment before the agent reveals its recommendation stays, because that friction is what stops over-reliance.
+
+11. **Automate the scaffolding; never the verdict.** Solution authority stays human, process scaffolding is the machine's. Automation must demand an own-words rationale, must end in a genuine logged verdict, and must cap consecutive delegated steps.
 
 ### What it is not
 
@@ -37,7 +46,7 @@ Not waterfall: the loop runs many times, on cheap artifacts. Not ceremony: an ar
 
 ## The goal
 
-> **Altitude spine (authoritative: `steps/QUICKSTART.md`; every file quotes this line verbatim).** P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (LANDSCAPE + STRATEGY + AMBITION Bar 2) → P3 BEST_PLAN (FUNDAMENTALS → DECOMPOSITION → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → PRIORITIZE). Bar 1 must clear before Bar 2. This file defines the scoreboard; QUICKSTART defines the spine.
+> **Altitude spine (authoritative: `steps/QUICKSTART.md`; every file quotes this line verbatim).** P1 WANT (INBOX → EXTRACTION) → P2a SHOULD-BUILD-X? (SERIOUSNESS Bar 1: DROP/COMMIT) → P2b WHICH-X? (FUNDAMENTALS → DECOMPOSITION → AMBITION Bar 2) → P3 BEST_PLAN (LANDSCAPE + STRATEGY → VALIDATION) → P4 EXECUTE (SPECIFICATION → EXECUTOR → REVIEW → REFLECT → SHIP). Bar 1 must clear before Bar 2. This file defines the scoreboard; QUICKSTART defines the spine.
 
 Every run of this protocol leaves three things better than it found them:
 
@@ -51,7 +60,7 @@ The strategist-at-every-level is the engine. The three-output scoreboard is the 
 
 - Project: SPECIFICATION → EXECUTOR → VALIDATION → REVIEW.
 - Human: the learning layer (FEATURES F-017) — tripwire, explain-back, standing decisions, per-cycle signal.
-- Method: cross-cycle seeding (REFLECT Q9), kill-gate calibration (KILL_LOG retros), the 3-pass shipping rule (STANDING_PRINCIPLES).
+- Method: cross-cycle seeding (REFLECT Q9), kill-gate calibration (KILL_LOG retros), the shipping procedure (see STANDING_PRINCIPLES).
 
 ## Self-evolution guard
 
